@@ -1,0 +1,300 @@
+//=====================================================
+// keys.mac
+//------------------------------------------------
+// HouseKey macros
+//=====================================================
+/* 
+	This key management macro file assumes a cast of thousands (characters), 
+	you define a few global variables in your character file 
+	(see top of this file for what to copy and paste into your character's file). 
+	Then edit the character's file to update the key numbers.
+
+	Note to get rid of spammy entries for keys you don't have, 
+	put // before non-existent keys.
+	
+	Revision log at end.
+	
+*/
+/* 	In your character's macro file define these as you need them (copy and paste), 
+	replace 9999 and 2670 with applicable key number
+//	setglobal myhome1 "9999"	// my main home
+//	setglobal myhome2 "9999"	// my second home
+//	setglobal myhome3 "9999"	// my third home
+//	setglobal myhome4 "9999"	// my fourth home
+	setglobal myclan1 "2670"	// main clan home
+	setglobal myclan2 "2679"	// second clan home
+//	setglobal myclan3 "9999"	// third clan home
+//	setglobal myclan4 "9999"	// fourth clan home
+	setglobal myguest1  "2317"	// ?'s home
+//	setglobal myguest2  "9999"	// x's home
+//	setglobal myguest3  "9999"	// x's home
+//	setglobal myguest4  "9999"	// x's home
+
+Also set myDefLeft in your character file to your desired default left hand item to re-equip
+after messing with keys. 
+Examples:
+	setglobal myDefLeft		"Knight's Shield"		// Re-equip desired left item.
+	setglobal myDefLeft		"Bunch of Mistletoe"	// Re-equip desired left item.
+
+*/
+
+"/keys"
+{
+	if @my.left_item != "keyring"
+		setglobal lsaveitem @my.left_item
+	else if @my.leftitem == myDefLeft
+		setglobal lsaveitem @my.left_item
+	end if
+	if @text == ""
+		message "Usage: /keys action."
+		message "Actions: "
+		message "add = add anykeys out to ring"
+		message "list = list keys by name and number"
+		message "stow = put away/requip shield"
+		message "clan or clan1 = remove/equip clan regular key"
+		message "clan-guest = remove/equip clan Guest key"
+		message "clan-master = remove/equip clan Master key"
+		message "clan2 = remove/equip 2nd clan home"
+		message "clan3 = remove/equip 3rd clan home"
+		message "clan4 = remove/equip 4th clan home"
+		message "home1 = remove/equip my 1st home"
+		message "home2 = remove/equip my 2nd home"
+		message "home3 = remove/equip my 3rd home"
+		message "home4 = remove/equip my 4th home"
+		message "guest1 = remove/equip 1st guest home- ?'s"
+		message "guest2 = remove/equip 2nd guest home- x's"
+		message "guest3 = remove/equip 3rd guest home- x's"
+		message "guest4 = remove/equip 4th guest home- x's"
+	else if @text == "list"
+		"/equip keyring \r"
+		"/useitem left \r"
+		call listkeys
+	else if @text == "clan"
+		call keyclan1
+	else if @text == "clan-guest"
+		call clanguest
+	else if @text == "clan-master"
+		call clanmaster
+	else if @text == "clan1"
+		call keyclan1
+	else if @text == "clan2"
+		call keyclan2
+	else if @text == "clan3"
+		call keyclan3
+	else if @text == "clan4"
+		call keyclan4
+	else if @text == "guest1"
+		call keyguest1
+	else if @text == "guest2"
+		call keyguest2
+	else if @text == "guest3"
+		call keyguest3
+	else if @text == "guest4"
+		call keyguest4
+	else if @text == "home1"
+		call keyhome1
+	else if @text == "home2"
+		call keyhome2
+	else if @text == "home3"
+		call keyhome3
+	else if @text == "home3"
+		call keyhome3
+	else if @text == "home4"
+		call keyhome4
+	else if @text == "add"
+		"/equip keyring \r"
+		"/useitem left /add  " myguest1 " \r" // ?'s guest key
+//		"/useitem left /add  " myguest2 " \r" // None
+//		"/useitem left /add  " myguest3 " \r" // None
+//		"/useitem left /add  " myguest4 " \r" // None
+//		"/useitem left /add  " myhome1 " \r" // None
+//		"/useitem left /add  " myhome2 " \r" // None
+//		"/useitem left /add  " myhome3 " \r" // None
+//		"/useitem left /add  " myhome4 " \r" // None
+		"/useitem left /add  " myclan1 " \r" // Current LA Clan House 2020+
+		"/useitem left /add  " myclan2 " \r" // None
+//		"/useitem left /add  " myclan3 " \r" // None
+//		"/useitem left /add  " myclan4 " \r" // None
+//		"/useitem left /add  " myclan1 " guest \r" // None
+//		"/useitem left /add  " myclan1 " master \r" // None
+		"/useitem left /add \r"
+		"/unequip keyring \r"
+		"/equip " myDefLeft "\r"
+	else if @text == "stow"
+		"/unequip keyring \r"
+		"/equip " myDefLeft "\r"
+	end if
+}
+
+clanguest
+{
+	"/equip keyring \r"
+	"/useitem left /remove " myclan1 " guest \r"
+	"/equip guestkey \r"
+}
+
+clanmaster
+{
+	"/equip keyring \r"
+	"/useitem left /remove " myclan1 " master \r"
+	"/equip " myclan1 " master \r"
+}
+
+keyclan1
+{
+	"/equip keyring \r"
+	"/useitem left /remove " myclan1 " regular \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myclan1 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+
+}
+
+keyclan2
+{
+	"/equip keyring \r"
+	"/useitem left /remove " myclan2 " regular \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myclan2 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+}
+
+keyclan3
+{
+	"/equip keyring \r"
+	"/useitem left /remove " myclan3 " regular \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myclan3 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+}
+
+keyclan4
+{
+	"/equip keyring \r"
+	"/useitem left /remove " myclan4 " regular \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myclan4 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+}
+
+keyguest1
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myguest1 "  \r"
+	"/equip guestkey \r"
+}
+
+keyguest2
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myguest2 "  \r"
+	"/equip guestkey \r"
+}
+
+keyguest3
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myguest3 "  \r"
+	"/equip guestkey \r"
+}
+
+keyguest4
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myguest4 "  \r"
+	"/equip guestkey \r"
+}
+
+keyhome1
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myhome1 "  \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myhome1 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+}
+
+keyhome2
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myhome2 "  \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myhome2 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+}
+
+keyhome3
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myhome3 "  \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myhome3 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+}
+
+keyhome4
+{
+	"/equip keyring \r"
+	"/useitem left /remove  " myhome4 "  \r"
+	set scanText @env.textLog
+//	message "scanText is " &scanText
+	if scanText < "You have no housekey for "
+		"/useitem left /remove " myhome4 " master \r"
+		"/equip masterkey \r"
+	else
+	"/equip housekey \r"
+	end if
+}
+
+listkeys
+{
+	message "2317 = a tree house = fin"
+	message "2670 = LA tree clan house regular"
+	message "2679 = small LA tree clan storage house"
+	
+}
+/* 
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210130-aka Inu: 
+	Added if/else to handle master keys for clan and regular homes.
+	Changed MyShield to use myDefLeft defined in character file.
+	Changed list keys to show the ones Inu has. Note: Change them to match your keys.
+	Added this revision log.
+*/
