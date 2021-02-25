@@ -1,0 +1,191 @@
+﻿//------------------------------------------------
+// abbreviations.mac
+//------------------------------------------------
+// Keep your abbreviations in this file...
+//
+
+"??"    "/help "    @text "\r"
+"aa"    "/action "  @text "\r"
+"gg"    "/give "    @text "\r"
+"hp"    "/ponder healer pounce! \r"
+"ii"    "/info "    @text "\r"
+"kr"    "/karma "   @text "\r"
+"kp"    "kill please \r"
+"mm"	"/money "   @text "\r"
+"n"		"/narrate " @text "\r"
+"nn"    "/news\r"
+"pp"    "/ponder "  @text "\r"
+"sel"	"/select "  @text "\r"
+"sh"    "/share "   @text "\r"
+"shl"   "/share /lock " @text "\r"
+"tag"	"I tagged it :) \r"
+"ty"	call thankyou
+
+
+"sl"    
+{ 
+	set sleepToggle 1
+	"/sleep \r"
+}
+
+"th"    "/thank "   @text " \r" 
+"u"		"/use "     @text " \r"
+"ui"    "/useitem " @text " \r"
+"uu"    "/use "     @text " \r"
+"un"    "/unshare " @text " \r"
+"us"    "/unshare " @text " \r"
+"w"     "/who "     @text " \r"
+"wh"    "/whisper " @text " \r"
+
+
+// yells
+// "yt"	call yell-tla
+"yn"	"/yell North ↑ " @text "\r"
+"ye"	"/yell → east! " @text " \r"
+"yw"	"/yell ← west! " @text " \r"
+"ys"	"/yell South ↓ " @text "\r"
+
+"y"		"/yell " @text " \r"
+"yb"	"/yell beeeeeer! " @text " \r"
+"ybs"	"/yell BS! " @text " \r"
+"yeek"	"/yell eek! help! " @text " \r"
+"yf"	"/yell fallens? " @text " \r"
+"yh"    "/yell here! fallen " @text " \r"
+"yi"	"/yell Incoming! " @text " \r"
+"yl"	call clan-yell
+"ym"	"/yell meelk \r"
+"/yo"   "/yell Chivalry! " @text " \r"
+"yo"	"/yell out! " @text "\r"
+"yout"  "/yell out " @text "\r"
+"yp"	call ping-yell
+"yr"   	"/yell running them " @text " \r"
+"yrun"   "/yell run " @text "\r"
+"/ys"	"/yell safe! " @text "\r"
+"ysd"	"/yell Save Dande! \r"
+"ysl"	"/yell Save Luna! \r"
+"yw"	"you're welcome :) \r"
+"yy"    "/yell " @text "\r"
+
+ping-yell
+{
+	random
+	"/yell ping \r"
+	or
+	"/yell !  \r"
+	or 
+	"/yell " @text " \r"
+	or
+	"/yell ?? \r"
+	end random
+}
+
+"y?"	"/yell ? \r"
+"y!"	"/yell ! \r"
+
+"/dm"   "/drop /mine \r"
+
+thankyou
+{
+	if ty == "cat"		// defined in character file
+		"Thank you >'.'< \r" 
+		return
+	end if
+	if	ty == "dwarf"
+		"t'anki \r"
+		return
+	end if
+	if ty == ""
+		"Thank you. \r"
+		return
+	end if
+	"Thank you. \r"
+}
+
+// Replacement Text Strings 
+// 200611-inu: These are from many sources, uppercased to make it easier to type
+//             what you want without these getting in the way.
+
+'AG ' 		"astral guardian"
+'BC '     	"Bear Cave"
+'BH '		"BlackHand"
+'BH1 '		"BlackHole"
+'bbl '		"Be back later"
+'bbs '		"Be back soon"
+'brb '		"I'll be right back"
+'brt '		"be right there"
+// 'cotg ' 		"captain of the guard"
+// 'ex '		"excuse me" // found this interferes with saying ex-wife etc
+'exc '		"excuse me"
+// 'dc '		"disconnect"
+'DH '		"DragonHawk "
+'DF ' 		"death furie "
+'DK ' 		"dark knight "
+'DT '		"Dark Temple "
+'EF '		"East Forest "
+'EFL '		"lower East Field "
+'EFU '		"upper East Field "
+'EP ' 		"Ethereal Plane "
+'FD '		"Feral Den "
+'FH '		"Frozen Ham "
+'FN '		"Finegas "
+'FIN '		"Finegas "
+'FW ' 		"firewalker "
+'GK '		"good karma "
+'GMV '		"Greymyr Village "
+'GNF '		"Grassy North Field "
+'GS '		"great sword "
+'GV '		"giant vermine "
+'GW ' 		"greater wraith "
+'LA '		"Laughing Academy "
+'LP '		"lily pond "
+'LSW '		"large/lesser sand wurm "
+'LV '		"large vermine "
+'MC '		"Maha Cave "
+'MH '		"Marsh Hermit "
+'MP '		"Mid Pass "
+'MR '		"Marsh "
+'MT '		"Maha Tomb "
+'mp '		"my pleasure "
+'mv '		"move! "
+'mw '		"make way "
+'MYR '		"greymyr "
+'NB '		"North Beach "
+'NBC '    	"New Bear Cave "
+'NF '		"north forest "
+'nv '		"nevermind "
+'np '		"no problem "
+'NP '		"North Pass "
+'NS '		"new swamp "
+'OC '		"Orga Camp "
+'OC2 '		"Orga Camp 2 "
+'OC3 '		"Orga Camp 3 "
+'OC4 '		"Orga Camp 4 "
+'omw '		"on my way "
+'oow '		"on our way "
+'OV '		"Orga Village "
+'PALLI '		"pallidew "
+'POS '		"Puddleby Orthinological Society "
+'PUN '		"Punny "
+'PURG '		"Purgatory "
+'QC '		"Queen\'s Chamber "
+'RC '		"Rocky Cavern "
+'SAR '		"sar'noth "
+'SAV '		"savannah "
+'SB '		"South Beach "
+'SP '		"South Pass " 
+'SPRIG '	"spriggi n"
+'SS '		"sunstone "
+'SWB '		"southwest beach "
+'TGBG '		"Tree Giant Breeding Ground "
+'thx '		"thank "
+'TI ' 		"Tenebrion's Island "
+'TK ' 		"Tenebrion's Keep "
+// 'ty '		"thank you >^_^< "
+'VEL '		"vel'noth "
+"wel"	  	"welcome ^_^  /r"
+'wg '		"willow giant "
+'WG '		"Wisher\'s Gate "
+'XAR '		"xar'noth! "
+'ZOL '		"zol'noth "
+
+message "===> Loaded abbreviations.macro"
