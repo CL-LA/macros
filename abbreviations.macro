@@ -189,3 +189,10 @@ thankyou
 'ZOL '		"zol'noth "
 
 message "===> Loaded abbreviations.macro"
+
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210224-Inu: 	Change "ty" to a character specific style. Add ty global variable to your character file.
+				Set it to cat, dwarf, or just empty "". Type of ty will increase as I get them added.
+				Attributions: Delta Tao, Noivad, Lorikeet, Gorvin, Raul, DragonHawk, Skirwan and more I don't know.
