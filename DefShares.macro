@@ -1,0 +1,40 @@
+// DefShares.mac
+// Default sharing people
+//
+// 20180702-inu - Created.
+//
+setglobal DefSharesfilerevision "20210225-0100-0001"
+
+defshares 
+{
+	if messageStatus == 1
+		message "*** DefShares.macro / defshares ***"
+	end if
+	if gTesting == 1
+		message "Testing Mode: DefShares not run"
+	else
+		"\share squib \r"
+		pause 20
+		"\share lorikeet \r"
+		pause 20
+		"\share fiona \r"
+		pause 20
+		"\share dragonhawk \r"
+		pause 20
+		"\share geotzou \r"
+		pause 20
+		"\share punisher \r"
+		pause 20
+		"\share foxx \r"
+		pause 20
+		"\share brio \r"
+	end if
+}
+
+message "===> Loaded DefShares.macro"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210224-Inu: 	Added this log. Original by Inu.
+*/
