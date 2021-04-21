@@ -1,0 +1,380 @@
+// globalset.mac
+//------------------------------------------------
+// Global SET macro (Noivad's + ?)
+//------------------------------------------------
+//non-optimized to add: messageVariable and call InstructionMessages
+setglobal globalsetfilerevision "20210225-0100-0001"
+
+"/setf" 	call goFunctions
+"/verbose" 	call goVerbose
+"/vers"		call ListVers
+
+"/cmds"
+{
+LABEL CommandList
+	message "/cads - list people in your cad list" 
+	message "/cmds - this command list"
+	message "/dc - performs the dance listed after /dc"
+	message "goscan - starts scanning loop, AFK"
+	message "/noscan - stops scanning loop"
+	message "/pick - starts or stops ExilePicker. Semi-random thank"
+	message "/setf - lists all custom functions or sets one"
+	message "/stora - use ? for help, or the stora command"
+	message "/verbose - debug command for custom functions"
+	message	"/vers	- lists versions of macro files loaded"
+}
+
+goVerbose 
+{
+	message "** globalset.mac / goVerbose **"
+	if @text.word[0] == "verbose"
+		if @text.word[1] == 1
+			setglobal modeVerbose @text.word[1]
+			message "*Verbose set to *ON*"
+		else if @text.word[1] == 0
+			setglobal modeVerbose @text.word[1]
+			message "*Verbose set to --OFF--"
+		else
+			message "Verbose sets whether or not to associate an \"/action\" or \"/narrate\" with a macro."
+			if modeVerbose == 0
+				message "*Verbose mode is --OFF--"
+				message "To turn this on use: /set verbose on"
+			else
+				message "*Verbose mode is *ON*"
+				message "To turn this off use: /set verbose off"
+			end if
+			pause 16
+			message "\"1\" is on, \"0\" is off."
+		end if
+	end if
+}
+
+goFunctions
+{
+	message "** globalset.mac / goFunctions **"
+
+	/* ------------ BAG ------------------*/
+	if @text.word[0] == "bag"
+		if @text.word[1] > 0
+			setglobal bag_number @text.word[1]
+			"/selectitem \"bag of kudzu seedlings <#" bag_number "\"\r"
+			message "the current bag is " bag_number "."
+		else
+			message "*This variable is used to select a bag number to use for kudzu planting."
+			message "the current bag is " bag_number "."
+			message "To set a bag use: /setf bag #"
+			message "Replace # with a number from 1 to " NumZuBags
+		end if
+	end if
+	/* ------------ DEBUG ------------------*/
+	if @text.word[0] == "debug"
+		if @text.word[1] == 1
+			setglobal debug 1
+			message "Debug set to *ON*"
+		else if @text.word[1] == 0
+			setglobal debug 0
+			message "Debug set to --OFF--"
+		else if @text.word[1] == "on"
+				setglobal debug 1
+		else if @text.word[1] == "off"
+				setglobal debug 0
+		else
+			message "Debug sets whether debugger messages are displayed when testing a macro."
+			pause 12
+			if debug == 0
+				message "*debug is off."
+				message "To turn this on use: /setf debug on"
+			else
+				message "*debug mode is on."
+				message "To turn this off use: /setf debug off"
+			end if
+		end if
+	end if
+	/* ------------ FEEDBACK ------------------*/
+	if @text.word[0] == "feedback"
+		if @text.word[1] == "on"
+			setglobal messageStatus 1
+			message "feedback set to *ON*"
+		else if @text.word[1] == "off"
+			setglobal messageStatus 0
+			message "feedback set to --OFF--"
+		else
+			message "Set feedback off macros to be <on|1> or <off|0>"
+			if messageStatus == 0
+				set feedback "off"
+			else if  messageStatus == 1
+				set feedback "on"
+			end if
+			message "feedback is " feedback
+		end if
+	end if
+	/* ------------ INFOEXILE ------------------*/
+	if @text.word[0] == "infoexile"
+		if @text.word[1] == "off"
+			setglobal InfoExile 0
+			message "InfoExile set to --OFF--"
+		else if @text.word[1] == "on"
+			setglobal InfoExile 1
+			message "InfoExile set to *ON*"
+		else
+			if InfoExile == 1
+				message "InfoExile is *ON*"
+				message "to turn off, use: /setf infoexile off"
+			else
+				message "InfoExile is --OFF--"
+				message "to turn on, use: /setf infoexile on"
+			end if
+		end if
+	end if
+	/* ------------ LOC ------------------*/
+	if @text.word[0] == "loc"
+		if @text.word[1] == ""
+			setglobal FallingAt ""
+			setglobal FallingLocSet 0
+			message fallingAt set to NADA
+		else if @text.word[1] == "list"
+			message fallingAt set with \"setf loc\" to FallingAt
+		else
+			setglobal FallingAt ""
+			setglobal FallingAt @text
+			setglobal FallingLocSet 1
+			message "Set loc fallingAt to " FallingAt
+		end if
+	end if
+	/* ------------ LONGSLEEP ------------------*/	
+	if @text.word[0] == "longsleep"
+		if @text.word[1] == "off"
+			setglobal longsleep 0
+			message "set longsleep to --OFF--"
+		else if @text.word[1] == "on"
+			setglobal longsleep 1
+			message "set longsleep to *ON*"
+		else
+			message "Longsleept is used to toggle the long sleep macro \"on\" and \"off\"."
+			if longsleep == 0
+				message "Longsleep is off."
+				message "To turn this on use: /setf longsleep on"
+			else
+				message "*longsleep is on."
+				message "To turn this off use: /setf longsleep off"
+			end if
+		end if
+	end if
+	/* ------------ MAXBAG ------------------*/
+	if @text.word[0] == "maxbag"
+		if @text.word[1] > 0
+			setglobal max_bag @text.word[1]
+			message "you number of kudzu bags is set at " max_bag "."
+		else
+			message "*This variable is used to set how many kudzu bags you have on you."
+			message "the number of kudzu bags is " max_bag "."
+			message "To set the number of bags you have use: /set maxbag #"
+			message "Replace # with a number from 1 to 5"
+		end if
+	end if
+	/* ------------ OCCUPY ------------------*/
+	if @text.word[0] == "occupy"
+		if @text.word[1] == ""
+			if OccupyRandom == 1
+				message "occupy is ON"
+				message "to turn off, use: /setf occupy off"
+			else
+				message "occupy is OFF"
+				message "to turn on, use: /setf occupy on"
+			end if
+		else if @text.word[1] == "on"
+			setglobal OccupyRandom 1
+			message "Occupy was turned *ON*"
+		else if @text.word[1] == "off"
+			setglobal OccupyRandom 0
+			message "Occupy was turned --OFF--"
+		else
+			if OccupyRandom == 1
+				message "occupy is *ON*"
+				message "to turn off, use: /setf occupy off"
+			else
+				message "occupy is --OFF--"
+				message "to turn on, use: /setf occupy on"
+			end if
+		end if
+	end if
+	/* ------------ PIE ------------------*/
+	if @text.word[0] == "pie"
+		if @text.word[1] == "?"
+			message "Set the default pie target used by /pie, /pom"
+			message "Current target is " default_pie_target
+		else if @text.word[1] == ""
+			setglobal default_pie_target @selplayer.simple_name
+			message "New default pie target is: " default_pie_target
+		else
+			setglobal default_pie_target @text.word[1]
+			message "New default pie target is: " default_pie_target
+		end if
+	end if
+	/* ------------ RESETAMCADDING ---------------*/	
+	if @text.word[0] == "AmCadding"
+		if @text.word[1] == "on"
+			setglobal AmCadding 1
+			message "AmCadding set to *ON*"
+		else if @text.word[1] == "off"
+			setglobal AmCadding 0
+			message "AmCadding set to --OFF--"
+		else if @text.word[1] == "1"
+			setglobal AmCadding @text.word[1]
+			message "AmCadding set to *ON*"
+		else if @text.word[1] == "0"
+			setglobal AmCadding @text.word[1]
+			message "AmCadding set to --OFF--"
+		else
+			message "Use /set AmCadding <on|1> or <off|0> to do something"
+			if AmCadding == 0
+				message "AmCadding is --OFF--"
+				message "to turn on, use: /setf AmCadding on"
+			else if AmCadding == 1
+ 				message "AmCadding is *ON*"
+				message "to turn off, use: /setf AmCadding off"
+			end if
+		end if
+	end if	
+	/* ------------ THANKRANDOM ------------------*/
+	if @text.word[0] == "thankrandom"
+		if @text.word[1] == ""
+			if ThankRandom == 1
+				message "ThankRandom is currently on"
+				message "to turn off, use: /setf thankrandom off"
+			else
+				message "ThankRandom is currently OFF"
+				message "to turn off, use: /setf thankrandom on"
+			end if
+		else if @text.word[1] == "on"
+			setglobal ThankRandom 1
+			setglobal AmCadding 0
+			message "ThankRandom is currently on"
+		else if @text.word[1] == "off"
+			setglobal ThankRandom 0
+			setglobal AmCadding 1
+			message "ThankRandom is currently OFF"
+		else
+			if ThankRandom == 1
+				message "ThankRandom is currently on"
+				message "to turn off, use: /setf thankrandom off"
+			else
+				message "ThankRandom is currently OFF"
+				message "to turn off, use: /setf thankrandom on"
+			end if
+		end if
+	end if
+	/* ------------ VERBOSE ------------------*/
+	if @text.word[0] == "verbose"
+		if @text.word[1] == 1
+			setglobal modeVerbose @text.word[1]
+			message "*Verbose set to *ON*"
+		else if @text.word[1] == 0
+			setglobal modeVerbose @text.word[1]
+			message "*Verbose set to --OFF--"
+		else
+			message "Verbose sets whether or not to associate an \"/action\" or \"/narrate\" with a macro."
+			if modeVerbose == 0
+				message "*Verbose mode is --OFF--"
+				message "To turn this on use: /setf verbose on"
+			else
+				message "*Verbose mode is *ON*"
+				message "To turn this off use: /setf verbose off"
+			end if
+			pause 16
+			message "\"1\" is on, \"0\" is off."
+		end if
+	end if
+	/* ------------ WHISPER ------------------*/	
+	if @text.word[0] == "whisper"
+		if @text.word[1] == "off"
+			setglobal whisper 0
+			message "set whisper to --OFF--"
+		else if @text.word[1] == "on"
+			setglobal whisper 1
+			message "set whisper to *ON*"
+		else
+			message "whisper is used to toggle whispering \"on\" and \"off\"."
+			if whisper == 0
+				message "whisper is off."
+				message "To turn this on use: /setf whisper on"
+			else
+				message "*whisper is on."
+				message "To turn this off use: /setf whisper off"
+			end if
+		end if
+	end if
+/* ------------ TEMPLATE ------------------*/
+//	if @text.word[0] == "replacethis"
+//		if @text.word[1] == "on"
+//			setglobal messageStatus 1
+//			message "replacethis set to *ON*"
+//		else if @text.word[1] == "off"
+//			setglobal messageStatus 0
+//			message "replacethis set to --OFF--"
+//		else if @text.word[1] == "1"
+//			setglobal messageStatus @text.word[1]
+//			message "replacethis set to *ON*"
+//		else if @text.word[1] == "0"
+//			setglobal messageStatus @text.word[1]
+//			message "replacethis set to --OFF--"
+//		else
+//			message "Use /set replacethis <on|1> or <off|0> to do something"
+//			if replacethis == 0
+//				message "replacethis is --OFF--"
+//				message "to turn on, use: /setf replacethis on"
+//			else if replacethis == 1
+// 				message "replacethis is *ON*"
+//				message "to turn off, use: /setf replacethis off"
+//			end if
+//		end if
+//	end if
+
+/* ------------ HELP FOR SETF ------------------*/
+	else
+		message "*The following variables are available to set using this command:"
+		message "To find current setting use variable without on/off switch"
+		pause 10
+		message "bag [(number)], debug [on|1|off|0], feedback [on|off], infoexile [on|off], "
+		pause 10
+		message "loc [areaname], longsleep [on|off], maxbag (number), occupy [on}off], "
+		pause 10
+		message "thankrandom [on|off], *verbose [on|off], wh(isper) [on|off], "
+		pause 4
+		message "pie [targetname or selected in playerlist|?]"
+	end if
+}
+
+ListVers
+{
+message "********* MACROS VERSIONS *********"
+"\options speech zoom \r"
+message "Character File Used -- " charfileused
+message "Character File Rev	-- " charfilerevision
+message "Default File Rev	-- " defaultfilerevision
+message "abbreviations Rev     -- " abbreviationsfilerevision
+message "directions Rev        -- " directionsrev
+message "idle.macro File Rev -- " idlemacrofilerevision
+message "dances Rev        -- " dancesfilerevision
+message "DefShare Rev        -- " DefSharesfilerevision
+message "ExilePicker Rev        -- " ExilePickerfilerevision
+message "GoScanner Rev        -- " GoScannerfilerevision
+message "keys Rev        -- " keysfilerevision
+message "layells Rev        -- " layellsfilerevision
+message "moonstone_functions Rev        -- " moonstone_functionsfilerevision
+message "omega_zu Rev        -- " omega_zufilerevision
+message "quickchain Rev        -- " quickchainfilerevision
+message "readtext2 Rev        -- " readtext2filerevision
+message "shares Rev        -- " sharesfilerevision
+message "sunstone Rev        -- " sunstonefilerevision
+message "tc_macro Rev        -- " tc_macrofilerevision
+}
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20161130-Inu: Debugging why goFunctions and goVerbose won't load. 
+			  Reason: Can't use set at beginning of function name.
+20210224-Inu: Added this log.
+			  Attributions: Noivad and more I don't know.
+*/
