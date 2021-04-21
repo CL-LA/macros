@@ -1,9 +1,12 @@
 // Laughing Academy yells {layells.macro}
 
+setglobal layellsfilerevision "20210225-0100-0001"
+
 "ylc"	call yell-creedo
 "ylf"	call falling-yells
 "ylt"	call yell-tla
 "yolo"	call found-stuff
+"yk"    "/yell here kitty kitty \r"
 
 // Laughing Academy yells
 
@@ -79,6 +82,10 @@ falling-yells
 		"/yell LA!™ Owies ..  owies .. owies ... oops \r"
 		or
 		"/yell LA!™ Since when do the critters bite so hard? \r"
+		or
+		"/yell LA!™ I think I am getting deader \r"
+		or
+		"/yell LA!™ So a funny thing happened when I went throught that PF you told me not to \r"
 		or
 		call yell-knockfall1
 	end random
