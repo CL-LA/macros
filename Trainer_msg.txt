@@ -1,0 +1,89 @@
+"/tr"
+{
+label top
+pause 1
+set trainer @env.textLog.word[0]
+set trainerphrase @env.textLog
+if trainerphrase < "You have much to learn."
+"/ponder " @env.textLog.word[0] ": 0-9.\r"
+end if
+if trainerphrase < "It is good to see you."
+"/ponder " @env.textLog.word[0] ": 10-19.\r"
+end if
+if trainerphrase < "Your persistence is paying off."
+"/ponder " @env.textLog.word[0] ": 20-29.\r"
+end if
+if trainerphrase < "You are progressing well."
+"/ponder " @env.textLog.word[0] ": 30-39.\r"
+end if
+if trainerphrase < "You are a good pupil of mine."
+"/ponder " @env.textLog.word[0] ": 40-49.\r"
+end if
+if trainerphrase < "You are one of my better pupils."
+"/ponder " @env.textLog.word[0] ": 50-99.\r"
+end if
+if trainerphrase < "You keep me on my toes."
+"/ponder " @env.textLog.word[0] ": 100-149.\r"
+end if
+if trainerphrase < "It is hard to find more to teach you."
+"/ponder " @env.textLog.word[0] ": 150-199.\r"
+end if
+if trainerphrase < "Teaching you is a challenge."
+"/ponder " @env.textLog.word[0] ": 200-249.\r"
+end if
+if trainerphrase < "There is not much more I can teach you."
+"/ponder " @env.textLog.word[0] ": 250-299.\r"
+end if
+if trainerphrase < "Teaching you has taught me much."
+"/ponder " @env.textLog.word[0] ": 300-349.\r"
+end if
+if trainerphrase < "You have attained tremendous skill."
+"/ponder " @env.textLog.word[0] ": 350-399.\r"
+end if
+if trainerphrase < "We are nearly equals."
+"/ponder " @env.textLog.word[0] ": 400-449.\r"
+end if
+if trainerphrase < "You may be proud of your accomplishment."
+"/ponder " @env.textLog.word[0] ": 450-499.\r"
+end if
+if trainerphrase < "You are becoming a master of our art."
+"/ponder " @env.textLog.word[0] ": 500-549.\r"
+end if
+if trainerphrase < "Your dedication is commendable."
+"/ponder " @env.textLog.word[0] ": 550-599.\r"
+end if
+if trainerphrase < "You show great devotion to your studies."
+"/ponder " @env.textLog.word[0] ": 600-649.\r"
+end if
+if trainerphrase < "You are a credit to our craft."
+"/ponder " @env.textLog.word[0] ": 650-699.\r"
+end if
+if trainerphrase < "Few indeed are your peers."
+"/ponder " @env.textLog.word[0] ": 700-749.\r"
+end if
+if trainerphrase < "Your devotion to the craft is exemplary."
+"/ponder " @env.textLog.word[0] ": 750-799.\r"
+end if
+if trainerphrase < "It is always good to greet a respected colleague."
+"/ponder " @env.textLog.word[0] ": 800-899.\r"
+end if
+if trainerphrase < "You are truly a grand master."
+"/ponder " @env.textLog.word[0] ": 900-999.\r"
+end if
+if trainerphrase < "Let us search for more we might learn together."
+"/ponder " @env.textLog.word[0] ": 1000-1249.\r"
+end if
+if trainerphrase < "Your persistence is an example to us all."
+"/ponder " @env.textLog.word[0] ": 1250-1499.\r"
+end if
+if trainerphrase < "Your skill astounds me."
+"/ponder " @env.textLog.word[0] ": 1500-1749.\r"
+end if
+if trainerphrase < "You have progressed further than most."
+"/ponder " @env.textLog.word[0] ": 1750-1999.\r"
+end if
+if trainerphrase < "You are nearly peerless."
+"/ponder " @env.textLog.word[0] ": 2000+.\r"
+end if
+goto top
+}
