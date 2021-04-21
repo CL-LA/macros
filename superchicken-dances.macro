@@ -1,0 +1,100 @@
+﻿row1
+{
+"/pose kneel\r"
+"/pose sit\r"
+"/pose celebrate\r"
+}
+
+row2
+ {
+ "/pose leanright\r"
+ "/pose angry\r"
+ "/pose leanleft\r"
+ }
+
+
+row3
+{
+"/pose akimbo\r"
+"/pose stand s\r"
+"/pose bless\r"
+"/pose lie\r"
+}
+
+row1a
+{
+"/pose bow\r"
+"/pose seated\r" 
+"/pose salute\r"
+}
+
+row2a
+{
+"/pose walkleft s\r"
+"/pose stand s\r"
+"/pose walkright s\r"
+}
+
+row3a
+{
+"/pose surprised\r"
+"/pose thoughtful\r"
+"/pose walkleft se\r"
+"/pose stand se\r"
+}
+
+row1c
+{
+"/pose attack sw\r" 
+"/pose attack s\r"
+"/pose attack se\r"
+}
+
+row2c
+{
+ "/pose attack w\r"
+"/pose stand s\r"
+"/pose attack e\r"
+}
+
+row3c
+{
+"/pose attack nw\r"
+"/pose attack n\r"
+"/pose attack ne\r"
+}
+
+numpad-1 "/pose kneel\r"
+numpad-2 "/pose sit\r"
+numpad-3 "/pose celebrate\r"
+numpad-4 "/pose leanright\r"
+numpad-5 "/pose angry\r"
+numpad-6 "/pose leanleft\r" 
+numpad-7 "/pose akimbo\r"
+numpad-8 "/pose stand s\r"
+numpad-9 "/pose bless\r"
+numpad-0 "/pose lie\r"
+numpad-+ call walk1
+
+alt-numpad-1    "/pose bow\r"
+alt-numpad-2    "/pose seated\r" 
+alt-numpad-3    "/pose salute\r"
+alt-numpad-4    "/pose walkleft s\r"
+alt-numpad-5    "/pose stand s\r"
+alt-numpad-6    "/pose walkright s\r"
+alt-numpad-7    "/pose cry\r" 
+alt-numpad-8    "/pose surprised\r"
+alt-numpad-9    "/pose thoughtful\r"
+alt-numpad--    "/pose walkleft se\r"
+alt-numpad-/    "/pose stand se\r"
+
+control-numpad-1 "/pose attack sw\r" 
+control-numpad-2 "/pose attack s\r"
+control-numpad-3 "/pose attack se\r"
+control-numpad-4 "/pose attack w\r"
+control-numpad-5 "/pose stand s\r"
+control-numpad-6 "/pose attack e\r" 
+control-numpad-7 "/pose attack nw\r"
+control-numpad-8 "/pose attack n\r"
+control-numpad-9 "/pose attack ne\r"
+ 
