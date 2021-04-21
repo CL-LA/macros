@@ -1,0 +1,206 @@
+//	interviews.macro
+"/largo1"
+{
+	"/pose thoughtful \r"
+	message ==> /Largo2 -- CUE: Fen President Largo for life , how are you today?
+	pause 4
+	"/pose pray \r"
+	"We are here with Fen God, er I mean Fen King.... \r"
+	pause 4
+	"/pose surprised \r"
+	pause 6
+	"Can we start again? \r"
+	pause 10
+	"Ahem... \r"
+	pause 4
+	"We are gathered here today to witness THE Interview with \r"
+	pause 10 
+	"Fen President Largo for life!! \r"
+	pause 15
+	"Fen President Largo for life, how are you today? \r"
+	"/pose thoughtful \r"
+}
+"/largo2"
+{
+	"/pose bless \r"
+	pause 4
+	"/pose kneel \r"
+	"Fen President Largo for life, \r"
+	pause 6
+	"what is the most important thing you want to accomplish \r"
+	pause 12
+	"by besting Pun\'isher and Skirwan in this next election? \r"
+	pause 12
+	"/pose thoughtful \r"}
+"/largo3"
+{
+	"/pose thoughtful \r"
+	pause 4
+	"/pose kneel \r"
+	"Our most holy Fen President Largo for life. \r"
+	pause 10
+	"If you were god for a day, what would you do? \r"
+	pause 4
+	"/pose kneel \r"
+}
+"/largo4"
+{
+	"/pose thoughtful \r"
+	pause 4
+	"/pose kneel \r"
+	"And LA Inquirer\'s final hard hitting question. \r"
+	pause 10
+	"Fen President Largo for life, \r"
+	pause 10
+	"Pun\'isher has said she is not concerned about your \'for life\' status. \r"
+	pause 24
+	"Do you think she means to win by any means necessary? \r"
+	pause 4
+	"/pose thoughtful \r"
+}
+"/largo5"
+{
+	"/pose thoughtful \r"
+	pause 4
+	"Ok now some questions from your worshipers, er I mean subjects. \r"
+	"/pose thoughtful \r"
+}
+"/largo6"
+{
+	"/pose surprised \r"
+	pause 2
+	"Is it true that Punny supports the skinning of the new baby bears, also known as your kin? \r"
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose thoughtful \r"
+}
+"/largo7"
+{
+	"/pose thoughtful \r"
+	pause 4
+	"Is there any truth to the rumour that you left to raise Skirwan\'s cub? \r"
+	"/pose thoughtful \r"
+}
+"/largo8"
+{
+	"/pose surprised \r"
+	pause 2
+	"Is it true that you aim to reunite the Mystics with the introduction of a libation called tequila? \r"
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose thoughtful \r"
+}
+"/largo9"
+{
+	"/pose surprised \r"
+	pause 2
+	"What do you say to K\'vynn's plea for sacrificing Squib + your kin to Drakes every zodiac? \r"
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose thoughtful \r"
+}
+"/largo10"
+{
+	"/pose surprised \r"
+	pause 2
+	"Is it true that Skirwan has plans for the puddles in TC that include unspeakable horrors? \r"
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose surprised \r"
+	pause 4
+	"/pose thoughtful \r"
+}
+"/largo11"
+{
+	"/pose thoughtful \r"
+	pause 4
+	"Is it true that the \'Town Beautification Project\' is really \r"
+	pause 16
+	"a secret scheme designed to take exiles coins? \r"
+	"/pose thoughtful \r"
+}
+"/largo12"
+{
+	"/pose bless \r"
+	pause 4
+	"As your merciful reign is reignited, \r"
+	pause 12
+	"what do you say to exiles who question your return? \r"
+	pause 32
+	"/pose thoughtful \r"
+	message END IS /largo99
+}
+"/largo99"
+{
+	"/pose kneel \r"
+	pause 4
+	"Thank you, our most holy, Fen President Largo \r"
+	pause 16
+	"THE inteview with LA Inquirer has now come to an end. \r"
+	"/pose kneel \r"
+}
+"/largox"
+{
+	"/pose X \r"
+	pause 4
+	"Is it true that ? \r"
+	"/pose thoughtful \r"
+}
+"/tlp"
+{
+	message thoughtful
+	"/pose thoughtful \r"
+	pause 10
+	message surprised
+	"/pose surprised \r"
+	pause 10
+	// message pray
+	// "/pose pray \r"
+	// pause 10
+	message kneel
+	"/pose kneel \r"
+	pause 10
+	message bless
+	"/pose bless \r"
+	pause 10
+}
