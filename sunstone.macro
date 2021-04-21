@@ -1,0 +1,165 @@
+﻿setglobal sunstonefilerevision "20210225-0100-0001"
+//------------------------------------------------
+// sunstone.macro
+//------------------------------------------------
+//
+// 20080824-inu: Added think abbreviations.
+
+//------------------------------------------------
+// Speed dial section - to send messages to friends quicker
+//------------------------------------------------
+"/tbee"  	"/thinkto Beer " @text "\r"
+"/tboo"   	"/thinkto BooBooKitty " @text "\r"
+"/tcra"   	"/thinkto CrazyOx " @text "\r"
+"/tcrz"   	"/thinkto CrazyOx " @text "\r"
+"/tdra"   	"/thinkto DragonHawk " @text "\r"
+"/tdro"   	"/thinkto DragonHawk ooc: " @text "\r"
+"/tfin"		"/thinkto Finegas " @text "\r"
+"/tgre" 	"/thinkto Gremlins " @text "\r"
+"/till"		"/thinkto Illora " @text "\r"
+"/tmiu"		"/thinkto Miug " @text "\r"
+"/tmax"   	"/thinkto Maximus " @text "\r"
+"/tnoi"   	"/thinkto Noivad " @text "\r"
+"/tpun"   	"/thinkto Punisher " @text "\r"
+"/trat"   	"/thinkto Ratchet " @text "\r"
+"/ttho"   	"/thinkto Thoomilicious " @text "\r"
+
+//------------------------------------------------
+// abbreviated thinks
+//------------------------------------------------
+"t."   	"/think → east! " @text " \r"
+"t>"   	"/think → east! " @text " \r"
+"t,"   	"/think ← west! " @text " \r"
+"t<"   	"/think ← west! " @text " \r"
+"/to"	"/think out! " @text " \r"
+"/tn"	"/think north! ↑ " @text " \r"
+"/ts"	"/think south! ↓ " @text " \r"
+
+
+//------------------------------------------------
+// Noivad's main Think macro
+//------------------------------------------------
+"t"	
+{
+message "** sunstone.macro / t **"
+if @my.forehead_item != MySunStone
+	setglobal fitem @my.forehead_item
+	"/equip " MySunstone " \r"
+else
+	setglobal fitem @my.forehead_item
+end if
+	"/think " @text "\r"
+// if modeVerbose == 1
+	if @my.name == "Noivad"
+		"/pose thoughtful\r"
+		{
+		random
+			"/narrate A burst of light shines and sound warbles from " @my.name "'s Sungem.\r"
+			or
+			"/action 's sungem glows for a brief moment.\r"
+			or
+			"/narrate " @my.name "'s Sungem emits a warm glow.\r"
+		end random
+		}
+	end if
+// end if
+
+if fitem != @my.forehead_item
+	"/equip " fitem "\r"
+end if
+}
+
+//------------------------------------------------
+// TF macro
+//------------------------------------------------
+// this macro sends ss to you say where you are falling 
+// Note: if you do /set loc <yourloc> before you fall so you can simply type tf
+
+"tf"	call thinkfalling
+thinkfalling
+{
+message "** sunstone.macro / tf **"
+if @my.forehead_item != MySunStone
+	setglobal fitem @my.forehead_item
+	"/equip " MySunStone "\r"
+	set fromTT 1
+else
+	setglobal fitem @my.forehead_item
+end if
+	if FallingLocSet == 1
+		if @text == ""
+			"/think falling soon near: " FallingAt "\r"
+		else
+			"/think falling soon near: " FallingAt " (or: " @text " )\r"
+		end if
+	else
+		"/think falling soon at/near " @text "\r"
+	end if
+}
+
+//------------------------------------------------
+// Noivad's ThinkTo macro
+//------------------------------------------------
+// this macro make sure that, as long as you have a sun*, you can get a message off
+"tt"		
+{
+message "** sunstone.macro / tt **"
+	if @my.forehead_item != MySunStone
+		setglobal fitem @my.forehead_item
+		"/equip " MySunStone "\r"
+		set fromTT 1
+	else
+		setglobal fitem @my.forehead_item
+	end if
+	"/thinkto " @text "\r"
+	if modeVerbose == 1
+		if @my.name == "Noivad"
+			call ThinkToAction
+		end if
+	end if
+	pause 2
+	if fitem != @my.forehead_item
+		"\equip " fitem "\r"
+	end if
+}
+
+//------------------------------------------------
+// Subroutines used in Think Macros (Noivad's)
+//------------------------------------------------
+
+Litemcheck
+{
+message "** sunstone.macro / Litemcheck **"
+pause 1
+		if lsaveitem != "Nothing"
+			"\equip " lsaveitem "\r"
+		else
+			"\unequip" left "\r"
+		end if
+}
+
+//------------------------------------------------
+// Fancy shmancy thinking (Noivad's)
+//------------------------------------------------
+ThinkToAction
+{
+message "** sunstone.macro / ThinkToAction **"
+"/pose thoughtful\r"
+		random
+		"/narrate A burst of light shines and sound echoes from the sungem.\r"
+		or
+		"/action 's sungem glows for a second.\r"
+		or
+		"/narrate " @my.name "'s Sungem emits a warm glow.\r"
+		or 
+		"/narrate The image of " ssTarget " becomes visible in " @my.name "'s Sungem.\r"
+		end random
+if fromTT == 1
+pause 2
+	if fitem != @my.forehead_item
+		"\equip " fitem "\r"
+	end if
+end if
+}
+
+message "===> Loaded sunstone.macro"
