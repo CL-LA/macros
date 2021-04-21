@@ -1,0 +1,172 @@
+//GoScanner.mac
+//------------------------------------------------
+// GoScan and Scanner macros (Noivad's + ?)
+//------------------------------------------------
+setglobal GoScannerfilerevision "20210225-0100-0001"
+
+GoScan
+{
+	if messageStatus == 1
+		message "** GoScanner.macro / GoScan **"
+	end if
+	set @env.key_interrupts false 			//when you start you want it to loop
+	set @env.click_interrupts false 		//these two lines makes sure it doesn't shut off
+	if messageStatus == 1
+		message "Scanner On:"
+		pause 8
+	end if
+	if @text == "?"
+		message "Type \"/t?\" to find the target."
+		pause 8
+		message "Type \"/ts <name> [text]\" sets the target and sends them a message if you include one."
+		pause 8
+		message "Type \"/set feedback [1|0|on|off]\" to toggle feedback on|off."
+		pause 8
+		message "Type \"noscan\" to stop GoScan and DHAwakeAFK."
+	end if
+		if gTesting == 0
+			"/pose lie \r"
+			if @my.simple_name == "InuTeisei"
+				"/action naps like ? \r"
+			else
+//				"/action is groggy \r"
+		message "Loaded GoScan Loop"
+			end if
+		else
+			message "Testing Mode: Default poses not run"
+		end if
+}
+
+//------------------------------------------------
+// Scanner Macro (Noivad's + ?)
+//------------------------------------------------
+Scanner
+{
+	if messageStatus == 1
+		message  "** GoScanner.macro / Scanner **"
+	end if
+	
+	set IdleCount 0
+	label scanTop		//[[[[[[[[[[[[Infinite Loop START]]]]]]]]]]]]]]]]
+	pause 1
+	if scanBreak == 1
+		goto scanEnder
+	else
+		//------------------------------------------------
+		// BEGIN: Scan for Text Section
+		//------------------------------------------------
+		set scanText @env.textLog
+		if scanText.word[0] < "/"
+			setglobal timeStamps 3
+			setglobal playerName 2
+			setglobal me 6
+		else
+			setglobal timeStamps 1
+			setglobal playerName 0
+			setglobal me 3
+		end if
+		if scanText.word[timeStamps] == "thinks" //with timestamps[3] w/o [1]
+			if scanText < "thinks to you, \""
+				if ssTarget != scanText.word[playerName] //w/timestamps[2] w/o[0]
+					if scanText.word[playerName] != @my.name
+						setglobal ssTarget scanText.word[playerName]
+					setglobal feedback 1 //turn on feedback for new target
+					pause 4
+					set IdleCount + 4
+					end if
+				end if
+				if messageStatus == 1 //this controls overall feedback
+					//This if block turns off feedback when the target hasn't changed
+					if feedback == 1
+						message "/tl target: " ssTarget
+						setglobal feedback 0
+					end if
+				end if
+			end if
+		else if scanText < "Captain Barnac asks, \"Ah, "
+			set namePer @my.simple_name
+			set namePer + "."
+			if scanText.word[me] < namePer
+				pause 1
+				set IdleCount + 1
+				"yes\r"
+			end if
+		else if scanText < "Paul Deckand asks, \"Ah, "
+			set namePer @my.simple_name
+			set namePer + "."
+			if scanText.word[me] < namePer
+				pause 1
+				set IdleCount + 1
+				"yes\r"
+			end if
+		else if scanText < "Fird Lirden asks, \"Ah, "
+			set namePer @my.simple_name
+			set namePer + "."
+			if scanText.word[me] < namePer
+				pause 1
+				set IdleCount + 1
+				"yes\r"
+			end if
+		else if scanText < "* You don't have anything like that"
+			if bag_number < NumZuBags
+				setglobal bag_number + 1
+				message "*bag set to " bag_number
+				"/equip bag of kudzu seedlings " bag_number "\r"
+			else if bag_number > NumZuBags
+				setglobal bag_number 1
+				"/equip bag of kudzu seedlings " bag_number "\r"
+			end if
+			pause 8
+			set IdleCount + 8
+		else if scanText < "You have no 'bag of kudzu seedlings"
+			setglobal bag_number 1
+			"/equip bag of kudzu seedlings " bag_number "\r"
+//		else if scanText < "waves"
+//			call waveaction
+//			set IdleCount + 1
+		else
+			pause 1
+			set IdleCount + 1
+		end if
+		//------------------------------------------------
+		// END: Scan for Text Section
+		//------------------------------------------------
+//		call readranks
+		call idleMe
+		label returnFromIdleMe
+	end if  // Scanner Loop
+	goto scanTop								// Infinite Loop END
+	
+	// Error trapping section
+	label buggy									//After time some infinite loops run away
+	Message "Bug Detected:"						//on you. So, I place these messages
+	pause 2										//in to let you know if the macro
+	Message "**Use <CTRL>-TAB to halt***"		//has jumped out of the regular loop
+	pause 120									//<--gives you time to escape the loop.
+
+	label scanEnder
+	if messageStatus == 1
+		message "Scanner Off"
+	end if
+	set @env.key_interrupts true				//Kludges to try to stop a run away macro
+	set @env.click_interrupts true				//Kludges
+	pause 300									//Kludges
+	goto returnFromGoScan						//Returning to MAIN in file DEFAULT
+}
+
+message "===> Loaded GoScanner.macro"
+
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20071231-Inu: Integrated DH's AwakeAFK macro with this scanner to avoid problems and auto call on login
+20080128-Inu: Removed excessive pause in integrated DHAwakeAFK integrated counter instead.
+	      	  Integrated Raul's trainer message reader.
+20180630-Inu: Moved Raul's trainer messages out to readtext2.mac.
+			  Moved /setf, goVerbose, goFunctions to globalset.mac
+			  Moved all custom "/commands call X" to the top so I could track what is in this file.
+			  Moved DHAwakeAFK to idle.mac.  All Called functions return by default. So no need for Goto at end.
+20210224-Inu: Moved this log to end.
+			  Attributions: Noivad, Raul, DragonHawk and more I don't know.
+*/
