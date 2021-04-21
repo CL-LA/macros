@@ -1,0 +1,796 @@
+﻿//------------------------------------------------
+// dances.mac
+//------------------------------------------------
+
+setglobal dancesfilerevision "20210227-1100-0009"
+
+dcr
+{
+	message "** dances.macro / dcr **"
+	random
+		call aki
+	or
+		call chik
+	or
+		call mash
+	or
+		call rm
+	or
+		call shuf
+	or
+		call throb
+	or
+		call vog
+	end random
+}
+
+"/dc"
+{
+message "** dances.macro / dc **"
+LABEL dancer
+	if @text == "all"
+		call aki
+		call chik
+		call mash
+		call rm
+		call shuf
+		call throb
+		call vog
+	else if @text == "loop"
+		call loop
+	else if @text != ""
+		call @text
+	else
+		message "*This lets you dance one of the following:"
+		pause 8
+		message "aki = akimbo,"
+		pause 8
+		message "chik = chicken dance,"
+		pause 8
+		message "mash = noivad's mash (non spammy version),"
+		pause 8
+		message "rm = running man,"
+		pause 8
+		message "shuf = shuffle,"
+		pause 8
+		message "throb = janet jackson 'throb' inspired dance,"
+		pause 8
+		message "vog = madonna 'vogue' inspired dance."
+	end if
+end label
+}
+
+loop
+{
+set count 1
+set dancetotal 5
+LABEL loopy
+if count < dancetotal
+	call aki
+	call chik
+	call mash
+	call rm
+	call shuf
+	call throb
+	call vog
+end if
+set count + 1
+goto loopy
+end label
+}
+
+aki
+{
+	message "** dances.macro / aki **"
+	"/pose akimbo \r"
+	pause 1
+	"/pose attack left \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose attack right \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose attack south \r"
+	"/pose attack north \r"
+	pause 1
+	"/pose attack north \r"
+	"/pose attack south \r"
+	pause 1
+	"/pose akimbo \r"
+	pause 1
+	"/pose attack right \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose attack left \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose bless \r"
+	pause 5
+	"/pose bow \r"
+	pause 5
+	"/pose sit \r"
+}
+
+chik
+{
+	message "** dances.macro / chik **"
+	"/ponder chikun dance \r"
+	"/pose stand \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	pause 2
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	pause 2
+	"/pose stand \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	pause 2
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	pause 2
+	"/pose stand \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	pause 2
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	pause 2
+	"/pose stand \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	pause 2
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	"/pose bless \r"
+	"/pose angry \r"
+	pause 2
+		"/pose stand \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+	"/pose akimbo \r"
+	"/pose angry \r"
+}
+
+mash		// Noivad's non-spammy version
+{
+	message "** dances.macro / mash **"
+	"/pose attack west\r/pose leanleft\r/pose celebrate\r"
+	"/pose akimbo\r"
+	pause 1
+	"/pose leanright\r"
+	"/pose attack\r"
+	"/pose akimbo\r"
+	"/pose celebrate\r"
+	"/pose bless \r"
+	pause 5
+	"/pose bow \r"
+	pause 5
+	"/pose sit \r"
+}
+
+
+rm
+{
+	message "** dances.macro / rm **"
+	"/pose walkright \r"
+	"/pose west \r"
+	"/pose walkleft \r"
+	"/pose attack south east \r"
+ 	"/pose walkright \r"
+	"/pose attack south west \r"
+	"/pose walkleft \r"
+	"/pose attack south east \r"
+	"/pose attack right \r"
+	"/pose leanright \r"
+	"/pose attack left \r"
+	"/pose leanleft \r"
+	"/pose attack east \r"
+	"/pose walkright \r"
+	"/pose attack west \r"
+	"/pose walkleft \r"
+	"/pose stand \r"
+	"/pose bless \r"
+	pause 5
+	"/pose bow \r"
+	pause 5
+	"/pose sit \r"
+}
+
+shuf
+{
+	message "** dances.macro / shuf **"
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+}
+
+throb
+{
+	message "** dances.macro / throb **"
+	"/pose salute \r"
+	"/pose stand south \r"
+	"/pose attack west \r"
+	pause 1
+	"/pose salute \r"
+	"/pose stand south \r"
+	"/pose attack east \r"
+	pause 1
+	"/pose leanleft \r"
+	"/pose attack east \r"
+	pause 1
+	"/pose leanright \r"
+	"/pose attack west \r"
+	pause 2
+	"/pose angry \r"
+	pause 1
+	"/pose akimbo \r"
+	pause 1
+	"/pose angry \r"
+	pause 2
+	"/pose kneel \r"
+	pause 1
+	"/pose lie \r"
+	pause 1
+	"/pose kneel \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose akimbo \r"
+	pause 1
+	"/pose angry \r"
+	pause 2
+	"/pose kneel \r"
+	pause 1
+	"/pose lie \r"
+	
+	pause 1
+	"/pose kneel \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose akimbo \r"
+	pause 2
+	"/pose salute \r"
+	"/pose stand south \r"
+	"/pose attack west \r"
+	pause 1
+	"/pose salute \r"
+	"/pose stand south \r"
+	"/pose attack east \r"
+}
+
+vog
+{
+	message "** dances.macro / vog **"
+	"/pose celebrate \r"
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 2
+	"/pose celebrate \r"
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 2
+	"/pose celebrate \r"
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	"/pose bless \r"
+	pause 5
+	"/pose celebrate \r"
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 2
+	"/pose celebrate \r"
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 2
+	"/pose celebrate \r"
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	"/pose leanright \r"
+	"/pose bless \r"
+	pause 5
+	"/pose bow \r"
+	pause 5
+	"/pose sit \r"
+}
+
+occupy
+{
+// get random think message
+	message "** dances.macro / occupy **"
+	call occupymsgs
+	random
+		"/think " occMsg " \r"
+	or
+		"/ponder " occMsg " \r"
+	or
+		"/whisper " occMsg " \r"
+	or
+		occMsg " \r"
+	or
+		"/STATUS /REMOVE \r"
+		"/STATUS " occMsg " \r"
+	or
+		occMsg " \r"
+	or
+		occMsg " \r"
+	or
+		occMsg " \r"
+	or
+		occMsg " \r"
+	or
+		occMsg " \r"
+	or
+		occMsg " \r"
+	or
+		occMsg " \r"
+	end random
+
+// call random dance
+	random
+		call aki
+	or
+		call chik
+	or
+		call mash
+	or
+		call rm
+	or
+		call shuf
+	or
+		call throb
+	or
+		call vog
+	end random
+
+// now dance the occupy dance
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 100
+}
+
+occupymsgs
+{
+message "** dances.macro / occupymsgs **"
+random
+	setglobal occMsg " Laughing Academy presents Occupy TC "
+or
+	setglobal occMsg " #occupy ʨ sponsored by Laughing Academy™ "
+or
+	setglobal occMsg " Occupado ∞ by Laughing Academy™ "
+or
+	setglobal occMsg " Largo wishes he could be here, but he sent me instead (占据 TC!) "
+or
+	setglobal occMsg " insert random ad here (לכבוש) "
+or
+	setglobal occMsg " Vote for Largo for Fen President for evar!!  (заемат) "
+or
+	setglobal occMsg " Blame Polerand - Occupy "
+or
+	setglobal occMsg " --- -.-. -.-. ..- .--. -.--  "
+or
+	setglobal occMsg " * "
+or
+	setglobal occMsg " 0uucby "
+or
+	setglobal occMsg " 占める "
+or
+	setglobal occMsg " beset "
+or
+	setglobal occMsg " zë "
+or
+	setglobal occMsg " احتلال "
+or
+	setglobal occMsg " գրավել "
+or
+	setglobal occMsg " tutmaq "
+or
+	setglobal occMsg " okupatzen "
+or
+	setglobal occMsg " займаць "
+or
+	setglobal occMsg " বাস করা "
+or
+	setglobal occMsg " заемат "
+or
+	setglobal occMsg " ocupar "
+or
+	setglobal occMsg " 占据 "
+or
+	setglobal occMsg " 佔據 "
+or
+	setglobal occMsg " zauzeti "
+or
+	setglobal occMsg " obsadit "
+or
+	setglobal occMsg " besætte "
+or
+	setglobal occMsg " bezetten "
+or
+	setglobal occMsg " hõivata "
+or
+	setglobal occMsg " maghawak "
+or
+	setglobal occMsg " miehittää "
+or
+	setglobal occMsg " occuper "
+or
+	setglobal occMsg " ocupar "
+or
+	setglobal occMsg " დაიკავებს "
+or
+	setglobal occMsg " καταλαμβάνουν "
+or
+	setglobal occMsg " ભોગવટો કરવો "
+or
+	setglobal occMsg " rete nan "
+or
+	setglobal occMsg " पर कब्जा "
+or
+	setglobal occMsg " foglalnak el "
+or
+	setglobal occMsg " hernema "
+or
+	setglobal occMsg " menempati "
+or
+	setglobal occMsg " áitiú "
+or
+	setglobal occMsg " occupare "
+or
+	setglobal occMsg " 占める "
+or
+	setglobal occMsg " ಆಕ್ರಮಿಸು "
+or
+	setglobal occMsg " 차지하다 "
+or
+	setglobal occMsg " obtinemus "
+or
+	setglobal occMsg " ieņemt "
+or
+	setglobal occMsg " užimti "
+or
+	setglobal occMsg " окупираат "
+or
+	setglobal occMsg " menduduki "
+or
+	setglobal occMsg " jokkupaw "
+or
+	setglobal occMsg " okkupere "
+or
+	setglobal occMsg " اشغال "
+or
+	setglobal occMsg " zająć "
+or
+	setglobal occMsg " занимать "
+or
+	setglobal occMsg " заузети "
+or
+	setglobal occMsg " obsadiť "
+or
+	setglobal occMsg " zasedajo "
+or
+	setglobal occMsg " ocupar "
+or
+	setglobal occMsg " anashughulika "
+or
+	setglobal occMsg " ockupera "
+or
+	setglobal occMsg " குடியிரு "
+or
+	setglobal occMsg " ఆక్రమించు "
+or
+	setglobal occMsg " ครอบครอง "
+or
+	setglobal occMsg " işgal "
+or
+	setglobal occMsg " займати "
+or
+	setglobal occMsg " قبضہ "
+or
+	setglobal occMsg " chiếm "
+or
+	setglobal occMsg " meddiannu "
+or
+	setglobal occMsg " פאַרנעמען "
+or
+	setglobal occMsg " translate is LA's friend... "
+or
+	setglobal occMsg " LA needs more markers 占据 "
+end random
+}
+
+message "===> Loaded dances.macro"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210224-Inu: 	Added this log.
+				Attributions: Largo and more I don't know.
+*/
