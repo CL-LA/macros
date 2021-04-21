@@ -1,0 +1,667 @@
+﻿//------------------------------------------------
+// funactions.mac
+//------------------------------------------------
+// This macro file is for fun and common things you do...
+// add yours with words that make sense to you...
+
+setglobal funactionsfilerevision "20210225-0100-0001"
+message "** funactions.mac **"
+
+set lsaveitem 		@my.left_item
+
+"afk"       "/ponder afk " @text "\r"
+"aki" 		"/pose akimbo \r"
+"ang" 		"/pose angry \r"
+"/at"  		"/pose attack " @text "\r"
+"/ate" 		"/pose attack east \r"
+"/atw" 		"/pose attack west \r"
+"bk" 	    "/action blows kisses to " @selplayer.simple_name "\r"
+"bless"     "/pose bless \r"
+"/bles" 	"/pose bless \r"
+"/bow"		"/pose bow \r"
+"/cele" 	"/pose celebrate \r"
+"/chuk"		"/action chuckles \r"
+"/clap"		call clap
+"/cof"     	"/action coughs \r"
+"/conk"		call conk
+"cry"       "/pose cry \r"
+"/afk"		call afkmacro
+"/dcr"   	call dcr
+"/doh"	 	call doh
+"/dream"	"/ponder coins.... kitties... furs.....coins...zzz \r"
+"gig"		"/action giggles \r"
+"hug"   	"/action hugs " @selplayer.simple_name "\r"
+"/hug"		"/action hugs " @text "\r"
+"/kirby"	"(>^-^)>"
+"/knl"		"/pose kneel \r"
+"/kneel" 	"/pose kneel \r"
+"laf"   	"/action laughs \r"
+"lay"   	"/pose lie \r"
+"ll" 		"/pose leanleft \r"
+"/lpush" 	call lpush
+"\lpush" 	call lpush
+"lr" 		"/pose leanright \r"
+"/nod"		"/action nods \r"
+"/noinet"	call noinet
+// "ps" 	call @text
+"\pie" 		call pie-o-matic
+"/pie" 		call pie-o-matic
+"/pika"		"(=^_^=)"
+"pom" 		call pie-o-matic
+"\pom" 		call pie-o-matic
+"/pom" 		call pie-o-matic
+"pll"    	"/pull " @text "\r"
+"psh"    	"/push " @text "\r"
+"/sal" 		"/pose salute \r"
+"/sb"		"/action tosses Smoochy Boochies at " @text "\r"
+"/sb1"		call smoochies
+"/shuf"		call shuffledance
+"/shx"		call shareMany
+"sings"     "/action sings tra la-la la-la...\r"
+"sit"   	"/pose seated \r"
+"sit2"  	"/pose sit \r"
+"sit3"		"/pose kneel \r"
+"sm"		"/action smiles " @text "\r"
+"sma"		"/action smiles at " @text "\r"
+"/snow"      "/usei 'pairofmittens' " @text "\r"
+"/spin"		call spinit @text
+"/spin2"	call spinX
+"/spinfall"		call spinfall
+"st"		"/pose stand \r"
+"/surp" 	"/pose surprised \r"
+"/toss"      "/usei 'mittens' " @text "\r"
+"/tog"		call toggle
+"wl" 		"/pose walkleft \r"
+"wr" 		"/pose walkright \r"
+"wv"		call waveaction
+"wva"		"/action waves at " @text "\r"
+"wub"		"/ponder wubb wubb wubb wubb \r"
+
+//== Longer Actions ============================================
+
+//=====================================================
+// AFKMACRO
+//=====================================================
+afkmacro
+{
+set @env.key_interrupts false
+set @env.click_interrupts false
+"/pose lie \r"
+"/action goes out of her mind for a bit \r"
+pause 12
+message AFKing with anti time-out active.
+setglobal mStop 0
+pause 1
+message "** Control-tab to stop."
+label notoloop
+	if mStop == 0
+		random
+			"/narrate singing ...\r"
+			pause 12
+			"/ponder I think I'm going out of my mind... \r"
+		or
+			"/narrate sings totally off key and lounge lizard like \r"
+			pause 12
+			"/ponder  Feelings... Nothing more than feelings \r"
+		or
+			"/narrate She is out of her mind I say! \r"
+		end random
+	else
+		goto endafk
+	end if
+	random
+		"/karma"
+	or
+		"/money"
+	end random
+	"\r"
+//	pause 400 - replace with a counter, any pause over 4 causes LAG
+	label LOOPY
+		if count < 400
+			set count + 1
+			goto LOOPY
+		end if
+//	end label LOOPY	
+goto notoloop
+LABEL endafk
+}
+
+//clap X times
+
+//=====================================================
+// CLAP
+//=====================================================
+clap
+{
+// Attribution: Inu 
+set clapNumber 0
+set clapTotal 5
+random
+	"/action applauds \r"
+	or 
+	"/action claps \r"
+	or
+	"/action claps wildly \r"
+end random
+
+if @text != ""
+	if @text > 0
+		set clapTotal @text
+	end if
+end if
+LABEL Clapping
+	set clapNumber + 1
+	"/pose bless \r"
+	"/pose akimbo \r"
+	if clapNumber < clapTotal
+		GOTO Clapping
+	end if
+end label
+}
+
+//=====================================================
+// CONK
+//=====================================================
+conk
+{
+// Attribution: Inu 
+	if @text == ""
+		"/action conks " @selplayer.simple_name " with her silly stick \r"
+	else
+		"/action conks " @text " with her silly stick \r"
+	end if
+}
+
+//=====================================================
+// DOH
+//=====================================================
+doh
+{ 
+// Attribution: Inu 
+	"/action slaps forehead \r" 
+	pause 5 
+	"doh! \r"
+}
+
+//=====================================================
+// LPUSH
+//=====================================================
+lpush
+{
+// Attribution: DragonHawk or Noivad 
+message "** Long Push activated."
+message "** Control-tab to stop."
+pause 1
+setglobal mStop 0
+pause 1
+if @text != ""
+	set pushee @text
+	goto loop
+end if
+if @selplayer.simple_name == ""
+	message "** /lpush <player> to push <player> or /lpush to push the selected player."
+	goto endlpush
+end if
+if @text == ""
+	set pushee @selplayer.simple_name
+	goto loop
+end if
+goto endlpush
+
+label loop
+	if mStop == 0
+		"/push " pushee "\r"
+		pause 14
+		goto loop
+	else
+		goto endlpush
+	end if
+end label
+LABEL endlpush
+message "** Long Push Stopped."
+}
+
+//=====================================================
+// ROTFL 
+//=====================================================
+"rotfl"
+{
+// Attribution : Inu
+"/action is Rolling on the floor laughing \r"
+"/pose lie \r"
+pause 1
+"/pose sit \r"
+pause 1
+"/pose lie \r"
+pause 1
+"/pose sit \r"
+pause 1
+"/pose lie \r"
+pause 1
+"/pose sit \r"
+"/action recovers her composure \r"
+}
+
+//=====================================================
+// ROTFL2 
+//=====================================================
+"rotfl2"
+{
+// Attribution : Inu
+"/action starts rolling on the floor laughing \r"
+"/pose lie \r"
+"hee hee \r"
+"/pose sit \r"
+pause 2
+"/action starts giggling again \r"
+"/pose lie \r"
+"ah ha ha-ah ha ha-hee hee hee \r"
+pause 1
+"/pose sit \r"
+pause 1
+"/pose lie \r"
+pause 1
+"/pose sit \r"
+"/action giggles \r"
+"spams the log \r"
+}
+
+//=====================================================
+// SHAREMANY
+//=====================================================
+//ShareMany 1.0 By Noivad
+shareMany 
+{
+set count 0
+label LOOPY
+   if count < @text.num_words
+      "/share "   @text.word[count] "\r"
+      set count + 1
+      pause 20
+      goto LOOPY
+   end if
+} 
+//=====================================================
+// SMOOCHIES
+//=====================================================
+smoochies
+{
+// Attribution: Inu 
+"/pose bow \r"
+"/pose cele \r"
+"/action tosses SMOOCHY BOOCHIES at everyone! \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+"/pose bow \r"
+"/pose cele \r"
+}
+
+//=====================================================
+// SPIN
+//=====================================================
+spin
+{
+// Attribution: Inu 
+	"/pose stand east \r"
+	"/pose stand southeast \r"
+    "/pose stand south \r"
+    "/pose stand southwest \r"
+    "/pose stand west \r"
+    "/pose stand northwest \r"
+    "/pose stand north \r"
+    "/pose stand northeast \r"
+}
+
+//=====================================================
+// SPIN2
+//=====================================================
+spin2
+{
+// Attribution: Inu 
+	"/pose stand south \r"
+	"/pose stand southeast \r"
+	"/pose stand east \r"
+	"/pose attack northeast \r"
+	"/pose stand north \r"
+	"/pose attack northwest \r"
+	"/pose stand west \r"
+	"/pose stand southwest \r"
+	random
+		"/pose akimbo \r"
+		or
+		"/pose surp \r"
+		or
+		"/pose bless \r"
+		or
+		"/pose angry \r"
+		or
+		"/pose leanright \r"
+	end random
+}
+
+//=====================================================
+// SPINIT
+//=====================================================
+spinit
+{
+set spinNumber 0
+set spinTotal 2
+if @text != ""
+     if @text > 0
+          set spinTotal @text
+     end if
+end if
+LABEL top_spin
+   set spinNumber + 1
+   call spin
+   if mStop == 0
+		if spinNumber < spinTotal
+			GOTO top_spin
+		end if
+	end if
+end label
+}
+
+//=====================================================
+// SPINX
+//=====================================================
+spinX
+{
+// Attribution: Inu 
+set spinNumber 0
+set spinTotal 2
+if @text != ""
+     if @text > 0
+          set spinTotal @text
+     end if
+end if
+LABEL top_spin
+   set spinNumber + 1
+   call spin2
+   if mStop == 0
+		if spinNumber < spinTotal
+			GOTO top_spin
+		end if
+	end if
+end label
+}
+
+//=====================================================
+// SPINFALL
+//=====================================================
+spinfall
+{
+// Attribution: Inu 
+set spinNumber 0
+set spinTotal 2
+if @text != ""
+    message "made it to custom spins"
+    set spinTotal @text.word[0]
+end if
+LABEL SpinFirst
+	set spinNumber + 1
+	call spin
+	if mStop == 0
+		if spinNumber < spinTotal
+			GOTO SpinFirst
+		end if
+	end if
+end	label
+"/pose lie \r"
+}
+
+//=====================================================
+// SHUFFLEDANCE
+//=====================================================
+shuffledance
+{
+// Attribution: Inu 
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+}
+
+//=====================================================
+// TOGGLE
+//=====================================================
+toggle
+{
+// Attribution: ? 
+   if @text.word[0] != ""
+      "/unshare " @text.word[0] "\r"
+      pause 12
+      "/share " @text.word[0] "\r"
+   end if
+}
+
+//=====================================================
+// NOINET
+//=====================================================
+// This macro outputs the URL for noivad.net
+noinet
+{
+// Attribution: Noivad 
+	set wordNumber 1
+	if @text.word[0] == "ts"
+		setglobal ssTarget @text.word[1]
+		message "targeting: " ssTarget
+		set wordNumber 2
+		"/thinkto " ssTarget
+	else if @text.word[0] == "tc"
+		"/thinkto " ssTarget
+	else if @text.word[0] == "wh"
+		"/whisper "
+	else if @text.word[0] == "say"
+	else 
+		message "*This macro outputs the noivad.net url for /files or the CL page."
+		pause 8
+		message "*Type 'wh', 'say', 'ts <name>' or 'tc' after /noinet for the send method."
+		pause 8
+		message "*Type 'clan', 'clump', 'files' or 'mp3s' after the send method."
+		pause 6
+		message "(i.e. '/noinet ts talin cl')"
+		goto endNoiNet
+	end if
+
+	" https://www.noivad.net/"
+	if @text.word[wordNumber] == "files"
+		"files/\r"
+	else if @text.word[wordNumber] == "clan"
+		"clanlord.php\r"
+	else if @text.word[wordNumber] == "clump"
+		"clump/\r"
+	else if @text.word[wordNumber] == "mp3s"
+		"mp3s/\r"
+	else 
+		@text.word[wordNumber] "\r"
+	end if
+LABEL endNoiNet
+}
+//=====================================================
+
+//=====================================================
+// WaveAction
+//=====================================================
+waveaction
+{
+// Attribution: Inu 
+	"/action waves \r"
+	"/pose cele \r"
+	pause 4
+	"/pose salute \r"
+	pause 12
+	"/pose seated \r"
+	
+}
+
+
+//=====================================================
+// Phineas' Pie-O-Matic
+//=====================================================
+// Pie-O-Matic!  Phineas  Jun 02
+// Why throw just one pie when you can throw them all?
+//
+// *** What we're doing ***
+// We're going to throw every pie in your inventory
+// at a predetermined target (Prue).  To do so:
+//
+// * We need to make sure that Prue is still around
+// * We need to make sure that we have a pie to throw
+// * Reload and fire again until all pies have been lobbed
+
+// You can specify a different target by
+// adding the target's name after the command:
+// Example: "pom phineas" will target Phineas instead of Prue
+
+// Revisions:
+
+
+pie-o-matic
+{
+   setglobal pies_thrown 0
+   // setglobal def_pie "DragonHawk"
+   call pom_confirm_target
+   if target_validation == pie_target
+      call pom_pie_management
+   else
+// If we get to here, then our target is not in the lands :/
+      message "*" pie_target "is hiding in the library like a coward!"
+   end if
+}
+
+// Here is where we throw all of our pies
+
+pom_pie_management
+{
+label another_pie
+   call pom_confirm_ammo
+   if pie_validation == "tangleberry pie"
+      setglobal pies_thrown + 1
+      call pom_load_and_throw
+      goto another_pie
+   else
+// If we get to here, then we have no more pies to throw! :(
+      message "* Take cover; we're out of pie-mmunition!"
+   end if
+}
+
+// Take a pie, throw a pie
+
+pom_load_and_throw
+{
+   "\equip \"tangleberry pie\"\r"
+   "\use " pie_target "\r"
+   message "* Fire number" pies_thrown "!"
+}
+
+// Confirm that we have pies left to throw
+
+pom_confirm_ammo
+{
+   "\selectitem\r"
+   setglobal pie_validation ""
+   "\selectitem \"tangleberry pie\"\r"
+   setglobal pie_validation @my.selected_item
+   "\selectitem\r"
+}
+
+// Confirm that our target is accessible
+
+pom_confirm_target
+{
+   "\select\r"
+   setglobal pie_target def_pie
+   if @text != ""
+      "\select " @text "\r"
+      setglobal pie_target @selplayer.simple_name
+   end if
+   if pie_target == ""
+      setglobal pie_target def_pie
+   end if
+   setglobal target_validation ""
+   "\select " pie_target "\r"
+   setglobal target_validation @selplayer.simple_name
+   "\select\r"
+} 
+
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+200XMMDD-Attributions: Noivad, Inu, Phineas, DragonHawk
+200611DD-Inu: Created long based on Noivad's and others abbreviation lists with many of my own
+		thrown in.
+20070521-Inu: Pie-o-Matic: Changed default target to DragonHawk
+20081004-inu: Pie-O-Matic: Moved default pie target to character file
+20210224-Inu: Added this log. Fixed afkmacro to replace pause 400 with counter to prevent lag.
+*/
