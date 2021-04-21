@@ -1,0 +1,115 @@
+// Exilepicker.macro
+//------------------------------------------------
+// Torin's Exile Picker Macro
+//------------------------------------------------
+// Picks a random exile
+setglobal ExilePickerfilerevision "20210225-0100-0001"
+
+//
+ExilePicker
+{
+//	message "* Exilepicker.macro / ExilePicker *"
+	if AmCadding == 1
+//		message "ExilePicker turned off"
+	else
+//		message "ExilePicker ON"
+		set numPlayers 0
+		"/select " @last "\r"
+		set lastExile @selplayer.simple_name
+		"/select " @first "\r"
+		set Exile[1] @selplayer.simple_name
+		if @selplayer.simple_name == lastExile
+			set numPlayers 1
+			goto ranPicker
+		end if
+		set exileCounter 1
+
+		label exileCountLoop
+		"/select " @next "\r"
+		set exileCounter + 1
+		set Exile[exileCounter] @selplayer.simple_name
+		if @selplayer.simple_name == lastExile
+			set numPlayers exileCounter
+			goto ranPicker
+		end if
+		goto exileCountLoop
+
+		label ranPicker
+		set ranPick @random
+		set ranPick % numPlayers
+		set ranPick + 1
+		set testexile Exile[ranPick]
+		if testexile == @my.simple_name
+			set ranPick +1
+		end if
+		setglobal randomExileClanning Exile[ranPick]
+		"/select " randomExileClanning "\r"
+		if modeVerbose == 1
+//			message picked: randomExileClanning
+		end if
+		label endexilepicker
+	end if
+}
+
+"/afkkarma" call afkkarma
+
+afkkarma
+{
+//	SoulHunter/Lexa posted on CL Discord
+    set names[1] "Pun'isher"
+    set names[2] "Kalian"
+    set names[3] "K'vynn"
+    set names[4] "Lorikeet"
+    set names[5] "Borzon"
+    set names[6] "Skirwan"
+    set names[7] "Mehan"
+    set names[8] "Haffron"
+    set names[9] "SoulHunter"
+    set names[10] "Lexa"
+	set names[11] "Mork"
+
+    set count 0
+    label randomKarma
+
+    set range 11 //always needs to be equal to the number of names
+    set number @random
+    set number % range
+    set number + 1
+    "\select " names[number] "\r"
+    pause 1
+
+    pause 1
+    if count > 20    //if we can't find a non-decay player after 20 tries give up
+        "\money \r"
+        goto end
+    else if   @selplayer.simple_name != ""
+        "\thank " @selplayer.simple_name " . \r"
+    else
+        set count + 1
+        goto randomKarma
+    end if
+
+    pause 3
+    if @env.textlog >= "Wait for it to decay"
+        set count + 1
+        goto randomKarma
+    end if
+
+    label end
+    pause 900
+    set count 0
+    goto randomKarma
+}
+message "===> Loaded ExilePicker.macro"
+
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+200XMMDD-Torin: Created macro.
+20080129-Inu: Fixed to stop picking myself.
+20090405-Inu: Fixing exit/karma message when cadding.
+20200602-Inu: Added in SoulHunter/Lexa's afkkarma from post on CL Discord #macro channel.
+20201012-Inu: Fixed missing end if in ExilePicker loop. 
+20210224-Inu: Added this log. 
+*/
