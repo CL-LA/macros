@@ -1,13 +1,13 @@
 //	This macro file will be loaded for the player it is named after. 
 // Make changes to this version and copy to InuTeisei file.
 setglobal	charfileused	"inu teisei-lc"
-setglobal   charfilerevision "20201012-2330-0006"
+setglobal   charfilerevision "20210417-1600-0002"
 message "This file IS NOT reloaded when you reload macros"
 
 include "Default"
 include "interviews.macro"
 include "layells.macro"
-include "moonstone_functions.txt"
+include "moonstone_functions.macro"
 include "songs.macro"
 include "superchicken-dances.macro"
 
@@ -55,6 +55,9 @@ include "superchicken-dances.macro"
 													// used in idle.macro
 	setglobal ThankExile	1						// turns on thank specific set of random exiles 
 													// used in idle.macro
+	setglobal thankreg 		" **Yay! You won the thank lottery! \r"
+	setglobal thankfnf	 	" **Yay! You won the friends and family thank lottery! \r"
+	setglobal tyt			"cat"					// used in Abbreviations to determine type of thank you
 	setglobal woc	 		"Asklepian Staff"		// Used by Quickchain.mac to re-equip 
 													// default right hand item.
 	
@@ -119,45 +122,6 @@ ReEquipShield
 // include "Debate.mac"
 
 
-"yk"    "/yell here kitty kitty \r"
 
-//== ROTFL ============================================
-"rotfl"
-{
-"/action is Rolling on the floor laughing \r"
-"/pose lie \r"
-pause 1
-"/pose sit \r"
-pause 1
-"/pose lie \r"
-pause 1
-"/pose sit \r"
-pause 1
-"/pose lie \r"
-pause 1
-"/pose sit \r"
-"/action recovers her composure \r"
-}
-
-//== ROTFL ============================================
-"rotfl2"
-{
-"/action starts rolling on the floor laughing \r"
-"/pose lie \r"
-"hee hee \r"
-"/pose sit \r"
-pause 2
-"/action starts giggling again \r"
-"/pose lie \r"
-"ah ha ha-ah ha ha-hee hee hee \r"
-pause 1
-"/pose sit \r"
-pause 1
-"/pose lie \r"
-pause 1
-"/pose sit \r"
-"/action giggles \r"
-"spams the log \r"
-}
 
 message "===> Loaded inu teisei character macro file"
