@@ -1,0 +1,95 @@
+// Laughing Academy yells {layells.macro}
+
+"ylc"	call yell-creedo
+"ylf"	call falling-yells
+"ylt"	call yell-tla
+
+clan-yell
+{
+	random
+		"/yell LA!, we ruleZ the spamstone \r"
+		or
+		"/yell LA! your falling specialists \r"
+		or
+		"/yell LA! falling at a snell near you \r"
+		or
+		"/yell LA!... Charge!... er no Run Run!!!! \r"
+		or
+		"/yell LA! rescue! ... oops. Make that We need one too! \r"
+		or
+		"/yell LA!...turning tragedy into comedy \r"
+		or
+		"/yell LA!... defending Puddleby by falling like zu!! \r"
+		or
+		"/yell LA! Have you fallen today? \r"
+		or
+		"/yell LA! If we're not falling, you must be dreaming! \r"
+		or
+		"/yell LA! We buy Thoomcare in bulk \r"
+		or
+		"/yell Last one there is a LA!™ member!! \r"
+		or
+		"/yell Hi Ho, Hi Ho, it's off to falLA we go... \r"
+		or
+		"/yell LA! Where do you want to fall to day \r"
+		or
+		"/yell LA! We guarantee to fall for you! \r"
+		or
+		"/yell LA!™ Going.. Going... Going... *THUD* \r"
+		or
+		"/yell ella ella eh eh eh \r"
+		or
+		"/yell bwa ha ha ha \r"
+		or
+		"/yell this space for rent \r"
+		or
+		"/yell . . . \r"
+		or
+		"/yell insert random stuff here \r"
+		or
+		"/yell Laughing Academy™ We aren't laughing with you... \r"
+		or
+		call yell-tla
+	end random
+}
+
+falling-yells
+{
+	random
+		"/yell LA!™ falling at a snell near you \r"
+		or
+		"/yell LA!™... Charge!... er no Run Run!!!! \r"
+		or
+		"/yell LA!™ rescue! ... oops. Make that We need one too! \r"
+		or
+		"/yell LA!™... defending Puddleby by falling like zu!! \r"
+		or
+		"/yell LA!™ Have you fallen today? \r"
+		or
+		"/yell LA!™ If we're not falling, you must be dreaming! \r"
+//		or
+	end random
+}
+yell-tla
+{
+"/yell tLA! \r" 
+pause 45
+"/yell little t, big L big A! \r"
+}
+
+yell-creedo
+{	
+	"/narrate The Laughing Academy Creed"
+	pause 20
+	"You must go blindly into the fight! \r"
+	pause 10
+	"Flailing away with all your might\r"
+	pause 10
+	"if you fall its a plus. \r" 
+	pause 10
+	"Because then you are..\r"
+	pause 10
+	"most like us!!!\r"
+	pause 10
+	"/yell LA to the death!!! of course...\r"
+}
