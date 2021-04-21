@@ -1,0 +1,560 @@
+setglobal moonstone_functionsfilerevision "20210225-0100-0001"
+/* --------------------------------------------------------------------------------------------------------------
+	| Healing Functions Rev.2.8.9 | CadTargetter 2.1 | Ultimate Cad 2.2.2 |
+                     | Asklepian 1.0 | SetBurst/Pulse 2.0.1 |
+-----------------------------------------------------------------------------------------------------------------
+ These macros are greatly enhanced versions of the QuickSwap Self-healing macro.
+ These macros settle into a single pulse loop when you equip your moonstone.
+ This works better than the ring (if you're not a super respia healer),
+ as long as you can equip your moonstone.
+ (If you use Gorvin’s RC2 macro, you can create a click set that
+ calls healclick & lockclicked to allow more click option.)
+ Bugs? Suggestions? Comments? write noivad -at- mac -dot- com.
+ Original QuickSwap macro, setting pulse/burst and fall detection
+ by Tarf. Modified by Noivad using Veer's feedback on the rev1 macro.
+ *******************************************************************************
+ Generate a new version at http://www.noivad.net/moonstone_functions-template.php
+ ********************* Installing, Setup and Activation Info ***************************
+ To include this macro in your active macros.
+
+   1. Save this file to your macros folder.
+
+   2. Open your character's macro file and type:
+
+   3. Include "moonstone_functions.txt"
+   (with the the double quotes)
+
+   3b.PC Users: either convert to PC format or rename the file  to "moonstone_functions.mac"
+
+   4. Edit Global Variable Section: Change the variable values to your items
+
+      4a. Copy the lines for myWeapon, healingDevice and auraHDevice to your character file.
+	  4b. In your character file, set the  ranged healing item as directed: 
+		Caduceus, Mercurial Staff, Asklepian or Asklepian Staff.
+      4c. Change myWeapon to your weapon of choice.
+	  4d. Save the changes made to your character file.
+
+[Optional Setup]
+   [5.] Set your pulse rate (in frames), and burst count in Global Variables
+   [6.] Edit Triggers Section: Change the triggers to your liking.
+        (i.e. from "  healClicked" to "shift-click healclicked")
+        Or add additional triggers
+        (i.e. "shift-control-click call healClicked" & "shift-click2 call lockClicked")
+
+******************************** Basic operation *******************************
+ "control-click" on player, heals them with your Caduceus or Mercurial Staff.
+ "control-click" on yourself equips you moonstone and goes into healing loop.
+ "control-click" on ground uses your Asklepian or Asklepian Staff.
+     (these are all callee through the "healClicked" function)
+
+ "F3" swaps your weapon and moonstone.
+
+ "F4" equips your Cad or Merc Staff and if a person is selected it tries
+  to cad them. If no one is selected it cads the last person you cadded.
+      (this is called through the "cadLastTarget" function)
+ ***************************** Global Variables **************************** */
+/* Copy the below three lines for myWeapon, gHealDev and auraHDevice to 
+/  your character file 
+setglobal auraHDevice 		"Asklepian" // Set to Asklepian or Asklepian Staff
+setglobal gHealDev 			"Caduceus" 	// set to Caduceus, Mercurial Staff, Asklepian, or Asklepian Staff
+setglobal myWeapon 			"dagger"  	// change this to your weapon of choice
+*/
+
+set cadTarget 		""
+set pulseRate 		16			//"pulseRate 4" = 4 frames or approximately 1 second
+set burstCount 		10			// burstCount 10 is equivalent to typing "/use 10"
+								//you can change the default here permanently
+								//or use the setpulse/setburst to change it on the fly.
+
+set sleepToggle 	1			// This is to allow you to turn off the healing loop if you
+								// sleep (add: {setglobal sleepToggle 1} to your sleep macro.
+set infiniteControl 0
+set rsaveitem 		@my.right_item
+set cadTarget[1] ""
+set cadTarget[2] ""
+set cadTarget[3] ""
+set cadTarget[4] ""
+set cadTarget[5] ""
+set cadTarget[6] ""
+set cadTarget[7] ""
+set cadTarget[8] ""
+set cadTarget[9] ""
+"/cads"		call listCadTargets
+
+set icon 0
+/* ******************************** Triggers ******************************** */
+F3 				call itemswap	//f3 switches between myWeapon and your moonstone,
+shift-F3 		call restartInfinityLoop
+F4 				call cadLastTarget
+shift-F4		call useAsklepian
+
+numpad-1 		call staticTarget1
+alt-numpad-1	call staticTarget1Set
+numpad-2		call staticTarget2
+alt-numpad-2	call staticTarget2Set
+numpad-3		call staticTarget3
+alt-numpad-3	call staticTarget3Set
+numpad-4		call staticTarget4
+alt-numpad-4	call staticTarget4Set
+numpad-5		call staticTarget5
+alt-numpad-5	call staticTarget5Set
+numpad-6		call staticTarget6
+alt-numpad-6	call staticTarget6Set
+numpad-7		call staticTarget7
+alt-numpad-7	call staticTarget7Set
+numpad-8		call staticTarget8
+alt-numpad-8	call staticTarget8Set
+numpad-9		call staticTarget9
+alt-numpad-9	call staticTarget9Set
+
+"setpulse"		call pulseRateSet
+"setburst"		call burstAmountSet
+
+control-click 	call healClicked  		//<--comment out if using Gorvin's rightclicker (RC2) macro
+shift-control-click call lockClicked 	//<--comment out if using Gorvin's rightclicker (RC2) macro
+
+/* ------------------------- Moonstone Functions 2.8.9 ---------------------- */
+/* ---------------------------- Ultimate Cad 2.2.2 -------------------------- */
+//This section copies Tarf's Ultimate Cad Macro, and bolts on the healing loop
+
+burstAmountSet
+{
+set max 100
+if @text == ""
+	"Type a number after typing \"setburst\". Type \"setburst ?\" for help."
+else if @text == "?"
+	message "Type the number of uses for burst self-healing: \"setburst <number>\""
+	pause 8
+	message "The maximum uses in one burst is " max "."
+	pause 8
+	message "Curent burst rate is " burstCount
+	pause 2
+	"burstRate"
+else if @text <= max
+	setglobal burstCount @text
+else
+	message  @text "is out of scope. Type \"setpulse ?\" for help."
+end if
+}
+
+burster
+{						//or it prematurely end. (I'm looking into that bug.)
+setglobal infiniteControl 0
+setglobal sleepToggle 0
+call moonswap
+	pause 1
+	"/use " burstCount " \r"
+//	"/pose Akimbo \r"
+	pause pulseRate
+	setglobal infiniteControl 0
+	setglobal sleepToggle 0
+	call infinityloop
+}
+
+cadLastTarget //f4 equips your healing device (set above)
+{	// & heals the currently selected person.
+if @my.right_item != gHealDev
+	"/equip " gHealDev " \r"
+end if
+ "\use " cadTarget " \r"
+ }
+
+cadswap
+{
+if @my.right_item != gHealDev
+	"/equip " gHealDev " \r"
+	if icon == 1
+		"/options icon unarmed \r"
+		"/pose attack East \r"
+		setglobal icon 0
+	end if
+end if
+}
+
+healClicked
+{
+ if startup == 1
+	setglobal startup 0
+	message "healClicked Online"
+ end if
+ "/select " @click.simple_name "\r"
+	if @my.right_item == "chain"
+		"/pull " @selplayer.name "\r"
+		message "***Chaining, please use F3 or F4 to switch to your moonstone or cad.***"
+	else
+			call cadswap
+			setglobal cadTarget @selplayer.simple_name
+			//message "You are healing " @selplayer.name
+			"/use " cadTarget "\r"
+	end if
+ end if
+}
+
+infinityloop			//this loop makes constant self-healing possible
+{
+set @env.key_interrupts false
+set i 0
+label infinity
+if sleepToggle == 0
+if infiniteControl != 1
+	if i <= 120
+		set i + 1
+		if @my.right_item == "moonstone"	//checks to make sure you have the moonstone equiped
+				"/use\r"
+				pause 1
+				if @env.textLog < "in your current condition." //if you fall this stops the loop
+					setglobal infiniteControl 1
+				end if
+				pause pulseRate
+				goto infinity
+		else
+			pause 1
+			setglobal infiniteControl 1
+		end if
+	else
+		pause pulseRate
+		set i 0
+		pause pulseRate
+		call burster
+		goto infinity
+	end if
+end if
+end if
+if infiniteControl != 1
+	message "Constant healing loop has ended. To restart please press shift-f3"
+end if
+}
+
+itemswap
+{
+set @env.key_interrupts true
+if @my.right_item != "moonstone"
+	setglobal rsaveitem @my.right_item
+	"/equip moonstone \r"
+	if icon == 1
+		"/options icon unarmed \r"
+		setglobal icon 0
+	end if
+	pause 1
+	"/use " burstCount "\r"
+	pause pulseRate
+	setglobal infiniteControl 0
+	setglobal sleepToggle 0
+	call infinityloop
+else if @my.right_item != myWeapon
+	setglobal rsaveitem @my.right_item
+	setglobal infiniteControl 1
+	setglobal sleepToggle 0
+	"/equip " myWeapon "\r"
+	if icon == 0
+		"/options icon armed \r"
+		setglobal icon 1
+	end if
+end if
+}
+
+listCadTargets
+{
+set n 1
+set t 1
+LABEL loopListCadTargets
+	message "*Set " cadTarget[n] " as cad target [" t "]."
+	set n + 1
+	set t + 1
+	if n < 10 
+		goto loopListCadTargets
+	end if
+}
+
+lockClicked
+{
+$any_click
+"/select " @clicksplayer "\r"
+	if @selplayer.simple_name == ""
+		call useAsklepian
+	else
+		if @selplayer.simple_name == @my.name
+			call burster
+		else
+			call cadswap
+			"/use /lock " @selplayer.simple_name "\r"
+			message "You are healing " @selplayer.name
+		end if
+	end if
+}
+
+moonswap
+{
+set burstRate pulseRate
+set burstRate * 2
+set swaploop 3
+set @env.key_interrupts true
+	if @my.right_item != "moonstone"
+		setglobal rsaveitem @my.right_item
+		"/equip moonstone\r"
+		if icon == 1
+			"/options icon unarmed\r"
+			setglobal icon 0
+		end if
+	end if
+}
+
+
+/* ---------------------- Pulse and Burst Sets v2.0.1  ----------------------- */
+pulseRateSet
+{
+set max 40
+if @text == "?"
+	message "This command lets the interval (in frames) between moonstone uses (called pulses)."
+	pause 10
+	message "CL runs at 4 fps (3fps primetime), "
+	message "the maximum interval you can set is " max 
+	message "frames unless you type \"setpulse override <num>\""
+	pause 10
+	message " Current pulse interval is " pulseRate " frames."
+	"setpulse "
+else if @text < "override"
+	setglobal pulseRate @text.word[1]
+else if @text <= max
+	if @text > 1
+		setglobal pulseRate @text
+		message "pulse rate is now " pulseRate
+	else if @text < 1
+		setglobal pulseRate 0
+		message "Minimum pulse interval is 1 frame."
+	end if
+else
+	message  @text "is out of scope. Type \"setpulse ?\" for help."
+	"setpulse"
+end if
+}
+
+restartInfinityLoop
+{
+call itemswap
+call infinityloop
+setglobal sleepToggle 0
+setglobal infiniteControl 0
+}
+
+/* ------------------------------- Asklepian 1.0 ---------------------------- */
+useAsklepian
+{
+if @my.right_item != auraHDevice
+	"/equip " auraHDevice "\r"
+end if
+"/use\r"
+// "/pose bless\r"
+}
+
+/* **************************** CadTargetter 2.2 *****************************
+ As of version 2.2 you can now set cad targets of up to 9 people.
+ Setting Cad targets is easy, you click on a player and hit numpad 1 through 9
+ the first time you set this.
+ When you want to reset it to a new person hit <ALT>+numpad 1 through 9.
+ Hitting <ALT>+Numpad 1(-9) again on a person already set as that numpad key will cad-lock them now.
+ This version 2.2 changes the keys used to the numpad keys due to problems with OS default F-key assignments
+***************************************************************************** */
+staticTargetSet
+{
+setglobal ThankRandom	0
+if cadTarget[n] == @selplayer.simple_name
+	"/use /lock " cadTarget[n] " \r"
+else
+	setglobal  cadTarget[n]  @selplayer.simple_name
+	"/use " cadTarget[n] " \r"
+	message "*Set " cadTarget[n] " as cad target [" t "]."
+end if
+}
+
+
+staticTarget1
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[1] == ""
+	setglobal cadTarget[1] @selplayer.simple_name
+	message "*Set " cadTarget[1] " as cad target numpad-1."
+end if
+"/select " cadTarget[1] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget1Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 1
+setglobal t numpad-1
+call staticTargetSet
+}
+
+staticTarget2
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[2] == ""
+	setglobal cadTarget[2] @selplayer.simple_name
+	message "*Set " cadTarget[2] " as cad target numpad-2." 
+end if
+"/select " cadTarget[2] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget2Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 2
+setglobal t numpad-2
+call staticTargetSet
+}
+
+staticTarget3
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[3] == ""
+	setglobal cadTarget[3] @selplayer.simple_name
+	message "*Set " cadTarget[3] " as cad target numpad-3."
+end if
+"/select " cadTarget[3] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget3Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 3
+setglobal t numpad-3
+call staticTargetSet
+}
+
+staticTarget4
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[4] == ""
+	setglobal cadTarget[4] @selplayer.simple_name
+	message "*Set " cadTarget[4] " as cad target numpad-4."
+end if
+"/select " cadTarget[4] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget4Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 4
+setglobal t numpad-4
+call staticTargetSet
+}
+
+staticTarget5
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[5] == ""
+	setglobal cadTarget[5] @selplayer.simple_name
+	message "*Set " cadTarget[5] " as cad target numpad-5."
+end if
+"/select " cadTarget[5] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget5Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 5
+setglobal t numpad-5
+call staticTargetSet
+}
+
+staticTarget6
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[6] == ""
+	setglobal cadTarget[6] @selplayer.simple_name
+	message "*Set " cadTarget[6] " as cad target numpad-6."
+end if
+"/select " cadTarget[6] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget6Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 6
+setglobal t numpad-6
+call staticTargetSet
+}
+
+staticTarget7
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[7] == ""
+	setglobal cadTarget[7] @selplayer.simple_name
+	message "*Set " cadTarget[7] " as cad target numpad-7."
+end if
+"/select " cadTarget[7] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget7Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 7
+setglobal t numpad-7
+call staticTargetSet
+}
+
+staticTarget8
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[8] == ""
+	setglobal cadTarget[8] @selplayer.simple_name
+	message "*Set " cadTarget[8] " as cad target numpad-8."
+end if
+"/select " cadTarget[8] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget8Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 8
+setglobal t numpad-8
+call staticTargetSet
+}
+
+staticTarget9
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[9] == ""
+	setglobal cadTarget[9] @selplayer.simple_name
+	message "*Set " cadTarget[9] " as cad target numpad-9."
+end if
+"/select " cadTarget[9] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget9Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 9
+setglobal t numpad-9
+call staticTargetSet
+}
+
+message "===> Loaded moonstone_functions.txt"
