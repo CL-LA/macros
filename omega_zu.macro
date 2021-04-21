@@ -1,0 +1,168 @@
+setglobal omega_zufilerevision "20210225-0100-0001"
+
+//------------------------------------------------
+// omega_zu.macro
+//-----------------------Omega Zu Macro v3.4.1b-------------------------
+// 
+// This macro not only plants seeds, loads seeds into bags and removes seeds 
+// from bags, but you never have to manually equip a bag again.
+// When you run out of seeds in a bag, it automagically changes 
+// to the next bag number in your inventory.
+// When it reaches your last bag and you run out of seeds, it switches to the
+// first bag, all without using an error prone scanner. There is no planting
+// delay either. This is the end of all kudzu macros. (Until I make it 
+// load one if the current bag is full without using a scanner.)
+//
+// Here's a quick start for you:
+// by default:
+// f6:			plants a seed from your bag
+// shift-f6:	loads a seed into your bag
+// ctrl-f6:	removes a seed from your bag
+// type: "/set ?" for the following instructions:
+// type: "/set bag {number}" to set which bag you want to start pulling seeds from
+// type: "/set bag ?" to see which bag is to be selected
+// type: "/set maxbag {number}" to change the nmuber of kudzu bags you're carrying
+// type: "/set maxbag ?" to see what your maximum number of kudzu bags is set to.
+// "/get" is purely for diagnostic purposes should DT change the location 
+//        of the seed count.
+// Note: 
+//   (1) Keys are assigned in Default (aka AlternateDefault).
+//   (2) Set the number of Kudzu bags that you carry in Default (aka AlternateDefault), global var NumZuBags
+//   (3) Set code has been moved to Default (aka AlternateDefault) set section.
+
+set bag_number 1
+set max_bag    NumZuBags
+set zu_opener  1
+set seed_count  0
+set next_seed 0
+set digits 0
+set bag_check 0
+set trap_count 0
+
+f6			call zu-stuff		// omega_zu.mac
+shift-F6	call zu-add			// omega_zu.mac
+control-f6	call zu-remove		// omega_zu.mac
+
+//Kudzu Macros. see "/set" command for more info
+
+zu-stuff
+{
+message "** omega_zu.macro / zu-stuff **"
+//Checks to make sure you have your bag equipped.
+if @my.left_item != "bag of kudzu seedlings"
+	"/equip bag of kudzu seedlings " bag_number "\r"
+	 pause 1
+else
+	message "Kudzu Ready"
+	if zu_opener == 1
+		message "to set the number of kudzu bags you have use '/set maxbag #'"
+		message "to set the bag you wish to start with: '/set bag #'"
+	setglobal zu_opener 0
+	end if
+end if
+//check number of seeds in the bag
+message "1st seed check:"
+call SeedCheck
+// Checks to see if you are out of seeds in the next 2 bags
+	if seed_count == "0"
+		setglobal bag_number + 1
+		if bag_number > max_bag
+			setglobal bag_number 1
+		end if
+		"/equip bag of kudzu seedlings " bag_number "\r"
+		call SeedCheck
+		if seed_count == "0"
+			message "You are out of Kudzu Seeds!"
+			goto end
+		end if
+	else
+	//this checks to see if your bag is still full: if your pack is full 
+		setglobal next_seed seed_count
+		setglobal next_seed - 1 
+		message "next Seed:" next_seed
+		"/useitem left\r"
+		message "2nd seed check:"
+		call SeedCheck
+	//this part plants straight fom your pack
+		if next_seed != seed_count
+			"/equip kudzu seedling\r"
+			pause 1
+			"/useitem left\r"
+		    //"/action pretends to plant a seed from his pack.\r"
+			pause 1
+			"/equip bag of kudzu seedlings " bag_number "\r"
+		end if
+	end if		
+	label end
+}
+
+//check number of seeds in the bag
+SeedCheck
+{
+message "** omega_zu.macro / SeedCheck **"
+setglobal digits @my.left_item.word[5].num_letters
+message "digits:" digits
+if digits == 3
+	setglobal seed_count 10
+else 
+	setglobal seed_count @my.left_item.word[5].letter[5]
+end if
+message "current seed count" seed_count
+}
+
+// This adds seeds to your bag
+zu-add
+{
+message "** omega_zu.macro / zu-add **"
+if @my.left_item < "bag of kudzu seedlings"
+else
+	"/equip bag of kudzu seedlings " bag_number "\r" 
+end if
+
+label grabbag
+setglobal trap_count + 1
+if bag_check < max_bag
+	call SeedCheck
+	if seed_count < 10
+		"/useitem left /add kudzuseedling \r"
+	else
+		if bag_number < max_bag
+			setglobal bag_number + 1
+		else
+			setglobal bag_number 1
+		end if
+		"/equip bag of kudzu seedlings " bag_number "\r"
+		setglobal bag_check + 1
+		if trap_count > 10
+			goto end
+		end if
+		
+	end if
+else setglobal bag_number 1
+end if
+label end
+}
+
+zu-remove
+// This removes a seed from your bag
+{
+message "** omega_zu.macro / zu-remove **"
+if @my.left_item != "bag of kudzu seedlings"
+	"/selectitem \"bag of kudzu seedlings <#" bag_number "\"\r"
+	pause 1
+	"/equip bag of kudzu seedlings " bag_number "\r"
+	else
+	message "Kudzu Ready"
+end if
+	"/useitem left /remove \r"
+}
+
+
+//Beta Seedling loop test
+"/testseedscan"
+{
+set ItemCount @env.inventory.num_words
+message ItemCount
+}
+
+message "===> Loaded omega_zu.macro"
