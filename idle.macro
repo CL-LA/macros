@@ -1,0 +1,373 @@
+// idle.mac
+// START: DHAwakeAFK integration
+//------------------------------------------------
+
+setglobal idlemacrofilerevision "20210420-2100-0011"
+
+idleMe
+{
+	if IdleCount > gIdleTime		// Only execute this part one time per gIdleTime period
+		if messageStatus == 1
+//			message "[17]** idle.macro / idleMe **"
+		end if
+//		pause 100
+	label LOOPY1
+		if count1 < 100
+			set count1 + 1
+			goto LOOPY1
+		end if
+//	end label LOOPY1
+		setglobal thankcounter + 100
+		label DHAwakeAFK
+		"/karma \r"
+		set scanText @env.textLog
+		if scanText < "You have karma to give."
+			if thankcounter < thankcooloff
+//				message "idle[26]:thankcounter was = " thankcounter
+				setglobal thankcounter thankcooloff
+//				message "idle[28]:Set thankcounter to trigger next go around = " thankcounter
+			end if
+		end if
+//		message "idle[31]::** ThankExile **::"
+		label pickanotherexile
+		if ThankRandom == 1			// if thank a random exile from those clanning is turned on in Character file
+			call ExilePicker
+		end if // ThankRandom
+		if ThankExile == 1			// if thank one of these exiles is turned on in Character file
+			random
+				setglobal randomExileClanning " Aurelie "
+			or
+				setglobal randomExileClanning " Connie "
+			or
+				setglobal randomExileClanning " Coriakin "
+			or
+				setglobal randomExileClanning " Dandelion "					
+			or
+				setglobal randomExileClanning " JoMaril "
+			or
+				setglobal randomExileClanning " Kori "
+			or
+				setglobal randomExileClanning " Kvynn "
+			or
+				setglobal randomExileClanning " Largo "
+			or
+				setglobal randomExileClanning " Lorikeet "
+			or
+				setglobal randomExileClanning " Luna "
+			or
+				setglobal randomExileClanning " Maximus "
+			or
+				setglobal randomExileClanning " Mehan "
+			or
+				setglobal randomExileClanning " Mork "
+			or
+				setglobal randomExileClanning " Phroon "
+			or
+				setglobal randomExileClanning " Pirate "
+			or
+				setglobal randomExileClanning " Punisher "
+			or
+				setglobal randomExileClanning " Skirwan "
+			or
+				setglobal randomExileClanning " Taryn "
+			end random
+		end if			// ThankExile
+/*
+REMOVED EXILES UNTIL THEY COME BACK
+			or
+				setglobal randomExileClanning " DragonHawk "
+			or
+				setglobal randomExileClanning " Drablak "
+			or
+				setglobal randomExileClanning " Finegas "
+			or
+				setglobal randomExileClanning " Frozenham "
+			or
+				setglobal randomExileClanning " Geotzu "
+			or
+				setglobal randomExileClanning " Gremlins "
+			or
+				setglobal randomExileClanning " Kalypso "
+			or
+				setglobal randomExileClanning " Matt "
+			or
+				setglobal randomExileClanning " Measle "
+			or
+				setglobal randomExileClanning " Mirabel "
+			or
+				setglobal randomExileClanning " MrFancyPants "
+			or
+				setglobal randomExileClanning " Odesseus "
+			or
+				setglobal randomExileClanning " Omega "
+			or
+				setglobal randomExileClanning " Paramedic "
+			or
+				setglobal randomExileClanning " Superchicken "
+			or
+				setglobal randomExileClanning " StarswordEojek "
+*/		
+		if thankcounter >= thankcooloff
+//			message "idle[104]:thankcounter = " thankcounter
+//			message "idle[105]:randomExileClanning is = " randomExileClanning
+			if @my.name == "inu teisei"
+				"/thank " randomExileClanning thankfnf
+			else
+				"/thank " randomExileClanning thankreg
+			end if
+			set scanText @env.textLog
+			if scanText < "You gave signed good karma to "
+				setglobal thankcounter 1
+				setglobal pickanother 0
+//				message "idle[111]:thanked randomExileClanning = " randomExileClanning
+				if resetAmCadding == 1
+					setglobal AmCadding 1
+				end if
+				setglobal redopickexilecounter 0
+			end if
+			if scanText < "is not in the lands."
+				setglobal pickanother 1
+//				message "idle[119]: set pickanother from is not in the lands."
+			end if
+			if scanText < " as much good karma as is allowed."
+				setglobal pickanother 1
+//				message "idle[123]: set pickanother from is not in the lands."
+			end if
+			if pickanother == 1
+//				message "idle[126]: pickanother is " pickanother
+				setglobal thankcounter + 1
+//				message "idle[128]:randomExileClanning was = " randomExileClanning
+				setglobal redopickexilecounter + 1
+//				message "idle[130]:redopickexilecounter is = " redopickexilecounter
+				if redopickexilecounter >= 30
+					if ThankRandom == 0
+						setglobal ThankRandom 1
+//						message "idle[134] temporarily turning ON ThankRandom "
+					end if
+					if AmCadding == 1
+						setglobal resetAmCadding 1
+						setglobal AmCadding 0
+//						message "idle[139] temporarily turning OFF AmCadding"
+					end if
+					setglobal resetPickexileclanning 1
+				else
+					goto pickanotherexile
+				end if
+			end if
+			if scanText < "You gave signed good karma to "
+				setglobal thankcounter 1
+				setglobal pickanother 0
+//				message "idle[149]:thanked randomExileClanning = " randomExileClanning
+				if resetAmCadding == 1
+					setglobal AmCadding 1
+				end if
+				if resetPickexileclanning == 1
+					setglobal redopickexilecounter 0
+				end if
+			end if
+		end if // thankcounter
+//		message "idle[158]:thankcounter = " thankcounter
+//		message "idle[159]:redopickexilecounter = " redopickexilecounter
+		
+//		"/pose sit \r"
+		random	// other actions
+//			message "idle[163]::** CheckMoney **::"
+			"/money \r"
+			if ThankRandom == 0
+				set infoExileClanning @selplayer.simple_name
+//				message "idle[167]:infoExileClanning = " infoExileClanning
+			end if
+			if InfoExile == 1
+				"/info " infoExileClanning " \r"
+			end if
+//			"/pose thoughtful \r"
+		or
+//			message "idle[174]::** InfoRandomExile **::"
+			if ThankRandom == 0
+				set infoExileClanning @selplayer.simple_name
+//				message "idle[177]: infoExileClanning = " infoExileClanning
+			end if
+			if InfoExile == 1
+				"/info " infoExileClanning " \r"
+			end if
+		or
+//			message "idle[183]::** OccupyRandom **::"
+			if OccupyRandom == 1
+//				message "idle[185]::** OCCUPY **::"
+				call occupy
+			end if
+		end random // other actions
+		if OccupyRandom == 1
+//			message "idle[190]::** OccupyRandom is 1 **::"
+			if even == 0
+				"\move e walk \r"
+				"\move w walk \r"
+				"\move e walk \r"
+				set even 1
+			else
+				"\move w walk \r"
+				"\move e walk \r"
+				"\move w walk \r"
+				set even 0
+			end if
+			"\move stop \r"
+			pause 4
+			"\pose leanleft \r"
+		end if // OccupyRandom
+		
+		if messageStatus == 1
+//			message "idle[218]:: ** Random idle section **"
+		end if
+		
+		random // idle
+			setglobal pausecount 180
+//			setglobal thankcounter + 180
+		or
+			setglobal pausecount 170
+//			setglobal thankcounter + 170
+		or
+			setglobal pausecount 160
+//			setglobal thankcounter + 160
+		or
+			setglobal pausecount 150
+//			setglobal thankcounter + 150
+		or
+			setglobal pausecount 140
+//			setglobal thankcounter + 140
+		or
+			setglobal pausecount 130
+//			setglobal thankcounter + 130
+		or
+			setglobal pausecount 120
+//			setglobal thankcounter + 120
+		or
+			setglobal pausecount 110
+//			setglobal thankcounter + 110
+		or
+			setglobal pausecount 100
+//			setglobal thankcounter + 100
+		or
+			setglobal pausecount 90
+//			setglobal thankcounter + 90
+		or
+			setglobal pausecount 80
+//			setglobal thankcounter + 80
+		or
+			setglobal pausecount 70
+//			setglobal thankcounter + 70
+		or
+			setglobal pausecount 60
+//			setglobal thankcounter + 60
+		or
+			setglobal pausecount 50
+//			setglobal thankcounter + 50
+		or
+			setglobal pausecount 40
+//			setglobal thankcounter + 40
+		or
+			setglobal pausecount 30
+//			setglobal thankcounter + 30
+		end random // idle
+		setglobal thankcounter + pausecount
+	label LOOPY2
+		if count2 < pausecount
+			set count2 + 1
+			goto LOOPY2
+		end if
+//	end label LOOPY2	
+		if messageStatus == 1
+//			message "idle[262]:** Random action section **"
+		end if
+
+		if AmCadding == 0
+			random // action poses
+				"/pose akimbo \r"
+				"/pose lie \r"
+			or
+				"/pose angry \r"
+				"/pose lie \r"
+			or
+				"/pose attack east \r"
+				"/pose lie \r"
+			or
+				"/pose attack north \r"
+				"/pose lie \r"
+			or
+				"/pose attack south \r"
+				"/pose lie \r"
+			or
+				"/pose attack west \r"
+				"/pose lie \r"
+			or
+				"/pose bless \r"
+				"/pose lie \r"
+			or
+				"/pose bow \r"
+//				"/action prays to the god Eldon \r"
+				pause 15
+				"/pose lie \r"
+			or
+				"/pose celebrate \r"
+				pause 15
+				"/pose lie \r"
+			or
+				"/pose cry \r"
+				"/pose lie \r"
+			or
+				"/pose kneel \r"
+			or
+				"/pose leanleft \r"
+				"/pose lie \r"
+			or
+				"/pose leanright \r"
+				"/pose lie \r"
+			or
+				"/pose lie \r"
+			or
+				"/pose salute \r"
+				"/pose lie \r"
+			or
+				"/pose seated \r"
+			or
+				"/pose sit \r"
+			or
+				"/pose surprised \r"
+				"/pose lie \r"
+			or
+				"/pose thoughtful \r"
+				"/pose lie \r"
+			or
+				"/pose walkleft \r"
+				"/pose lie \r"
+			or
+				"/pose walkright \r"
+				"/pose lie \r"
+			end random // action poses
+		end if	// AmCadding == 0 - action poses
+		set IdleCount 0
+	end if // IdleCount > gIdleTime
+	setglobal thankcounter + 1 		// cool off counter for thanking-GK
+	set IdleCount + 1
+//	when IdleCount exceeds global gIdleTime from character file
+//	this will return to GoScanner.Macro at "label returnFromIdleMe"
+//	somewhere around line 140
+}
+
+//------------------------------------------------
+// END: DHAwakeAFK integration
+//------------------------------------------------
+
+message "idle[343]:: ===> Loaded idle.macro"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+Attributions: Idle and awakeafk macros by DragonHawk, others by Raul and Noivad
+200XMMDD-Inu: Adding Idle macro to this one big loop to stop possible conflicts between the two
+20180630-Inu: Moved out of default to shorten the length of that file. Moved DHAwakeAFK to idle.mac.  
+			  All Called functions return by default. So no need for Goto at end.
+20201011-Inu: Added additional logic to allow for thanking as soon as possible using thankcounter
+			  Added two different modes of thanking, original random exile clanning ThankRandom
+			  and the new friends and family list ThankExile - also randomized.
+20210224-Inu: Moved this log.
+*/
