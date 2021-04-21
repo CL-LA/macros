@@ -1,0 +1,183 @@
+//------------------------------------------------
+// default
+//------------------------------------------------
+// This macro file is included for every character by default.
+// Use it for general macros that you want available to all characters.
+
+setglobal defaultfilerevision "20210225-0100-0008"
+
+include "abbreviations.macro"			// Common abbreviations contributed by many.
+include "dances.macro"					// A collection of dances, including a random picker.
+include "DefShares.macro"				// Default shares used across all characters.
+include "Exilepicker.macro"				// Torin's exile picker macro. Used in thank exile loop.
+include "funactions.macro"
+include "globalset.macro"
+include "GoScanner.macro"
+include "idle.macro"					// main idle loop, where thank exile loop resides
+include "keys.macro"
+include "omega_zu.macro"				// Omega's Zu macro with mods by Noivad
+include "quickchain.macro"
+include "readtext2.macro"
+include "shares.macro"
+include "storahelp.macro"
+include "sunstone.macro"
+include "tc_macro.macro"				// think clan and think group macros
+include "directions.macro"
+// include "moneycount.macro"
+
+@login
+{
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- BEGIN SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// 1. Copy this section to your Character's file (Global Variables Defined), including comments
+// 2. Remove the // before the setglobal (in columns 1-2 only)
+// 3. Save your changes
+// 4. Reload your macros
+// ----------------------------------------------
+//	setglobal chaintype     "chain"         	// Used by Quickchain.macro.
+//	setglobal defpie  		"DragonHawk"		// Used by Pie-O-Matic in funactions.macro
+//	setglobal gIdleTime		100					// Set this to the desired pause time for idle.macro 
+//												// (every 4 = 1 second approximately)
+//	setglobal InfoExile 	0					// Turns off exile info by default. Used in idle.macro.
+//												// set can change it.
+//	setglobal MySunStone	sungem				// Set this to your sunstone. Used in sunstone & tc_macro.
+//	setglobal NumZuBags		3					// the number of kudzu bags you carry. Used in omega_zu.macro
+//	setglobal OccupyRandom	0					// 1 = Occupy is on. Any other value = Occupy is OFF. 
+//												// Used in idle.macro
+//	setglobal scanBreak 	0 					// Enables scanner to run continuously. Used in GoScanner.macro
+//	setglobal ThankRandom	0					// turns on thank random for any exile clanning. 
+//												// Used in idle.macro
+//	setglobal ThankExile	1					// turns on thank specific set of random exiles. 
+//												// Used in idle.macro
+//  Healer specific global variabbles
+//	setglobal woc	 		"Mercurial Staff"	// Used by Quickchain.macro to re-equip default right hand item.
+//	setglobal AmCadding		1					// 1 disables ExilePicker, 0 enables ExilePicker. 
+//												// Used by exilepicker.macro and idle.macro
+//	The below are used in moonstone_functions.txt
+//	setglobal myWeapon 		"dagger"  			// change this to your weapon of choice. 
+//	setglobal healingDevice "Mercurial Staff" 	// set to "Caduceus" or "Mercurial Staff"
+//	setglobal auraHDevice 	"Asklepian" 		// Set this to "Asklepian" or "Asklepian Staff"
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- END SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+message "********* RELOADED MACROS *********"
+"\options speech zoom \r"
+message "Character File Used -- " charfileused
+message "Character File Rev	-- " charfilerevision
+message "Default File Rev	-- " defaultfilerevision
+message "idle.macro File Rev -- " idlemacrofilerevision
+message "directions Rev        -- " directionsrev
+message "clan yells File Rev -- " layellsfilerevision
+
+// set gTesting to 1 to disable various macros while testing.
+setglobal gTesting 			1
+message "gTesting is set to " gTesting
+
+message "To list custom commands list, use /cmds"	//Found in 
+
+// Thank global variables
+setglobal thankcounter  1					// initializes thank cooloff counter - used in idle.macro
+setglobal thankcooloff  1200
+message "thankcounter = " thankcounter
+setglobal redopickexilecounter 0
+message "redopickexilecounter = " redopickexilecounter
+setglobal infoExileClanning @selplayer.simple_name
+message "infoExileClanning = " infoExileClanning
+
+message ** COINS **
+"/money \r"
+call defshares				// honors gTesting
+
+// 20161130 - Added to debug why macros after GoScan loop are not being recognized
+// 20180630 - Figured out why, the GoScan is an endless loop by design.  
+//			  It will only return here if there is an error.
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// MAIN CODE
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// This must be kept inside the @login loop in order to stay running
+// and to keep the stuff below from being displayed IC
+
+	message "*** Starting MAIN CODE ***"
+	call GoScan				 // in GoScanner.macro
+	call Scanner			 // in GoScanner.macro
+	label returnFromGoScan
+	message "This is a test to see if return from GoScan works"
+	message "to restart scanner, type: goscan"
+}
+
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// /Custom call X functions
+//::::::::::::::::::::::::::::::::::::::::::::::::
+
+"goscan" 	call GoScan		 // in GoScanner.macro
+"/noscan"	call noscan		 // in Default
+"/pick" 	call ExilePicker // in Exilepicker.macro
+"/test1"	call teststatus	 // in Default
+
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Function key assignments
+//::::::::::::::::::::::::::::::::::::::::::::::::
+//
+// F1 - embedded pull
+// F2 - embedded push
+// F3 - + shift + control - to moonstone_functions.txt or character file
+// F4 - + shift - to moonstone_functions.txt or character file
+// F5 - to quickchain.mac
+// F6 - + shift + control - to omega_zu.mac
+// F7 - to player's macro file
+// F8 - to character file
+// F9 - to dances.mac
+// numpad 1-9 + alt - to moonstone_functions.txt
+
+// Common to all characters
+f1			"/pull " @selplayer.simple_name " \r"
+f2			"/push " @selplayer.simple_name " \r"
+// f5 			call flybychain		// Quickchain.mac
+// f6			call zu-stuff		// omega_zu.mac
+// shift-F6	call zu-add			// omega_zu.mac
+// control-f6	call zu-remove		// omega_zu.mac
+f7			call walk1		// character file
+f8			call ping-yell		// abbreviations.mac	
+shift-F8	call thinkfalling	// sunstone.mac
+control-f9	call dcr			// dances.mac			
+
+// Other keys
+control-click2		call click-action	// Quickchain.mac
+click3 				"/thank " @selplayer.simple_name  " :) \r"
+// control-click		"/pull " @click.name "\r"		// overtaken by moonstone_functions.txt - 20100918
+// control-shift-click	"/push " @click.name "\r"		// overtaken by moonstone_functions.txt - 20100918
+control-tab			call noscan
+// wheelup 			call flybychain		// highly recommend against assigned anything to wheel up nor down
+// wheeldown		call DHAwakeAFK 	// unless you have a clicky wheel.  Using this with a smooth
+										// scrolling mouse is not something to try,
+                                        // as you will have multiple calls to same macro. chain break!
+click4			message "==> TESTING"
+
+
+teststatus
+{
+	"/STATUS /REMOVE \r "
+//	"/STATUS " occMsg " \r"
+}
+
+//------------------------------------------------
+// NoScan - turns off Scanner macro (Noivad's + ?)
+//------------------------------------------------
+noscan
+{
+  setglobal scanBreak 1	//This allows you to stop this macro without stopping other macros
+  setglobal mStop 1
+  message "To restart idle/scan/loop macros, type: goscan"
+}
+
+message "===> Loaded Default macro file"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210224-Inu: Added this log.
+			  Attributions: Noivad and more I don't know.
+*/
