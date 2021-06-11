@@ -44,7 +44,7 @@
 message "** sunstone.macro / t **"
 if @my.forehead_item != MySunStone
 	setglobal fitem @my.forehead_item
-	"/equip " MySunstone " \r"
+	"/equip " MySunStone " \r"
 else
 	setglobal fitem @my.forehead_item
 end if
@@ -54,11 +54,11 @@ end if
 		"/pose thoughtful\r"
 		{
 		random
-			"/narrate A burst of light shines and sound warbles from " @my.name "'s Sungem.\r"
+			"/narrate A burst of light shines and sound warbles from " @my.name "'s " mySunStone " \r"
 			or
-			"/action 's sungem glows for a brief moment.\r"
+			"/action 's " mySunStone " glows for a brief moment.\r"
 			or
-			"/narrate " @my.name "'s Sungem emits a warm glow.\r"
+			"/narrate " @my.name "'s " mySunStone " emits a warm glow.\r"
 		end random
 		}
 	end if
@@ -148,11 +148,11 @@ message "** sunstone.macro / ThinkToAction **"
 		random
 		"/narrate A burst of light shines and sound echoes from the sungem.\r"
 		or
-		"/action 's sungem glows for a second.\r"
+		"/action 's " mySunStone " glows for a second.\r"
 		or
-		"/narrate " @my.name "'s Sungem emits a warm glow.\r"
+		"/narrate " @my.name "'s " mySunStone " emits a warm glow.\r"
 		or 
-		"/narrate The image of " ssTarget " becomes visible in " @my.name "'s Sungem.\r"
+		"/narrate The image of " ssTarget " becomes visible in " @my.name "'s " mySunStone ".\r"
 		end random
 if fromTT == 1
 pause 2

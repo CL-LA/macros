@@ -4,7 +4,7 @@
 // Keep your abbreviations in this file...
 //
 
-setglobal abbreviationsfilerevision "20210225-0100-0008"
+setglobal abbreviationsfilerevision "20210421-0930-0009"
 
 "??"    "/help "    @text "\r"
 "aa"    "/action "  @text "\r"
@@ -21,7 +21,7 @@ setglobal abbreviationsfilerevision "20210225-0100-0008"
 "sh"    "/share "   @text "\r"
 "shl"   "/share /lock " @text "\r"
 "tag"	"I tagged it :) \r"
-"ty"	call thankyou
+"ty"	call thankyou	// Note this is character specific mod
 
 
 "sl"    
@@ -40,59 +40,20 @@ setglobal abbreviationsfilerevision "20210225-0100-0008"
 "wh"    "/whisper " @text " \r"
 
 
-// yells
-// "yt"	call yell-tla
-"yn"	"/yell North ↑ " @text "\r"
-"ye"	"/yell → east! " @text " \r"
-"yw"	"/yell ← west! " @text " \r"
-"ys"	"/yell South ↓ " @text "\r"
 
-"y"		"/yell " @text " \r"
-"yb"	"/yell beeeeeer! " @text " \r"
-"ybs"	"/yell BS! " @text " \r"
-"yeek"	"/yell eek! help! " @text " \r"
-"yf"	"/yell fallens? " @text " \r"
-"yh"    "/yell here! fallen " @text " \r"
-"yi"	"/yell Incoming! " @text " \r"
-"yl"	call clan-yell
-"ym"	"/yell meelk \r"
-"/yo"   "/yell Chivalry! " @text " \r"
-"yo"	"/yell out! " @text "\r"
-"yout"  "/yell out " @text "\r"
-"yp"	call ping-yell
-"yr"   	"/yell running them " @text " \r"
-"yrun"   "/yell run " @text "\r"
-"/ys"	"/yell safe! " @text "\r"
-"ysd"	"/yell Save Dande! \r"
-"ysl"	"/yell Save Luna! \r"
-"yw"	"you're welcome :) \r"
-"yy"    "/yell " @text "\r"
-
-ping-yell
-{
-	random
-	"/yell ping \r"
-	or
-	"/yell !  \r"
-	or 
-	"/yell " @text " \r"
-	or
-	"/yell ?? \r"
-	end random
-}
-
-"y?"	"/yell ? \r"
-"y!"	"/yell ! \r"
 
 "/dm"   "/drop /mine \r"
 
 thankyou
 {
-	if tyt == "cat"		// defined in character file
+	if tyt == "cat"		// tyt is defined in character file
 		"Thank you >'.'< \r" 
 	end if
 	if	tyt == "dwarf"
 		"t'anki \r"
+	end if
+	if tyt == "x"
+		"Thank you. \r"
 	end if
 	if tyt == ""
 		"Thank you. \r"

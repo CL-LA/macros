@@ -1,12 +1,12 @@
 // Laughing Academy yells {layells.macro}
 
-setglobal layellsfilerevision "20210225-0100-0001"
+setglobal clanyellsfilerevision "20210528-2300-0002"
+setglobal layellsfilerevision "220210528-2300-0002"
 
 "ylc"	call yell-creedo
 "ylf"	call falling-yells
-"ylt"	call yell-tla
-"yolo"	call found-stuff
 "yk"    "/yell here kitty kitty \r"
+"ytla"	call yell-tla
 
 // Laughing Academy yells
 
@@ -59,6 +59,8 @@ clan-yell
 		or
 		"/yell Laughing Academy!™ Why make a mess when you can be a mess? \r"
 		or
+		"/yell "Laughing Academy!™ 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you \r"
+		or
 		call knocknock1
 		or
 		call yell-tla
@@ -88,18 +90,6 @@ falling-yells
 		"/yell LA!™ So a funny thing happened when I went throught that PF you told me not to \r"
 		or
 		call yell-knockfall1
-	end random
-}
-
-
-found-stuff
-{
-	random
-		"/yell Found a thing \r"
-		or
-		"/yell Hawk? thingie \r"
-		or
-		
 	end random
 }
 
@@ -164,6 +154,7 @@ pause 45
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210508-Inu:	Stole think from Ramandu. "Laughing Academy! 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you"
 20201106-Inu: 	Pulled out clan yells into this LA Yells.macro (layells.macro). 
 				Encoded for Windows UTF-8. TM (™)symbol works on Windows.
 20210215-Inu:	Fixed missing /r in yell-pun1 macro. Added a few more falling yells.
@@ -172,4 +163,5 @@ pause 45
 				Moved fallen yells to fallen area. Removed more dupes out of main.
 				Added this revision log, reconstructed dates edits were made.
 				A few style edits made to existing yells. Added knocknock1 yell.
+20210528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
 */

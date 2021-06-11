@@ -67,6 +67,8 @@ idleMe
 			or
 				setglobal randomExileClanning " Punisher "
 			or
+				setglobal randomExileClanning " Ramandu "
+			or
 				setglobal randomExileClanning " Skirwan "
 			or
 				setglobal randomExileClanning " Taryn "
@@ -146,10 +148,10 @@ REMOVED EXILES UNTIL THEY COME BACK
 					end if
 					if AmCadding == 1
 						setglobal resetAmCadding 1
-						setglobal AmCadding 0
+//						setglobal AmCadding 0
 //						message "idle[139] temporarily turning OFF AmCadding"
 					end if
-					setglobal resetPickexileclanning 1
+//					setglobal resetPickexileclanning 1
 				else
 					goto pickanotherexile
 				end if

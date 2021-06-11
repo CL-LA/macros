@@ -1,0 +1,111 @@
+// General purpose yells {yells.macro}
+
+setglobal yellsfilerevision "20210528-2300-0002"
+
+"y"		"/yell " @text " \r"
+"y?"	"/yell ? \r"
+"y!"	"/yell ! \r"
+
+"ydn"	"/yell North ↑ " @text "\r"
+"yde"	"/yell → east! " @text " \r"
+"ydw"	"/yell ← west! " @text " \r"
+"yds"	"/yell South ↓ " @text "\r"
+
+"yb"	"/yell beeeeeer! " @text " \r"
+"ybs"	"/yell BS! " @text " \r"
+"yeek"	"/yell eek! help! " @text " \r"
+"yf"	"/yell fallens? " @text " \r"
+"yh"    "/yell here! fallen " @text " \r"
+"yi"	"/yell Incoming! " @text " \r"
+"yj"	call jo-yells
+"yl"	call clan-yell
+"ym"	"/yell meelk \r"
+"/yo"   "/yell Chivalry! " @text " \r"
+"yo"	"/yell out! " @text "\r"
+"yolo"	call found-stuff
+"yout"  "/yell out " @text "\r"
+"yp"	call ping-yell
+"yr"   	"/yell running them " @text " \r"
+"yrun"   "/yell run " @text "\r"
+"/ys"	"/yell safe! " @text "\r"
+"ysd"	"/yell Save Dande! \r"
+"ysl"	"/yell Save Luna! \r"
+"yt"	call thoomcare-yells
+"yw"	"you're welcome :) \r"
+"yy"    "/yell " @text "\r"
+
+found-stuff
+{
+	random
+		"/yell Found a thing \r"
+		or
+		"/yell Hawk? thingie \r"
+		or
+		
+	end random
+}
+
+jo-yells
+{
+// stolen from Tas
+	random
+		"/yell JoSafe™? \r"
+	or		
+		"/yell JoScrunchy™ is JoSafe™ \r"
+	or	
+		"/yell JoScrunchy™\r"
+	or
+		"/yell JoScrunchy™ Mom approved for feet safety.\r"
+	or
+		"/yell JoScrunchy™ for when your toes are in a jam. \r"
+	end random
+}
+
+mosey-yells
+{
+	random
+		"/yell Chaos Guaranteed. Beer possible.™ \r"
+	or
+		"/yell \r"
+	end random
+}
+
+ping-yell
+{
+	random
+	"/yell ping \r"
+	or
+	"/yell !  \r"
+	or 
+	"/yell " @text " \r"
+	or
+	"/yell ?? \r"
+	end random
+}
+
+safeish
+{
+	random
+		"/yell  "≠ManqySafe™ \r"
+	or
+		"/yell \r"
+}
+
+thoomcare-yells
+{
+	random
+		"/yell ThoomCare™ for when you need the best Kitty Litter Liner \r"
+	or
+		"/yell ThoomCare™ \r"
+	end random
+}
+
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+Attributions: Noivad, Tas, Ramandu, Pun'isher, and many more.
+
+20210528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
+		
+*/

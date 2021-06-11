@@ -3,6 +3,9 @@
 //------------------------------------------------
 // HouseKey macros
 //=====================================================
+
+setglobal keysfilerevision "20210225-0100-0001"
+
 /* 
 	This key management macro file assumes a cast of thousands (characters), 
 	you define a few global variables in your character file 

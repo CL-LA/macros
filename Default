@@ -4,11 +4,12 @@
 // This macro file is included for every character by default.
 // Use it for general macros that you want available to all characters.
 
-setglobal defaultfilerevision "20210225-0100-0008"
+setglobal defaultfilerevision "20210528-0100-0009"
 
 include "abbreviations.macro"			// Common abbreviations contributed by many.
 include "dances.macro"					// A collection of dances, including a random picker.
 include "DefShares.macro"				// Default shares used across all characters.
+include "directions.macro"
 include "Exilepicker.macro"				// Torin's exile picker macro. Used in thank exile loop.
 include "funactions.macro"
 include "globalset.macro"
@@ -22,7 +23,7 @@ include "shares.macro"
 include "storahelp.macro"
 include "sunstone.macro"
 include "tc_macro.macro"				// think clan and think group macros
-include "directions.macro"
+include "yells.macro"					// generic yells
 // include "moneycount.macro"
 
 @login
@@ -30,10 +31,10 @@ include "directions.macro"
 //::::::::::::::::::::::::::::::::::::::::::::::::
 // Global Variables Defined -- BEGIN SECTION
 //::::::::::::::::::::::::::::::::::::::::::::::::
-// 1. Copy this section to your Character's file (Global Variables Defined), including comments
-// 2. Remove the // before the setglobal (in columns 1-2 only)
-// 3. Save your changes
-// 4. Reload your macros
+// 1. Copy this section to your Character's file (Global Variables Defined), including comments.
+// 2. Remove the // before the setglobal (in columns 1-2 only).
+// 3. Make changes specific to that character, then save your changes.
+// 4. Reload your macros.
 // ----------------------------------------------
 //	setglobal chaintype     "chain"         	// Used by Quickchain.macro.
 //	setglobal defpie  		"DragonHawk"		// Used by Pie-O-Matic in funactions.macro
@@ -41,7 +42,10 @@ include "directions.macro"
 //												// (every 4 = 1 second approximately)
 //	setglobal InfoExile 	0					// Turns off exile info by default. Used in idle.macro.
 //												// set can change it.
-//	setglobal MySunStone	sungem				// Set this to your sunstone. Used in sunstone & tc_macro.
+//	setglobal myDefLeft		""					// Re-equip desired left item.
+//	setglobal myspeed		medium 				// sets speed of speed zoom, fast, medium, slow
+//	setglobal MySunStone	sunstone / sungem / suncrystal
+												// Set this to your sunstone. Used in sunstone & tc_macro.
 //	setglobal NumZuBags		3					// the number of kudzu bags you carry. Used in omega_zu.macro
 //	setglobal OccupyRandom	0					// 1 = Occupy is on. Any other value = Occupy is OFF. 
 //												// Used in idle.macro
@@ -51,26 +55,31 @@ include "directions.macro"
 //	setglobal ThankExile	1					// turns on thank specific set of random exiles. 
 //												// Used in idle.macro
 //  Healer specific global variabbles
-//	setglobal woc	 		"Mercurial Staff"	// Used by Quickchain.macro to re-equip default right hand item.
+//	setglobal woc	 		"Asklepian Staff"	// Used by Quickchain.macro to re-equip default right hand item.
 //	setglobal AmCadding		1					// 1 disables ExilePicker, 0 enables ExilePicker. 
 //												// Used by exilepicker.macro and idle.macro
-//	The below are used in moonstone_functions.txt
+//	The below are used in moonstone_functions.macro
 //	setglobal myWeapon 		"dagger"  			// change this to your weapon of choice. 
 //	setglobal healingDevice "Mercurial Staff" 	// set to "Caduceus" or "Mercurial Staff"
-//	setglobal auraHDevice 	"Asklepian" 		// Set this to "Asklepian" or "Asklepian Staff"
+//	setglobal auraHDevice 	"Asklepian Staff" 	// Set this to "Asklepian" or "Asklepian Staff"
 //::::::::::::::::::::::::::::::::::::::::::::::::
 // Global Variables Defined -- END SECTION
 //::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 message "********* RELOADED MACROS *********"
-"\options speech zoom \r"
+if myspeed == ""
+	"\options speech speed medium \r"
+else
+	"\options speech speed " myspeed " \r"
+end if
 message "Character File Used -- " charfileused
 message "Character File Rev	-- " charfilerevision
 message "Default File Rev	-- " defaultfilerevision
 message "idle.macro File Rev -- " idlemacrofilerevision
 message "directions Rev        -- " directionsrev
-message "clan yells File Rev -- " layellsfilerevision
+message "clan yells File Rev -- " clanyellsfilerevision
+message "general yells File Rev -- " yellsfilerevision
 
 // set gTesting to 1 to disable various macros while testing.
 setglobal gTesting 			1

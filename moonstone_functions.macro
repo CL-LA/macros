@@ -1,4 +1,4 @@
-setglobal moonstone_functionsfilerevision "20210225-0100-0001"
+setglobal moonstone_functionsfilerevision "20210503-1000-0003"
 /* --------------------------------------------------------------------------------------------------------------
 	| Healing Functions Rev.2.8.9 | CadTargetter 2.1 | Ultimate Cad 2.2.2 |
                      | Asklepian 1.0 | SetBurst/Pulse 2.0.1 |
@@ -329,6 +329,22 @@ else
 end if
 }
 
+// * Macro from SoulHunter/Lexa's post to macro channel of CL Discord server
+"/purg"
+{
+        "/equip purgatory pendant \r"
+            pause 1
+        "/useitem "purgatory pendant" \r"
+        label purg_loop
+        if @env.textlog >= "binds you more tightly"
+                "/unequip purgatory pendant\r"
+                move run ne
+        else
+                pause 3
+                goto purg_loop
+        end if
+}
+
 restartInfinityLoop
 {
 call itemswap
@@ -558,3 +574,11 @@ call staticTargetSet
 }
 
 message "===> Loaded moonstone_functions.txt"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+CREDITS: Gorvin, Noivad, SoulHunter/Lexa, Tarf, Veer
+20210503-Inu:	Added in SoulHunter/Lexa's purgatory pendant macro.
+
+*/

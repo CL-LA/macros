@@ -46,7 +46,8 @@ include "superchicken-dances.macro"
 													// called on login. setf can change it.
 	setglobal messageStatus 0						// Turning off debug if 0, on if 1
 	setglobal myDefLeft		"Knight's Shield"		// Re-equip desired left item.
-	setglobal MySunStone	sungem					// Set this to your sunstone, used in sunstone and tc_macro.
+	setglobal myspeed		medium 					// sets speed of speed, zoom, fast, medium, slow
+	setglobal MySunStone	suncrystal				// Set this to your sunstone, used in sunstone and tc_macro.
 	setglobal myWeapon 		"Axe"  					// change this to your weapon of choice
 	setglobal NumZuBags		0						// the number of kudzu bags you carry
 	setglobal OccupyRandom	0						// 1 = Occupy is on. Any other value = Occupy is OFF
@@ -81,36 +82,37 @@ include "superchicken-dances.macro"
 
 // Keys used
 /* 
-From moonstone_functions.txt
-F3 					call itemswap	
-shift-F3 			call restartInfinityLoop
-F4 					call cadLastTarget
-shift-F4			call useAsklepian
+ F1 - embedded pull
+ F2 - embedded push
+ F3 - call itemswap	in moonstone_functions.macro
+ shift-F3 - call restartInfinityLoop in moonstone_functions.macro
+ F4 - call cadLastTarget  in moonstone_functions.macro
+ shift-F4 - call useAsklepian in moonstone_functions.macro
+ F5 - call x in quickchain.macro
+ F6 - + shift + control - in omega_zu.macro
+ shift-F6	call zu-add			// omega_zu.macro
+ control-f6	call zu-remove		// omega_zu.macro
+ F7 - to player's macro file
+ f7	- call walk1		character file?
+ F8 - call ? in character file ?
+ f8	- call ping-yell in abbreviations.mac	
+ shift-F8 - call thinkfalling in sunstone.mac
+ F9 - call ? in dances.mac 
+ control-f9	call dcr in dances.mac
+ numpad 1-9 (range heal) + alt (set/reset range heal target) in moonstone_functions.txt
 
-numpad-1 			call staticTarget1
-alt-numpad-1		call staticTarget1Set
-numpad-2			call staticTarget2
-alt-numpad-2		call staticTarget2Set
-numpad-3			call staticTarget3
-alt-numpad-3		call staticTarget3Set
-numpad-4			call staticTarget4
-alt-numpad-4		call staticTarget4Set
-numpad-5			call staticTarget5
-alt-numpad-5		call staticTarget5Set
-numpad-6			call staticTarget6
-alt-numpad-6		call staticTarget6Set
-numpad-7			call staticTarget7
-alt-numpad-7		call staticTarget7Set
-numpad-8			call staticTarget8
-alt-numpad-8		call staticTarget8Set
-numpad-9			call staticTarget9
-alt-numpad-9		call staticTarget9Set
-control-click 		call healClicked  
-shift-control-click call lockClicked
+ control-click - call healClicked in moonstone_functions.macro
+ shift-control-click - call lockClicked in moonstone_functions.macro
+ control-click2	call click-action in Quickchain.mac
+ click3 run "/thank " @selplayer.simple_name  " :) \r" from ?
+ control-tab call noscan in default?
+ click4	run message "==> TESTING" in default?
+
+ alt-z - call keyclan1 in keys.macro
+ control-z - call ReEquipShield in keys.macro
+
 */
 
-alt-z				call keyclan1
-control-z 			call ReEquipShield
 	
 // ReEquipShield
 ReEquipShield
