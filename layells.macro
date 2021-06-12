@@ -41,6 +41,8 @@ clan-yell
 		or
 		"/yell LA!™ Where do you want to fall to day? \r"
 		or
+		"/yell LA™ The funniest joke of all is when we actually do something useful \r"
+		or
 		"/yell Last one there is a LA!™ member!! \r"
 		or
 		"/yell Hi Ho, Hi Ho, it's off to falLA we go... \r"
@@ -59,7 +61,9 @@ clan-yell
 		or
 		"/yell Laughing Academy!™ Why make a mess when you can be a mess? \r"
 		or
-		"/yell "Laughing Academy!™ 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you \r"
+		"/yell Laughing Academy!™ 100\% spirit, 0\% mind. \r"
+		pause 45
+		"/yell Er, Ask Whirl to explain that one to you. \r"
 		or
 		call knocknock1
 		or
