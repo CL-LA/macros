@@ -2,7 +2,7 @@
 // START: DHAwakeAFK integration
 //------------------------------------------------
 
-setglobal idlemacrofilerevision "20210420-2100-0011"
+setglobal idlemacrofilerevision "20210615-2100-0012"
 
 idleMe
 {
@@ -35,43 +35,49 @@ idleMe
 		end if // ThankRandom
 		if ThankExile == 1			// if thank one of these exiles is turned on in Character file
 			random
-				setglobal randomExileClanning " Aurelie "
+				setglobal randomExileClanning " Aurelie " 
 			or
-				setglobal randomExileClanning " Connie "
+				setglobal randomExileClanning " Connie " 
 			or
-				setglobal randomExileClanning " Coriakin "
+				setglobal randomExileClanning " Coriakin " 
 			or
-				setglobal randomExileClanning " Dandelion "					
+				setglobal randomExileClanning " Dandelion "	
 			or
-				setglobal randomExileClanning " JoMaril "
+				setglobal randomExileClanning " Ebony " 
 			or
-				setglobal randomExileClanning " Kori "
+				setglobal randomExileClanning " JoMaril " 
 			or
-				setglobal randomExileClanning " Kvynn "
+				setglobal randomExileClanning " Kori " 
 			or
-				setglobal randomExileClanning " Largo "
+				setglobal randomExileClanning " Kvynn " 
 			or
-				setglobal randomExileClanning " Lorikeet "
+				setglobal randomExileClanning " Largo " 
 			or
-				setglobal randomExileClanning " Luna "
+				setglobal randomExileClanning " Lorikeet " 
 			or
-				setglobal randomExileClanning " Maximus "
+				setglobal randomExileClanning " Luna " 
 			or
-				setglobal randomExileClanning " Mehan "
+				setglobal randomExileClanning " Maximus " 
 			or
-				setglobal randomExileClanning " Mork "
+				setglobal randomExileClanning " Mehan " 
 			or
-				setglobal randomExileClanning " Phroon "
+				setglobal randomExileClanning " Mork " 
 			or
-				setglobal randomExileClanning " Pirate "
+				setglobal randomExileClanning " Phroon " 
 			or
-				setglobal randomExileClanning " Punisher "
+				setglobal randomExileClanning " Pirate " 
 			or
-				setglobal randomExileClanning " Ramandu "
+				setglobal randomExileClanning " Poplar " 
 			or
-				setglobal randomExileClanning " Skirwan "
+				setglobal randomExileClanning " Punisher " 
 			or
-				setglobal randomExileClanning " Taryn "
+				setglobal randomExileClanning " Ramandu " 
+			or
+				setglobal randomExileClanning " Skirwan " 
+			or
+				setglobal randomExileClanning " Shadowfire " 
+			or
+				setglobal randomExileClanning " Taryn " 
 			end random
 		end if			// ThankExile
 /*
