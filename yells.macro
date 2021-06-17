@@ -1,6 +1,6 @@
 // General purpose yells {yells.macro}
 
-setglobal yellsfilerevision "20210528-2300-0002"
+setglobal yellsfilerevision "20210616-2300-0003"
 
 "y"		"/yell " @text " \r"
 "y?"	"/yell ? \r"
