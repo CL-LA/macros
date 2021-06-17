@@ -7,8 +7,8 @@ setglobal yellsfilerevision "20210528-2300-0002"
 "y!"	"/yell ! \r"
 
 "ydn"	"/yell North ↑ " @text "\r"
-"yde"	"/yell → east! " @text " \r"
-"ydw"	"/yell ← west! " @text " \r"
+"yde"	"/yell → East! " @text " \r"
+"ydw"	"/yell ← West! " @text " \r"
 "yds"	"/yell South ↓ " @text "\r"
 
 "yb"	"/yell beeeeeer! " @text " \r"
@@ -20,16 +20,17 @@ setglobal yellsfilerevision "20210528-2300-0002"
 "yj"	call jo-yells
 "yl"	call clan-yell
 "ym"	"/yell meelk \r"
-"/yo"   "/yell Chivalry! " @text " \r"
-"yo"	"/yell out! " @text "\r"
+"ymos"	call mosey-yells
+"yo"   "/yell Chivalry! " @text " \r"
 "yolo"	call found-stuff
 "yout"  "/yell out " @text "\r"
 "yp"	call ping-yell
 "yr"   	"/yell running them " @text " \r"
 "yrun"   "/yell run " @text "\r"
 "/ys"	"/yell safe! " @text "\r"
-"ysd"	"/yell Save Dande! \r"
-"ysl"	"/yell Save Luna! \r"
+"ysafe"	call safeish
+"ysvd"	"/yell Save Dande! \r"
+"ysvl"	"/yell Save Luna! \r"
 "yt"	call thoomcare-yells
 "yw"	"you're welcome :) \r"
 "yy"    "/yell " @text "\r"
@@ -66,7 +67,9 @@ mosey-yells
 	random
 		"/yell Chaos Guaranteed. Beer possible.™ \r"
 	or
-		"/yell \r"
+		"/yell What's another depart? \r"
+	or
+		"/yell It's safe-ish, trust Jo/Connie/Fearless Leader \r"
 	end random
 }
 
