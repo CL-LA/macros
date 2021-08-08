@@ -1,7 +1,8 @@
-setglobal moonstone_functionsfilerevision "20210503-1000-0003"
+setglobal moonstone_functionsfilerevision "20210808-1200-0008
+20210807_CL_Lore-Trip_Part-15-02_DeepIntoTheCitadelChat_1600
 /* --------------------------------------------------------------------------------------------------------------
-	| Healing Functions Rev.2.8.9 | CadTargetter 2.1 | Ultimate Cad 2.2.2 |
-                     | Asklepian 1.0 | SetBurst/Pulse 2.0.1 |
+	| Asklepian 1.0 | CadTargetter 2.1 | Healing Functions Rev.2.8.9 | 
+	          | Ultimate Cad 2.2.2 | SetBurst/Pulse 2.0.1 |
 -----------------------------------------------------------------------------------------------------------------
  These macros are greatly enhanced versions of the QuickSwap Self-healing macro.
  These macros settle into a single pulse loop when you equip your moonstone.
@@ -21,7 +22,7 @@ setglobal moonstone_functionsfilerevision "20210503-1000-0003"
 
    2. Open your character's macro file and type:
 
-   3. Include "moonstone_functions.txt"
+   3. Include "moonstone_functions.macro"
    (with the the double quotes)
 
    3b.PC Users: either convert to PC format or rename the file  to "moonstone_functions.mac"
@@ -41,21 +42,35 @@ setglobal moonstone_functionsfilerevision "20210503-1000-0003"
         Or add additional triggers
         (i.e. "shift-control-click call healClicked" & "shift-click2 call lockClicked")
 
+[ N O T E S]
+	/1 	- 	If you find Control+ALT bringing up the Windows 10 change keyboad language,
+			follow the steps below to stop it.
+			
+			Open up Settings/Gear
+			Go to Time & Language/Language/Keyboard
+			Click on Input language hot keys
+			Flip to the Advanced Key Settings
+			Highlight Between input languages, then click on Change Key Sequence
+			Under Switch Input Language select None. Optionally do the same for Switch Keyboard Layout.
+			OK to save your changes, then OK again to save and close the Text Services and Input Languages box.
+			
 ******************************** Basic operation *******************************
  "control-click" on player, heals them with your Caduceus or Mercurial Staff.
  "control-click" on yourself equips you moonstone and goes into healing loop.
  "control-click" on ground uses your Asklepian or Asklepian Staff.
-     (these are all callee through the "healClicked" function)
+     (these are all called through the "healClicked" function)
 
  "F3" swaps your weapon and moonstone.
 
  "F4" equips your Cad or Merc Staff and if a person is selected it tries
   to cad them. If no one is selected it cads the last person you cadded.
       (this is called through the "cadLastTarget" function)
+ "ALT+F4"	equips Asklepian or Asklepian Staff
+ 
  ***************************** Global Variables **************************** */
 /* Copy the below three lines for myWeapon, gHealDev and auraHDevice to 
 /  your character file 
-setglobal auraHDevice 		"Asklepian" // Set to Asklepian or Asklepian Staff
+setglobal auraHDevice 		"Asklepian Staff" // Set to Asklepian or Asklepian Staff
 setglobal gHealDev 			"Caduceus" 	// set to Caduceus, Mercurial Staff, Asklepian, or Asklepian Staff
 setglobal myWeapon 			"dagger"  	// change this to your weapon of choice
 */
@@ -79,6 +94,19 @@ set cadTarget[6] ""
 set cadTarget[7] ""
 set cadTarget[8] ""
 set cadTarget[9] ""
+set cadTarget[10] ""
+set cadTarget[11] ""
+set cadTarget[12] ""
+set cadTarget[21] ""
+set cadTarget[22] ""
+set cadTarget[23] ""
+set cadTarget[24] ""
+set cadTarget[25] ""
+set cadTarget[26] ""
+set cadTarget[27] ""
+set cadTarget[28] ""
+set cadTarget[29] ""
+
 "/cads"		call listCadTargets
 
 set icon 0
@@ -106,6 +134,25 @@ numpad-8		call staticTarget8
 alt-numpad-8	call staticTarget8Set
 numpad-9		call staticTarget9
 alt-numpad-9	call staticTarget9Set
+numpad-0		call staticTarget10
+alt-numpad-0	call staticTarget10Set
+numpad-.		call staticTarget11
+alt-numpad-.	call staticTarget11Set
+numpad-+		call staticTarget12
+alt-numpad-+	call staticTarget12Set
+
+control-numpad-1		call staticTarget21
+control-alt-numpad-1	call staticTarget21Set		// On Windows this may call up Additional Keyboards, see Note /1
+control-numpad-2		call staticTarget22
+control-alt-numpad-2	call staticTarget22Set
+control-numpad-3		call staticTarget23
+control-alt-numpad-3	call staticTarget23Set
+control-numpad-4		call staticTarget24
+control-alt-numpad-4	call staticTarget24Set
+control-numpad-5		call staticTarget25
+control-alt-numpad-5	call staticTarget25Set
+control-numpad-6		call staticTarget26
+control-alt-numpad-6	call staticTarget26Set
 
 "setpulse"		call pulseRateSet
 "setburst"		call burstAmountSet
@@ -200,7 +247,7 @@ if infiniteControl != 1
 	if i <= 120
 		set i + 1
 		if @my.right_item == "moonstone"	//checks to make sure you have the moonstone equiped
-				"/use\r"
+				"/use \r"
 				pause 1
 				if @env.textLog < "in your current condition." //if you fall this stops the loop
 					setglobal infiniteControl 1
@@ -258,12 +305,27 @@ listCadTargets
 set n 1
 set t 1
 LABEL loopListCadTargets
-	message "*Set " cadTarget[n] " as cad target [" t "]."
+	if n < 10
+		message "*Set " cadTarget[n] " as cad target [" t "]."
+	end if
+	if n = 10
+		message "*Set " cadTarget[n] " as cad target [ 0 ]."
+	end if
+	if n = 11
+		message "*Set " cadTarget[n] " as cad target [ . ]."
+	end if
+	if n = 12
+		message "*Set " cadTarget[n] " as cad target [ + ]."
+	end if
+	if n > 20
+		message "*Set " cadTarget[n] " as cad target [control+ " t "]."
+	end if
 	set n + 1
 	set t + 1
-	if n < 10 
+	if n < 30 
 		goto loopListCadTargets
 	end if
+	message "reassign cad targets by adding ALT to their key"
 }
 
 lockClicked
@@ -303,7 +365,7 @@ set @env.key_interrupts true
 /* ---------------------- Pulse and Burst Sets v2.0.1  ----------------------- */
 pulseRateSet
 {
-set max 40
+set max 50
 if @text == "?"
 	message "This command lets the interval (in frames) between moonstone uses (called pulses)."
 	pause 10
@@ -359,7 +421,7 @@ useAsklepian
 if @my.right_item != auraHDevice
 	"/equip " auraHDevice "\r"
 end if
-"/use\r"
+"/use \r"
 // "/pose bless\r"
 }
 
@@ -382,6 +444,7 @@ else
 	message "*Set " cadTarget[n] " as cad target [" t "]."
 end if
 }
+
 
 
 staticTarget1
@@ -570,6 +633,258 @@ setglobal ThankRandom	0
 call cadswap
 setglobal n 9
 setglobal t numpad-9
+call staticTargetSet
+}
+
+staticTarget10
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[10] == ""
+	setglobal cadTarget[10] @selplayer.simple_name
+	message "*Set " cadTarget[10] " as cad target numpad-0."
+end if
+"/select " cadTarget[10] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget10Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 10
+setglobal t numpad-0
+call staticTargetSet
+}
+
+staticTarget11
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[11] == ""
+	setglobal cadTarget[11] @selplayer.simple_name
+	message "*Set " cadTarget[11] " as cad target numpad-."
+end if
+"/select " cadTarget[11] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget11Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 11
+setglobal t numpad-.
+call staticTargetSet
+}
+
+staticTarget12
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[12] == ""
+	setglobal cadTarget[12] @selplayer.simple_name
+	message "*Set " cadTarget[12] " as cad target numpad-+."
+end if
+"/select " cadTarget[12] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget12Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 12
+setglobal t numpad-+
+call staticTargetSet
+}
+
+staticTarget21
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[21] == ""
+	setglobal cadTarget[21] @selplayer.simple_name
+	message "*Set " cadTarget[21] " as cad target control-numpad-1"
+end if
+"/select " cadTarget[21] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget21Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 21
+setglobal t control-numpad-1
+call staticTargetSet
+}
+
+staticTarget22
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[22] == ""
+	setglobal cadTarget[22] @selplayer.simple_name
+	message "*Set " cadTarget[22] " as cad target control-numpad-2"
+end if
+"/select " cadTarget[22] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget22Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 22
+setglobal t control-numpad-2
+call staticTargetSet
+}
+
+staticTarget23
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[23] == ""
+	setglobal cadTarget[23] @selplayer.simple_name
+	message "*Set " cadTarget[23] " as cad target control-numpad-3"
+end if
+"/select " cadTarget[23] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget23Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 23
+setglobal t control-numpad-3
+call staticTargetSet
+}
+
+staticTarget24
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[24] == ""
+	setglobal cadTarget[24] @selplayer.simple_name
+	message "*Set " cadTarget[24] " as cad target control-numpad-4"
+end if
+"/select " cadTarget[24] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget24Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 24
+setglobal t control-numpad-4
+call staticTargetSet
+}
+
+staticTarget25
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[25] == ""
+	setglobal cadTarget[25] @selplayer.simple_name
+	message "*Set " cadTarget[25] " as cad target control-numpad-5"
+end if
+"/select " cadTarget[25] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget25Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 25
+setglobal t control-numpad-5
+call staticTargetSet
+}
+
+staticTarget26
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[26] == ""
+	setglobal cadTarget[26] @selplayer.simple_name
+	message "*Set " cadTarget[26] " as cad target control-numpad-6"
+end if
+"/select " cadTarget[26] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget26Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 26
+setglobal t control-numpad-6
+call staticTargetSet
+}
+
+staticTarget27
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[27] == ""
+	setglobal cadTarget[27] @selplayer.simple_name
+	message "*Set " cadTarget[27] " as cad target control-numpad-7."
+end if
+"/select " cadTarget[27] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget27Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 27
+setglobal t control-numpad-7
+call staticTargetSet
+}
+
+staticTarget28
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[28] == ""
+	setglobal cadTarget[28] @selplayer.simple_name
+	message "*Set " cadTarget[28] " as cad target control-numpad-8."
+end if
+"/select " cadTarget[28] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget28Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 28
+setglobal t control-numpad-8
+call staticTargetSet
+}
+
+staticTarget29
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[29] == ""
+	setglobal cadTarget[29] @selplayer.simple_name
+	message "*Set " cadTarget[29] " as cad target control-numpad-9."
+end if
+"/select " cadTarget[29] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget29Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 29
+setglobal t control-numpad-9
 call staticTargetSet
 }
 
