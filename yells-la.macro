@@ -1,0 +1,173 @@
+// Laughing Academy yells {was layells.macro, now yells-la.macro}
+
+setglobal clanyellsfilerevision "20210625-2100-0003"
+setglobal yellslafilerevision "20210625-2100-0003"
+
+"ylc"	call yell-creedo
+"ylf"	call falling-yells
+"yk"    "/yell here kitty kitty \r"
+"ytla"	call yell-tla
+
+// Laughing Academy yells
+
+la-yells
+{
+	random
+		"/yell LA!™ We ruleZ the spamstone. \r"
+		or
+		"/yell LA!™ Your falling specialists. \r"
+		or
+		"/yell LA!™ rescue! ... oops. Make that We need one too! \r"
+		or
+		"/yell LA!™...turning tragedy into comedy. \r"
+		or
+		"/yell LA!™... defending Puddleby by falling like zu!! \r"
+		or
+		"/yell LA!™ Have you fallen today? \r"
+		or
+		"/yell LA!™ Hunt! We'll make sure you fall too next time. \r"
+		or
+		"/yell LA!™ Hunt! What could go wrong! \r"
+		or
+		"/yell LA!™ If we're not falling, you must be dreaming! \r"
+		or
+		"/yell LA!™ If you're not falling, we're getting lazy, I guess... \r"
+		or
+		"/yell LA!™ The health bar is always greener on the other side. \r"
+		or
+		"/yell LA!™ We buy Thoomcare in bulk. \r"
+		or
+		"/yell LA!™ We guarantee to fall for you! \r"
+		or
+		"/yell LA!™ Where do you want to fall to day? \r"
+		or
+		"/yell LA™ The funniest joke of all is when we actually do something useful \r"
+		or
+		"/yell Last one there is a LA!™ member!! \r"
+		or
+		"/yell Hi Ho, Hi Ho, it's off to falLA we go... \r"
+		or
+		"/yell bwa ha ha ha \r"
+		or
+		"/yell this space for rent \r"
+		or
+		"/yell . . . \r"
+		or
+		"/yell insert random stuff here \r"
+		or
+		"/yell Laughing Academy!™ Falling soon on a snell near you! \r"
+		or
+		"/yell Laughing Academy!™ We aren't laughing with you... \r"
+		or
+		"/yell Laughing Academy!™ Why make a mess when you can be a mess? \r"
+		or
+		"/yell Laughing Academy!™ 100\% spirit, 0\% mind. \r"
+		pause 45
+		"/yell Er, Ask Whirl to explain that one to you. \r"
+		or
+		call knocknock1
+		or
+		call yell-tla
+		or
+		call yell-pun1
+	end random
+
+}
+
+falling-yells
+{
+	random
+		"/yell LA!™... Charge!... er no Run Run!!!! \r"
+		or
+		"/yell LA!™ falling at a snell near you \r"
+		or
+		"/yell LA!™ Going.. Going... Going... *THUD* \r"
+		or
+		"/yell LA!™ Halp! I've fallen and I can't get up \r"
+		or
+		"/yell LA!™ Owies ..  owies .. owies ... oops \r"
+		or
+		"/yell LA!™ Since when do the critters bite so hard? \r"
+		or
+		"/yell LA!™ I think I am getting deader \r"
+		or
+		"/yell LA!™ So a funny thing happened when I went throught that PF you told me not to \r"
+		or
+		call yell-knockfall1
+	end random
+}
+
+yell-creedo
+{	
+	"/narrate The Laughing Academy Creed"
+	pause 20
+	"You must go blindly into the fight! \r"
+	pause 10
+	"Flailing away with all your might\r"
+	pause 10
+	"if you fall its a plus. \r" 
+	pause 10
+	"Because then you are..\r"
+	pause 10
+	"most like us!!!\r"
+	pause 10
+	"/yell LA to the death!!! of course...\r"
+}
+
+yell-knockfall1
+{
+"/yell Knock Knock. \r"
+pause 45
+"/yell Who's there? \r"
+pause 45
+"/yell YA FLAM \r"
+pause 45
+"/yell YA FLAM who? \r"
+pause 45
+"/yell Yet Another Fallen Laughing Academy™ member \r"
+}
+
+yell-knocknock1
+{
+"/yell Knock Knock. \r"
+pause 45
+"/yell Who's there? \r"
+pause 45
+"/yell WAY FY \r"
+pause 45
+"/yell WAY FY who? \r"
+pause 45
+"/yell Why Aren't You Fallen Yet? \r"
+}
+
+yell-pun1
+{
+"/yell How many LA™ members does it take to screw in a light bulb? \r"
+pause 45
+"/yell None.  We fall before we can! \r"
+}
+
+yell-tla
+{
+"/yell tLA! \r" 
+pause 45
+"/yell little t, big L A! \r"
+}
+
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210508-Inu:	Stole think from Ramandu. "Laughing Academy! 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you"
+20201106-Inu: 	Pulled out clan yells into this LA Yells.macro (layells.macro). 
+				Encoded for Windows UTF-8. TM (™)symbol works on Windows.
+20210215-Inu:	Fixed missing /r in yell-pun1 macro. Added a few more falling yells.
+				Removed redundant yells. Added direct call for falling yells.
+20210220-Inu:	New yells stolen from Ramandu while on Connie Mosey 2/19/2021.
+				Moved fallen yells to fallen area. Removed more dupes out of main.
+				Added this revision log, reconstructed dates edits were made.
+				A few style edits made to existing yells. Added knocknock1 yell.
+20210528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
+20210625-Inu:	Renamed file to group with other yells files (yells-x.macro).
+				Changed label of clan-yells to la-yells to allow for using other clan's yells.
+*/
