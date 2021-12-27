@@ -30,7 +30,7 @@ and
 * 20070211-inu: Fixed specialized group think to section to use MySunStone variable
 *               and corrected bug
 * 20080824-inu: Reorganized to use call for all.
-*
+* 20211226-noi: set back to MyStone (not all stones a sunstones)
 ********************************* Global Variables ********************************* 
 */
 
@@ -57,7 +57,6 @@ set timeStamps 1	// SET THIS to zero if you don't use timestamps
 * use "/set feedback [on|off] to toggles the between silent mode and message display mode.
 * ///////////////////////Sungem Additions//////////////////////////////////
 *
-* 
 * "/tga <name>" will add one person to the thinkgroup. TGA= ThinkGroup Add
 * "/tgas" will add the selected person ot the think group. TGAS=Think Group Add Selected
 * "/tgre <name>" will remove one person from the thinkgroup. TGRE=THinkGroup REmove
@@ -245,29 +244,36 @@ end if
 setglobal keepAlive 0
 }
 
+"noscan" call NoScan
+
+NoScan
+{
+setglobal scanBreak 1	//This alows you to stop this macro without stopping other macros
+}
+
 add2grp
 {
 // message "** tc_macro.macro / add2grp **"
 	if @text == ""
-		 "/useitem " MySunStone " /add " @selplayer.simple_name "\r"
+		 "/useitem " MyStone " /add " @selplayer.simple_name "\r"
 	else
-		"/useitem " MySunStone " /add " @text "\r"
+		"/useitem " MyStone " /add " @text "\r"
 	end if
 }
 
 checkss
 {
-	"/useitem " MySunStone " /inspect \r"
+	"/useitem " MyStone " /inspect \r"
 }
 
 cleargrp
 {
-	"/useitem " MySunStone " /clear \r"
+	"/useitem " MyStone " /clear \r"
 }
 
 listgrp
 {
-	"/useitem " MySunStone " /group /who \r"
+	"/useitem " MyStone " /group /who \r"
 }
 
 querytgt		
@@ -283,9 +289,9 @@ rmv4mgrp
 {
 //message "** tc_macro.macro / rmv4mgrp **"
 	if @text == ""
-		"/useitem " MySunStone " /remove " @text "\r"
+		"/useitem " MyStone " /remove " @text "\r"
 	else
-		"/useitem " MySunStone " /remove " @selplayer.simple_name "\r"
+		"/useitem " MyStone " /remove " @selplayer.simple_name "\r"
 	end if
 }
 
@@ -293,7 +299,7 @@ setgrp2shared
 { 
 //message "** tc_macro.macro / setgrp2shared **"
 
- "/useitem " MySunStone " /clear \r"
+ "/useitem " MyStone " /clear \r"
  pause 1
 if @text == ""
    "/share " @selplayer.simple_name "\r"
@@ -360,13 +366,13 @@ set counter 1
  	if skip == counter
 			set counter + 1
 	else
-		"/useitem " MySunStone " /add " exile[counter] "\r"
+		"/useitem " MyStone " /add " exile[counter] "\r"
 		set counter + 1
 		pause 1
 	end if
 	goto addloop
  else
- "/useitem " MySunStone " /who \r"
+ "/useitem " MyStone " /who \r"
  end if
 end if
 label end
@@ -375,9 +381,9 @@ label end
 ssback
 {
 //message "** tc_macro.macro / ssback **"
-	if @my.forehead_item != MySunStone
+	if @my.forehead_item != MyStone
 		setglobal fitem @my.forehead_item
-		"/equip " MySunStone "	\r"
+		"/equip " MyStone "	\r"
 		set fromTT 1
 	else
 		setglobal fitem @my.forehead_item
@@ -404,9 +410,9 @@ tgtselect
 	if messagestatus == 1
 		message "targeting: " ssTarget
 	end if
-	if @my.forehead_item != MySunStone
+	if @my.forehead_item != MyStone
 		setglobal fitem @my.forehead_item
-		"/equip " MySunStone " \r"
+		"/equip " MyStone " \r"
 		set fromTT 1
 	end if
 	"/thinkto " @text "\r"
@@ -427,9 +433,9 @@ thinkcln
 thinkgrp
 {
 //message "** tc_macro.macro / thinkgrp **"
-if @my.forehead_item != MySunStone
+if @my.forehead_item != MyStone
 	setglobal fitem @my.forehead_item
-	"/equip " MySunStone "\r"
+	"/equip " MyStone "\r"
 end if
 "/thinkgroup " @text "\r"
 
