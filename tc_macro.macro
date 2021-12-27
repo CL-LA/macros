@@ -7,6 +7,7 @@
 * This macro allows you to quickly reply to anyone who thinks to you directly 
 * to you. It also manages think to groups and think to clan actions.
 * ************************************* Usage *************************************
+* "/feedback" toggles messages on or off. Too Spamy? Set feedback to 0 in global variables section
 * "goscan" to start and "noscan" to stop.
 * "goscan ?" for instructions on different commands.
 * "t?" give the current target,
@@ -17,7 +18,7 @@
 * If the scanner stops after a time or a script killer area, just type "goscan" to start it back up.
 *
 *********************************** Setup ***********************************
-* Add "include "tc_macro.txt"" 
+* Add "include "tc_macro.macro"" 
 and 
 "@login call GoScan" to your default macro file to start automatically.
 * go to SET THIS to set globals to your setup
@@ -102,8 +103,8 @@ set timeStamps 1	// SET THIS to zero if you don't use timestamps
 "noscan" call NoScan
 /* *********************************** Moving Macro Parts ***********************************
 
-FeedBack
-{	//This is in case you don't want your text log or status area spammed
+FeedBack //This is in case you don't want your text log or status area spammed
+{	
 if messageStaus == 1
 	setglobal feedback 0
 else
