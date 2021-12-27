@@ -30,7 +30,7 @@ and
 * 20070211-inu: Fixed specialized group think to section to use MySunStone variable
 *               and corrected bug
 * 20080824-inu: Reorganized to use call for all.
-* 20211226-noi: set back to MyStone (not all stones a sunstones)
+* 20211226-noi: set back to MyStone (not all stones are sunstones)
 ********************************* Global Variables ********************************* 
 */
 
