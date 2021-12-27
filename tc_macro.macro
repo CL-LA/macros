@@ -2,7 +2,7 @@
 /* ------------------------------------------------
 *  tc_macro.macro
 *  ------------------------------------------------
-* Version: Version 2.5.6 [20211226] (+SunGem)
+* Version: Version 2.5.7 [20211227] (+SunGem/Drop OrgaEye Version)
 * Description:  (AKA "A Quick Reply") 
 * This macro allows you to quickly reply to anyone who thinks to you directly 
 * to you. It also manages think to groups and think to clan actions.
@@ -11,7 +11,7 @@
 * "goscan ?" for instructions on different commands.
 * "t?" give the current target,
 * "ts <name> [message]" sets the SSTarget and optionally sends a message
-* "tc <message>" to think back to the SStarget (last person to /thinkto you)
+* "tl <message>" to think back to the SStarget (last person to /thinkto you)
 * "tt <message>" to think to selected player -- added v2.5.4
 * SCROLL DOWN for Thinkgroup instructions
 * If the scanner stops after a time or a script killer area, just type "goscan" to start it back up.
@@ -47,14 +47,14 @@ set playerName 0
 set scanBreak 0		  
 set scanBreak 0
 set ssTarget "" 			
-set messageStatus 1 	//Gives you feedback "tc target: @player"
+set messageStatus 1 	//Gives you feedback "tl target: @player"
 set timeStamps 1	// SET THIS to zero if you don't use timestamps
 
 /* ==========================Think Capture Options==========================
 * "/t?" - Tells you who current target is for tl (thinkto last)
 * "/ts <name>" - Lets you manually change the target to that passed to the macro
 * "/tl" - Sends a message to the person who 'thunk' to you last.
-* use "/set feedback [on|off] to toggles the between silent mode and message display mode.
+* use "/feedback" [on|off] to toggles the between silent mode and message display mode.
 * ///////////////////////Sungem Additions//////////////////////////////////
 *
 * "/tga <name>" will add one person to the thinkgroup. TGA= ThinkGroup Add
@@ -68,12 +68,12 @@ set timeStamps 1	// SET THIS to zero if you don't use timestamps
 * "/tgi" inspects your ThinkStone
 * "/tgw" will tell you who is apart of your Thinkgroup.
 *
-* ////////////////////////Thinking to Groups///////////////////////////////
+* _____________________________ Thinking to Groups _____________________________
 *
 * "tg <message>" thinks to your thinkgroup.
 * "tc <message>" thinks to your clan
 *
-/////////////////////////////////////////////////////////////////////
+* __________________________________ Triggers __________________________________
 */
 
 "/t?"	call querytgt
@@ -92,12 +92,25 @@ set timeStamps 1	// SET THIS to zero if you don't use timestamps
 "/tgw"	call listgrp
 "/tgs" 	call setgrp2shared  // clears current group and adds those you are sharing with
 
-"tl"	call ssback
-"/tl"	call ssback
+"tl"	call ssback. // ThinktoLast
+"/tl"	call ssback  // ThinktoLast
 "ts"	call tgtselect
 "/ts"	call tgtselect
 
+"/feedback" call FeedBack //Toggles between silent mode and message display (spammy) mode.
 "goscan" call GoScan
+"noscan" call NoScan
+/* *********************************** Moving Macro Parts ***********************************
+
+FeedBack
+{	//This is in case you don't want your text log or status area spammed
+if messageStaus == 1
+	setglobal feedback 0
+else
+	setglobal feedback 1
+	message "*Messages On"
+end if
+}
 
 GoScan
 {
@@ -244,8 +257,6 @@ end if
 setglobal keepAlive 0
 }
 
-"noscan" call NoScan
-
 NoScan
 {
 setglobal scanBreak 1	//This alows you to stop this macro without stopping other macros
@@ -282,7 +293,7 @@ querytgt
 // silent mode, if you've been afk for a while or if a bug in macro language  
 // implementation causes the target to be wrong.
 // message "** tc_macro.macro / querytgt **"
-	Message " tc target: " ssTarget  	
+	Message " tl target: " ssTarget  	
 } 				
 
 rmv4mgrp
