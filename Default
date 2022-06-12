@@ -9,19 +9,19 @@ setglobal defaultfilerevision "2022-0612-0000-0011"
 include "abbreviations.macro"			// Common abbreviations contributed by many.
 include "dances.macro"					// A collection of dances, including a random picker.
 include "DefShares.macro"				// Default shares used across all characters.
-include "directions.macro"
+include "directions.macro"				// An older how to get to places on main island
 include "Exilepicker.macro"				// Torin's exile picker macro. Used in thank exile loop.
-include "funactions.macro"
-include "globalset.macro"
-include "GoScanner.macro"
+include "funactions.macro"				// most of the simple action macros use to role play
+include "globalset.macro"				// where /cmds is and setf is found
+include "GoScanner.macro"				// main scanner loop
 include "idle.macro"					// main idle loop, where thank exile loop resides
 include "keys.macro"					// manages key rings, keys to use are set in character's file
 include "omega_zu.macro"				// Omega's Zu macro with mods by Noivad
-include "quickchain.macro"
-include "readtext2.macro"
-include "shares.macro"
-include "storahelp.macro"
-include "sunstone.macro"
+include "quickchain.macro"				// chaining macro
+include "readtext2.macro"				// raul's read text macro reborn
+include "shares.macro"					// Gorvin's dynamic sharecads
+include "storahelp.macro"				// Old macro for when Stora was around
+include "sunstone.macro"				// Sunstone macros, including group and clan
 include "tc_macro.macro"				// think clan and think group macros
 include "yells.macro"					// generic yells
 // include "moneycount.macro"
