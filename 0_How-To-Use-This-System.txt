@@ -1,0 +1,31 @@
+0_How-To-Use-This-System.txt
+
+This system was built to handle multiple characters without having to have duplicate files/folders for each character.
+It also was built to avoid having macro files that were thousands of lines long.
+
+There are three parts to this system.
+
+1. The character file.
+2. The default file.
+3. The various macro files.
+
+The character file is where you type in the names of your character specific items into specific variables.
+The default file loads the various macro files.
+
+The various macro files use the variables defined in your character file to equip, use, role play, and perform other actions.
+The various macro files are purpose specific. 
+	For instance all the sunstone actions are in the sunstone.macro file. You customize which type of think stone you use in your character file.
+	All the healing functions are in the moonstone_functions.macro. You customize your healing tools in your character file.
+	
+To get an idea about these various files, read the // comments in default to the right of the included file.
+
+A character template file is uploaded in conjunction with this so you can copy and paste into your file if you adopt this system.
+Look for 1_character-file_blank.txt
+
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+ATTRIBUTIONS: Inu
+2022-0612-Inu:		Added this log, moved to bottom.
+*/
