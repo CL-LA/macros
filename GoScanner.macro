@@ -2,7 +2,7 @@
 //------------------------------------------------
 // GoScan and Scanner macros (Noivad's + ?)
 //------------------------------------------------
-setglobal GoScannerfilerevision "20210225-0100-0001"
+setglobal GoScannerfilerevision "2022-0612-0000-0002"
 
 GoScan
 {
@@ -160,13 +160,14 @@ message "===> Loaded GoScanner.macro"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-20071231-Inu: Integrated DH's AwakeAFK macro with this scanner to avoid problems and auto call on login
-20080128-Inu: Removed excessive pause in integrated DHAwakeAFK integrated counter instead.
-	      	  Integrated Raul's trainer message reader.
-20180630-Inu: Moved Raul's trainer messages out to readtext2.mac.
-			  Moved /setf, goVerbose, goFunctions to globalset.mac
-			  Moved all custom "/commands call X" to the top so I could track what is in this file.
-			  Moved DHAwakeAFK to idle.mac.  All Called functions return by default. So no need for Goto at end.
-20210224-Inu: Moved this log to end.
-			  Attributions: Noivad, Raul, DragonHawk and more I don't know.
+Attributions: Noivad, Raul, DragonHawk and more I don't know.
+2007-1231-Inu:		Integrated DH's AwakeAFK macro with this scanner to avoid problems and auto call on login
+2008-0128-Inu:		Removed excessive pause in integrated DHAwakeAFK integrated counter instead.
+	      			Integrated Raul's trainer message reader.
+2018-0630-Inu:		Moved Raul's trainer messages out to readtext2.mac.
+					Moved /setf, goVerbose, goFunctions to globalset.mac
+					Moved all custom "/commands call X" to the top so I could track what is in this file.
+					Moved DHAwakeAFK to idle.mac.  All Called functions return by default. So no need for Goto at end.
+2021-0224-Inu:		Moved this log to end.
+
 */
