@@ -4,7 +4,7 @@
 // This macro file is included for every character by default.
 // Use it for general macros that you want available to all characters.
 
-setglobal defaultfilerevision "20210528-0100-0009"
+setglobal defaultfilerevision "2022-0612-0000-0011"
 
 include "abbreviations.macro"			// Common abbreviations contributed by many.
 include "dances.macro"					// A collection of dances, including a random picker.
@@ -15,7 +15,7 @@ include "funactions.macro"
 include "globalset.macro"
 include "GoScanner.macro"
 include "idle.macro"					// main idle loop, where thank exile loop resides
-include "keys.macro"
+include "keys.macro"					// manages key rings, keys to use are set in character's file
 include "omega_zu.macro"				// Omega's Zu macro with mods by Noivad
 include "quickchain.macro"
 include "readtext2.macro"
@@ -54,6 +54,9 @@ include "yells.macro"					// generic yells
 //												// Used in idle.macro
 //	setglobal ThankExile	1					// turns on thank specific set of random exiles. 
 //												// Used in idle.macro
+//  setglobal thankreg 		" replace with  in-character for regular exiles \r"			// Used in idle.macro
+//	setglobal thankfnf	 	" replace with a friends and family thank message \r"		// Used in idle.macro
+
 //  Healer specific global variabbles
 //	setglobal woc	 		"Asklepian Staff"	// Used by Quickchain.macro to re-equip default right hand item.
 //	setglobal AmCadding		1					// 1 disables ExilePicker, 0 enables ExilePicker. 
@@ -78,14 +81,18 @@ message "Character File Rev	-- " charfilerevision
 message "Default File Rev	-- " defaultfilerevision
 message "idle.macro File Rev -- " idlemacrofilerevision
 message "directions Rev        -- " directionsrev
-message "clan yells File Rev -- " clanyellsfilerevision
-message "general yells File Rev -- " yellsfilerevision
+message "yells File Rev -- " yellsfilerevision
+message "yells-la File Rev -- " yellslafilerevision
+message "yells-geese File Rev -- " yellsgeesefilerevision
 
 // set gTesting to 1 to disable various macros while testing.
 setglobal gTesting 			1
 message "gTesting is set to " gTesting
 
-message "To list custom commands list, use /cmds"	//Found in 
+// set gAmStudying to 1 to enabled to allow for random things said while idling
+message	"gAmStudying is set to " gAmStudying
+
+message "To list custom commands list, use /cmds"	//Found in globalset.macro
 
 // Thank global variables
 setglobal thankcounter  1					// initializes thank cooloff counter - used in idle.macro
@@ -95,9 +102,12 @@ setglobal redopickexilecounter 0
 message "redopickexilecounter = " redopickexilecounter
 setglobal infoExileClanning @selplayer.simple_name
 message "infoExileClanning = " infoExileClanning
-
+message "/options speech speed (slow, normal, fast, zoom)"
+"/options ? speech speed \r"
 message ** COINS **
 "/money \r"
+message "from default line 107"
+
 call defshares				// honors gTesting
 
 // 20161130 - Added to debug why macros after GoScan loop are not being recognized
@@ -168,7 +178,7 @@ click4			message "==> TESTING"
 
 teststatus
 {
-	"/STATUS /REMOVE \r "
+	"/STATUS /REMOVE \r"
 //	"/STATUS " occMsg " \r"
 }
 
@@ -187,6 +197,6 @@ message "===> Loaded Default macro file"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-20210224-Inu: Added this log.
-			  Attributions: Noivad and more I don't know.
+2021-0224-Inu:	Added this log.
+				Attributions: Noivad and more I don't know.
 */
