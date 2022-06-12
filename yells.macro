@@ -1,8 +1,8 @@
 // General purpose yells {yells.macro}
 
-setglobal yellsfilerevision "20210616-2300-0003"
+setglobal yellsfilerevision "2022-0612-0000-0007"
 
-"y"		"/yell " @text " \r"
+"y"     "/yell " @text " \r"
 "y?"	"/yell ? \r"
 "y!"	"/yell ! \r"
 
@@ -12,29 +12,53 @@ setglobal yellsfilerevision "20210616-2300-0003"
 "yds"	"/yell South ↓ " @text "\r"
 
 "yb"	"/yell beeeeeer! " @text " \r"
+"yba" 	call baconyells
+"ybacon" call baconyells
 "ybs"	"/yell BS! " @text " \r"
+"ycl"	call clan-yell
 "yeek"	"/yell eek! help! " @text " \r"
 "yf"	"/yell fallens? " @text " \r"
+"yfo"	call found-stuff
+"yge"	call geeseling-yells
 "yh"    "/yell here! fallen " @text " \r"
 "yi"	"/yell Incoming! " @text " \r"
-"yj"	call jo-yells
-"yl"	call clan-yell
+"yjo"	call jo-yells
+"yjs"	"/yell JoSafe™? \r"
+"yl"	call la-yells
 "ym"	"/yell meelk \r"
 "ymos"	call mosey-yells
-"yo"   "/yell Chivalry! " @text " \r"
-"yolo"	call found-stuff
+"yo"    "/yell Chivalry! " @text " \r"
 "yout"  "/yell out " @text "\r"
-"yp"	call ping-yell
+"yp"	"/yell ?!? \r"
+"ypi"	call ping-yell
 "yr"   	"/yell running them " @text " \r"
 "yrun"   "/yell run " @text "\r"
-"/ys"	"/yell safe! " @text "\r"
-"ysafe"	call safeish
+"ys"	"/yell safe! " @text "\r"
+"ysa"	call safeish
+"yst"	call screaminginutterterror
 "ysvd"	"/yell Save Dande! \r"
 "ysvl"	"/yell Save Luna! \r"
-"yt"	call thoomcare-yells
+"yth"	call thoomcare-yells
 "yw"	"you're welcome :) \r"
+"ywg"	call geeseling-yells
 "yy"    "/yell " @text "\r"
 
+baconyells
+{
+	random
+		"/yell Bacon Bits! \r"
+	or
+		"/yell Move over Bacon, there is something leaner. \r"
+	or	
+		"/yell suuueee-weeee! \r"
+	or
+		"/yell I've got a bacon addiction that can't be cured. \r"
+	or
+		"/yell Don't go bacon my heart. \r"
+	or
+		"/yell You need more cowbell! \r"
+	end random
+}
 found-stuff
 {
 	random
@@ -42,7 +66,7 @@ found-stuff
 		or
 		"/yell Hawk? thingie \r"
 		or
-		
+		"yell What's biting me? \r"
 	end random
 }
 
@@ -94,6 +118,18 @@ safeish
 		"/yell \r"
 }
 
+screaminginutterterror
+{
+	random
+		"/yell eek! help! " @text " \r"
+	or
+		"/yell This is a running away in terror scream \r"
+	or
+		"/yell Halp! Mew, Owies! \r"
+	or
+		"/yell I'm screaming in utter terror! \r"
+	end random
+}
 thoomcare-yells
 {
 	random
@@ -107,8 +143,9 @@ thoomcare-yells
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-Attributions: Noivad, Tas, Ramandu, Pun'isher, and many more.
-
-20210528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
-		
+ATTRIBUTIONS: Noivad, Tas, Ramandu, Pun'isher, and many more.
+2021-0528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
+2021-0625-Inu:	Changed name of la-yells.macro file yells-la.macro.
+				Changed label from clan-yell to la-yells to allow for using multiple clan's yells when hunting with them.
+2022-0612-Inu:	Modified date formats to make them more readable across all macro files.		
 */

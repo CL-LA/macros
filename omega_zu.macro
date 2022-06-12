@@ -1,4 +1,4 @@
-setglobal omega_zufilerevision "20210225-0100-0001"
+setglobal omega_zufilerevision "2022-00611-2300-0002"
 
 //------------------------------------------------
 // omega_zu.macro
@@ -166,3 +166,10 @@ message ItemCount
 }
 
 message "===> Loaded omega_zu.macro"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+ATTRIBUTIONS: Omega
+2022-0611-Inu:	Added this log.
+*/

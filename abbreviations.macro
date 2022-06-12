@@ -4,14 +4,14 @@
 // Keep your abbreviations in this file...
 //
 
-setglobal abbreviationsfilerevision "20210421-0930-0009"
+setglobal abbreviationsfilerevision "2022-0612-0000-0010"
 
 "??"    "/help "    @text "\r"
 "aa"    "/action "  @text "\r"
 "gg"    "/give "    @text "\r"
 "hp"    "/ponder healer pounce! \r"
 "ii"    "/info "    @text "\r"
-"kr"    "/karma "   @text "\r"
+"kr"    "/karma "   @text " \r"
 "kp"    "kill please \r"
 "mm"	"/money "   @text "\r"
 "n"		"/narrate " @text "\r"
@@ -151,7 +151,7 @@ message "===> Loaded abbreviations.macro"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-20210224-Inu: 	Change "ty" to a character specific style. Add ty global variable to your character file.
+2021-0224-Inu: 	Change "ty" to a character specific style. Add ty global variable to your character file.
 				Set it to cat, dwarf, or just empty "". Type of ty will increase as I get them added.
 				Attributions: Delta Tao, Noivad, Lorikeet, Gorvin, Raul, DragonHawk, Skirwan and more I don't know.
 */

@@ -1,9 +1,7 @@
-setglobal quickchainfilerevision "20210225-0100-0001"
+setglobal quickchainfilerevision "2022-0611-2300-0002"
 //------------------------------------------------
 // quickchain.macro
 //------------------------------------------------
-// Noivad's v3.1 9-18-06
-// Debug helpers Chmee, Xenos, Zaerion
 // NOTE: right-click is not used for actions, instead see Default for key assignment of click-action.
 // Use: right-cick on self: 			equips (woc)
 //		right-click on fallen exile: 	chains fallen
@@ -17,8 +15,6 @@ setglobal quickchainfilerevision "20210225-0100-0001"
 
 set quickc 0
 set chainlock 0
-// 20081004-inu: Moved to character file:
-//	setglobal	chaintype "chain"	// Used by Quickchain.mac.
 f5 			call flybychain		// Quickchain.mac
 
 //begin chain macros
@@ -195,3 +191,12 @@ message "chainlock" chainlock
 }
 
 message "===> Loaded quickchain.macro"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+ATTRIBUTIONS: Noivad, Debug helpers Chmee, Xenos, Zaerion
+2006-0918-Noivad:	v3.1
+2008-1004-Inu: 		Moved to character file:, setglobal	chaintype "chain"
+2022-0611-Inu:		Added this log, moved to bottom.
+*/

@@ -2,7 +2,7 @@
 // dances.mac
 //------------------------------------------------
 
-setglobal dancesfilerevision "20210227-1100-0009"
+setglobal dancesfilerevision "2022-0612-0000-0010"
 
 dcr
 {
@@ -108,7 +108,57 @@ aki
 	pause 1
 	"/pose leanleft \r"
 	pause 1
-	"/pose bless \r"
+	"/pose akimbo \r"
+	pause 1
+	"/pose attack left \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose attack right \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose attack south \r"
+	"/pose attack north \r"
+	pause 1
+	"/pose attack north \r"
+	"/pose attack south \r"
+	pause 1
+	"/pose akimbo \r"
+	pause 1
+	"/pose attack right \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose attack left \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1	"/pose akimbo \r"
+	pause 1
+	"/pose attack left \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose attack right \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose attack south \r"
+	"/pose attack north \r"
+	pause 1
+	"/pose attack north \r"
+	"/pose attack south \r"
+	pause 1
+	"/pose akimbo \r"
+	pause 1
+	"/pose attack right \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose attack left \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1	"/pose bless \r"
 	pause 5
 	"/pose bow \r"
 	pause 5
@@ -118,7 +168,7 @@ aki
 chik
 {
 	message "** dances.macro / chik **"
-	"/ponder chikun dance \r"
+//	"/ponder chikun dance \r"
 	"/pose stand \r"
 	"/pose akimbo \r"
 	"/pose angry \r"
@@ -209,14 +259,76 @@ chik
 mash		// Noivad's non-spammy version
 {
 	message "** dances.macro / mash **"
-	"/pose attack west\r/pose leanleft\r/pose celebrate\r"
-	"/pose akimbo\r"
-	pause 1
-	"/pose leanright\r"
-	"/pose attack\r"
-	"/pose akimbo\r"
+	"/pose attack west \r" 
+	"/pose leanleft \r" 
+	"/pose celebrate \r"
+	"/pose akimbo \r"
+	pause 2
+	"/pose leanright \r"
+	"/pose attack \r"
+	"/pose akimbo \r"
+	"/pose celebrate \r"
+	"/pose bless \r"
+	pause 2
+	"/pose attack west \r" 
+	"/pose leanleft \r" 
+	"/pose celebrate \r"
+	"/pose akimbo \r"
+	pause 2
+	"/pose leanright \r"
+	"/pose attack \r"
+	"/pose akimbo \r"
 	"/pose celebrate\r"
 	"/pose bless \r"
+	pause 2
+	"/pose attack west \r" 
+	"/pose leanleft \r" 
+	"/pose celebrate \r"
+	"/pose akimbo \r"
+	pause 2
+	"/pose leanright \r"
+	"/pose attack \r"
+	"/pose akimbo \r"
+	"/pose celebrate \r"
+	"/pose bless \r"
+	pause 2
+	"/pose attack west \r" 
+	"/pose leanleft \r" 
+	"/pose celebrate \r"
+	"/pose akimbo \r"
+	pause 2
+	"/pose leanright \r"
+	"/pose attack \r"
+	"/pose akimbo \r"
+	"/pose celebrate \r"
+	"/pose bless \r"
+	pause 2
+	"/pose attack west \r" 
+	"/pose leanleft \r" 
+	"/pose celebrate \r"
+	"/pose akimbo \r"
+	pause 2
+	"/pose leanright \r"
+	"/pose attack \r"
+	"/pose akimbo \r"
+	"/pose celebrate \r"
+	"/pose bless \r"
+	pause 2
+	"/pose attack west \r" 
+	"/pose leanleft \r" 
+	"/pose celebrate \r"
+	"/pose akimbo \r"
+	pause 2
+	"/pose leanright \r"
+	"/pose attack \r"
+	"/pose akimbo \r"
+	"/pose celebrate \r"
+	"/pose bless \r"
+	pause 2
+	"/pose attack west \r" 
+	"/pose leanleft \r" 
+	"/pose celebrate \r"
+	"/pose akimbo \r"
 	pause 5
 	"/pose bow \r"
 	pause 5
@@ -791,6 +903,6 @@ message "===> Loaded dances.macro"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-20210224-Inu: 	Added this log.
+2021-0224-Inu: 	Added this log.
 				Attributions: Largo and more I don't know.
 */
