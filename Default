@@ -50,6 +50,11 @@ include "yells.macro"					// generic yells
 //	setglobal OccupyRandom	0					// 1 = Occupy is on. Any other value = Occupy is OFF. 
 //												// Used in idle.macro
 //	setglobal scanBreak 	0 					// Enables scanner to run continuously. Used in GoScanner.macro
+	setglobal share1 "[none]"						// Used in defshares.macro
+	setglobal share2 "[none]"						// Used in defshares.macro
+	setglobal share3 "[none]"					// Used in defshares.macro
+	setglobal share4 "[none]"							// Used in defshares.macro
+	setglobal share5 "[none]"						// Used in defshares.macro
 //	setglobal ThankRandom	0					// turns on thank random for any exile clanning. 
 //												// Used in idle.macro
 //	setglobal ThankExile	1					// turns on thank specific set of random exiles. 
