@@ -1,6 +1,6 @@
 // Wild Geese yells {was wildgeeseyells.macro now yells-geese.macro}
 
-setglobal yellsgeesefilerevision "20210625-2100-0002"
+setglobal yellsgeesefilerevision "2021-0625-2100-0002"
 
 "ygcr"	call yell-creedo
 "ygfa"	call falling-yells
@@ -151,7 +151,8 @@ pause 45
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-20210417-TBD:	Based on LA yells file. Set this up for Wild Geese.
-20210625-Inu:	Changed name of file from wildgeeseyells.macro to yells-geese.macro.
+2021-0417-TBD:	Based on LA yells file. Set this up for Wild Geese.
+2021-0625-Inu:	Changed name of file from wildgeeseyells.macro to yells-geese.macro.
 				Change label clan-yell to geeseling-yells. Done so that multiple clan's yells can be used on a hunt with them.
+2022-0703-Inu: 	Standardized date stamps to YYYY-MMDD format for readability.
 */
