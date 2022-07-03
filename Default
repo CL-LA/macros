@@ -4,7 +4,7 @@
 // This macro file is included for every character by default.
 // Use it for general macros that you want available to all characters.
 
-setglobal defaultfilerevision "2022-0612-0000-0011"
+setglobal defaultfilerevision "2022-0703-1200-0012"
 
 include "abbreviations.macro"			// Common abbreviations contributed by many.
 include "dances.macro"					// A collection of dances, including a random picker.
@@ -50,11 +50,11 @@ include "yells.macro"					// generic yells
 //	setglobal OccupyRandom	0					// 1 = Occupy is on. Any other value = Occupy is OFF. 
 //												// Used in idle.macro
 //	setglobal scanBreak 	0 					// Enables scanner to run continuously. Used in GoScanner.macro
-	setglobal share1 "[none]"						// Used in defshares.macro
-	setglobal share2 "[none]"						// Used in defshares.macro
+	setglobal share1 "[none]"					// Used in defshares.macro
+	setglobal share2 "[none]"					// Used in defshares.macro
 	setglobal share3 "[none]"					// Used in defshares.macro
-	setglobal share4 "[none]"							// Used in defshares.macro
-	setglobal share5 "[none]"						// Used in defshares.macro
+	setglobal share4 "[none]"					// Used in defshares.macro
+	setglobal share5 "[none]"					// Used in defshares.macro
 //	setglobal ThankRandom	0					// turns on thank random for any exile clanning. 
 //												// Used in idle.macro
 //	setglobal ThankExile	1					// turns on thank specific set of random exiles. 
@@ -70,6 +70,8 @@ include "yells.macro"					// generic yells
 //	setglobal myWeapon 		"dagger"  			// change this to your weapon of choice. 
 //	setglobal healingDevice "Mercurial Staff" 	// set to "Caduceus" or "Mercurial Staff"
 //	setglobal auraHDevice 	"Asklepian Staff" 	// Set this to "Asklepian" or "Asklepian Staff"
+Message "** Default Global Variables ** SET"
+
 //::::::::::::::::::::::::::::::::::::::::::::::::
 // Global Variables Defined -- END SECTION
 //::::::::::::::::::::::::::::::::::::::::::::::::
@@ -81,14 +83,16 @@ if myspeed == ""
 else
 	"\options speech speed " myspeed " \r"
 end if
-message "Character File Used -- " charfileused
-message "Character File Rev	-- " charfilerevision
-message "Default File Rev	-- " defaultfilerevision
-message "idle.macro File Rev -- " idlemacrofilerevision
-message "directions Rev        -- " directionsrev
-message "yells File Rev -- " yellsfilerevision
-message "yells-la File Rev -- " yellslafilerevision
-message "yells-geese File Rev -- " yellsgeesefilerevision
+message "Character File Used	-- " charfileused
+message "Character File Rev		-- " charfilerevision
+message "Default File Rev		-- " defaultfilerevision
+message "Abbreviations File Rev	-- " abbreviationsfilerevision
+message "idle File Rev 		-- " idlemacrofilerevision
+message "directions File Rev		-- " directionsrev
+message "globalset File Rev		-- " globalsetfilerevision
+message "yells File Rev		-- " yellsfilerevision
+message "yells-la File Rev		-- " yellslafilerevision
+message "yells-geese File Rev		-- " yellsgeesefilerevision
 
 // set gTesting to 1 to disable various macros while testing.
 setglobal gTesting 			1
@@ -97,7 +101,7 @@ message "gTesting is set to " gTesting
 // set gAmStudying to 1 to enabled to allow for random things said while idling
 message	"gAmStudying is set to " gAmStudying
 
-message "To list custom commands list, use /cmds"	//Found in globalset.macro
+message "To list custom commands list, use /cmds from globalset.macro"
 
 // Thank global variables
 setglobal thankcounter  1					// initializes thank cooloff counter - used in idle.macro
@@ -111,10 +115,11 @@ message "/options speech speed (slow, normal, fast, zoom)"
 "/options ? speech speed \r"
 message ** COINS **
 "/money \r"
-message "from default line 107"
+message "from default line 117"
 
 call defshares				// honors gTesting
-
+Message charmsg1
+Message charmsg2
 // 20161130 - Added to debug why macros after GoScan loop are not being recognized
 // 20180630 - Figured out why, the GoScan is an endless loop by design.  
 //			  It will only return here if there is an error.
@@ -124,7 +129,7 @@ call defshares				// honors gTesting
 // This must be kept inside the @login loop in order to stay running
 // and to keep the stuff below from being displayed IC
 
-	message "*** Starting MAIN CODE ***"
+	message "*** Starting MAIN LOOP ***"
 	call GoScan				 // in GoScanner.macro
 	call Scanner			 // in GoScanner.macro
 	label returnFromGoScan
@@ -163,7 +168,7 @@ f2			"/push " @selplayer.simple_name " \r"
 // f6			call zu-stuff		// omega_zu.mac
 // shift-F6	call zu-add			// omega_zu.mac
 // control-f6	call zu-remove		// omega_zu.mac
-f7			call walk1		// character file
+f7			call walk1			// character file
 f8			call ping-yell		// abbreviations.mac	
 shift-F8	call thinkfalling	// sunstone.mac
 control-f9	call dcr			// dances.mac			
@@ -178,7 +183,7 @@ control-tab			call noscan
 // wheeldown		call DHAwakeAFK 	// unless you have a clicky wheel.  Using this with a smooth
 										// scrolling mouse is not something to try,
                                         // as you will have multiple calls to same macro. chain break!
-click4			message "==> TESTING"
+// click4			message "==> TESTING"
 
 
 teststatus
@@ -204,4 +209,5 @@ message "===> Loaded Default macro file"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
 2021-0224-Inu:	Added this log.
 				Attributions: Noivad and more I don't know.
+2022-0703-Inu:	Added abbreviations file revision to login message.
 */
