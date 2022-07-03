@@ -3,7 +3,7 @@
 // Global SET macro (Noivad's + ?)
 //------------------------------------------------
 //non-optimized to add: messageVariable and call InstructionMessages
-setglobal globalsetfilerevision "20212-0612-0000-0003"
+setglobal globalsetfilerevision "2022-0703-1000-0004"
 
 "/setf" 	call goFunctions
 "/verbose" 	call goVerbose
@@ -12,14 +12,18 @@ setglobal globalsetfilerevision "20212-0612-0000-0003"
 "/cmds"
 {
 LABEL CommandList
+	message "/bard - marks the log with [BARD]"
 	message "/cads - list people in your cad list" 
 	message "/cmds - this command list"
 	message "/dc - performs the dance listed after /dc"
 	message "goscan - starts scanning loop, AFK"
+	message "/lore - marks the log with [LORE]"
+	message "/mosey -	marks the log with [MOSEY]"
 	message "/noscan - stops scanning loop"
 	message "/pick - starts or stops ExilePicker. Semi-random thank"
 	message "/setf - lists all custom functions or sets one"
 	message "/stora - use ? for help, or the stora command"
+	message "/tr - turns on rank translation to numeric range as silent message"
 	message "/verbose - debug command for custom functions"
 	message	"/vers	- lists versions of macro files loaded"
 }
@@ -387,4 +391,5 @@ message "yells-la Rev        -- " yellslafilerevision
 				Attributions: Noivad and more I don't know.
 2021-0625-Inu: 	Fixed error in help for setf. 
 				Also set it up so you can use ? or nothing after setf to get to help.
+2022-0703-Inu:	Added help for log stampers in abbreviations.macro. [BARD], [LORE], [MOSEY].
 */
