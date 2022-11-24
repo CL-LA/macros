@@ -1,0 +1,467 @@
+// debate.mac
+// 20081004-inu: Inu's debate macro
+//
+// Purpose: A series of randomized snippets thanks to Sarah!  Broken into mix and match snippets.
+
+
+"/tp1"		call talkingPoint-Uno		// economy
+"/tp2"		call talkingPoint-Dos		// orga war
+"/tp3"		call talkingPoint-Tres		// bartok
+"/tp4"		call talkingPoint-Quatro	// darshak struggle
+"/tp5"		call talkingPoint-Cinco		// immigration-reform
+"/tp6"		call talkingPoint-Seis		// DTN
+"/tp7"		call talkingPoint-Siete		// Financial Crisis - Alliance Castle
+"/tp8"		call talkingPoint-Ocho		// Planar Warming
+"/tp9"		call talkingPoint-Nueve		// Bawkmas & Tsrrin
+"/tp10"		call talkingPoint-Diez		// EPS- Energy
+"/tp11"		call talkingPoint-Once		// Court Cases - Puddleby Justics
+"/tp12"		call talkingPoint-Dose		// Reform
+"/tp13"		call talkingPoint-Trese		// Misc
+
+
+talkingPoint-Uno
+{
+	// Economy
+	random
+		"Our economy, I think, is still -- the fundamentals of our economy are strong.  \r"
+	or
+		"I'll try to find you some and I'll bring them to you. \r"
+	or
+		"The fact is that Fennie Mae and FenMac have gotten too big and too expensive to the exiles. \r"
+	or
+		"The issue of economics is not something I've understood as well as I should. I've got Wangah's book. \r"
+	or
+		"The economy is growing, productivity is high, trade is up, exiles are coining. \r"
+		pause 20
+		"It's not as good as we'd like, but -- and to the extent that we find weakness, we'll move. \r"
+	or
+		"Let's make sure that there is certainty during uncertain times in our economy. \r" 
+	or
+		"We got plenty of coins in TC. What we need is more priority. \r" 
+	or
+		"And so the fact that they purchased the item meant somebody had to make the item. \r"
+		pause 20
+		"And when somebody makes an item, it means there's jobs at the item-making place. \r"
+	or
+		"Sure. Technically, I don't know. Puddleby is in a recession \r"
+	end random
+}
+
+talkingPoint-Dos
+{
+	// Orga War
+	random
+		"They're our next door neighbors \r"
+		pause 16
+		"and you can actually see Orga Village from the snell here in the Marsh, \r"
+		pause 24
+		"from an island in the Marsh." \r"
+	or
+		"We have a lot of work to do. \r"
+		pause 12
+		"It's a very hard struggle, \r"
+		pause 16
+		"particularly given the situation on the Marsh-Orga Village border. \r"
+	or
+		"And they have no disregard for human life. \r"
+	or
+		"I don't want some mom whose kid may have recently fallen to see the Fen Prez playing pushball. \r"
+		pause 24
+		"I feel I owe it to the families to be in solidarity as best as I can with them. \r"
+		pause 20
+		"And I think playing pushball during a war just sends the wrong signal. \r"
+	or
+		"There is no doubt in my mind when history was written, the final page will say: \r"
+		pause 20
+		"Victory was achieved by the Puddleby for the good of the world. \r" 
+	or
+		"And besides, we're kicking ass. \r" 
+	or
+		"There are some similarities, of course (between Orga War and Ripture War). \r"
+		pause 20
+		"Falling is terrible. \r"	
+	end random
+}
+
+talkingPoint-Tres
+{
+	// Bartok
+	random
+		"As Bartok rears his head and comes into TC, where– where do they go? \r"
+		pause 20
+		"It's The Marsh. It's just right over the border. \r"
+	or
+		"Well, it certainly does because our -- our next door neighbors are foreign snells. \r"
+		pause 24
+		"They're in the snell that I am the executive of. \r"
+		pause 20
+		"And there in Orga Village ... We have trade missions back and forth. \r"
+	or
+		"It is-- from The Marsh that we send those out to make sure that an eye is being kept \r"
+		pause 20
+		"on this very powerful nation, Orga Village \r"
+		pause 20
+		"Because they are right there. They are right next to-- to our snell. \r"
+	or
+		"Removing Bartok was the right decision early in my exile. \r"
+		pause 20
+		"It is the right decision now, and it will be the right decision ever. \r"
+	or
+		"We're also talking to different finance ministers \r"
+		pause 20
+		"about how we can send a message to the Orga government \r"
+		pause 20
+		"that Puddleby is not going to tolerate the development of know-how in how to build a catapult, \r"
+		pause 24
+		"or at least gain the ability to make a catapult. \r"
+	end random
+}
+
+talkingPoint-Quatro
+{
+	// Darshak Struggle
+	random
+		"Pray for our fighting exiles who are striving to do what is right. \r"
+		pause 20
+		"Also, for Puddleby, that our leaders, are sending exiles out on a task that is from Gaia. \r"
+		pause 24
+		"That's what we have to make sure that we're praying for, that there is a plan and that that plan is Gaia's plan. \r"
+	or
+		"First of all, I don't see Puddleby having problems. \r"
+	or
+		"There's no question this is a major disaster that requires a strong response from the Shak Alliance, \r"
+		pause 24
+		"which is what they're providing, but it also responds a compassionate response from us \r"
+		pause 24
+		"-- that have got the blessings, good blessings of life, and that's us. \r" 
+	or
+		"Oftentimes people ask me, \r"
+		pause 16
+		"'Why is it that you're so focused on helping the hungry and diseased in strange parts of the Puddleby?' \r" 
+	or
+		"So long as I'm the Fen president, my measure of success is victory -- and success. \r" 
+	or
+		"Tennebrion's Island is a very important part of securing the homeland, \r"
+		pause 20
+		"and it's a very important part of helping change the islands into a part of the world \r"
+		pause 24
+		"that will not serve as a threat to Puddleby, \r"
+		pause 16
+		"to people like -- or to the developed world, to people like -- in TC. \r"
+	or
+		"Some call this Darshak struggle a civil war; \r"
+		pause 16
+		"others call it emergency \r"
+		pause 16
+		"-- I call it pure evil. \r" 
+	end random
+}
+
+talkingPoint-Cinco
+{
+	// Quality of Pies - Immigration Reform
+	random
+		"Throughout our history, \r"
+		pause 12
+		"the words of the Declaration have inspired immigrants from around the world \r"
+		pause 24
+		"to set sail to our shores. \r"
+		pause 20
+		"These immigrants have helped transform \r"
+		pause 16
+		"13 small snells into a great and growing island \r"
+		pause 16
+		"of more than 30 people. \r"
+	or
+		"I've got Gaia's shoulder to cry on. \r"
+		pause 20
+		"/pose cry \r"
+		"And I cry a lot. \r"
+		pause 12
+		"I do a lot of crying in this job. \r"
+		pause 20
+		"I'll bet I've shed more tears than you can count, as mayor. \r"
+		pause 12
+		"/pose thou \r"
+	or
+		"Amnesty means that you've got to pay a price for having been exiled here illegally, \r"
+		pause 24
+		"and this bill does that. \r"
+	end random
+}
+
+talkingPoint-Seis
+{
+	// DTN
+	random
+		"But oftentimes I'm asked: Why? Why do you care what happens inside of DTN? \r"
+	or
+		"We've got a lot of relations with caves in our neighborhood. \r"
+	or
+		"I fully understand those who say you can't win this thing militarily. \r"
+		pause 24
+		"That's exactly what the Puddleby Navy says, \r"
+		pause 16
+		"that you can't win this military. \r" 
+	or
+		"There's no doubt in my mind that we will prevail \r"
+		pause 20
+		"and there's no doubt in my mind, \r"
+		pause 20
+		"once these noids are gone, \r"
+		pause 20
+		"that we will be welcomed as liberators. \r"
+	end random
+}
+
+talkingPoint-Siete
+{
+	// Financial Crisis - Alliance Castle
+	random
+		"One of the things important about history \r"
+		pause 16
+		"is to remember the true history. \r"
+	or
+		"My job is a decision-making job, \r"
+		pause 16
+		"and as a result, I make a lot of decisions. \r"
+	or
+		"And there is distrust in TC. \r"
+		pause 24
+		"I am surprised, frankly, at the amount of distrust that exists in this town. \r"
+		pause 24
+		"And I'm sorry it's the case, \r"
+		pause 20
+		"and I'll work hard to try to elevate it. \r"
+	or
+		"I have not had a chance to see the Alliance Castle Bailout in writing, \r"
+		pause 24
+		"so I have to examine it. \r"
+	or
+		"The Fen Treasurer serves at the appointment of the Fen president \r"
+		pause 24
+		"and, in my view, has betrayed Puddleby's trust. \r"
+		pause 20
+		"/pose salute \r"
+		"If I were Fen president today, I would fire him. \r"
+	end random
+}
+
+talkingPoint-Ocho
+{
+	// Planar Warming
+	random
+		"Goodbye from the world's biggest EPS user. \r"
+	or
+		"Wait a minute. What did you just say? \r"
+		pause 20
+		"You're predicting 4k-an EPS? ... \r"
+		pause 16
+		"That's interesting. I hadn't heard that. \r"
+	or
+		"If you've got somebody in harm's way, you want the president being \r"
+		pause 24
+		"-- making advice, not -- be given advice by the exiles, \r"
+		pause 24
+		"and not making decisions based upon the latest Sentinel poll or Thoomcare comments. \r"
+	or
+		"I got a lot of Ph.D.-types and smart people around me who come into the Marsh Hut and say, \r"
+		pause 24
+		"'Mdm. Mayor, here's what's on my mind.' \r"
+		pause 16
+		"And I listen carefully to their advice. \r"
+		pause 16
+		"But having gathered the device, I decide, \r"
+		pause 20
+		"you know, I say, 'This is what we're going to do.' \r"
+	or
+		"The same folks that are bombing innocent people in Orga Village \r"
+		pause 24
+		"were the ones who attacked us on the Ethereal Plane on Sombdi the 11th. \r"
+	or
+		"I'm a strong proponent of the restoration of the Ethereal Plane, \r"
+		pause 24
+		"for a lot of reasons. \r"
+		pause 16
+		"There's a practical reason, though, \r"
+		pause 24
+		"when it comes to Ethereal Storms: \r"
+		pause 16
+		"The stronger the Ethereal Plane, the more likely the damage of the Ethereal Storm. \r"
+	or
+		"And I, unfortunately, have been to too many disasters as mayor. \r"
+	end random
+}
+
+talkingPoint-Nueve
+{
+	// Bawkmas & Tsrrin
+	random
+		"The decisions we make in TC have a direct impact on the people around Bawkmas, obviously. \r"
+	or
+		"I don't particularly like it when people put words in my mouth, \r"
+		pause 24
+		"either, by the way, unless I say it. \r" 
+	or
+		"I have a clear record of working with leaders in TC that are friends with us \r"
+		pause 24
+		"and standing up Santa Chicken who is not. \r"
+		pause 20
+		"And that's judged on the basis of the importance of our relationship \r"
+		pause 20
+		"with Bawkmas and the entire region of Ts'rrin. \r"
+	end random
+}
+
+talkingPoint-Diez
+{
+	// EPS - Energy
+	random
+		"EPS and amulets? \r"
+		"/pose thoughtful \r"
+		pause 12
+		"Of course, it's a fungible commodity and they don't flag, \r"
+		pause 24
+		"you know, the molecules, where it's going and where it's not. \r"
+	or
+		"But in the sense of the TC today, \r"
+		pause 16
+		"they know that there are very, \r"
+		pause 20
+		"very hungry domestic markets that need that EPS. \r"
+	or
+		"So, I believe that what TC is going to do, \r"
+		pause 24
+		"also, is not to allow the export bans to such a degree \r"
+		pause 24
+		"that it's Puddlebeans that get stuck to holding the bag \r"
+		pause 24
+		"without the EPS that is produced here, pumped here. \r"
+	or
+		"Ether's got to flow into our domestic markets first. \r"
+	or
+		"Let me speak specifically about a credential that I do bring to this table, Paramedic, \r"
+		pause 24
+		"and that's with the EPS independence \r"
+		pause 16
+		"that I've been working on for these years as the mayor of the Marsh, \r"
+		pause 24
+		"which produces nearly 20 percent of the domestic supply of ethercles. \r"
+	or
+		"[Pun'isher] knows more about Ethereal Plane than probably anyone else in Puddleby. \r"
+		pause 24
+		"... And, uh, she also happens to represent, \r"
+		pause 20
+		"be leader of a snell that's right next to TI. \r"
+	end random
+}
+
+talkingPoint-Once
+{
+	// Court Cases - Puddleby Justice
+	random
+		"Well, let's see. \r"
+		pause 12
+		"There's -- \r"
+		pause 20
+		"of course -- \r"
+		pause 20
+		"in the great history of Puddleby rulings there have been rulings. \r"
+	or
+		"I'll be long gone \r"
+		pause 20
+		"before some smart exile \r"
+		pause 20
+		"ever figures out what happened inside this Marsh Hut. \r"
+	or
+		"All of us in Puddleby \r"
+		pause 12
+		"want there to be fairness when it comes to justice. \r"
+	or
+		"What I'm telling you \r"
+		pause 12
+		"is there's too many junk lawsuits suing too many healers. \r" 
+	end random
+}
+
+talkingPoint-Dose
+{
+	// Reform
+	random
+		"I told the Emperor, 'Thanks, but no thanks,' on that Ship to Nowhere. \r"
+	or
+		"I'm the mayor, I can do whatever I want until the courts tell me I can't. \r"
+	or
+		"One of my concerns is that the thoom care not be as good as it can possibly be. \r" 
+	or
+		"Opening up the ThoomCare market to more vigorous Puddleby-wide competition, \r"
+		pause 24
+		"as we have done over the last decade in coining, \r"
+		pause 24
+		"would provide more choices of innovative products \r"
+		pause 24
+		"less burdened by the worst excesses of Fen-based regulation. \r"
+	end random
+}
+
+talkingPoint-Trese
+{
+	// Grab-bag
+	random
+		"I am the maverick for you! \r"
+	or
+		"As for that Fen Prez talk all the time, \r"
+		pause 20
+		"I'll tell you, \r"
+		pause 12
+		"I still can't answer that question \r"
+		pause 20
+		"until somebody answers for me \r"
+		pause 16
+		"what is it exactly that the Fen Prez does every day? \r"
+	or
+		"I read all of 'em, \r"
+		pause 12
+		"any of 'em that have been in front of me over all these years. \r"
+	or
+		"That's exactly what we're going to do in a Pun'isher and Inu administration. \r" 
+	or
+		"I have not, \r"
+		pause 20
+		"and I think if you go back in history \r"
+		pause 20
+		"and if you ask that question of many fen presidents, \r"
+		pause 20
+		"they may have the same answer that I just gave you. \r"
+	or
+		"In what respect, Paramedic? \r"
+	or
+		"Thanks for the question, you little jerk. \r"
+	or
+		"And I, unfortunately, have been to too many disasters as candidate. \r"
+	or
+		"It's easy for me to go to TC and, \r"
+		pause 20
+		"frankly, be somewhat divorced from the day-to-day challenges people have. \r"
+	or
+		"Could I just mention to you, Para, \r"
+		pause 20
+		"that in a moment of seriousness I spent five and a half years in a basement. \r"
+		pause 24
+		"/pose salute \r"
+		"I didn't have a house, \r"
+		"/pose salute \r"
+		pause 12
+		"I didn't have a kitchen table, \r"
+		pause 12
+		"/pose salute \r"
+		"I didn't have a table, \r"
+		pause 12
+		"/pose salute \r"
+		"I didn't have a chair. \r"
+	or
+		"I think if you're just talking about income, \r"
+		pause 20
+		"how about 5 million coins as being rich? \r" 
+	end random
+}

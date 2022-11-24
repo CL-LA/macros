@@ -1,0 +1,2867 @@
+// CAST
+// /gr = GRANDPA – Miug - Male dwarf (any clothes) Grey hair?
+// /sc = SCHMOGGLE – Largo - Male dwarf (Red hair and see if we can get a Hoggle like outfit)
+// /gb = GERBILBANE – Inu - Female zo (any clothes)
+// /sm = SMELLYFINGERS – Salazar - Sylvan, purple hair
+// /fr = FRIENDLY FRED – Punny - Rowboat
+// /li = LIZARD – Phiros - Utsanna Andvari (Speak to Eldon for costume)
+// /wz = WIZARD – Tafari - Male peasant or Wizard or old man. Haven’t decided yet. Grey hair?
+// /ch = chorus
+
+
+// BACKDROPS
+// If we can get a nautical and a mountain backdrop, our existing castle on will do for Peaceton
+
+// (Enter GRANDPA and a bunch of dwarves, but not SCHMOGGLE. GRANDPA sings the verses and everyone joins in on the chorus)
+
+
+"/start-play"
+{
+//    Sets variables required for various repetitions in songs and other housekeeping
+    setglobal ch-verse 0
+    setglobal gr-verse 0
+}
+
+"/gr1"
+{   
+    "As we gather here today \r" 
+    "/gr2"
+}
+
+"/gr2"
+{
+    "To drink a round or two \r"
+   "/gr3"
+}
+
+"/gr3"
+{
+    "We look at all the folk \r"
+    "/gr4"
+}
+
+"/gr4"
+{
+    "Who've entered in to view \r"
+    "/gr5"
+}
+
+"/gr5"
+{
+    "There's sylvans with their ears \r"
+    "/gr6"
+}
+
+"/gr6"
+{
+    "And Fens covered in fur \r"
+    /gr7
+}
+
+"/gr7"
+{
+    "But look at all the horns \r"
+    "/gr8"
+}
+
+"/gr8"
+{
+    "The Dwarves are here for sure. \r"
+    setglobal gr-verse "1"
+    "/ch1"
+}
+
+//CHORUS EVERYONE SINGS
+
+"/ch1"
+{
+    "So hoist a beer my jolly good friends  \r"
+    "/ch2"
+}
+
+"/ch2"
+{
+    "Oh hoist a glass of stout. \r"
+    "/ch3"
+}
+
+"/ch3"
+{
+    "Oh hoist a beer my jolly good friends \r"
+    "/ch4"
+}
+
+"/ch4"
+{
+    "For Dwarves are all about. \r"
+    "/ch5"
+}
+
+"/ch5"
+{
+    "Oh drink some ale, From out a pail  \r"
+    "/ch6"
+}
+
+"/ch6"
+{
+    "Or drink some mead, As you do feed \r"
+    "/ch7"
+}
+
+"/ch7"
+{
+    "Oh drink some brew, Until you spew \r"
+    "/ch8"
+}
+
+"/ch8"
+{
+    "For Dwarves are all about! \r"
+    set ch-verse +1
+     if @my.simple_name == "Miug"
+        if gr-verse == 1
+                /gr9
+        else if gr-verse == 2
+               /gr17
+        else if gr-verse == 3
+               /gr25
+        end if
+    else
+        if ch-verse >= 3
+                /ch1
+        else
+               /ch9
+        end if
+    end if
+}
+
+"/gr9"
+{
+"A Thoom fills up his throat sack \r"
+    "/gr10"
+}
+
+"/gr10"
+{   
+ "Which holds a lot of stout \r"
+    "/gr11"
+}
+
+"/gr11"
+{   
+ "Some zo are in the corner \r"
+    "/gr12"
+}
+
+"/gr12"
+{   
+ "Practicing their shout \r"
+    "/gr13"
+}
+
+"/gr13"
+{   
+ "A halfling jumps on the table \r"
+    "/gr14"
+}
+
+"/gr14"
+{    
+"Attempts to do a dance \r"
+    "/gr15"
+}
+
+"/gr15"
+{  
+  "He knocks over a pitcher \r"
+    "/gr16"
+}
+
+"/gr16"
+{  
+  "A serious offense! \r"
+    setglobal gr-verse 2
+    "/ch1"
+}
+
+// message chorus repetition removed as it is already macroed and reused
+
+"/gr17"
+{
+    " The Humans look so thickly \r "
+    "/gr18"
+}
+
+"/gr18"
+{
+    " And Zo are made like bricks \r "
+    "/gr19"
+}
+
+"/gr19"
+{
+    "A halfling is way too fat \r "
+    "/gr20"
+}
+
+"/gr20"
+{
+    " And sylvans full of tricks \r "
+    "/gr21"
+}
+
+"/gr21"
+{
+    "Fen-neko are far too hairy \r "
+    "/gr22"
+}
+
+"/gr22"
+{
+    " And raceless wear disguise \r "
+    "/gr23"
+}
+
+"/gr23"
+{
+    " But Dwarves are all so comely \r "
+    "/gr24"
+}
+
+
+
+"/gr24"
+
+{
+
+    "When beer gets in your eyes! \r "
+
+    "/ch1"
+
+    setglobal gr-verse 3
+
+}
+
+
+// message Chorus partially replaced here, last chorus continues here at ch9
+
+"/ch9"
+
+{    
+
+    "Yes, hoist a glass of stout \r "
+
+    "/ch10"
+
+}
+
+
+"/ch10"
+
+{  
+
+    "For Dwarves are all about, \r "
+
+    "/ch11"
+
+}
+
+
+"/ch11"
+
+{
+
+    " Those Dwarves are all about! \r "
+
+    "/ch12"
+
+}
+
+
+"/ch12"
+
+{
+
+    "/yell Beer! \r "
+
+}
+
+
+"/gr25"
+
+{
+
+"Drink up me lads. A hard day’s minin’ needs a big cold beer. \r"
+
+pause 20
+
+"‘N’ the best cold beer is brewed by yours truly. \r"
+
+pause 20
+
+"There’s another keg round th’ back. Feel free ta help y’selves. \r"
+
+// message (The other dwarves exit) 
+
+pause 30
+
+"Now where’s that useless, daydreamin’ grandson o’mine. \r"
+
+pause 20
+
+"/yell Oh SCHMOGGLE! \r"
+
+message /gr27 after "here Grandpa"
+
+"/gr27"
+
+}
+
+
+"/sc1"
+
+{
+
+"Here Grandpa \r"
+
+message /sc2 after keg
+
+"/sc2"
+
+}
+
+
+"/gr26"
+
+{
+
+"Thar ye be, ye useless excuse fer a dorf. Now go help tha mining crew finish that keg."\r
+
+message /gr27 after medium dry vermouth
+
+"/gr27"
+
+}
+
+
+"/sc2"
+
+{
+
+"Beer? Couldn’t I just have a medium dry vermouth? \r"
+
+message /sc3 after good enough for ye
+
+"/sc3"
+
+}
+
+
+"/gr27"
+
+{
+
+"Vermo--- \r"
+
+pause 10
+
+"Great Odin’s ghost, son. Tha’s nay wha’ a dorf drinks. \r"
+
+pause 20
+
+" If’n beer’s good enough for *my* grandpappy, let alone yers, \r"
+
+pause 20
+
+"then it should be good enough for ye too. \r"
+
+message /gr28 after see what's out there
+
+"/gr28"
+
+}
+
+
+"/sc3"
+
+{
+
+"Grandpa, I know that we’ve mined and brewed in these mountains for generations, \r"
+
+pause 20
+
+"but surely there’s more to life out further away. \r"
+
+pause 15
+
+"I want to experience it. \r"
+
+pause 10
+
+"I want leave the mountains, sail in ships to foreign lands and see what’s out there. \r"
+
+message /sc4 after Grandpa is gone
+
+"/sc4"
+
+}
+
+
+// GRANDPA
+
+"/gr28"
+
+{
+
+"Oscillating opal ore, son! It's.. \r"
+
+pause 16
+
+"you.... \r"
+
+pause 16
+
+"cannae.. \r"
+
+pause 12
+
+"/narrate Grandpa sighs \r"
+
+message START SINGING on CUE IN SONG
+
+/gr29
+
+}
+
+
+// (Singing)
+
+"/gr29"
+
+{
+
+"I love minin', I love drinkin', I love fightin' Orga too, \r"
+
+/gr30
+
+}
+
+
+"/gr30"
+
+{
+
+"I love kickin' back and downing lots of bitter, frothy brew, \r"
+
+/gr31
+
+}
+
+
+"/gr31"
+
+{
+
+"I'm the dwarfest dwarf who ever dwarfed, and now you tell me \r"
+
+/gr32
+
+}
+
+
+"/gr32"
+
+{
+
+"that you're going off to fool around with sailing the seaaaaaaa! \r"
+
+/gr33
+
+}
+
+
+"/gr33"
+
+{
+
+"I don't know how you think that this could possible go well. \r"
+
+/gr34
+
+}
+
+
+"/gr34"
+
+{
+
+"I just guarantee you'll capsize, drown, and perish in a swell! \r"
+
+/gr35
+
+}
+
+
+"/gr35"
+
+{
+
+"Don't you know that dwarves are made for land? We can't even swim! \r"
+
+/gr36
+
+}
+
+
+"/gr36"
+
+{
+
+"So leave the sailing for those smelly Thooms that walk on their fiiiiiins! \r"
+
+/gr37
+
+}
+
+
+"/gr37"
+
+{
+
+"Well, I bet that you'll get scurvy and you'll lose all of your teeth. \r"
+
+/gr38
+
+}
+
+
+"/gr38"
+
+{
+
+"That's assuming you don't blow off course and smash into a reef. \r"
+
+/gr39
+
+}
+
+
+"/gr39"
+
+{
+
+"Oh, why can't you just be normal? Drink some beer, mine some ore! \r"
+
+/gr40
+
+}
+
+
+"/gr40"
+
+{
+
+"And please keep your dwarven feet upon a non-moving floooooor! \r"
+
+/gr41
+
+}
+
+
+"/gr41"
+
+{
+
+"Son, sailin's not for you! Are you smoking 'zu?! Now, tell me, just what do you think you're gonna do? \r"
+
+/gr42
+
+}
+
+
+"/gr42"
+
+{
+
+"Now let’s hear no more o’ this travel nonsense. \r"
+
+pause 20
+
+"These mountains were good enough fer me and all yer ancestors. \r"
+
+pause 20
+"They’re good enough fer you too. \r"
+
+pause 20
+"Leave all those horrible smelly places to all the other horrible smelly races. \r"
+
+message Exit /gr43 second verse (after Wizard)
+
+/ch20
+
+}
+
+
+// SCHMOGGLE
+
+"/sc4"
+
+{
+
+"/narrate Schmoggle sighs \r"
+
+message Start singing during cue in music measle starts to play
+
+/sc5
+
+}
+
+
+"/sc5"
+
+{
+
+message (Singing)
+
+"I come to visit once a week \r"
+
+/sc6
+
+}
+
+
+"/sc6"
+
+{
+
+"I have since I was eight \r"
+
+/sc7
+
+}
+
+
+"/sc7"
+
+{
+
+"I thought it was just tongue in cheek \r"
+
+/sc8
+
+}
+
+
+"/sc8"
+
+{
+
+"It couldn't be real hate! \r"
+
+message Next verse?
+
+/sc9
+
+}
+
+
+"/sc9"
+
+{
+
+"But now I hear you cursing when the Orga raid again \r"
+
+/sc10
+
+}
+
+
+"/sc10"
+
+{
+
+"You yell and scream that it's the fault of some damned furry Fen \r"
+
+/sc11
+
+}
+
+
+"/sc11"
+
+{
+
+"Oh, racist grandpa, I know you're really mad \r"
+
+/sc12
+
+}
+
+
+"/sc12"
+
+{
+
+"But racist grandpa, The People ain't so bad \r"
+
+/sc13
+
+}
+
+
+"/sc13"
+
+{
+
+"You're just so blind, you cannot see \r"
+
+/sc14
+
+}
+
+
+"/sc14"
+
+{
+
+"That they are just like you and me \r"
+
+/sc15
+
+}
+
+
+"/sc15"
+
+{
+
+"My buddy Joe, of Halfling stock, \r"
+
+/sc16
+
+}
+
+
+"/sc16"
+
+{
+
+"You won't let come to play \r"
+
+/sc17
+
+}
+
+
+"/sc17"
+
+{
+
+"You slam the door and yell at me \r"
+
+/sc18
+
+}
+
+
+"/sc18"
+
+{
+
+"To send that shrimp away \r"
+
+/sc19
+
+}
+
+
+"/sc19"
+
+{
+
+"My date last week was tall and strong, you begged me not to go \r"
+
+/sc20
+
+}
+
+
+"/sc20"
+
+{
+
+"You'd rather die than see your grandson dancing with a 'Zo \r"
+
+/sc21
+
+}
+
+
+"/sc21"
+
+{
+
+"Oh, racist grandpa, your attitude's not great \r"
+
+/sc22
+
+}
+
+
+"/sc22"
+
+{
+
+"Racist grandpa, you're just so full of hate! \r"
+
+/sc23
+
+}
+
+
+"/sc23"
+
+{
+
+"I wish that you could understand \r"
+
+/sc25
+
+}
+
+
+"/sc25"
+
+{
+
+"That Thoom or Dorf, a man's a man \r"
+
+/sc26
+
+}
+
+
+"/sc26"
+
+{
+
+"Oh, racist grandpa, please watch the things you say \r"
+
+/sc27
+
+}
+
+
+"/sc27"
+
+{
+
+"Racist grandpa, the Sylvans aren't all gay! \r"
+
+/sc28
+
+}
+
+
+"/sc28"
+
+{
+
+"Just settle down, just calm yourself \r"
+
+/sc29
+
+}
+
+
+"/sc29"
+
+{
+
+"And put that sword back on the shelf \r"
+
+/sc30
+
+}
+
+
+"/sc30"
+
+{
+
+"Oh, racist grandpa, I love you. \r"
+
+message SONG ENDS back to speaking parts!
+
+/sc31
+
+}
+
+
+"/sc31"
+
+{
+
+message (speaking)
+
+"But I can’t stay here, I’m dying inside. \r"
+
+pause 20
+
+"If only there were some way I could follow my heart \r"
+
+pause 20
+
+"and find what it is I truly want to do in the world out there. \r"
+
+message /sc32 after stereotype
+
+/sc32
+
+}
+
+
+// GERBILBANE
+
+"/gb1"
+
+{
+
+message FROM OFFSTAGE
+
+"/yell But there is \r"
+
+message ENTER STAGE LEFT - FEMALE ZO
+
+// (she enters, a female zo)
+
+"Me could not help overhearing, funny little dwarf man. \r"
+
+// shake hips
+
+"You want be breaking free of cultural stereotype? \r"
+
+// wink wink
+
+/gb2
+
+}
+
+
+// SCHMOGGLE @ 32
+
+"/sc32"
+
+{
+
+"Yes, yes. That’s exactly what I want. \r"
+
+message CUE Gerbilbane: ... or my name not Gerbilbane
+
+/sc33
+
+}
+
+
+// GERBILBANE @2
+
+"/gb2"
+
+{
+
+"Me too. \r"
+
+pause 20
+
+"Persons am thinking zo am big, clumsy language-manglers. \r"
+
+pause 20
+
+"Good for meat shields and emergency sandbags during floods. \r"
+
+pause 20
+
+"Only good for leadership roles cos our voices am so loud. \r"
+
+pause 20
+
+"Me am wanting to be perception changing. \r"
+
+pause 20
+
+"Me am wanting to be known for keenness of mind. \r"
+
+pause 20
+
+"Me am going to become world class mystic, or my name not Gerbilbane. \r"
+
+message CUE schmoogle: Gerbilbane?
+
+/gb3
+
+}
+
+
+// SCHMOGGLE @ 33
+
+"/sc33"
+
+{
+
+"Gerbilbane? \r"
+
+message CUE Gerbilbane: Where?!
+
+/sc34
+
+}
+
+
+// GERBILBANE
+
+
+"/gb3"
+
+{
+
+"Where?! \r"
+
+message "CUE schmoogle: No, that’s your name. Mine’s Schmoggle by the way. \r"
+
+/gb4
+
+}
+
+
+// SCHMOGGLE
+
+"/sc34"
+
+{
+
+"No, that’s your name. Mine’s Schmoggle by the way. \r"
+
+message CUE Gerbilbane: fortune pursuing
+
+/sc35
+
+}
+
+
+// GERBILBANE
+
+"/gb4"
+
+{
+
+"/doh\r"
+
+pause 30
+
+"Oh right. Nice to meet you, little dwarf man. Let’s run away to the sea and be fortune pursuing. \r"
+
+message CUE Schmoogle: lets get started
+
+/gb5
+
+}
+
+
+//SCHMOGGLE
+
+"/sc35"
+
+{
+
+"/narrate Schmoggle briefly considers. \r"
+
+pause 20
+
+"You know what? I’ll do it. Let’s start right away \r"
+
+message CUE Gerbilbane: Yay
+
+pause 12
+
+message CUE At instrumental MOVE TO CENTER STAGE
+
+pause 12
+
+message CUE Gerbilbane: What am happening?
+
+/sc36
+
+}
+
+
+// GERBILBANE
+
+"/gb5"
+
+{
+
+"Yay! \r"
+
+// jump up and down here
+
+message CUE At instrumental MOVE TO CENTER STAGE
+
+/gb6
+
+}
+
+
+// (Instrumental music starts and GERBILBANE and SCHMOGGLE walk on the spot in the middle of the stage)
+
+"/gb6"
+
+{
+
+"What am happening? \r"
+
+// should spin here or something
+
+message CUE Schmoogle:  passage of time
+
+/gb7 
+
+}
+
+
+// SCHMOGGLE
+
+"/sc36"
+
+{
+
+"Well clearly we’re walking and this music is supposed to show the passage of time. \r"
+
+message CUE Gerbilbane: arrive
+
+/sc37
+
+}
+
+
+// GERBILBANE
+
+"/gb7"
+
+{
+
+"How am we supposed to know when we arrive? \r"
+
+message CUE Smellyfingers arrr
+
+/gb8
+
+}
+
+
+//SCHMOGGLE
+
+"/sc37"
+
+{
+
+"Music stops me guess. \r"
+
+pause 20
+
+"Or something significant happens to show we’re near the sea. \r"
+
+message CUE Gerbilbane something like that?
+
+/sc38
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm1"
+
+{
+
+message ENTER AS MUSIC STOPS
+
+"Avast landlubbers! Arr! \r"
+
+message CUE Schmoogle: we’re not really sure how to proceed.
+
+/sm2
+
+}
+
+
+//GERBILBANE
+
+"/gb8"
+
+{
+
+"Something like that? \r"
+
+message CUE after introduction after introduction
+
+/gb9
+
+}
+
+
+//SCHMOGGLE
+
+"/sc38"
+
+{
+
+"Greetings sir. \r"
+
+pause 12
+
+"My name is Schmoggle and this is my travelling companion, Gerbilbane. \r"
+
+message CUE after where
+
+/sc39
+
+}
+
+
+// GERBILBANE
+
+"/gb9"
+
+{
+
+"Where?! \r"
+
+message CUE after piracy
+
+/gb10
+
+}
+
+
+// SCHMOGGLE
+"/sc39"
+
+{
+
+"We’re on a quest to fight against our cultural stereotypes, \r"
+
+pause 20
+
+"although other than coming down here to the sea, we’re not really sure how to proceed. \r"
+
+message CUE after the cap'n introduces himself
+
+/sc40
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm2"
+
+{
+
+"Arr. \r"
+
+pause 12
+
+"I may be able ta help you. \r"
+
+pause 20
+
+"Cap’n Smellyfingers be my name and I’m in exactly the same boat as it were. \r"
+
+message CUE after "how so"
+
+/sm3
+
+}
+
+
+// SCHMOGGLE
+
+"/sc40"
+
+{
+
+"How so? \r"
+
+message CUE after woodland critters
+
+/sc41
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm3"
+
+{
+
+"Well I’m a sylvan. \r"
+
+pause 10
+
+"Since time immemorial my people have frolicked in tha woods, \r"
+
+pause 10
+
+"skipping merrily at one with nature, \r"
+
+pause 10
+
+"praising midnight and sleeping with woodland critters. \r"
+
+message /sm4 after Schmoggle's question
+
+/sm4
+
+}
+
+
+// SCHMOGGLE
+
+"/sc41"
+
+{
+
+"Whereas you’re into…? \r"
+
+message CUE after Smelly adores his bb
+
+/sc42
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm4"
+
+{
+
+"Senseless violence and piracy. \r"
+
+message /sm5 after sylvany
+
+/sm5
+
+}
+
+
+// GERBILBANE
+
+"/gb10"
+
+{
+
+"Me see you am carrying a bloodblade. \r"
+
+// do some sort of nya nya move here
+
+"That am pretty sylvany. \r"
+
+message CUE after across the sea
+
+/gb11
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm5"
+
+{
+
+"/pose thoughtful\r"
+
+"Arr well self harm is pretty hard to give up. \r"
+
+pause 10
+
+"/narrate Smellyfingers stares lovingly at his bloodblade. \r"
+
+pause 12
+
+"I wish I knew how to quit you. \r"
+
+message /sm6 after destiny
+
+/sm6
+
+}
+
+
+//SCHMOGGLE
+
+"/sc42"
+
+{
+
+"We were hoping to book passage on a ship to try and find a way to escape our destiny \r"
+
+message CUE after across the sea
+
+/sc43
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm6"
+
+{
+
+"Arr. Funny you should mention that. \r"
+
+pause 10
+
+"I happen to know exactly who could do that fer you. \r"
+
+pause 10
+
+"And he lives across the sea. \r"
+
+message /sm7 after chorus
+
+/sm7
+
+}
+
+
+// GERBILBANE and SCHMOGGLE
+
+"/sc43"
+
+"/gb11"
+
+{
+
+"Who?\r"
+
+message CUE
+
+if @simplename =="largo"
+
+    message /sc44 after because
+
+    /sc44
+
+else if @simplename == "inuteisei"
+
+    message /gb12 after teeny weeny thing
+
+    /gb12
+
+end if
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm7"
+
+{
+
+"The wonderful wizard of Peaceton. \r"
+
+pause 10
+
+"If ever a wonderful wiz there was the wizard of Peaceton is one \r"
+
+pause 10
+
+"because, because, because, because... \r"
+
+message /sm8 after because what
+
+/sm8
+
+}
+
+
+// SCHMOGGLE
+
+"/sc44"
+
+{
+
+"Because what? \r"
+
+message CUE after this very day
+
+/sc45
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm8"
+
+{
+
+"Arr. I’m not so sure. But I do know that we can set sail fer tha wizard this very day. \r"
+
+message /sm9 after your ship
+
+/sm9
+
+}
+
+
+// SCHMOGGLE
+
+"/sc45"
+
+{
+
+"Well what are we waiting for? Take us to your ship! \r"
+
+message CUE after navy
+
+/sc46
+
+}
+
+//SMELLYFINGERS
+
+"/sm9"
+
+{
+
+"Arr. Slight hassle there. I don’t own a ship. \r"
+
+pause 10
+
+"Thar be one sailing today but to be on it we’d have to do one teeny weeny little thing. \r"
+
+message /sm10 after Gerbilbane's question
+
+/sm10
+
+}
+
+
+//GERBILBANE
+
+"/gb12"
+
+{
+
+"And that am what? \r"
+
+// pose sheepishly?
+
+message CUE after navy
+
+/gb13
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm10"
+
+{
+
+"Enlist in the navy. \r"
+
+message /sm11 after chorus
+
+/sm11
+
+}
+
+
+// SCHMOGGLE and GERBILBANE
+
+"/sc46"
+
+{
+
+"/yell THE NAVY??!?! \r"
+
+// faint, stagger, etc
+
+message CUE Smelly singing - Everybody sing
+/ch13
+}
+
+"/gb13"
+
+{
+
+"/yell THE NAVY??!?! \r"
+
+// faint, stagger, etc
+
+message CUE Smelly singing - Everybody sing
+/ch13
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm11"
+
+{
+
+"Arr, it’s not all bad. \r"
+
+pause 10
+
+"It’ll provide ye with a free education and as long as we don’t declare war on anyone \r"
+
+pause 10
+
+"/ponder Besides the dar’shak, orga and pretty much everyone we meet \r"
+
+pause 10
+
+"Ye’ll be safe as bilge rats. Ye’ll love it. \r"
+
+/sm12
+
+message START SINGING ON CUE in SONG
+
+}
+
+
+//(singing)
+
+
+"/sm12"
+
+{
+
+message SINGING
+
+"Don't need money to come on inside \r"
+
+/sm13
+
+}
+
+
+"/sm13"
+
+{
+
+"A boatload of ranks or a herpetid hide \r"
+
+/sm14
+
+}
+
+
+"/sm14"
+
+{
+
+"There's no training or boring old quest \r"
+
+/sm15
+
+}
+
+
+"/sm15"
+
+{
+
+"You get shanghaied just the same as all the rest \r"
+
+/sm16
+
+}
+
+
+"/sm16"
+
+{
+
+"To come and and join our crew \r"
+
+/sm17
+
+}
+
+
+"/sm17"
+
+{
+
+"We got a press gang waiting for you \r"
+
+/sm18
+
+}
+
+
+"/sm18"
+
+{
+
+"We're the good old fashioned swabs of the Puddleby Navy \r"
+
+/sm19
+
+}
+
+
+"/sm19"
+
+{
+
+message SECOND VERSE
+
+"A dose of scurvy and a taste of the cat \r"
+
+/sm20
+
+}
+
+
+"/sm20"
+
+{
+
+"The wenching's great and the booty is phat \r"
+
+/sm21
+
+}
+
+
+"/sm21"
+
+{
+
+"From Devil's Island to the temples of Ash \r"
+
+/sm22
+
+}
+
+
+"/sm22"
+
+{
+
+"Fish oil, sodomy and the crack of the lash \r"
+
+/sm23
+
+}
+
+
+"/sm23"
+
+{
+
+"Forget about that old Artak\r"
+
+/sm24
+
+}
+
+
+"/sm24"
+
+{
+
+"Hop on a boat and trample some Dar'shak \r"
+
+/sm25
+
+}
+
+
+"/sm25"
+
+{
+
+"We're the good old fashioned swabs of the Puddleby Navy \r"
+
+/sm26
+
+}
+
+
+"/sm26"
+
+{
+
+"Everybody singing this last time \r"
+
+/ch13
+
+}
+
+
+"/ch13"
+
+{
+
+message ALL SING END PART
+
+// (All singing[[SALA: I don't know how to make EVERYBODY sing]]) 
+
+"Good old fashioned swabs...\r"
+
+/ch14
+
+}
+
+
+"/ch14"
+
+{
+
+"Of the Puddleby Navy \r"
+
+/ch15
+
+}
+
+
+"/ch15"
+
+{
+
+"Arr let’s set sail.\r"
+
+if @my.simple_name == "largo"
+
+    /sc47
+
+if @my.simple_name == "inuteisei"
+
+    /gb14
+
+else if @my.simple_name =="salazar"
+
+    /sm27
+
+end if
+
+message   (Instrumental music and walking on the spot again)
+
+}
+
+
+//GERBILBANE
+
+"/gb14"
+
+{
+
+"So we am sailing now right? \r"
+
+message CUE after aye
+
+/gb15
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm27"
+
+{
+
+"Aye. \r"
+
+message /sm28 after Fred arrives
+
+/sm28
+
+}
+
+
+// GERBILBANE
+
+"/gb15"
+
+{
+
+"So how come we am walking on spot when we supposed to be on a boat? \r"
+
+message CUE on Lizard: Prepare for lizardy doom, puny mortals
+
+message SCHMOGGLE and SMELLYFINGERS fight the lizard.
+
+message GERBILBANE runs to the side of the stage)
+
+/gb16
+
+}
+
+
+// FRIENDLY FRED (entering)
+
+"/ff1"
+
+{
+
+"Ahoy maties. I’m Friendly Fred, the helpful Dar’shak. \r"
+
+message CUE enter portal
+
+/ff2
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm28"
+
+{
+
+"/narrate Smellyfingers opens up an ethereal portal and pushes Fred inside. \r"
+
+/sm29
+
+}
+
+
+//FRIENDLY FRED (exiting)
+
+"/ff2"
+
+{
+
+message WHILE EXITING
+
+"/yell GAAAAHH!!!!! \r"
+
+message ff3 doesn't exist, must be credits
+
+/ff3
+
+}
+
+
+// SCHMOGGLE
+
+"/sc47"
+
+{
+
+"He was unarmed! What did you do that for?! \r"
+
+message /sc48 after the lulz
+
+/sc48
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm29"
+
+{
+
+"Dunno. Lulz? \r"
+
+message /sm30 after 
+
+/sm30
+
+}
+
+
+// SCHMOGGLE
+
+"/sc48"
+
+{
+
+"Well, the music’s stopped so I guess we’re here.\r"
+
+message CUE on Lizard: Prepare for lizardy doom, puny mortals
+
+message SCHMOGGLE and SMELLYFINGERS fight the lizard.
+
+message GERBILBANE runs to the side of the stage)
+
+/sc49
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm30"
+
+{
+
+"Aye this be Peaceton. Now ta find the wizard. \r"
+
+message /sm31 after Lizard yells
+
+/sm31
+
+}
+
+
+// LIZARD (off)
+
+"/li1"
+
+{
+
+message FROM OFFSTAGE
+
+"/yell I’m afraid you’ve been misinformed \r"
+
+message ENTER ON CUE from Smellyfingers: Who's there? Show yourself!
+
+/li2
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm31"
+
+{
+
+"Who’s there? Show yourself!\r"
+
+message CUE on Lizard: Prepare for lizardy doom, puny mortals
+
+message SCHMOGGLE and SMELLYFINGERS fight the lizard.
+
+message GERBILBANE runs to the side of the stage)
+
+/sm32
+
+}
+
+
+// LIZARD (entering)
+
+"/li2"
+
+{
+
+"There is no “w”izard. \r"
+
+pause 20
+
+"That particular typo has sent many to their deaths. \r"
+
+// do some sort of dance here?
+
+"Prepare for lizardy doom, puny mortals. \r"
+
+message /li3 after the wizard speaks
+
+/li3
+
+}
+
+
+// (SCHMOGGLE and SMELLYFINGERS fight the lizard. GERBILBANE runs to the side of the stage)
+
+
+//SMELLYFINGERS
+
+"/sm32"
+
+{
+
+"My blade, it does nothing. \r"
+
+message /sm33 after people you were meant to be
+
+/sm33
+
+}
+
+
+// SCHMOGGLE
+
+"/sc49"
+
+{
+
+"Gerbilbane! \r"
+
+message CUE after Where?!
+
+/sc50
+
+}
+
+
+// GERBILBANE
+
+"/gb16"
+
+{
+
+"/pose surprised \r"
+
+"Where?! \r"
+
+message CUE after help us fight
+
+/gb17
+
+}
+
+
+// SCHMOGGLE
+
+"/sc50"
+
+{
+
+"No Gerbilbane, come help us fight this thing. \r"
+
+message CUE after Lizard speaks
+
+/sc51
+
+}
+
+
+// GERBILBANE
+
+"/gb17"
+
+{
+
+"Me am a wannabe mystic. \r"
+
+pause 12
+
+"What you am wanting me to do, bleed on it? \r"
+
+pause 12
+
+"Me just hide here behind this curtain. \r"
+
+pause
+
+"/nar Gerbilbane pulls down a curtain, revealing a funny little man behind \r"
+
+message CUE after Wizard says her name
+
+/gb18
+
+}
+
+
+(enter WIZARD)
+
+
+// WIZARD
+
+"/wz1"
+
+{
+
+"Uh oh\r"
+
+pause 20
+
+"/nar The funny little man speaks into a box and words come out the lizard’s mouth \r"
+
+message CUE after Lizard leaves
+
+/wz2
+
+}
+
+
+// LIZARD
+
+"/li3"
+
+{
+
+"Pay no attention to the man behind the curtain. \r"
+
+message CUE after being called a pretend reptile
+
+/li4
+
+}
+
+
+//SCHMOGGLE
+
+"/sc51"
+
+{
+
+"The game is up, Wizard. \r"
+
+pause 12
+
+"Send your pretend reptile away. \r"
+
+message CUE after inflated self importance
+
+/sc52
+
+}
+
+
+// LIZARD
+
+"/li4"
+
+{
+
+"Fine. If anyone wants me, I’ll be in my trailer \r"
+
+message EXIT STAGE RIGHT? come back for credits
+
+/li5
+
+}
+
+
+//WIZARD
+
+"/wz2"
+
+{
+
+"So you’ve tracked me down. \r"
+
+pause 20
+
+"I guess you expect me to give you each what you most desire \r"
+
+pause 20
+
+"and become the people you were meant to be. \r"
+
+message CUE after sylvan
+
+/wz3
+
+}
+
+
+// SMELLYFINGERS
+
+"/sm33"
+
+{
+
+"Aye. Can you make me less of a hippy, even if I am a sylvan? \r"
+
+message CUE after armed forces
+
+/sm34
+
+}
+
+
+// WIZARD
+
+"/wz3"
+
+{
+
+"I don’t have to. \r"
+
+pause 20
+
+"You have the COURAGE of your convictions to commit senseless unhippylike atrocities already. \r"
+
+pause 20
+
+"The navy should be proud to have a member like you. \r"
+
+pause 20
+
+"The way you pushed that defenceless dar’shak into an EP \r"
+
+pause 20
+
+"would make any country proud to have you in their armed forces. \r"
+
+message CUE after really?
+
+/wz4
+
+}
+
+
+//SMELLYFINGERS
+
+"/sm34"
+
+{
+
+"Really? \r"
+
+message verse after Grandpa is /sm35
+
+/ch20
+
+}
+
+
+// WIZARD
+
+"/wz4"
+
+{
+
+"Would I lie? \r"
+
+pause 12
+
+"Or as Gerbilbane would pronounce it... \r"
+
+pause 20
+
+"My Lai? \r"
+
+pause 8
+
+"And speaking of Gerbilbane..\r"
+
+message CUE after pf
+
+/wz5
+
+}
+
+
+// GERBILBANE
+
+"/gb18"
+
+{
+
+"Where?! \r"
+
+pause 12
+
+"/ponder And to think me am a full pf...."\r
+
+message /gb19 after Smelly's verse
+
+/ch20
+
+}
+
+
+// WIZARD
+
+"/wz5"
+
+{
+
+"The way you hung back doing absolutely nothing \r"
+
+pause 20
+
+"when the others where fighting clearly shows you have the BRAINS to be a mystic. \r"
+
+pause 20
+
+"That special kind of intelligence that lets you stand around \r"
+
+pause 20
+
+"while everybody else is having fun, \r"
+
+pause 16
+
+"combined with the self deception that you’re having fun too makes you perfect for the job. \r"
+
+pause 32
+
+"All you need now is an inflated sense of self importance. \r"
+
+/wz6
+
+}
+
+
+// SCHMOGGLE
+
+"/sc52"
+
+{
+
+"What about me? \r"
+
+message CUE after mountains
+
+/sc53
+
+}
+
+
+// WIZARD
+
+"/wz6"
+
+{
+
+"Well Schmoggle, how have you enjoyed your time away from the mountains. \r"
+
+message CUE after hated every moment
+
+/wz7
+
+}
+
+
+// SCHMOGGLE
+
+"/sc53"
+
+{
+
+"I’ve hated every moment of it. \r"
+
+message CUE after brewer born and bred
+
+/sc54
+
+}
+
+
+// WIZARD
+
+"/wz7"
+
+{
+
+"The thing is, following your HEART, \r"
+
+pause 20
+
+"as you have so ably demonstrated \r"
+
+pause 20
+
+"can be a tricky process. \r"
+
+pause 20
+
+"It’s all well and good to fight against your upbringing and be different. \r"
+
+pause 20
+
+"But more often than not you are who you are, Schmoggle, \r"
+
+pause 20
+
+"a brewer born and bred. \r"
+
+message CUE after nothing special
+
+/wz8
+
+}
+
+
+//SCHMOGGLE
+
+"/sc54"
+
+{
+
+"But I can’t just go back. \r"
+
+pause 16
+
+"I can’t face the shame of admitting to my grandfather that there’s nothing special about me at all. \r"
+
+// should do a pose here --cry?
+
+message Verse after Lizard and Fred is /sc55
+
+/ch20
+
+}
+
+
+// WIZARD
+
+"/wz8"
+
+{
+
+"Then lie, dear boy. \r"
+
+pause 20
+
+"Tell him you became Tetris world champion. \r"
+
+pause 20
+
+"Tell him you died but were cloned as your own brother from your twin daughters. \r"
+
+pause 20
+
+"Tell him something about kayaks. \r"
+
+pause 20
+
+"Tell him anything, it doesn’t really matter. \r"
+
+pause 20
+
+"Lying is an old dwarvish tradition. \r"
+
+pause 20
+
+"Now how’s about you stick to what you’re really good at and serve us some beer. \r"
+
+pause20
+
+"/yell Big finalé everyone. Come on out!"
+
+message CUE credits, final song
+
+/wz9
+
+}
+
+
+/* Up to the final song. This needs editing on my part so I’ll just put all the words here for now and change it as we go. EG. Gerbilbaning some of the lyrics. I’ll assign various verses to various characters and we may use this as our bow sequence too.)
+
+*/
+
+
+"/wz9"
+
+{
+
+"Many things you'll do in life\r"
+
+/wz10
+
+}
+
+
+"/w10"
+
+{
+
+"But none better is this.\r"
+
+/wz11
+
+}
+
+
+"/wz11"
+
+{
+
+"You're a brewer born and bred\r"
+
+/wz12
+
+}
+
+
+"/wz12"
+
+{
+
+"With beer you'll never miss!\r"
+
+message NEXT CHORUS
+
+/ch20
+
+}
+
+
+"/ch20"
+
+{
+
+"This is the stuff that fills your head\r"
+
+/ch21
+
+}
+
+
+"/ch21"
+
+{
+
+"With everything desired!\r"
+
+/ch22
+
+}
+
+
+"/ch22"
+
+{
+
+"Beer will be the one you love\r"
+
+/ch23
+
+}
+
+
+"/ch23"
+
+{
+
+"With nothing else required!\r"
+
+message NEXT VERSE NOW
+
+/ch20
+
+}
+
+
+"/gr43"
+
+{
+
+"This lager's the best I ever had\r"
+
+/gr44
+
+}
+
+
+"/gr44"
+
+{
+
+"Since I don't remember when\r"
+
+/gr45
+
+}
+
+
+"/gr45"
+
+{
+
+"Glad you're back with that zo in tow\r"
+
+/gr46
+
+}
+
+
+"/gr46"
+
+{
+
+"/ponder (At least she's not a fen....!)\r"
+
+/ch20
+
+}
+
+
+"/sm35"
+
+{
+
+"I fought them all with my hands tied\r"
+
+/sm36
+
+}
+
+
+"/sm36"
+
+{
+
+"Against a raging horde!\r"
+
+/sm37
+
+}
+
+
+"/sm37"
+
+{
+
+"I gave them my last beer you see...\r"
+
+/sm38
+
+}
+
+
+"/sm38"
+
+{
+
+"And now we're never bored!\r"
+
+/ch20
+
+message Choruses from now on
+
+}
+
+
+"/gb19"
+
+{
+
+"Me am got no solo song\r"
+
+/gb20
+
+}
+
+
+"/gb20"
+
+{
+
+"And play am almost over\r"
+
+/gb21
+
+}
+
+
+"/gb21"
+
+{
+
+"But me cannot keep in time"\r
+
+/gb22
+
+}
+
+
+"/gb22"
+
+{
+
+"Even when me sober\r"
+
+"/ch20"
+}
+
+
+"/ch24"
+
+{
+
+"We were stuck with two lines each\r"
+
+/ch25
+
+}
+
+
+"/ch25"
+
+{
+
+"With not that much to do\r"
+
+/ch26
+
+}
+
+
+"/ch26"
+
+{
+
+"Without a bigger a part next time\r"
+
+/ch27
+
+}
+
+
+"/ch27"
+
+{
+
+"We're eating Measle stew\r"
+
+/ch20
+
+}
+
+
+"/sc55"
+
+{
+
+"It turned out that my lifelong dream\r"
+
+/sc56
+
+}
+
+
+"/sc56"
+
+{
+
+"Wasn't what I thunk\r"
+
+/sc57
+
+}
+
+
+"/sc57"
+
+{
+
+"This journey made no sense to me\r"
+
+/sc58
+
+}
+
+
+"/sc58"
+
+{
+
+"But who cares. Let's get drunk\r"
+/ch20
+}

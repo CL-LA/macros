@@ -1,7 +1,7 @@
-setglobal sharesfilerevision "20210225-0100-0001"
+setglobal sharesfilerevision "2022-0611-2300-0002"
 
 //------------------------------------------------
-// shares.macro
+// shares.macro - aka ShareCads
 //------------------------------------------------
 // From Gorvin via clmacros.com
 // Dynamic Sharecads - This is an enhanced, less-spammy version of Sharecads.
@@ -67,7 +67,7 @@ else
   else
     set share_ts 0
   end if
-  set share_init 0
+  set share_init 
   set share_free 5
   set share_delay 0
   set share_erase 0
@@ -327,3 +327,10 @@ label SHAREWHO
 }
 
 message "===> Loaded shares.macro"
+/*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+ATTRIBUTIONS: Gorvin
+2022-0611-Inu:		Added this log, moved to bottom.
+*/

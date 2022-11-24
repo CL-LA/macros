@@ -4,7 +4,7 @@
 // HouseKey macros
 //=====================================================
 
-setglobal keysfilerevision "20210225-0100-0001"
+setglobal keysfilerevision "2022-1009-1000-0003"
 
 /* 
 	This key management macro file assumes a cast of thousands (characters), 
@@ -54,7 +54,7 @@ Examples:
 		message "add = add anykeys out to ring"
 		message "list = list keys by name and number"
 		message "stow = put away/requip shield"
-		message "clan or clan1 = remove/equip clan regular key"
+		message "clan or clan1 = remove/equip main clan key"
 		message "clan-guest = remove/equip clan Guest key"
 		message "clan-master = remove/equip clan Master key"
 		message "clan2 = remove/equip 2nd clan home"
@@ -287,6 +287,7 @@ keyhome4
 listkeys
 {
 	message "2317 = a tree house = fin"
+	message "2411 = Hunt's key, location unknown"
 	message "2670 = LA tree clan house regular"
 	message "2679 = small LA tree clan storage house"
 	
@@ -295,9 +296,9 @@ listkeys
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-20210130-aka Inu: 
-	Added if/else to handle master keys for clan and regular homes.
-	Changed MyShield to use myDefLeft defined in character file.
-	Changed list keys to show the ones Inu has. Note: Change them to match your keys.
-	Added this revision log.
+2021-0130-Inu:	Added if/else to handle master keys for clan and regular homes.
+				Changed MyShield to use myDefLeft defined in character file.
+				Changed list keys to show the ones Inu has. Note: Change them to match your keys.
+				Added this revision log.
+2022-1009-Inu:	Added help to listkeys for Hunt's 2411 key.
 */

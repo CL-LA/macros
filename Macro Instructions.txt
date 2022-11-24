@@ -1,0 +1,8 @@
+Instructions Last Updated: 3 July 2003
+
+A complete macro manual, as well as an introduction for non-programmers,
+can be found on the Web at
+
+http://www.deltatao.com/clanlord/macros/index.html
+
+Several files of examples are there, along with links to other macro resources.

@@ -1,5 +1,6 @@
-setglobal moonstone_functionsfilerevision "20210808-1200-0008
-20210807_CL_Lore-Trip_Part-15-02_DeepIntoTheCitadelChat_1600
+// moonstone_functions.macro 
+setglobal moonstone_functionsfilerevision "2022-1009-1000-0010"
+
 /* --------------------------------------------------------------------------------------------------------------
 	| Asklepian 1.0 | CadTargetter 2.1 | Healing Functions Rev.2.8.9 | 
 	          | Ultimate Cad 2.2.2 | SetBurst/Pulse 2.0.1 |
@@ -14,7 +15,7 @@ setglobal moonstone_functionsfilerevision "20210808-1200-0008
  Original QuickSwap macro, setting pulse/burst and fall detection
  by Tarf. Modified by Noivad using Veer's feedback on the rev1 macro.
  *******************************************************************************
- Generate a new version at http://www.noivad.net/moonstone_functions-template.php
+ Generate a new version at http://www.clanlord.net/moonstone_functions-template.php
  ********************* Installing, Setup and Activation Info ***************************
  To include this macro in your active macros.
 
@@ -64,8 +65,9 @@ setglobal moonstone_functionsfilerevision "20210808-1200-0008
 
  "F4" equips your Cad or Merc Staff and if a person is selected it tries
   to cad them. If no one is selected it cads the last person you cadded.
-      (this is called through the "cadLastTarget" function)
- "ALT+F4"	equips Asklepian or Asklepian Staff
+		(this is called through the "cadLastTarget" function)
+ "SHIFT+F4"	equips Asklepian or Asklepian Staff ** 
+		On windows ALT+F4 closes the active window so it is replaced by SHIFT+F4
  
  ***************************** Global Variables **************************** */
 /* Copy the below three lines for myWeapon, gHealDev and auraHDevice to 
@@ -97,6 +99,7 @@ set cadTarget[9] ""
 set cadTarget[10] ""
 set cadTarget[11] ""
 set cadTarget[12] ""
+set cadTarget[20] ""
 set cadTarget[21] ""
 set cadTarget[22] ""
 set cadTarget[23] ""
@@ -106,6 +109,9 @@ set cadTarget[26] ""
 set cadTarget[27] ""
 set cadTarget[28] ""
 set cadTarget[29] ""
+set cadTarget[30] ""
+set cadTarget[31] ""
+set cadTarget[32] ""
 
 "/cads"		call listCadTargets
 
@@ -153,6 +159,18 @@ control-numpad-5		call staticTarget25
 control-alt-numpad-5	call staticTarget25Set
 control-numpad-6		call staticTarget26
 control-alt-numpad-6	call staticTarget26Set
+control-numpad-7		call staticTarget27
+control-alt-numpad-7	call staticTarget27Set
+control-numpad-8		call staticTarget28
+control-alt-numpad-8	call staticTarget28Set
+control-numpad-9		call staticTarget29
+control-alt-numpad-9	call staticTarget29Set
+control-numpad-0		call staticTarget30
+control-alt-numpad-0	call staticTarget30Set
+control-numpad-.		call staticTarget31
+control-alt-numpad-.	call staticTarget31Set
+control-numpad-+		call staticTarget32
+control-alt-numpad-+	call staticTarget32Set
 
 "setpulse"		call pulseRateSet
 "setburst"		call burstAmountSet
@@ -185,7 +203,7 @@ end if
 }
 
 burster
-{						//or it prematurely end. (I'm looking into that bug.)
+{						//or it prematurely ended. (I'm looking into that bug.)
 setglobal infiniteControl 0
 setglobal sleepToggle 0
 call moonswap
@@ -303,26 +321,40 @@ end if
 listCadTargets
 {
 set n 1
+set n2 1
 set t 1
 LABEL loopListCadTargets
-	if n < 10
+	if n <= 9
 		message "*Set " cadTarget[n] " as cad target [" t "]."
 	end if
-	if n = 10
+	if n == 10
 		message "*Set " cadTarget[n] " as cad target [ 0 ]."
 	end if
-	if n = 11
+	if n == 11
 		message "*Set " cadTarget[n] " as cad target [ . ]."
 	end if
-	if n = 12
+	if n == 12
 		message "*Set " cadTarget[n] " as cad target [ + ]."
 	end if
-	if n > 20
-		message "*Set " cadTarget[n] " as cad target [control+ " t "]."
+	if n >= 21 
+		if n <= 29
+			message "*Set " cadTarget[n] " as cad target [control+" n2 "]."
+			set n2 + 1
+		end if
+	end if	
+	if n == 30
+		message "*Set " cadTarget[n] " as cad target [ control+0 ]."
+	end if
+	if n == 31
+		message "*Set " cadTarget[n] " as cad target [ control+. ]."
+	end if
+	if n == 32
+		message "*Set " cadTarget[n] " as cad target [ control++ ]."
+	end if
 	end if
 	set n + 1
 	set t + 1
-	if n < 30 
+	if n < 33 
 		goto loopListCadTargets
 	end if
 	message "reassign cad targets by adding ALT to their key"
@@ -425,13 +457,16 @@ end if
 // "/pose bless\r"
 }
 
-/* **************************** CadTargetter 2.2 *****************************
+/* **************************** CadTargetter 2.3 *****************************
  As of version 2.2 you can now set cad targets of up to 9 people.
  Setting Cad targets is easy, you click on a player and hit numpad 1 through 9
  the first time you set this.
  When you want to reset it to a new person hit <ALT>+numpad 1 through 9.
  Hitting <ALT>+Numpad 1(-9) again on a person already set as that numpad key will cad-lock them now.
  This version 2.2 changes the keys used to the numpad keys due to problems with OS default F-key assignments
+ Version 2.3 expanded the number of speed dialed targets to 32:
+	Numpad 1-9, can be stacked with ctrl
+	Numpad "0" "." and "+", can be stacked with ctrl
 ***************************************************************************** */
 staticTargetSet
 {
@@ -888,12 +923,75 @@ setglobal t control-numpad-9
 call staticTargetSet
 }
 
+staticTarget30
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[30] == ""
+	setglobal cadTarget[30] @selplayer.simple_name
+	message "*Set " cadTarget[30] " as cad target control-numpad-0."
+end if
+"/select " cadTarget[30] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget30Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 30
+setglobal t control-numpad-0
+call staticTargetSet
+}
+
+staticTarget31
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[31] == ""
+	setglobal cadTarget[31] @selplayer.simple_name
+	message "*Set " cadTarget[31] " as cad target control-numpad-."
+end if
+"/select " cadTarget[31] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget31Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 31
+setglobal t control-numpad-.
+call staticTargetSet
+}
+
+staticTarget32
+{
+setglobal ThankRandom	0
+call cadswap
+if cadTarget[32] == ""
+	setglobal cadTarget[32] @selplayer.simple_name
+	message "*Set " cadTarget[32] " as cad target control-numpad-+."
+end if
+"/select " cadTarget[32] " \r"
+"/use " @selplayer.simple_name " \r"
+}
+
+staticTarget32Set
+{
+setglobal ThankRandom	0
+call cadswap
+setglobal n 32
+setglobal t control-numpad-+
+call staticTargetSet
+}
 message "===> Loaded moonstone_functions.txt"
 /*
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-CREDITS: Gorvin, Noivad, SoulHunter/Lexa, Tarf, Veer
-20210503-Inu:	Added in SoulHunter/Lexa's purgatory pendant macro.
-
+ATTRIBUTIONS: Gorvin, Noivad, SoulHunter/Lexa, Tarf, Veer
+2021-0503-Inu:	Added in SoulHunter/Lexa's purgatory pendant macro.
+2022-0611-Inu:	Updated comments for CadTargetter 2.3 and fixed version number.
+2022-1009-Inu:	Fixed call notes for ALT+F4 replaced by SHIFT+F4
 */

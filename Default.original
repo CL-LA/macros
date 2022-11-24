@@ -1,0 +1,24 @@
+// This macro file is included for every character by default.
+// Use it for general macros that you want available to all characters.
+//
+
+"??"    "/help "    @text "\r"
+"aa"    "/action "  @text "\r"
+"gg"    "/give "    @text "\r"
+"ii"    "/info "    @text "\r"
+"kk"    "/karma "   @text " \r"
+"mm"    "/money\r"
+"nn"    "/news\r"
+"pp"    "/ponder "  @text "\r"
+"sh"    "/share "   @text "\r"
+"sl"    "/sleep\r"
+"t"     "/think "   @text "\r"
+"tt"    "/thinkto " @text "\r"
+"th"    "/thank "   @text "\r"
+"ui"    "/useitem " @text "\r"
+"uu"    "/use "     @text "\r"
+"un"    "/unshare " @text "\r"
+"w"     "/who "     @text "\r"
+"wh"    "/whisper " @text "\r"
+"yy"    "/yell "    @text "\r"
+

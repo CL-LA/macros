@@ -1,7 +1,7 @@
 //------------------------------------------------
 // directions.macro
 //------------------------------------------------
-setglobal directionsrev "20201011-1528-0010"
+setglobal directionsrev "2022-0612-0000-0011"
 "/dir" call dir
 dir
 {
@@ -314,7 +314,8 @@ message "===> Loaded directions.macro"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-2006MMDD-Kiriel D'Sol: directional macros, http://www.windsofdawn.org/kiriel/macro.html?macro=didir
-20070127-Inu: Modded to make generic so one call with a parameter will call appropriate directions
-20210224-Inu: Added this log.
+2006-MMDD-Kiriel D'Sol: 
+				directional macros, http://www.windsofdawn.org/kiriel/macro.html?macro=didir
+2007-0127-Inu:	Modded to make generic so one call with a parameter will call appropriate directions
+2021-0224-Inu:	Added this log.
 */

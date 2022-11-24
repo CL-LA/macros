@@ -1,0 +1,1939 @@
+﻿// Screwage Script
+//
+// Screwage = Inu (old man) [SC]
+// Tiny Tim = Measle (halfling) - [TT] See GMs about a spriggan costume
+// Bawkmas Past ghost = Punny (dwarf?) [BP]
+// Tormentor one - Measle [TO]
+// Tormentor two - Miug [OT]
+// Bawkmas Now ghost = Largo (zo) [ZG]
+// Bawkmas Future ghost = Miug (cloak) [GP]
+// Special effects = Measle [MG]
+// Cody Future = Largo (thoom) [CF]
+// Tiny's dad - Papa Cratchet? [SN] = Punny 
+// The King [KI] = Largo 
+//
+// jump to: scene 1 | scene 2 | scene 3 | scene 4 | scene 5
+//
+// SCENE ONE
+// ====================================================================================
+// 1. Scene opens with Screwage asleep, lying down snoring
+// 2. Screwage is awoken by Tiny Tim
+// 3. Screwage tells Tiny Tim to go away, says he hates Bawkmas and goes back to sleep"
+//---
+// SC=Inu/Screwage, (1-10)
+// TT=Measle/Tiny Tim
+//
+"/SC1"
+{
+"/pose lie \r"
+"/ponder zzzz \r"
+message ==> SC2 -- CUE: Wow I'm having the best time ever.
+/SC2
+}
+
+"/TT1"
+{
+"Wow, I'm having the best time ever! \r"
+"/TT2"
+}
+
+"/SC2"
+{
+"/pose sit \r"
+"/narrate Screwage stirs \r"
+pause 8
+"/pose lie \r"
+pause 4
+"/pose sit \r"
+pause 2
+"/pose lie \r"
+"/ponder zzzz \r"
+message ==> SC3 -- CUE: I hope my high spirited ... doesn't wake anyone up
+/SC3
+}
+
+"/TT2"
+{
+"/yell I hope my high spirited, yet noisy playing doesn't wake anyone up \r"
+"/TT3"
+}
+
+"/SC3"
+{
+"/pose surp \r"
+"/narrate Screwage jumps to his feet \r"
+message ==> SC4 -- CUE: Crash!
+/SC4
+}
+
+"/TT3"
+{
+"/nar CRASH! \r"
+"/TT4"
+}
+
+"/SC4"
+{
+"/pose bless \r"
+"/pose cele \r"
+"/yell Arrrgggh!!!! \r"
+message ==> SC5 -- CUE: Oh no!
+/SC5
+}
+
+"/TT4"
+{
+"Oh no! \r"
+message ==> Back Back
+"/TT5"
+}
+
+"/SC5"
+{
+"/pose attack w \r"
+"Go away you \r"
+pause 12
+"/pose attack e \r"
+"Back! Back! \r"
+message ==> SC6 -- CUE: Sorry Mr Screwage
+/SC6
+}
+
+"/TT5"
+{
+"I'm ever so sorry Mr Screwage \r"
+"/TT6"
+}
+
+"/SC6"
+{
+"Bah. \r"
+message ==> SC7 -- CUE: Excited about Bawkmas
+/SC7
+}
+
+"/TT6"
+{
+"It's just I'm so excited about Bawkmas! \r"
+pause 20
+"*cough cough* \r"
+message ==>> TT7 -- CUE: Whomever heard of such a crazy thing
+"/TT7"
+}
+
+"/SC7"
+{
+"/narrate Screwage's bones creak from all the movement \r"
+"/pose aki \r"
+pause 2
+"/pose ang \r"
+pause 20
+"Bawkmas! \r"
+"/pose bless \r"
+pause 2
+"/pose cele \r"
+pause 16
+"pfft... \r"
+"/pose salute \r"
+pause 2
+"/pose stand s \r"
+pause 16
+"Whomever heard of such a crazy thing? \r"
+message ==> SC8 -- CUE - Tiny Time: And as I have terminal orga flu, THIS one will probably be my last anyway
+/SC8
+}
+
+"/TT7"
+{
+"Oh but Bawkmas is the bestest Mr Screwage \r"
+pause 15
+"Santa Chicken gives presents... \r"
+pause 12
+"...and the local theatre does a play \r"
+pause 12
+"It's the greatest!"\r
+pause 10
+"And as I have terminal orga flu, this one will probably be my last anyway \r"
+message ==>> TT8 -- CUE: Harumph!
+"/TT8"
+}
+
+"/SC8"
+{
+"Bah. \r"
+"/pose salute \r"
+pause 4
+"/pose angry \r"
+pause 4
+"Harumph! \r"
+message ==> SC9 -- CUE: Ok Mr. Screwage
+/SC9
+}
+
+"/TT8"
+{
+"*cough cough* \r"
+pause 14
+"Ok, Mr Screwage \r"
+message ==>> TT9 -- CUE: Bah! Kids always getting in my way
+"/TT9"
+}
+
+"/SC9"
+{
+"Bah!  Kids always getting in my way \r"
+"/pose salute \r"
+pause 8
+"/swear \r"
+"/pose angry \r"
+message ==> SC10 -- CUE: But Merry Bawkmas anyway
+/SC10
+}
+
+"/TT9"
+{
+"But Merry Bawkmas anyway"\r
+message ==>> EXIT STAGE
+message ==>> TT10 -- Return in scene 3, CUE-Screwage: and his father, he works for me!
+"/TO1"
+}
+
+"/SC10"
+{
+"Bah! \r"
+pause 4
+"Good riddance! \r"
+pause 8
+"/ponder mumble mumble \r"
+"/pose lie \r"
+pause 4
+"/ponder  zzz \r"
+message ==>> END SCENE 1, SCENE TWO
+message ==> SC11
+message Next scene: Screwage awakened by Past Ghost
+/SC11
+}
+
+//
+// SCENE TWO
+// ====================================================================================
+// Introduce the ghost - Christmas Past?
+//
+// We skip Marley. Past comes in, says he's the first of three visitors
+// Takes screage back in time
+// Screwage.. male peasant is picked on at bawkmastime
+// Screwage and Christmas Past Ghost on left side of stage
+// Miug (halfling or female peasant), Measle (male halfling) are Young Screwage's tormentors
+// Largo is Young Screage Miug says, "what should I be"
+// So after, "Hey that's me bit" Screwage and Past stay quiet until we exit
+// Starts with screwage sleeping"
+// ---
+// SC=inu/Screwage, (11-28)
+// BP=Pun/Bawkmas Past ghost,
+// YS=Largo/Young Screwage,
+// TO=measle/Tormentor 1,
+// OT=Miug/Tormentor 2
+//
+
+"/SC11"
+{
+"/pose lie \r"
+"/ponder zzzz \r"
+message Past enters and pushes Screwage awake.
+message ==> SC12 -- CUE: Being pushed by Pun.
+/SC12
+}
+
+"/SC12"
+{
+"EEKeth! \r"
+"/pose stand s \r"
+pause 2
+"/pose stand w \r"
+pause 2
+"/pose surp \r"
+pause 4
+"/pose stand sw \r"
+"Who in the blazes are you? \r"
+pause 8
+"and what are you doing here? \r"
+message ==> SC13 -- CUE: I am the first of three visitors... or Can I get an ale O
+/SC13
+}
+
+"/BP1"
+{
+"I am the first of three visitors and by far the most attractive... \r"
+pause 32
+"Can I get an ale O! \r"
+message ==>> BP2 -- CUE: Visitors
+}
+
+"/SC13"
+{
+"Visitors? \r"
+"/pose thoughtful \r"
+message ==> SC14  -- CUE: yes
+/SC14
+}
+
+"/BP2"
+{
+"yes \r"
+message ==>> BP3 -- CUE: I am not expecting any company
+}
+
+"/SC14"
+{
+"I am not expecting any company. \r"
+"/pose stand sw \r"
+message ==> SC15 -- CUE: You Screwage
+/SC15
+}
+
+"/BP3"
+{
+"You Screwage \r"
+message ==>> BP4 -- CUE: i HATE company
+}
+
+"/SC15"
+{
+"/pose aki \r"
+pause 4
+"/pose ang \r"
+"i HATE company \r"
+message ==> SC16 -- CUE: Have a lot of splaining to do
+/SC16
+}
+
+"/BP4"
+{
+"Have a lot of splaining to do \r"
+message ==>> BP5 -- CUE: I HATE you
+}
+
+"/SC16"
+{
+"/pose attack sw \r"
+"I HATE you! \r"
+message ==> SC17 -- CUE: Dont shoot the messenger
+/SC17
+}
+
+"/BP5"
+{
+"Hey! \r"
+pause 4
+"Don't shoot the messenger \r"
+message ==>> BP6 -- CUE: pushed by Screwage
+}
+
+"/SC17"
+{
+"Get out! \r"
+"/pose attack w \r"
+"/push Pun \r"
+message ==> SC18 -- CUE: Now..
+/SC18
+}
+
+"/BP6"
+{
+"Now... \r"
+message ==>> BP7 -- CUE: Out! Out! Yon messenger!
+}
+
+"/SC18"
+{
+"Out! Out! Yon messenger! \r"
+"/pose salute \r"
+pause 2
+"/pose attack w \r"
+message ==> SC19 -- CUE: You gtfo!
+/SC19
+}
+
+"/BP7"
+{
+"you gtfo! \r"
+message ==>> BP8  -- CUE: No you gtfo!
+}
+
+"/SC19"
+{
+"Shoo. Shoo. \r"
+"/pose sal \r"
+pause 2
+"/pose aki \r"
+pause 6
+"No you gtfo! \r"
+message ==> SC20 -- CUE: Come withe me Screwage
+/SC20
+}
+
+"/BP8"
+{
+"Come with me Screwage \r"
+message ==>> BP9 -- CUE: Over my dead body
+}
+
+"/SC20"
+{
+"Over my dead body. \r"
+"/pose ang \r"
+message ==> SC21 -- CUE - Young Screwage (largo): Hello friends.
+message ==> • You hear Measle's music...
+/SC21
+}
+
+"/BP9"
+{
+"/narrate Bawkmas Past snaps her fingers and they wind up in a school yard \r"
+message ==>> BP10 -- CUE - YoungScrewage: Oh what a fine Bawkmas...
+}
+// • You hear Measle's music...
+// Measle starts playing his starbuck harp.
+
+"/YS1"
+{
+"Oh! What a fine Bawkmas this is going to be! \r"
+message ==>> YS2 -- CUE - BawkmasPast: Watch and see
+}
+
+"/BP10"
+{
+"watch and see \r"
+message ==>> BP11 -- CUE - Young Screwage (Largo): I can feel it in my bones
+}
+
+"/YS2"
+{
+"I can feel it in my bones! \r"
+message ==>> YS3 -- CUE TormentorOne (measle): Hey Lil Screwagey
+}
+
+"/TO1"
+{
+"Hey Lil Screwagey! \r"
+message ==>> TO2 -- CUE - Young Screwage: Hello friends
+"/TO2"
+}
+
+"/YS3"
+{
+"Hello friends! \r"
+pause 15
+How goes your holiday? \r"
+message ==>> YS4 -- CUE - OtherTormenter (miug): I've already found... hid the presents
+}
+
+"/SC21"
+{
+"Hey that's me \r"
+"/pose th \r"
+message Only can do poses during the next part until they leave
+message ==> SC22 -- CUE - Young Screwage: Runs off stage
+/SC22
+}
+
+"/OT1"
+{
+"I've already found where my parents hid the presents! \r"
+message ==>> EXIT stage on CUE - TormentorOne: "Come on, let's go play"
+message re-enter as Ghost of the Future after Present leaves Screwage to sleep
+/gf1
+}
+
+"/YS4"
+{
+"Oh, is that so? Very good! \r"
+message ==>> YS5 -- CUE - TormentorOne: Come on, let's go play
+}
+
+"/TO2"
+{
+"We have lots of presents! \r"
+pause 12
+"And you don't because you're an orphan no one likes \r"
+pause 16
+"Nyuh nyuh \r"
+pause 4
+"Come on, let's go play \r"
+message ==>> TO3 -- CUE - Young Screwage: leaves stage,
+message ----------- Bawkmas past (punny): You must
+"/TO3"
+}
+
+// (Inu Teisei): Screwage frowns
+
+"/YS5"
+{
+"Well, uh. That was a bit uncalled for and unexpected. \r"
+pause 16
+"/narrate Young screwage sniffles. \r"
+pause 12
+"Oh, why are they always so mean to me? \r"
+pause 20
+// (Inu Teisei): Old Screwage cries
+"Hrmph." /r
+pause 8
+"Fine, I don't need Bawkmas. \r"
+pause 12
+"I don't need their nonsense gifts or mistletoe. \r"
+pause 16
+// Pun'isher ponders, "i have to think"
+// Pun'isher ponders, "where the heck did he get that outfit"
+"I'll just pretend like it doesn't exist. \r"
+pause 16
+"Harumph. \r"
+message ==>> EXIT: Run off stage
+}
+
+"/SC22"
+{
+"/pose cry \r"
+"Oh this is too painful \r"
+pause 16
+call spinfall
+"Take me home \r"
+"/pose bless \r"
+"/pose th \r"
+message ==> SC23 -- CUE - TormentorOne: We do like him after all
+/SC23
+}
+
+"/BP11"
+{
+"you must \r"
+message ==>> BP12 -- CUE Tormentor One: Where did young Screwage go
+}
+
+"/TO3"
+{
+"Where did Screwagey go? \r"
+message ==>> TO4  -- CUE: Bawkmas Past: see the path
+"/TO4"
+}
+
+"/BP12"
+{
+"see the path \r"
+message ==>> BP13 -- CUE - Screwage: I don't like remembering all that
+}
+
+"/TO4"
+{
+"We do like him after all \r"
+message ==>> TO5 -- CUE - Bawkmas Past: now watch
+"/TO5"
+}
+
+"/SC23"
+{
+"I don't like remembering all that \r"
+"/pose cry \r"
+message ==> SC24 -- CUE - Tormentor One: Not here. Oh well
+/SC24
+}
+
+"/BP13"
+{  
+"now watch \r"
+message ==>> BP14 -- CUE - Tormentor One: A tragic misunderstanding I guess
+}
+
+"/TO5"
+{
+"Not here? Oh well \r"
+message ==>> TO6 -- CUE - Screwage: !...
+"/TO6"
+}
+
+"/SC24"
+{
+"/pose surp \r"
+pause 2
+"/pose bless \r"
+pause 2
+"/pose stand se \r"
+//    "/pose bow \r"
+//    "/pose aki \r"
+"!?! \r"
+message ==> SC25 -- CUE - Bawkmas Past: just like an episode of Three''s Company
+/SC25
+}
+
+"/TO6"
+{
+"A tragic misunderstanding I guess \r"
+message EXIT STAGE
+message ==>> TT10 -- CUE Scene 3 - Screwage: Oh and his father works for me
+message Next up as Tiny Tim
+"/TT10"
+}
+"/BP14"
+{
+"Indeed \r"
+pause 4
+"A tragic misunderstanding. \r"
+pause 8
+"Just like an episode of Three's Company \r"
+message ==>> BP15 -- CUE: huh
+}
+
+"/SC25"
+{
+"/pose bless \r"
+"huh? \r"
+"/pose stand s \r"
+message ==> SC26 -- CUE - Bawkmas Past: snaps her Purgatory pendant...
+/SC26
+}
+
+"/BP15"
+{
+"without the homeless puppy \r"
+pause 12
+"but I digress ... \r"
+pause 12
+"I should get you home \r"
+pause 12
+"/narrate Bawkmas Past **SNAPS** her Purgatory pendant and winds up back in Screwage's hovel \r"
+message ==>> BP16 -- CUE: Bah, Screwage lies down
+}
+
+"/SC26"
+{
+"/pose surp \r"
+"What? \r"
+pause 6
+"Bah \r"
+"/pose lie \r"
+message ==> SC27 -- CUE: pay attention
+/SC27
+}
+
+"/BP16"
+{
+"Heed the signs. \r"
+pause 12
+"Pay attention. \r"
+message ==>> BP17 -- CUE: That was all just a bad dream
+}
+
+"/SC27"
+{
+"That was all just a bad dream... \r"
+"/pose lie \r"
+message ==> SC28 -- CUE: There will be others
+/SC28
+}
+
+"/BP17"
+{
+"There will be others. \r"
+message EXIT STAGE :: Next costume is Spriggin as Papa Cratchit
+message ==>> SN1 -- CUE Enter Scene 3 - Screwage : Hey that's Tiny Tim!
+}
+
+"/SC28"
+{
+"/ponder zzzz \r"
+"/pose lie \r"
+message ==> SC29 -- CUE - Start Scene 3:
+/SC29
+}
+
+//
+// SCENE THREE
+// ====================================================================================
+// Measle says, "On to scene 3 then"
+// Inu Teisei says, "ghost of present"
+// Measle says, "Present takes Screwage to see Tiny's hovel"
+// Pun'isher asks, "can i be his father?"
+// Measle says, "Papa Cratchit, his father realises he won't live"
+// Measle says, "But they try to be happy anyway"
+// Measle says, "ooh I'm Tim whoops"
+// ---
+// SC = Inu / Screwage  (29-47)
+// ZG = Largo / Bawkmas Now
+// TT = Measle / Tiny Tim
+// SN = Pun / Papa Cratchit - Tiny's dad
+//
+
+"/SC29"
+{
+"/pose lie \r"
+"/ponder zzz \r"
+message ==> SC30 -- CUE - Bawkmas Now (Zo Largo): Me not late, right
+/SC30
+}
+
+"/ZG1"
+{
+"HELLO?!?! \r"
+pause 6
+"This am right place? \r"
+pause 8
+"Me not late, right? \r"
+message ==>> ZG2 -- CUE - Screwage: aCK!
+}
+
+"/SC30"
+{
+"/pose surp \r"
+pause 2
+"/pose bless \r"
+pause 2
+"/pose st w \r"
+"aCK! \r"
+message ==> SC31 -- CUE: You am Screwage. Grumpy old man.
+/SC31
+}
+
+"/ZG2"
+{
+"You am Screwage? Grumpy old man? \r"
+message ==>> ZG3 -- CUE: Yes why
+}
+
+"/SC31"
+{
+"Yes why???? \r"
+message ==> SC32 -- CUE: Me not allowed to be late again... stake.
+/SC32
+}
+
+"/ZG3"
+{
+"Me not allowed to be late again, job be at stake. \r"
+message ==>> ZG4 -- CUE: I can get him fired
+}
+
+"/SC32"
+{
+"/narrate Screwage trembles slightly \r"
+"/pose attack w \r"
+pause 2
+"/pose attack e \r"
+pause 2
+"/ponder phew ! \r"
+pause 2
+"/pose thoughtful \r"
+"/ponder I can get him fired... \r"
+message ==> SC33 -- CUE: Um. Me am here to make you feel bad.
+/SC33
+}
+
+"/ZG4"
+{
+"Um. Me am here to make you feel bad. \r"
+message ==>> ZG5 -- CUE: Screwage laughs evilly
+}
+
+"/SC33"
+{
+"/narrate Screwage laughs evilly... \r"
+message ==> SC34 -- CUE: You am need to pay attention.
+/SC34
+}
+
+"/ZG5"
+{
+"About stuff. \r"
+pause 8
+"You am need to pay attention. \r"
+message ==>> ZG6 -- CUE: !
+}
+
+"/SC34"
+{
+"! \r"
+message ==> SC35 -- CUE: Me am ghost of Bawkmas now.
+/SC35
+}
+
+"/ZG6"
+{
+"Me am ghost of Bawkmas now. \r"
+message ==>> ZG7 -- CUE: are you INSANE
+}
+
+"/SC35"
+{
+"/pose ang \r"
+"Pay attention to what? \r"
+pause 12
+"Now?.?.? \r"
+pause 6
+"Bawkmas??? \r"
+pause 8
+"are you INSANE? \r"
+message ==> SC36 -- CUE: me am here to make you feel like big jerk.
+/SC36
+}
+
+"/ZG7"
+{
+"Bawkmas now. This am Bawkmas. \r"
+pause 16
+"Me am ghost of Bawkmas Now, me am here to make you feel like big jerk. \r"
+message ==>> ZG8 -- CUE: Another bad dream
+}
+
+"/SC36"
+{
+"/pose th \r"
+"/narrate Screwage wonders about the Zo's abilities \r"
+pause 20
+"/pose ang \r"
+"OK then get on with it \r"
+pause 12
+"What now? \r"
+pause 8
+"/pose ang \r"
+"Another bad dream? \r"
+message ==> SC37 -- CUE: You am following.
+/SC37
+}
+
+"/ZG8"
+{
+"Um. You am come with me? \r"
+pause 12
+"/narrate The ghost of Bawkmas NOW! grabs Screwage by the collar and leads him next door. \r"
+pause 20
+"You am following. \r"
+message ==>> ZG9 -- CUE: Where am I
+}
+
+"/SC37"
+{
+"/pose sur \r"
+"OUCH! \r"
+pause 8
+"Where am I? \r"
+message ==> SC38 -- CUE - Zo: You am looking through window now
+/SC38
+}
+
+"/ZG9"
+{
+"This am small annoying neighbor house. \r"
+pause 16
+"You am looking through window now. \r"
+message ==>> ZG10 -- CUE - Screwage: What is wrong with that boy
+}
+
+"/SC38"
+{
+"Hey that's Tiny Tim! \r"
+"/pose attack e \r"
+"/pose stand e \r"
+pause 4
+"and his father, he works for me! \r"
+message ==> SC39 -- CUE - Papa leaves stage: He is so screwed.
+/SC39
+}
+
+"/TT10"
+{
+"Oh papa! Where are you I'm so cute and excited! \r"
+message ==>> TT11 -- CUE - Papa Cratchit: yes my son
+"/TT11"
+}
+
+"/SN1"
+{
+"yes my son \r"
+message ==>> SN2 -- CUE - Tiny Tim: You''re a darshak
+}
+
+"/TT11"
+{
+"You're a darshak? \r"
+message ==>> TT12 -- CUE: You be excited
+"/TT12"
+}
+
+"/SN2"
+{
+"you be excited \r"
+message ==>> SN3 -- CUE: That''s a surprise
+}
+
+"/TT12"
+{
+"That's a surprise \r"
+message ==>> TT13 -- CUE: Darshak accountant
+"/TT13"
+}
+
+"/SN3"
+{
+"Oh not one of those glamorous Darshak raiders. \r"
+pause 12
+"Unless you count corporate rainding that is. I'm merely a Darshak Accountant. \r"
+message ==>> SN4 -- CUE: Why are we so starving?
+}
+
+"/TT13"
+{
+"But don't accountants make good money. Why are we so starving? \r"
+message ==>> TT14 -- CUE: Scientologist
+"/TT14"
+}
+
+"/SN4"
+{
+"Oh that'll be the government \r"
+pause 12
+"Ever since the Largocrats got in, they've persecuted my religious minority."\r
+pause 12
+"If only I'd stayed a Scientologist things would be all right."\r
+message ==>> SN5 -- CUE: Perhaps I wouldn''t feel so weak
+}
+
+"/TT14"
+{
+"/narrate *cough cough* \r"
+pause 8
+"Perhaps if I had some roast chicken, my starvingness could be foreshortened \r"
+pause 24
+"Perhaps I wouldn't feel so weak \r"
+message ==>> TT15 -- CUE: thats not possible
+"/TT15"
+}
+
+"/SN5"
+{
+"Well son \r"
+pause 6
+"you know \r"
+pause 6
+"thats not possible \r"
+message ==>> SN6 -- CUE: Did you manage to scrounge any dinner
+}
+
+"/TT15"
+{
+"Did you manage to scrounge any dinner? \r"
+message ==>> TT16 -- CUE: It may have been there for a while though
+"/TT16"
+}
+
+"/SN6"
+{
+"I brought this for yah \r"
+pause 12
+"/narrate pulls out a half eaten fried myrm \r"
+pause 16
+"I found it in a rat tower. It may have been there for a while though \r"
+message ==>> SN7 -- CUE: Oh this is the best myrm ever!
+}
+
+"/TT16"
+{
+"Oh this is the best myrm ever! \r"
+message ==>> TT17 -- CUE: I''ll eat the myrm butt
+"/TT17"
+}
+
+"/SN7"
+{
+"/ponder Eat it up, mini me \r"
+pause 12
+"but \r"
+pause 4
+"this time \r"
+pause 4
+"You eat the myrm butt \r"
+message ==>> SN8 -- CUE: No... you eat it
+}
+
+"/TT17"
+{
+"No... you eat it \r"
+message ==>> TT18 -- CUE: No son
+"/TT18"
+}
+
+"/SN8"
+{
+"No son \r"
+message ==>> SN9 -- CUE: I couldn't take food away from you
+}
+
+"/TT18"
+{
+"I couldn't take food away from you \r"
+message ==>> TT19 -- CUE: You are lame and cripple but not as lame as Largo
+"/TT19"
+}
+
+"/SN9"
+{
+"You need it. \r"
+pause 12
+"You are lame and cripple but not as lame as Largo \r"
+message ==>> SN10 -- CUE: Tiny Tim limps off
+}
+
+"/TT19"
+{
+"/narrate Tiny Tim limps off \r"
+message ==>> TT20 -- CUE: Boy is he goner with a capital G
+"/TT21"
+}
+
+"/SN10"
+{
+"/ponder Boy is he goner with a capital G \r"
+message ==>> SN11 -- CUE: Well, time to spread more bawkmas cheers
+}
+
+"/TT20"
+{
+"Well, time to spread more Bawkmas cheers \r"
+message ==>> EXIT STAGE
+message ==>> TT21 -- CUE - Scene 5: Enter with Papa and start scene.
+}
+
+"/SN11"
+{
+"/ponder He is so screwed \r"
+message ==>> EXIT STAGE ::
+message ==>> SN12 -- CUE - Scene 5, enter with Tiny Tim: Oh Papa
+}
+
+"/SC39"
+{
+"What is wrong with that boy? \r"
+"/pose bless \r"
+pause 4
+"/pose stand se \r"
+message ==> SC40 -- CUE - Bawkmas Now: You am not paying attention
+/SC40
+}
+
+"/ZG10"
+{
+"He am very sick. \r"
+pause 16
+"You am not paying attention? \r"
+message ==>> ZG11 -- CUE - Screwage: Ummm
+}
+
+"/SC40"
+{
+"But why? \r"
+pause 8
+"Ummm \r"
+"/pose thoughtful \r"
+message ==> SC41  -- CUE - Bawkmas Now: Um.
+/SC41
+}
+
+"/ZG11"
+{
+"Um. \r"
+message ==>> ZG12 -- CUE: Why don''t they have enough to eat
+}
+
+"/SC41"
+{
+"/pose bless \r"
+"Why don't they have enough to eat? \r"
+pause 4
+"/pose st se \r"
+message ==> SC42 -- CUE: Him father am very poor.
+/SC42
+}
+
+"/ZG12"
+{
+"He am sick. \r"
+pause 12
+"Him father am very poor. \r"
+message ==>> ZG13 -- CUE: Don''t i pay his father enough
+}
+
+"/SC42"
+{
+"/pose ang \r"
+"Don't i pay his father enough? \r"
+message ==> SC43 -- CUE: Apparently not
+/SC43
+}
+
+"/ZG13"
+{
+"Apparently not? \r"
+message ==>> ZG14 -- CUE: Screwage looks down
+}
+
+"/SC43"
+{
+"/pose thoughtful \r"
+"/narrate Screwage looks down \r"
+message ==> SC44 -- CUE: You feel like big jerk now
+/SC44
+}
+
+"/ZG14"
+{
+"Tim look like he probably am dying. \r"
+pause 16
+"You feel like big jerk now? \r"
+message ==>> ZG15 -- CUE: ... take me back home
+}
+
+"/SC44"
+{
+"/pose cry \r"
+"/pose stand s \r"
+"/pose stand se \r"
+"/narrate Screwage tries to keep from shedding a tear \r"
+pause 16
+"/pose stand sw \r"
+"Please I can't take this, take me back home \r"
+message ==> SC45 -- CUE: ... pretty much just a big jerk
+/SC45
+}
+
+"/ZG15"
+{
+"You am understand that you am pretty much just a big jerk? \r"
+message ==>> ZG16 -- CUE: perhaps
+}
+
+"/SC45"
+{
+"/narrate Screwage lowers his eyes \r"
+"/pose thoughtful \r"
+pause 10
+"Perhaps? \r"
+message ==> SC46 -- CUE: You am going back home now
+/SC46
+}
+
+"/ZG16"
+{
+"Kay, me done then. You live next door, stupid. \r"
+pause 12
+"Oh well. \r"
+pause 8
+"Next ghost am going to take care of you. \r"
+pause 20
+"Me am on a deadline. \r"
+pause 16
+"You am going back home now. \r"
+pause 12
+"/narrate The Zo of Bawkmas Now **SNAPS** his fingers and they return to Screwage's hovel \r"
+message ==>> ZG17 -- CUE: Isn''t it
+}
+
+"/SC46"
+{
+"/ponder Phew! \r"
+"/pose salute \r"
+"/pose thoughtful \r"
+"But i am not totally responsible \r"
+pause 12
+"I can't be \r"
+pause 6
+"That's life \r"
+pause 6
+"Isn't it? \r"
+"/pose surp \r"
+message ==> SC47 -- CUE - (zo/largo) Bawkmas Now: Runs off
+/SC47
+}
+
+"/ZG17"
+{
+"Hey, you am look away for a minute? \r"
+pause 16
+"Cover eyes. \r"
+pause 8
+"/narrate Zo of Bawkmas Present runs off. \r"
+}
+
+"/SC47"
+{
+"/pose lie \r"
+"/ponder zzzz \r"
+pause 6
+"/narrate Small tears appear on Screwage's cheeks  \r"
+message ==> SC48 -- CUE Scene 4: You start scene.
+message ==>> back to stage left, middle
+/SC48
+}
+
+//
+// SCENE 4
+// ====================================================================================
+// Measle says, "Future enters"
+// Inu Teisei says, "christmas future"
+// Measle says, "Points to phantasmed zFlowers"
+// Measle says, "Tim's grave"
+// Measle says, "Sadly missed"
+// Inu Teisei says, "tim is dead"
+// Inu Teisei says, "screwage has a revelation"
+// Inu Teisei says, "and asks if it is fate or what could be"
+// Measle asks, "Screwage asks And me?"
+// Measle says, "Cody throws him into the annulus along with the garbage"
+// Measle exclaims, "And ... ACTION!"
+// ---
+// SC = Inu / Screwage (48-58)
+// GF = Bawkmas Future / Miug
+// CF = Cody Future / Largo
+// MG = Phantasmed Grave / Leinin? Measle?
+//
+
+"/SC48"
+{
+"/pose lie \r"
+"/ponder zzz \r"
+message ==> SC49 -- CUE - Bawkmas Future: points at Screwage
+/SC49
+}
+
+"/GF1" 
+{
+"/narr Ghost drifts in through a window \r"
+message /GF2 to wake Screwage
+/gf2
+}
+
+"/GF2" 
+{
+"/narr Ghost points at Screwage \r"
+message /GF3 after "where to?"
+/gf3
+}
+
+"/SC49"
+{
+"/pose sit \r"
+"Huh? \r"
+pause 4
+"Who might you be? \r"
+pause 12
+"/ponder Can't speak eh? \r"
+pause 12
+"Alrighty then, where to? \r"
+message ==> SC50 -- CUE: Ghost points behind Screwage
+pause 36
+"/narrate Screwages is surprised"\r
+"/pose surp \r"
+/SC50
+}
+
+"/GF3" 
+{
+"/narr Ghost points behind Screwage \r"
+message /GF4 after Screwage begins reacting to what he sees
+/gf4
+}
+
+"/SC50"
+{
+"/pose akimbo \r"
+"Hey \r"
+message ==> SC51 -- CUE: I am phantasmed grave
+message ==>> or just continue on...
+/SC51
+}
+
+"/GF4" 
+{
+"/narr Ghost lurks in the background \r"
+message /GF5 after "What about me?"
+/gf5
+}
+
+
+"/MG1"
+{
+"/narrate I am a phantasmed grave \r"
+}
+
+"/SC51"
+{
+"This says Tiny Tim on this headstone \r"
+"/pose surprised \r"
+pause 20
+"He.. \r"
+pause 4
+"he \r"
+pause 4
+"he died? \r"
+"/pose cry \r"
+pause 12
+"/pose thoughtful \r"
+"This must be the future \r"
+pause 18
+"/pose thoughtful \r"
+"What about me? \r"
+message ==> SC52 -- CUE: Cody chains a fallen scrooge
+/SC52
+}
+
+"/GF5" 
+{
+ "/narr Ghost shrugs \r"
+pause 25
+"/narr Ghost points \r"
+message /GF6 after "another dream?"
+/GF6
+}
+
+"/CF1"
+{
+"hahahahah \r"
+pause 8
+"/narrate Cody chains a fallen scrooge \r"
+message ==>> CF2 -- CUE: Nooooo!!!!
+}
+
+"/SC52"
+{
+"/pose lie \r"
+"Nooooo!!!! \r"
+message ==> SC53 -- CUE: nub
+/SC53
+}
+
+"/CF2"
+{
+"lol \r"
+pause 8
+"nub \r"
+message ==>> CF3 -- CUE: Get back you thug!
+}
+
+"/SC53"
+{
+"/pose lie \r"
+"Back! \r"
+pause 8
+"/pose lie \r"
+"Get back you thug! \r"
+"/pose lie \r"
+message ==> SC54 -- CUE: to anulus
+/SC54
+}
+
+"/CF3"
+{
+"i chaIN U SO HRAD \r"
+pause 8
+"to anulus \r"
+message ==>> CF4 -- CUE: Eeks!!!
+}
+
+"/SC54"
+{
+"/pose lie \r"
+"Eeks!!! \r"
+"/pose lie \r"
+message ==> SC55 -- CUE: lol ... nub
+/SC55
+}
+
+"/CF4"
+{
+"anus \r"
+pause 8
+"w/ tenbrion \r"
+pause 12
+"lol \r"
+pause 8
+"nub \r"
+message ==>> CF5 -- CUE: Eekslay
+}
+
+"/SC55"
+{
+"/pose attack w \r"
+pause 4
+"/pose lie \r"
+pause 4
+"Let me go! \r"
+pause 2
+"/pose attack s \r"
+pause 4
+"/pose lie \r"
+pause 4
+"/pose attack e \r"
+pause 4
+"/pose lie \r"
+pause 4
+"Eekslay \r"
+message ==> SC56 -- CUE: lol bi
+/SC56
+}
+
+"/CF5"
+{
+"lol bi \r"
+message ==>> EXIT STAGE
+message == change to chicken costume, enter when Screwage says he's brought chickens==CH1
+}
+
+"/SC56"
+{
+"/pose sit \r"
+pause 4
+"/pose kneel \r"
+pause 4
+"/pose sit \r"
+pause 4
+"/pose stand sw \r"
+"It was just another dream... \r"
+message ==> SC57 -- CUE: Wasnt it a dream
+/SC57
+}
+
+"/GF6" 
+{
+"/narr Ghost points at Screwage again \r"
+message /GF7 after "Wasn't it a dream?"
+/GF7
+}
+
+"/SC57"
+{
+"/pose surp \r"
+"Again? \r"
+pause 12
+"Wasn't it a dream? \r"
+message ==> SC58 -- CUE: Ghost loses interest and drifts off
+/SC58
+}
+
+"/GF7"
+{
+"/narr Ghost loses interest and drifts off \r"
+message ==>> EXIT STAGE
+message ==>> ENTER FOR CURTAIN CALL ==>> GP100
+}
+
+"/SC58"
+{
+"/narrate Screwage begins to tremble \r"
+pause 16
+"/pose cry \r"
+"Oh what must I do???? \r"
+"/pose cry \r"
+pause 12
+"/pose bless \r"
+"This can't be?!? \r"
+pause 12
+"/pose thoughtful \r"
+"This must be a could be! \r"
+pause 18
+"/pose salute \r"
+"I bet I can change it! \r"
+message ==>> EXIT STAGE *** EXIT STAGE (LEFT)
+message ==> SC59 -- CUE: Enter stage in next scene
+message ==>> Papa/Punny line is: "You need to go with the family waiting outside..."
+/SC59
+}
+
+//
+// SCENE 5
+// ====================================================================================
+// Scene opens with Papa telling Tim he is being sold off...
+// Screwage comes to the house after last ghost
+// and finds papa selling off tiny tim"
+// he stops it -- and Tim says something about gaia"
+//
+// TT = Measle / Tiny Tim
+// SC = Inu / Screwage (59-69)
+// SN = Pun / Papa Cratchit
+//
+
+"/TT21"
+{
+"Oh papa \r"
+message ==>> TT22 -- CUE: Well son...
+"/TT22"
+}
+
+"/SN12"
+{
+"Well son... \r"
+message ==>> SN13 -- CUE: Yes
+}
+
+"/TT22"
+{
+"Yes? \r"
+message ==>> TT23 -- CUE: You need to go with the family waiting outside...
+"/TT23"
+}
+
+"/SN13"
+{
+"You need to go with the family waiting outside... \r"
+message ==>> SN14 -- CUE: question mark
+}
+
+"/TT23"
+{
+"? \r"
+message ==>> TT24 -- CUE: They can take care of you better
+"/TT24"
+}
+
+// Inu enters the stage
+
+"/SN14"
+{
+"I have sold you to pay for medical bills \r"
+pause 24
+"They can take care of you better \r"
+message ==>> SN15 -- CUE: Oh papa, I hope its for the best
+}
+
+"/TT24"
+{
+"Oh papa, I hope its for the best \r"
+message ==>> TT25 -- CUE - Screwage: What
+"/TT25"
+}
+
+"/SC59"
+{
+"What? \r"
+message ==> SC60 -- CUE - Papa Cratchit: Maybe even get you a chicken
+/SC60
+}
+
+"/TT25"
+{
+"/narrate Tiny Tim shuffles off \r"
+message ==>> TT26  -- CUE Papa Cratchit: Yes Mr. Screwage
+"/TT26"
+}
+
+"/SN15"
+{
+"Maybe even get you a chicken \r"
+message ==>> SN16 -- CUE - Screwage: Come back!
+}
+
+"/SC60"
+{
+"/pose attack e \r"
+"/yell WAIT!! \r"
+pause 8
+"STOP! \r"
+pause 8
+"Come back! \r"
+message ==> SC61 -- CUE - Tiny Tim: Oh hello Mr Screwage
+/SC61
+}
+
+"/SN16"
+{
+"Yes Mr. Screwage? \r"
+message ==>> SN17 -- CUE - Screwage: I brought you two fat chickens!
+}
+
+"/TT26"
+{
+"Oh hello Mr Screwage? \r"
+message ==>> TT27 -- CUE - Screwage: Yes, you can keep Tiny!
+"/TT27"
+}
+
+"/SC61"
+{
+"What have you done? \r"
+"/pose bless \r"
+pause 12
+"I brought you two fat chickens \r"
+message ==> SC62 -- CUE - Papa Cratchit: I am selling him
+/SC62
+}
+
+"/SN17"
+{
+"I am selling him \r"
+message ==>> SN18 -- CUE - Screwage: You can''t!  I have good news
+}
+
+"/SC62"
+{
+"/pose stand s \r"
+"You can't!  I have good news \r"
+message ==> SC63 -- CUE - Papa Cratchit: Good news
+/SC63
+}
+
+"/SN18"
+{
+"Good news? \r"
+message ==>> SN19 -- CUE - Screwage: I am giving you a raise!
+}
+
+"/SC63"
+{
+"No, you can't sell him \r"
+"/pose angry \r"
+pause 16
+"I am giving you a raise! \r"
+"/pose salute \r"
+pause 1
+"/pose thoughtful \r"
+message ==> SC64 -- CUE - Papa Cratchit: LIFTS!
+/SC64
+}
+
+"/SN19"
+{
+"LIFTS! \r"
+message ==>> SN20 -- CUE - Screwage: Oh, and medical!
+}
+
+"/SC64"
+{
+"No \r"
+pause 8
+"A _Pay_ raise \r"
+pause 12
+"Oh, and medical! \r"
+message ==> SC65 -- CUE - Papa Cratchit: and medical!
+/SC65
+}
+
+"/SN20"
+{
+"Wow! \r"
+pause 8
+"and medical! \r"
+message ==>> SN21 -- CUE - Screwage: But Tiny''s doctors will be!
+}
+
+"/SC65"
+{
+"Shoe lifts are not covered by medical \r"
+pause 16
+"But Tiny's doctors will be! \r"
+"/pose celebrate \r"
+message ==> SC66 -- CUE - Papa Cratchit: I can keep Tim
+/SC66
+}
+
+"/SN21"
+{
+"Why.. \r"
+pause 4
+"this means \r"
+pause 4
+"I can keep Tim! \r"
+message ==>> SN22 -- CUE - Tiny Tim: It''s a bawkmas miracle!
+}
+
+"/SC66"
+{
+"Yes, you can keep Tiny! \r"
+"/dc aki \r"
+message ==> SC67 -- CUE - Papa Cratchit: One sec
+/SC67
+}
+
+"/TT27"
+{
+"It's a bawkmas miracle! \r"
+message ==>> TT28 -- CUE - Screwage: Come here you
+"/TT28"
+}
+
+"/SN22"
+{
+"One sec \r"
+message ==>> EXIT STAGE - Next line is a yell from backstage.
+message ==>> SN23  -- CUE - Tiny Tim: Oh you're the best Mr Screwage
+}
+
+"/SC67"
+{
+"Come here you \r"
+message ==> SC68 -- CUE - Papa Scatchit: try the murphy''s down the street
+/SC68
+}
+
+"/TT28"
+{
+"Oh you're the best Mr Screwage \r"
+pause 12
+"/narrate Tiny Tim hugs Screwage \r"
+message ==>> TT29 -- CUE - Screwage: Just try not to eat the red felt bits, he was on sale...
+"/TT29"
+}
+
+"/SN23"
+{
+"/yell No the boy is no longer for sale but thanks... try the Murphys down the street \r"
+message ==>> WAIT FOR MUSIC TO RE-ENTER STAGE
+message ==>> SN24 - CUE - tbd
+}
+
+"/SC68"
+{
+"/narrate Screwage hugs Tiny Tim \r"
+pause 12
+"Come come \r"
+pause 12
+"Let's all eat these super-delicious chickens \r"
+pause 24
+"Just try not to eat the red felt bits, they were on sale... \r"
+message ==> SC70 - After music starts and Tiny's line, Til Screwage he came quite quickly and he made me right as rain
+/SC70
+}
+
+// =============== CHANGES START HERE ===============
+"/TT29"
+{
+"And with that fat chicken in me, no doubt I'll get stronger and less frail \r"
+pause 12
+"It makes me feel like… makes me feel like… \r"
+pause 12
+ "…singing"\r
+pause 12
+ "/nar In a small, plaintive, hestitating voice, Tiny Tim begins to sing"\r
+"/TT30"
+}
+
+///////////////////////////////////////////////////////////////////////
+// SONG FOR FINALE!!
+///////////////////////////////////////////////////////////////////////
+"/TT30"
+{
+"/equip cass \r"
+"/use /part @80=gedc=g#ep3d1c1=aFe1d1=c4p6d[\ceg]=gedc[\eg#b]=g#epd1c1[\cfa]=ag#aa#[\dgb]=Bp4=g[\ceg]/c=b=ag[\eg#b]=fedc[\cfa]=agfe[\cfg#]=Dp3\g[\ceg]=c\b=cd[\egb]=efg3p4=e1p1d1p1c\papbp=cp7[\dfgb]=d8\gag[bgfd]p8p4\g@160[=ge]%7\cg[=e]ce[d]c\g[=c]cg[=g#]e[E]g#b=e\bg#e[=d]\g#[=d]fa[=c]=cf[\b]=c[=c]\afa[=d]fg#[C]=cfc\g#fg#[=ge]\cg[=e]ce[d]c\g[=c]cg[=g#]eg#[e]b=e[=d]\bg#[=c]eg#[=a]\fa[=g#]=cf[a]c\a[=a#]\fa[=b]\gb[=G]=dgd\bg[=b]\b[/c]\c[=b]\g=c[a]ec[=g]\gc[=f]\ge[=E]\g#b=e\bg#[=d]\e[=c]"\r
+"/use /part \g#[=a]\f[=g]a=c[=f]fc[e]\afa[=d8f8g#8=c8]p8p8\g[\ceg]=cdpepfp[\gb=d]gpapgp6ed[\cfa]=c\ap[gb=d]=epdp[\CEG=C]p4[\G]p4[\CEG=C]p8p4@80[\ceg]%=gedc[\eg#b]=g#edc1c1[\cfa]=ap1f1e1=d[\cfg#]=d6\g[\ceg]=cdec[\eg#b]=defg[\cfa]=ag#aa#[\dgb]=b8[\c]/c=b[/c]=a[b]g[\e=a]f[g]e[f]d[e]c[\f=f]a[e]g[d]f[c]e[\fg#]=d[\fg#]=c6\g1[\g1]=c1[\f]=d[\e]=e[\d]=f[\e]=g[\f]=a[\e3]=g3[=c1]e1[\b1]=d1[\a1]=c1[\f]a[\g]=e[\f]=d[\cfa]=d[\ce]=cp6\g@160[=ge]%7\cg[=e]ce[d]c\g[=c]cg[=g#]eg#[e]b=e[d]\bg#[=c]=e\g"\r
+"/use /part #[=a]\fa[=f]=cf[e]=c\a[=d]fa[=d]fg#[C]=cfc\g#f[=c]\g#[=ge]\cg[=e]ce[d]c\g[=c]cg[=g#]eg#[e]b=e[=d]\bg#[=c]eg#[=a]\fa[=g#]=cf[a]c\a[=a#]\fa[=b]\gb[=G]=dgd\bg[=b]\b[/c]\c[=b]\g=c[A]ec\gc[=g]\g[=f]\e[=e]\g#b[=D]e\bg#e[=c]\g#[=a]\f[=g]a=c[=f]fc[e]\afa[=D]\fg#=cfc\g#[=g]\f[=g]\g#[=c]\ce[=d]g=c[e]\ge[=f]\ce[=g]\gb[=a]dgd\b[=e]\g[=d]\f[=c]\c[a]fa=c[=e]\af[=d]\cf[=c]\ce\g=ceg/ce\bgb=dgb/dg\a=ce=a/ceag[/fc=af]p8p8@80edc\ap3=ep=gp6@120[/c8=c8g8e8]/c=bagfedc[=c]/c=b[\b]=ag[\a]=fe["\r
+"/use \g]=dc[=cg]/c[=g]b[\b=f]a[e]g[\a=d]f[c]e[\gb]=dc[\c8g8=e8]/c8[=g]b[ge]/c=c8"\r
+
+
+"I was pale and sickly and was not long for this plane, \r"
+"/TT31"
+}
+
+"/TT31"
+{
+"'Til Screwage he came quite quickly and he made me right as rain"\r
+message CUE - Screwage: To heal young Tim to white again needs a freshly butchered ... chook!
+message ALL SING CHORUS
+/CH1
+}
+
+"/SC70"
+{
+"I have a panacea you won't find in any book, \r"
+/SC71
+}
+
+"/SC71"
+{
+"To heal young Tim to white again needs a freshly butchered . . . chook! \r"
+message ALL SING CHORUS next
+/CH1
+}
+
+"/CH1"
+{
+"We love our Bawkmas chicken, let everybody hear it \r"
+/CH2
+}
+
+"/CH2"
+{
+"Filled right up with breast meat is filled with Bawkmas spirit"\r
+/CH3
+}
+
+"/CH3"
+{
+"Cos nothing quite says Bawkmas like a chicken stuffed and plucked \r"
+/CH4
+}
+
+"/CH4"
+{
+"And if you're vegetarian, then you can go get $%^&* \r"
+if @my.simple_name == "Punisher"
+     message CUE for Cratchit's lines next
+    /SN24
+end if
+if @my.simple_name == "Largo"
+    message cue for Largo/Miug (CH5) is after Cratchit's "What's in this bird, besides great taste, that's made him well again?"
+    /CH5
+end if
+if @my.simple_name == "Miug"
+    message cue for Largo/Miug (CH5) is after Cratchit's "What's in this bird, besides great taste, that's made him well again?"
+    /CH5
+end if
+if @my.simple_name == "InuTeisei"
+     message CUE for ALL (CH7) is after largo/measle sing line: "As well as full of seasoning, we're full of antibiotics"
+    /CH7
+end if
+}
+
+"/SN24"
+{
+"I won't need to sell my son to the folks at Number Ten \r"
+/SN25
+}
+
+"/SN25"
+{
+"What's in this bird, besides great taste, that's made him well again? \r"
+message CUE after Largo/Miug sing "As well as full of seasoning, we're full of antibiotics"
+/CH7
+}
+
+"/CH5"
+{
+"We all know the reason without studying semiotics \r"
+/CH6
+}
+
+"/CH6"
+{
+"As well as full of seasoning, we're full of antibiotics \r"
+message CUE - ALL SING CHORUS
+/CH7
+}
+
+"/CH7"
+{
+"So celebrate with Bawkmas cheer, just like you know you oughta \r"
+/CH8
+}
+
+"/CH8"
+{
+"Our favourite time of year is when there's wholesale chicken slaughter \r"
+/CH9
+}
+
+"/CH9"
+{
+"Their heads chopped off, their guts sucked out and full of sage and crumbs \r"
+/CH10
+}
+
+"/CH10"
+{
+"It's the true meaning of Bawkmas \r"
+/CH11
+}
+
+"/CH11"
+{
+"Gaia bless us every one \r"
+/CH12
+}
+
+"/CH12"
+{
+"Gaia bless us . . .eve-ry. . . ooooone. . . \r"
+/CH13
+}
+
+"/CH13"
+{
+"/yell DEAD CHICKENS!  \r"
+message CURTAIN CALL IS NEXT
+if @my.simple_name == "Punisher"
+     message CUE Curtain Call!
+    /SN100
+end if
+if @my.simple_name == "Largo"
+    message CUE Curtain Call!
+    /CF100
+end if
+if @my.simple_name == "Miug"
+    message CUE Curtain Call!
+    /GF100
+end if
+if @my.simple_name == "InuTeisei"
+     message CUE Curtain Call!
+    /SC100
+end if
+}
+
+//
+//
+// CURTAIN CALL
+// ====================================================================================
+
+"/TT100"
+{
+"/narrate You have been watching... \r"
+}
+
+"/CF100"
+{
+"narrate Largo as the Ghost of Bawkmas present and Cody.... \r"
+pause 24
+"Vote Largo! \r"
+}
+
+"/GF100"
+{
+"/narrate Miug as Young Screwage's Tormentor and ... \r"
+pause 8
+"/narrate as The Ghost of Bawkmas Future and ... \r"
+pause 12
+"/narrate a chicken too \r"
+}
+
+// (Measle as Tiny Tims and some kid)
+
+"/SC100"
+{
+"/narrate Inu the one and only!! -- as Screwage  \r"
+pause 24
+"Vote INU! \r"
+"/pose bow \r"
+pause 24
+call dc aki
+pause 4
+call dc vog
+pause 4
+call dc throb
+pause 4
+call dc smash
+}
+
+"/SN100"
+{
+"/narrate Pun as Ghost of Bawkmas Past and Papa (he was gonna die) Cratchet \r"
+}
+
+//
+//
+//====================================================================================
+// ====================================================================================
+// PROPOSED DATES FOR PLAY
+//====================================================================================
+// ====================================================================================
+// Time calcs 1: 12:30PM EST  =   9:30AM PST = 5:30PM UK = 2:30AM Next Day JST = 4:30AM Sydney
+// Time calcs 2:  1:30PM EST  =  10:30AM PST = 6:30PM UK = 3:30AM Next Day JST = 5:30AM Sydney
+// Time calcs 3:  2:30PM EST  =  11:30AM PST = 7:30PM UK = 4:30AM Next Day JST = 6:30AM Sydney
+// Time calcs 4:  4:30PM EST  =   1:30PM PST = 9:30PM UK = 6:30AM Next Day JST = 8:30AM Sydney
+//  Sat/Sun pairs: Dec 13/14, Dec 20/21, Dec 27/28, Jan 3/4
+
+
+// ============ REVISION LOG =====================
+// ----little redundant at GF100?---Miug  Fixed now (day of play)---Miug
+// ----Nov13 I amended my lines, didn't do preloading for anyone else--anyone want it?---Miug
+// ----December 17 I made some changes to Papa's my and Screwage's lines so we pluralised the chickens and addded an extra Largo joke. Please update your macros

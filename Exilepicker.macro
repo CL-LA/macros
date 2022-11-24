@@ -3,7 +3,7 @@
 // Torin's Exile Picker Macro
 //------------------------------------------------
 // Picks a random exile
-setglobal ExilePickerfilerevision "20210225-0100-0001"
+setglobal ExilePickerfilerevision "2022-0612-0000-0002"
 
 //
 ExilePicker
@@ -12,7 +12,7 @@ ExilePicker
 	if AmCadding == 1
 //		message "ExilePicker turned off"
 	else
-//		message "ExilePicker ON"
+//		message "ExilePicker [15] ON"
 		set numPlayers 0
 		"/select " @last "\r"
 		set lastExile @selplayer.simple_name
@@ -106,10 +106,10 @@ message "===> Loaded ExilePicker.macro"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-200XMMDD-Torin: Created macro.
-20080129-Inu: Fixed to stop picking myself.
-20090405-Inu: Fixing exit/karma message when cadding.
-20200602-Inu: Added in SoulHunter/Lexa's afkkarma from post on CL Discord #macro channel.
-20201012-Inu: Fixed missing end if in ExilePicker loop. 
-20210224-Inu: Added this log. 
+200X-MMDD-Torin:	Created macro.
+2008-0129-Inu:		Fixed to stop picking myself.
+2009-0405-Inu:		Fixing exit - karma message when cadding.
+2020-0602-Inu:		Added in SoulHunter-Lexa's afkkarma from post on CL Discord #macro channel.
+2020-1012-Inu:		Fixed missing end if in ExilePicker loop. 
+2021-0224-Inu:		Added this log. 
 */

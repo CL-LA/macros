@@ -4,12 +4,13 @@
 // This macro file is for fun and common things you do...
 // add yours with words that make sense to you...
 
-setglobal funactionsfilerevision "20210225-0100-0001"
+setglobal funactionsfilerevision "2022-0717-1200-0006"
 message "** funactions.mac **"
 
 set lsaveitem 		@my.left_item
 
 "afk"       "/ponder afk " @text "\r"
+"/afk"		call afkmacro
 "aki" 		"/pose akimbo \r"
 "ang" 		"/pose angry \r"
 "/at"  		"/pose attack " @text "\r"
@@ -17,6 +18,8 @@ set lsaveitem 		@my.left_item
 "/atw" 		"/pose attack west \r"
 "bk" 	    "/action blows kisses to " @selplayer.simple_name "\r"
 "bless"     "/pose bless \r"
+"buy2"		call buy2
+"/buy2"		call buy2
 "/bles" 	"/pose bless \r"
 "/bow"		"/pose bow \r"
 "/cele" 	"/pose celebrate \r"
@@ -25,7 +28,6 @@ set lsaveitem 		@my.left_item
 "/cof"     	"/action coughs \r"
 "/conk"		call conk
 "cry"       "/pose cry \r"
-"/afk"		call afkmacro
 "/dcr"   	call dcr
 "/doh"	 	call doh
 "/dream"	"/ponder coins.... kitties... furs.....coins...zzz \r"
@@ -55,6 +57,9 @@ set lsaveitem 		@my.left_item
 "/sal" 		"/pose salute \r"
 "/sb"		"/action tosses Smoochy Boochies at " @text "\r"
 "/sb1"		call smoochies
+"sell2"		call sell2
+"/sell2"	call sell2
+"/shield"	call equipshield
 "/shuf"		call shuffledance
 "/shx"		call shareMany
 "sings"     "/action sings tra la-la la-la...\r"
@@ -69,6 +74,7 @@ set lsaveitem 		@my.left_item
 "/spinfall"		call spinfall
 "st"		"/pose stand \r"
 "/surp" 	"/pose surprised \r"
+"/swoon"	call swoon
 "/toss"      "/usei 'mittens' " @text "\r"
 "/tog"		call toggle
 "wl" 		"/pose walkleft \r"
@@ -110,11 +116,13 @@ label notoloop
 		goto endafk
 	end if
 	random
-		"/karma"
+		"/karma \r"
+		message "from funactions.macro line 115"
 	or
-		"/money"
+		"/money \r"
+		message "from funactions.macro line 118"
 	end random
-	"\r"
+
 //	pause 400 - replace with a counter, any pause over 4 causes LAG
 	label LOOPY
 		if count < 400
@@ -127,6 +135,29 @@ LABEL endafk
 }
 
 //clap X times
+
+//=====================================================
+// B U Y   O R   S E L L
+//=====================================================
+buy2
+{
+	if @selplayer.simple_name == "inuteisei"
+		"/buy 0 " @selplayer.simple_name " \r"
+	else if @my.simple_name == "inuteisei"
+		"/buy 0 " @selplayer.simple_name " \r"
+	else
+		"/buy 0 " @selplayer.simple_name " \r"	
+	end if
+}
+
+sell2
+{
+	if @my.simple_name == "inuteisei"
+		"/sell 0 " @selplayer.simple_name " \r"
+	else
+		"/sell 0 " @selplayer.simple_name " \r"
+	end if
+}
 
 //=====================================================
 // CLAP
@@ -183,6 +214,33 @@ doh
 	"doh! \r"
 }
 
+//=====================================================
+// EQUIPSHIELD
+//=====================================================
+equipshield
+{
+	"/equip " myShield " \r"
+}
+//=====================================================
+// FISH
+//=====================================================
+fish
+{
+// Attribution: Inu 20210620
+	setglobal saverightitem = my.rightitem
+	setglobal saveleftitem = my.leftitem
+	"/equip fishing rod \r"
+	"/use"
+}
+savefish
+{
+	"equip fishing cooler \r"
+}
+unfish
+{
+	"equip saverightitem \r"
+	"equip saveleftitem \r"
+}
 //=====================================================
 // LPUSH
 //=====================================================
@@ -280,7 +338,71 @@ label LOOPY
       pause 20
       goto LOOPY
    end if
-} 
+}
+
+//=====================================================
+// SHUFFLEDANCE
+//=====================================================
+shuffledance
+{
+// Attribution: Inu 
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanleft \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+	pause 1
+	"/pose angry \r"
+	pause 1
+	"/pose leanright \r"
+}
+ 
 //=====================================================
 // SMOOCHIES
 //=====================================================
@@ -429,66 +551,13 @@ end	label
 }
 
 //=====================================================
-// SHUFFLEDANCE
+// SWOON
 //=====================================================
-shuffledance
+swoon
 {
-// Attribution: Inu 
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanleft \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
-	pause 1
-	"/pose angry \r"
-	pause 1
-	"/pose leanright \r"
+// Attribution: Inu
+	"/action swoons" \r
+	call spinfall 10
 }
 
 //=====================================================
@@ -523,17 +592,17 @@ noinet
 		"/whisper "
 	else if @text.word[0] == "say"
 	else 
-		message "*This macro outputs the noivad.net url for /files or the CL page."
-		pause 8
+		message "*This macro outputs the clanlord.net url for /files or the CL page."
+		pause 16
 		message "*Type 'wh', 'say', 'ts <name>' or 'tc' after /noinet for the send method."
-		pause 8
+		pause 16
 		message "*Type 'clan', 'clump', 'files' or 'mp3s' after the send method."
-		pause 6
+		pause 16
 		message "(i.e. '/noinet ts talin cl')"
 		goto endNoiNet
 	end if
 
-	" https://www.noivad.net/"
+	" https://www.clanlord.net/"
 	if @text.word[wordNumber] == "files"
 		"files/\r"
 	else if @text.word[wordNumber] == "clan"
@@ -589,12 +658,12 @@ waveaction
 pie-o-matic
 {
    setglobal pies_thrown 0
-   // setglobal def_pie "DragonHawk"
+   // setglobal gdefpie "DragonHawk"
    call pom_confirm_target
    if target_validation == pie_target
       call pom_pie_management
    else
-// If we get to here, then our target is not in the lands :/
+// If we get to here, then our target is not in the lands 
       message "*" pie_target "is hiding in the library like a coward!"
    end if
 }
@@ -640,13 +709,13 @@ pom_confirm_ammo
 pom_confirm_target
 {
    "\select\r"
-   setglobal pie_target def_pie
+   setglobal pie_target gdefpie
    if @text != ""
       "\select " @text "\r"
       setglobal pie_target @selplayer.simple_name
    end if
    if pie_target == ""
-      setglobal pie_target def_pie
+      setglobal pie_target gdefpie
    end if
    setglobal target_validation ""
    "\select " pie_target "\r"
@@ -658,10 +727,14 @@ pom_confirm_target
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-200XMMDD-Attributions: Noivad, Inu, Phineas, DragonHawk
-200611DD-Inu: Created long based on Noivad's and others abbreviation lists with many of my own
+200X-MMDD-Attributions: Noivad, Inu, Phineas, DragonHawk
+2006-11DD-Inu:	Created long based on Noivad's and others abbreviation lists with many of my own
 		thrown in.
-20070521-Inu: Pie-o-Matic: Changed default target to DragonHawk
-20081004-inu: Pie-O-Matic: Moved default pie target to character file
-20210224-Inu: Added this log. Fixed afkmacro to replace pause 400 with counter to prevent lag.
+2007-0521-Inu:	Pie-o-Matic: Changed default target to DragonHawk
+2008-1004-inu:	Pie-O-Matic: Moved default pie target to character file
+2021-0224-Inu:	Added this log. Fixed afkmacro to replace pause 400 with counter to prevent lag.
+2021-0717-Inu:	Added Buy and Sell macros for main character.
+2021-0808-Inu:	Trying to figure out why /karma, /thank, and /money now being said instead of executed.
+2022-0129-Inu:	Added swoon.
+2022-0717-Inu:	Added equipshield called by /shield
 */

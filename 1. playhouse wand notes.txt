@@ -1,0 +1,15 @@
+1. playhouse wand notes
+
+equip it then use these commands
+* /USE 'minicloak' to costume yourself in a cloak for little people.
+* /USE 'disrobe' to take off your costume.
+* /USE 'backdrop1' to drape the castle backdrop behind the stage in the Playhouse.'
+* /USE 'backdrop2' to drape the mountain backdrop behind the stage in the Playhouse.'
+* /USE 'backdrop3' to drape the nautical backdrop behind the stage in the Playhouse.'
+* /USE 'backdrop4' to drape the Peaceton backdrop behind the stage in the Playhouse.'
+* /USE 'backdrop5' to drape the pumpkin drape behind the stage in the Playhouse.'
+* /USE 'backdrop6' to drape the sad pumpkin backdrop behind the stage in the Playhouse.'
+* /USE 'backdrop7' to drape the happy pumpkin backdrop behind the stage in the Playhouse.'
+* /USE 'blackdrape' to drape the black drape behind the stage in the Playhouse.'
+* /USE 'removebackdrop' to remove all backdrops in the Playhouse.'
+* Select the item and type \EXAMINE to inspect the condition of the Playhouse Wand.

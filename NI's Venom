@@ -1,0 +1,115 @@
+//	This macro file will be loaded for the player it is named after. 
+// Make changes to this version and copy to NI's X file.
+
+setglobal	charfileused	"NI's Venom"
+setglobal   charfilerevision "20210807-1700-0004"
+message "This file IS NOT reloaded when you reload macros"
+
+include "Default"
+include "yells-la.macro"
+include "yells-geese.macro"
+
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- BEGIN SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// 1. Copy this section to your Character's file (Global Variables Defined), including comments
+// 2. Remove the // before the setglobal (in columns 1-2 only)
+// 3. Save your changes
+// 4. Reload your macros
+// ----------------------------------------------
+	setglobal AmCadding		1						// 1 disables ExilePicker, 0 enables ExilePicker
+	setglobal auraHDevice 	""				 		// Set this to "Asklepian" or "Asklepian Staff"
+	setglobal chaintype     "chain"         		// Used by Quickchain.mac.
+	setglobal gdefpie  		""						// Used by Pie-O-Matic in funactions.mac
+	setglobal gIdleTime		100						// Set this to the desired pause time for idle macro 
+													// (every 4 = 1 second approximately)
+	setglobal gHealDev		"" 						// set to Caduceus or Mercurial Staff or Asklepian Staff"
+	setglobal healingDevice ""				 		// set to Caduceus or Mercurial Staff
+	setglobal InfoExile 	0						// Turns off exile info by default in AFK macro 
+													// called on login. setf can change it.
+	setglobal messageStatus 0						// Turning off debug if 0, on if 1
+	setglobal myDefLeft		""						// Re-equip desired left item.
+	setglobal myspeed		fast 					// sets speed of speed, zoom, fast, medium, slow
+	setglobal MySunStone	sunstone				// Set this to your sunstone, used in sunstone and tc_macro.
+	setglobal myWeapon 		""  					// change this to your weapon of choice
+	setglobal NumZuBags		0						// the number of kudzu bags you carry
+	setglobal OccupyRandom	0						// 1 = Occupy is on. Any other value = Occupy is OFF
+	setglobal scanBreak 	0 						// Enables scanner to run continuously.
+	setglobal ThankRandom	0						// turns off thank random for any exile clanning 
+													// used in idle.macro
+	setglobal ThankExile	1						// turns on thank specific set of random exiles 
+													// used in idle.macro
+	setglobal thankreg 		" Yet another IC. \r"	// used in idle.macro
+	setglobal thankfnf	 	" Help me! \r"			// used in idle.macro
+	setglobal tyt			"x"						// used in Abbreviations to determine type of thank you
+	setglobal woc	 		""					// Used by Quickchain.mac to re-equip 
+													// default right hand item.
+	
+	*-*-*-* Key Variables - used in keys.macro
+	setglobal myhome1 "9999"	// my main home
+	setglobal myhome2 "9999"	// my second home
+//	setglobal myhome3 "9999"	// my third home
+//	setglobal myhome4 "9999"	// my fourth home
+	setglobal myclan1 "2670"	// main clan home
+	setglobal myclan2 "2679"	// second clan home
+//	setglobal myclan3 "9999"	// third clan home/ pull way
+//	setglobal myclan4 "9999"	// fourth clan home
+	setglobal myguest1  "2317"	// ?'s home
+//	setglobal myguest2  "9999"	// x's home
+//	setglobal myguest3  "9999"	// x's home
+//	setglobal myguest4  "9999"	// x's home
+	
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- END SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Keys used
+/* 
+ F1 - embedded pull
+ F2 - embedded push
+ F3 - call itemswap	in moonstone_functions.macro
+ shift-F3 - call restartInfinityLoop in moonstone_functions.macro
+ F4 - call cadLastTarget  in moonstone_functions.macro
+ shift-F4 - call useAsklepian in moonstone_functions.macro
+ F5 - call x in quickchain.macro
+ F6 - + shift + control - in omega_zu.macro
+ shift-F6	call zu-add			// omega_zu.macro
+ control-f6	call zu-remove		// omega_zu.macro
+ F7 - to player's macro file
+ f7	- call walk1		character file?
+ F8 - call ? in character file ?
+ f8	- call ping-yell in abbreviations.mac	
+ shift-F8 - call thinkfalling in sunstone.mac
+ F9 - call ? in dances.mac 
+ control-f9	call dcr in dances.mac
+ numpad 1-9 (range heal) + alt (set/reset range heal target) in moonstone_functions.txt
+
+ control-click - call healClicked in moonstone_functions.macro
+ shift-control-click - call lockClicked in moonstone_functions.macro
+ control-click2	call click-action in Quickchain.mac
+ click3 run "/thank " @selplayer.simple_name  " :) \r" from ?
+ control-tab call noscan in default?
+ click4	run message "==> TESTING" in default?
+
+ alt-z - call keyclan1 in keys.macro
+ control-z - call ReEquipShield in keys.macro
+
+*/
+
+	
+// ReEquipShield
+ReEquipShield
+{
+	"/equip " myDefLeft "\r"
+}
+
+
+/* 
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+20210625-inu 	Renamed clan yells file to yells-la.macro to group those files. 
+				Updated include in this file.
+
+*/
+message "===> Loaded inu teisei character macro file"

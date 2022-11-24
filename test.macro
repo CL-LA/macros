@@ -1,0 +1,7 @@
+control-f12 
+{ 
+  "/equip purgatory \r" 
+  "/useitem purg \r" 
+  pause 45 
+  "/unequip purgatory \r" 
+}
