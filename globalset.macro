@@ -1,9 +1,9 @@
-// globalset.macro
+// globalset.mac
 //------------------------------------------------
 // Global SET macro (Noivad's + ?)
 //------------------------------------------------
 //non-optimized to add: messageVariable and call InstructionMessages
-setglobal globalsetfilerevision "2022-0703-1000-0004"
+setglobal globalsetfilerevision "20210225-0100-0001"
 
 "/setf" 	call goFunctions
 "/verbose" 	call goVerbose
@@ -12,18 +12,14 @@ setglobal globalsetfilerevision "2022-0703-1000-0004"
 "/cmds"
 {
 LABEL CommandList
-	message "/bard - marks the log with [BARD]"
 	message "/cads - list people in your cad list" 
 	message "/cmds - this command list"
 	message "/dc - performs the dance listed after /dc"
 	message "goscan - starts scanning loop, AFK"
-	message "/lore - marks the log with [LORE]"
-	message "/mosey -	marks the log with [MOSEY]"
 	message "/noscan - stops scanning loop"
 	message "/pick - starts or stops ExilePicker. Semi-random thank"
 	message "/setf - lists all custom functions or sets one"
 	message "/stora - use ? for help, or the stora command"
-	message "/tr - turns on rank translation to numeric range as silent message"
 	message "/verbose - debug command for custom functions"
 	message	"/vers	- lists versions of macro files loaded"
 }
@@ -335,14 +331,7 @@ goFunctions
 //	end if
 
 /* ------------ HELP FOR SETF ------------------*/
-	if @text.word[0] == ""
-		call HelpForSetF
-	else if @text.word[0] == "?"
-		call HelpForSetF
-	end if
-}
-HelpForSetF
-{
+	else
 		message "*The following variables are available to set using this command:"
 		message "To find current setting use variable without on/off switch"
 		pause 10
@@ -353,23 +342,25 @@ HelpForSetF
 		message "thankrandom [on|off], *verbose [on|off], wh(isper) [on|off], "
 		pause 4
 		message "pie [targetname or selected in playerlist|?]"
+	end if
 }
+
 ListVers
 {
 message "********* MACROS VERSIONS *********"
-"\options speech fast /r"
+"\options speech zoom \r"
 message "Character File Used -- " charfileused
 message "Character File Rev	-- " charfilerevision
 message "Default File Rev	-- " defaultfilerevision
 message "abbreviations Rev     -- " abbreviationsfilerevision
 message "directions Rev        -- " directionsrev
+message "idle.macro File Rev -- " idlemacrofilerevision
 message "dances Rev        -- " dancesfilerevision
 message "DefShare Rev        -- " DefSharesfilerevision
 message "ExilePicker Rev        -- " ExilePickerfilerevision
 message "GoScanner Rev        -- " GoScannerfilerevision
-message "GlobalSet Rev   -- " globalsetfilerevision
-message "idle.macro File Rev -- " idlemacrofilerevision
 message "keys Rev        -- " keysfilerevision
+message "layells Rev        -- " layellsfilerevision
 message "moonstone_functions Rev        -- " moonstone_functionsfilerevision
 message "omega_zu Rev        -- " omega_zufilerevision
 message "quickchain Rev        -- " quickchainfilerevision
@@ -377,19 +368,13 @@ message "readtext2 Rev        -- " readtext2filerevision
 message "shares Rev        -- " sharesfilerevision
 message "sunstone Rev        -- " sunstonefilerevision
 message "tc_macro Rev        -- " tc_macrofilerevision
-message "yells Rev -- "	yellsfilerevision
-message "yells-geese Rev -- " yellsgeesefilerevision
-message "yells-la Rev        -- " yellslafilerevision
 }
 /*
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-2016-1130-Inu: 	Debugging why goFunctions and goVerbose won't load. 
-				Reason: Can't use set at beginning of function name.
-2021-0224-Inu: 	Added this log.
-				Attributions: Noivad and more I don't know.
-2021-0625-Inu: 	Fixed error in help for setf. 
-				Also set it up so you can use ? or nothing after setf to get to help.
-2022-0703-Inu:	Added help for log stampers in abbreviations.macro. [BARD], [LORE], [MOSEY].
+20161130-Inu: Debugging why goFunctions and goVerbose won't load. 
+			  Reason: Can't use set at beginning of function name.
+20210224-Inu: Added this log.
+			  Attributions: Noivad and more I don't know.
 */

@@ -2,7 +2,7 @@
 // START: tr by Borzon integration
 //------------------------------------------------
 
-setglobal readtext2filerevision "2022-0611-2300-0002"
+setglobal readtext2filerevision "20210225-0100-0001"
 
 "/tr"
 {
@@ -10,130 +10,109 @@ label top
 pause 1
 set trainer @env.textLog.word[0]
 set trainerphrase @env.textLog
-if trainerphrase < "You have much to learn"
+if trainerphrase < "You have much to learn."
 	message @env.textLog.word[0] ": 0-9."
 end if
-if trainerphrase < "It is good to see you"
+if trainerphrase < "It is good to see you."
 	message @env.textLog.word[0] ": 10-19."
 end if
-if trainerphrase < "Your persistence is paying off"
+if trainerphrase < "Your persistence is paying off."
 	message @env.textLog.word[0] ": 20-29."
 end if
-if trainerphrase < "You are progressing well"
+if trainerphrase < "You are progressing well."
 	message @env.textLog.word[0] ": 30-39."
 end if
-if trainerphrase < "You are a good pupil of mine"
+if trainerphrase < "You are a good pupil of mine."
 	message @env.textLog.word[0] ": 40-49."
 end if
-if trainerphrase < "You are one of my better pupils"
+if trainerphrase < "You are one of my better pupils."
 	message @env.textLog.word[0] ": 50-99."
 end if
-if trainerphrase < "You keep me on my toes"
+if trainerphrase < "You keep me on my toes."
 	message @env.textLog.word[0] ": 100-149."
 end if
-if trainerphrase < "It is hard to find more to teach you"
+if trainerphrase < "It is hard to find more to teach you."
 	message @env.textLog.word[0] ": 150-199."
 end if
-if trainerphrase < "Teaching you is a challenge"
+if trainerphrase < "Teaching you is a challenge."
 	message @env.textLog.word[0] ": 200-249."
 end if
-if trainerphrase < "There is not much more I can teach you"
+if trainerphrase < "There is not much more I can teach you."
 	message @env.textLog.word[0] ": 250-299."
 end if
-if trainerphrase < "Teaching you has taught me much"
+if trainerphrase < "Teaching you has taught me much."
 	message @env.textLog.word[0] ": 300-349."
 end if
-if trainerphrase < "You have attained tremendous skill"
+if trainerphrase < "You have attained tremendous skill."
 	message @env.textLog.word[0] ": 350-399."
 end if
-if trainerphrase < "We are nearly equals"
+if trainerphrase < "We are nearly equals."
 	message @env.textLog.word[0] ": 400-449."
 end if
-if trainerphrase < "You may be proud of your accomplishment"
+if trainerphrase < "You may be proud of your accomplishment."
 	message @env.textLog.word[0] ": 450-499."
 end if
-if trainerphrase < "You are becoming a master of our art"
+if trainerphrase < "You are becoming a master of our art."
 	message @env.textLog.word[0] ": 500-549."
 end if
-if trainerphrase < "Your dedication is commendable"
+if trainerphrase < "Your dedication is commendable."
 	message @env.textLog.word[0] ": 550-599."
 end if
-if trainerphrase < "You show great devotion to your studies"
+if trainerphrase < "You show great devotion to your studies."
 	message @env.textLog.word[0] ": 600-649."
 end if
-if trainerphrase < "You are a credit to our craft"
+if trainerphrase < "You are a credit to our craft."
 	message @env.textLog.word[0] ": 650-699."
 end if
-if trainerphrase < "Few indeed are your peers"
+if trainerphrase < "Few indeed are your peers."
 	message @env.textLog.word[0] ": 700-749."
 end if
-if trainerphrase < "Your devotion to the craft is exemplary"
+if trainerphrase < "Your devotion to the craft is exemplary."
 	message @env.textLog.word[0] ": 750-799."
 end if
-if trainerphrase < "It is always good to greet a respected colleague"
+if trainerphrase < "It is always good to greet a respected colleague."
 	message @env.textLog.word[0] ": 800-899."
 end if
-if trainerphrase < "You are truly a grand master"
+if trainerphrase < "You are truly a grand master."
 	message @env.textLog.word[0] ": 900-999."
 end if
-if trainerphrase < "Let us search for more we might learn together"
+if trainerphrase < "Let us search for more we might learn together."
 	message @env.textLog.word[0] ": 1000-1249."
 end if
-if trainerphrase < "Your persistence is an example to us all"
+if trainerphrase < "Your persistence is an example to us all."
 	message @env.textLog.word[0] ": 1250-1499."
 end if
-if trainerphrase < "Your skill astounds me"
+if trainerphrase < "Your skill astounds me."
 	message @env.textLog.word[0] ": 1500-1749."
 end if
-if trainerphrase < "You have progressed further than most"
+if trainerphrase < "You have progressed further than most."
 	message @env.textLog.word[0] ": 1750-1999."
 end if
-if trainerphrase < "You are nearly peerless"
+if trainerphrase < "You are nearly peerless."
 	message @env.textLog.word[0] ": 2000 - 2499."
 end if
-if trainerphrase < "You are a model of dedication"
+if trainerphrase < "You are a model of dedication."
     message @env.textLog.word[0] ": 2250-2499."
 end if
-if trainerphrase < "You have achieved mastery"
+if trainerphrase < "You have achieved mastery."
     message @env.textLog.word[0] ": 2500-2749."
 end if
-if trainerphrase < "You are enlightened"
+if trainerphrase < "You are enlightened."
     message @env.textLog.word[0] ": 2750-2999."
 end if
-if trainerphrase < "Your command of our craft is inspiring"
+if trainerphrase < "Your command of our craft is inspiring."
     message @env.textLog.word[0] ": 3000-3249."
 end if
-if trainerphrase < "All commend your dedication to our craft"
-    message @env.textLog.word[0] ": 3250-3499."
-end if
-if trainerphrase < "I marvel at your skill"
-    message @env.textLog.word[0] ": 3500-3749."
-end if
-if trainerphrase < "Unknown"
-    message @env.textLog.word[0] ": 3750-3999."
-end if
-if trainerphrase < "Few stones are unturned in your path"
-    message @env.textLog.word[0] ": 4000-4249."
-end if
-if trainerphrase < "Your footsteps guide the dedicated"
-    message @env.textLog.word[0] ": 4250-4499."
+if trainerphrase < "All commend your dedication to our craft."
+    message @env.textLog.word[0] ": 3250+."
 end if
 if trainerphrase < "There is nothing I can teach you."
     message @env.textLog.word[0] ": MAXED OUT."
 end if
 goto top
-if trainerphrase < "x"
-    message @env.textLog.word[0] ": 9999-9999."
-end if
 }
 //------------------------------------------------
 // END: Readtext2.macro - trainer message by Raul integration
 //------------------------------------------------
+
 message "===> Loaded Readtext2.macro"
-/*
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-   R E V I S I O N    L O G
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-ATTRIBUTIONS: Borzon
-2022-0611-Inu:		Added this log, moved to bottom.
-*/

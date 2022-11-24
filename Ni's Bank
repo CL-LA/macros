@@ -1,4 +1,0 @@
-// This macro file will be loaded for the player it is named after. 
-
-include "Default"
-

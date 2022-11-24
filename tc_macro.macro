@@ -1,57 +1,81 @@
-﻿setglobal tc_macrofilerevision "2022-0612-0000-0002"
-//------------------------------------------------
-// tc_macro.macro
-//------------------------------------------------
-// Version: 2.5b (+Sungem Version)
-// Description:  (AKA "A Quick Reply") 
-// This macro allows you to quickly reply to anyone who thinks to you directly 
-// to you. It also manages think to groups and think to clan actions.
-// Usage:
-// Use "goscan" to start and "noscan" to stop. If you type "goscan ?"
-// You're receive instructions on diferent commands.
-// While the macro is running, entering "tl <the message>" will
-// /thinkto the last person who SSed you directly.
-// New in rev2 "t?" give the current target, "ts <name> <message>" manually sets 
-// the target and messages. If you just type "ts <name> it just sets the target.
+﻿setglobal tc_macrofilerevision "2021226-0100-0010"
+/* ------------------------------------------------
+*  tc_macro.macro
+*  ------------------------------------------------
+* Version: Version 2.5.7 [20211227] (+SunGem/Drop OrgaEye Version)
+* Description:  (AKA "A Quick Reply") 
+* This macro allows you to quickly reply to anyone who thinks to you directly 
+* to you. It also manages think to groups and think to clan actions.
+* ************************************* Usage *************************************
+* "/feedback" toggles messages on or off. Too Spamy? Set feedback to 0 in global variables section
+* "goscan" to start and "noscan" to stop.
+* "goscan ?" for instructions on different commands.
+* "t?" give the current target,
+* "ts <name> [message]" sets the SSTarget and optionally sends a message
+* "tl <message>" to think back to the SStarget (last person to /thinkto you)
+* "tt <message>" to think to selected player -- added v2.5.4
+* SCROLL DOWN for Thinkgroup instructions
+* If the scanner stops after a time or a script killer area, just type "goscan" to start it back up.
+*
+*********************************** Setup ***********************************
+* Add "include "tc_macro.macro"" 
+and 
+"@login call GoScan" to your default macro file to start automatically.
+* go to SET THIS to set globals to your setup
+* ------------------------------------ Credit: ------------------------------------
+* Reye for the Idea, X for the syntax check and suggestions, 
+* and everyone who direct SSed me to help debug. 
+* 
+* Written in BBedit & Coda.
+* 
+* 20070211-inu: Fixed specialized group think to section to use MySunStone variable
+*               and corrected bug
+* 20080824-inu: Reorganized to use call for all.
+* 20211226-noi: set back to MyStone (not all stones are sunstones)
+********************************* Global Variables ********************************* 
+*/
 
-// If the scanner stops after a time, just type "goscan" to astart it back up.
-// 
+message "* tc_macro.macro / Setting Global Variables *"
 
-message "* tc_macro.macro / Set variables *"
+/* You must keep these variables outside of the functions and macros:
+they need to be global */
 
-set ssTarget 		"" 			//you must keep these variables outside of the functions and macros
-set scanBreak 		0			//they need to be global
-set messageStatus 	1 			//Gives you feedback "tc target: @player"
-set timeStamps 		1
-set playerName 		0
-
+set feedback 1 		//Gives you feedback "tl target: @player"
+set keepAlive 0
 set me 0
+set myStone "Sungem"	// SET THIS to "Sunstone", "Suncrystal" or "Sungem"
+set playerName 0
+set scanBreak 0		  
+set scanBreak 0
+set ssTarget "" 			
+set messageStatus 1 	//Gives you feedback "tl target: @player"
+set timeStamps 1	// SET THIS to zero if you don't use timestamps
 
-// ==========================Think Capture Options==========================
-// "/t?" - Tells you who current target is for tl (thinkto last)
-// "/ts <name>" - Lets you manually change the target to that passed to the macro
-// "/tl" - Sends a message to the person who 'thunk' to you last.
-// use "/set feedback [on|off] to toggles the between silent mode and message display mode.
-/////////////////////////Sungem Additions//////////////////////////////////
-//
-// "/tga <name>" will add one person to the thinkgroup. TGA= ThinkGroup Add
-// "/tgas" will add the selected person ot the think group. TGAS=Think Group Add Selected
-// "/tgre <name>" will remove one person from the thinkgroup. TGRE=THinkGroup REmove
-// "/tgrs" will remove the selected person from the thinkgroup.SGR=THinkGroup REmove Selected
-// "/tgam <name1><name> will add multiple people." TGAM= ThinkGroup Add Multiple
-// "/tgs" will clear yoiur thinkgroup and added everyone you are currently 
-//        sharing with. (This sometimes fails.) TGS=ThinkGroup clear and Add Shared
-// "/tgc" will clear your entire thinkgroup. TGC= ThinkGroup Clear
-// "/tgi" inspects your ThinkStone
-// "/tgw" will tell you who is apart of your Thinkgroup.
-//
-//////////////////////////Thinking to Groups///////////////////////////////
-//
-// "tg <message>" thinks to your thinkgroup.
-// "tc <message>" thinks to your clan
-//
-/////////////////////////////////////////////////////////////////////
-
+/* ==========================Think Capture Options==========================
+* "/t?" - Tells you who current target is for tl (thinkto last)
+* "/ts <name>" - Lets you manually change the target to that passed to the macro
+* "/tl" - Sends a message to the person who 'thunk' to you last.
+* use "/feedback" [on|off] to toggles the between silent mode and message display mode.
+* ///////////////////////Sungem Additions//////////////////////////////////
+*
+* "/tga <name>" will add one person to the thinkgroup. TGA= ThinkGroup Add
+* "/tgas" will add the selected person ot the think group. TGAS=Think Group Add Selected
+* "/tgre <name>" will remove one person from the thinkgroup. TGRE=THinkGroup REmove
+* "/tgrs" will remove the selected person from the thinkgroup.SGR=THinkGroup REmove Selected
+* "/tgam <name1><name> will add multiple people." TGAM= ThinkGroup Add Multiple
+* "/tgs" will clear yoiur thinkgroup and added everyone you are currently 
+*        sharing with. (This sometimes fails.) TGS=ThinkGroup clear and Add Shared
+* "/tgc" will clear your entire thinkgroup. TGC= ThinkGroup Clear
+* "/tgi" inspects your ThinkStone
+* "/tgw" will tell you who is apart of your Thinkgroup.
+*
+* _____________________________ Thinking to Groups _____________________________
+*
+* "tg <message>" thinks to your thinkgroup.
+* "tc <message>" thinks to your clan
+*
+* __________________________________ Triggers __________________________________
+*/
 
 "/t?"	call querytgt
 
@@ -69,32 +93,199 @@ set me 0
 "/tgw"	call listgrp
 "/tgs" 	call setgrp2shared  // clears current group and adds those you are sharing with
 
-"/tl"	call ssback
+"tl"	call ssback. // ThinktoLast
+"/tl"	call ssback  // ThinktoLast
+"ts"	call tgtselect
 "/ts"	call tgtselect
+
+"/feedback" call FeedBack //Toggles between silent mode and message display (spammy) mode.
+"goscan" call GoScan
+"noscan" call NoScan
+/* *********************************** Moving Macro Parts ***********************************
+
+FeedBack //This is in case you don't want your text log or status area spammed
+{	
+if messageStaus == 1
+	setglobal feedback 0
+else
+	setglobal feedback 1
+	message "*Messages On"
+end if
+}
+
+GoScan
+{
+setglobal scanBreak 0
+set @env.key_interrupts false //when you start you want it to loop
+set @env.click_interrupts false //these two lines makes sure it doesn't shut off
+if @text == ""
+	if feedback == 1
+		message "•••Scanner On•••"
+		message "for settings type \"goscan ?\"."
+		pause 10
+	end if
+else if @text == "?"
+		message "Type \"t?\" to find the target. "tc <message>\" to send to SStarget. \"tt <text>\" to send to selected player."
+		pause 10
+		message "Type \"ts <name> [message]\" sets the target and sends them a message if you include one."
+		pause 10
+		message "Type \"/feedback\" to toggle macro feedback off|on."
+		pause 5
+		message "OR \"/set feedback <?|1|on|0|off>"
+		pause 10
+		message "Type \"noscan\" to stop."
+end if
+call Scanner
+label scanmonitor
+if keepAlive == 1
+	pause 300
+	set keepAlive 0
+	pause 50
+	goto scanmonitor
+else if keepAlive == 2
+	set scanBreak 1
+else
+	pause 100
+	setglobal scanBreak 0
+	call Scanner
+	message *Scanner recalled"
+	goto scanmonitor
+end if
+}
+
+Scanner
+{
+label scanTop
+pause 1
+if scanBreak == 1
+	goto scanEnder
+else
+    setglobal keepAlive 1
+	set scanText @env.textLog
+	if scanText.word[0] < "/"
+		setglobal timeStamps 3
+		setglobal playerName 2
+		setglobal me 6
+	else
+		setglobal timeStamps 1
+		setglobal playerName 0
+		setglobal me 3
+	end if
+	if scanText.word[timeStamps] == "thinks" //with timestamps[3] w/o [1]
+		if scanText < "thinks to you, \""
+			if ssTarget != scanText.word[playerName] //w/timestamps[2] w/o[0]
+			if scanText.word[playerName] != @my.name
+				setglobal  ssTarget scanText.word[playerName]
+				setglobal feedback 1 //turn on feedback for new target
+				pause 5
+			end if
+			end if
+			if feedback == 1 //this controls overall feedback
+//This if block turns off feedback when the target hasn't changed
+				if feedback == 1
+					message "tc target: " ssTarget
+					setglobal feedback 0
+				end if
+			end if
+		end if
+	else if scanText < "Captain Barnac asks, \"Ah, "
+		 set namePer @my.name
+		 set namePer + "."
+		if scanText.word[me] == namePer
+			pause 1
+			"yes\r"
+		end if
+	else if scanText < "Paul Deckand asks, \"Ah, "
+		 set namePer @my.name
+		 set namePer + "."
+		if scanText.word[me] == namePer
+			pause 1
+			"yes\r"
+		end if
+	else if scanText < "Fird Lirden asks, \"Ah, "
+		 set namePer @my.name
+		 set namePer + "."
+		if scanText.word[me] == namePer
+			pause 1
+			"yes\r"
+		end if
+	else if scanText < "No item named 'bag of kudzu seedlings"
+		setglobal bag_number 1
+		"/equip bag of kudzu seedlings " bag_number "\r"
+	else if scanText < "* Your bag of kudzu seedlings is full."
+		setglobal bag_number - 1
+		if bag_number < 0
+			setglobal bag_number max_bag
+		end if
+	else if scanText < "* You do not have room in your pack for anything else."
+		"/equip Kudzu Seedling\r"
+		pause 1
+		"/usei left\r"
+	else if scanText < "You pick up an orga eye."
+		"/selectitem orga eye \r"
+		"/drop orga eye \r"
+		pause 1
+	else if scanText < "You can't take things out of your pack that quickly."
+				if @my.simple_name == "Noivad"
+					"/selectitem orga eye \r"
+					message "**found picked up OE"
+					pause 50
+					"/drop orga eye \r"
+				else if @my.simple_name == "Kalian"
+					"/selectitem orga eye \r"
+					pause 50
+					"/drop orga eye \r"
+				end if
+	else
+		pause 1
+	end if
+	setglobal gtrainerPhrase scanText
+	call rankcount
+	goto scanTop
+end if
+
+label buggy									//After time some infinite loops run away
+Message "Bug Detected:"						//on you. So, I place these messages
+pause 2										//in to let you know if the macro
+Message "**Use <CTRL>-esc to halt***"		//has jumped out of the regular loop
+pause 150									//<--gives you time to escape the loop.
+
+label scanEnder
+	set keepAlive 2
+if feedback == 1
+	message "•••Scanner Off•••"
+end if
+setglobal keepAlive 0
+}
+
+NoScan
+{
+setglobal scanBreak 1	//This alows you to stop this macro without stopping other macros
+}
 
 add2grp
 {
-message "** tc_macro.macro / add2grp **"
+// message "** tc_macro.macro / add2grp **"
 	if @text == ""
-		 "/useitem " MySunStone " /add " @selplayer.simple_name "\r"
+		 "/useitem " MyStone " /add " @selplayer.simple_name "\r"
 	else
-		"/useitem " MySunStone " /add " @text "\r"
+		"/useitem " MyStone " /add " @text "\r"
 	end if
 }
 
 checkss
 {
-	"/useitem " MySunStone " /inspect \r"
+	"/useitem " MyStone " /inspect \r"
 }
 
 cleargrp
 {
-	"/useitem " MySunStone " /clear \r"
+	"/useitem " MyStone " /clear \r"
 }
 
 listgrp
 {
-	"/useitem " MySunStone " /group /who \r"
+	"/useitem " MyStone " /group /who \r"
 }
 
 querytgt		
@@ -102,25 +293,25 @@ querytgt
 // target who? = Who is the current target? Useful if you have activated 
 // silent mode, if you've been afk for a while or if a bug in macro language  
 // implementation causes the target to be wrong.
-message "** tc_macro.macro / querytgt **"
-	Message " tc target: " ssTarget  	
+// message "** tc_macro.macro / querytgt **"
+	Message " tl target: " ssTarget  	
 } 				
 
 rmv4mgrp
 {
-message "** tc_macro.macro / rmv4mgrp **"
+//message "** tc_macro.macro / rmv4mgrp **"
 	if @text == ""
-		"/useitem " MySunStone " /remove " @text "\r"
+		"/useitem " MyStone " /remove " @text "\r"
 	else
-		"/useitem " MySunStone " /remove " @selplayer.simple_name "\r"
+		"/useitem " MyStone " /remove " @selplayer.simple_name "\r"
 	end if
 }
 
 setgrp2shared
 { 
-message "** tc_macro.macro / setgrp2shared **"
+//message "** tc_macro.macro / setgrp2shared **"
 
- "/useitem " MySunStone " /clear \r"
+ "/useitem " MyStone " /clear \r"
  pause 1
 if @text == ""
    "/share " @selplayer.simple_name "\r"
@@ -187,13 +378,13 @@ set counter 1
  	if skip == counter
 			set counter + 1
 	else
-		"/useitem " MySunStone " /add " exile[counter] "\r"
+		"/useitem " MyStone " /add " exile[counter] "\r"
 		set counter + 1
 		pause 1
 	end if
 	goto addloop
  else
- "/useitem " MySunStone " /who \r"
+ "/useitem " MyStone " /who \r"
  end if
 end if
 label end
@@ -201,10 +392,10 @@ label end
 
 ssback
 {
-message "** tc_macro.macro / ssback **"
-	if @my.forehead_item != MySunStone
+//message "** tc_macro.macro / ssback **"
+	if @my.forehead_item != MyStone
 		setglobal fitem @my.forehead_item
-		"/equip " MySunStone "	\r"
+		"/equip " MyStone "	\r"
 		set fromTT 1
 	else
 		setglobal fitem @my.forehead_item
@@ -225,15 +416,15 @@ tgtselect
 //target select = manually change your target and send a 
 //message, much like other people's "tt" macro, but this one
 //allows you to switch to tc messaging
-message "** tc_macro.macro / tgtselect **"
+//message "** tc_macro.macro / tgtselect **"
 
 	setglobal ssTarget @text.word[0]			
 	if messagestatus == 1
 		message "targeting: " ssTarget
 	end if
-	if @my.forehead_item != MySunStone
+	if @my.forehead_item != MyStone
 		setglobal fitem @my.forehead_item
-		"/equip " MySunStone " \r"
+		"/equip " MyStone " \r"
 		set fromTT 1
 	end if
 	"/thinkto " @text "\r"
@@ -253,25 +444,13 @@ thinkcln
 
 thinkgrp
 {
-message "** tc_macro.macro / thinkgrp **"
-if @my.forehead_item != MySunStone
+//message "** tc_macro.macro / thinkgrp **"
+if @my.forehead_item != MyStone
 	setglobal fitem @my.forehead_item
-	"/equip " MySunStone "\r"
+	"/equip " MyStone "\r"
 end if
 "/thinkgroup " @text "\r"
 
 }
 
 message "===> Loaded tc_macro.macro"
-/*
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-   R E V I S I O N    L O G
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-ATTRIBUTIONS: Noivad? 
-and Reye for the Idea, X for the syntax check and suggestions, 
-and everyone who direct SSed me to help debug. 
-2007-0211-inu:	Fixed specialized group think to section to use MySunStone variable
-				and corrected bug
-2008-0824-inu:	Reorganized to use call for all.
-2022-0612-Inu:	Added this log, moved to bottom.
-*/

@@ -1,18 +1,3 @@
-INU SPAMMY VERSION 
-
-*** DO NOT REPLACE/UPDATE ANY FILES IN THIS BRANCH IF YOU ARE NOT SWC INU. 
-    INSTEAD UPDATE IN THE MAIN BRANCH. ***
-
-This branch serves as Inu's and her cast of thousands repository for her spammy versions of the macros used across characters.
-All characters share these macro files/are dependent on their interconnections.
-
-For example:
-The main scanner code is broken out.
-The main loop is broken out.
-The idle actions are broken out.
-
-All of these have numerous messages sprinkled throughout to track their execution, hence the name SPAMMY.
-
 # macros
 
 abbreviations.macro = a list of replacement macros that make it easier to stay in character without sacrificing playability (aka so you don't fall while trying to type in a lot of text).

@@ -1,9 +1,8 @@
 // Laughing Academy yells {was layells.macro, now yells-la.macro}
 
-setglobal clanyellsfilerevision "2022-0612-0000-0004"
-setglobal yellslafilerevision "2022-0625-0000-0004"
+setglobal clanyellsfilerevision "20210625-2100-0003"
+setglobal yellslafilerevision "20210625-2100-0003"
 
-"yla"	call la-yells
 "ylc"	call yell-creedo
 "ylf"	call falling-yells
 "yk"    "/yell here kitty kitty \r"
@@ -66,7 +65,7 @@ la-yells
 		pause 45
 		"/yell Er, Ask Whirl to explain that one to you. \r"
 		or
-		call yell-knockfall1
+		call knocknock1
 		or
 		call yell-tla
 		or
@@ -159,16 +158,16 @@ pause 45
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-2020-1106-Inu: 	Pulled out clan yells into this LA Yells.macro (layells.macro). 
+20210508-Inu:	Stole think from Ramandu. "Laughing Academy! 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you"
+20201106-Inu: 	Pulled out clan yells into this LA Yells.macro (layells.macro). 
 				Encoded for Windows UTF-8. TM (™)symbol works on Windows.
-2021-0215-Inu:	Fixed missing /r in yell-pun1 macro. Added a few more falling yells.
+20210215-Inu:	Fixed missing /r in yell-pun1 macro. Added a few more falling yells.
 				Removed redundant yells. Added direct call for falling yells.
-2021-0220-Inu:	New yells stolen from Ramandu while on Connie Mosey 2/19/2021.
+20210220-Inu:	New yells stolen from Ramandu while on Connie Mosey 2/19/2021.
 				Moved fallen yells to fallen area. Removed more dupes out of main.
 				Added this revision log, reconstructed dates edits were made.
 				A few style edits made to existing yells. Added knocknock1 yell.
-2021-0508-Inu:	Stole think from Ramandu. "Laughing Academy! 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you"
-2021-0528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
-2021-0625-Inu:	Renamed file to group with other yells files (yells-x.macro).
+20210528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
+20210625-Inu:	Renamed file to group with other yells files (yells-x.macro).
 				Changed label of clan-yells to la-yells to allow for using other clan's yells.
 */

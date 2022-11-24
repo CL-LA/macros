@@ -3,43 +3,31 @@
 //
 // 20180702-inu - Created.
 //
-setglobal DefSharesfilerevision "2022-0616-0000-0003"
-
+setglobal DefSharesfilerevision "20210225-0100-0001"
 
 defshares 
 {
-	message DefShares
-	if share1 == "[none]"
-		setglobal share1 "Ausrine"
-	end if
-	if share2 == "[none]"
-		setglobal share2 "Coriakin"
-	end if
-	if share3 == "[none]"
-		setglobal share3 "Dandelion"
-	end if
-	if share4 == "[none]"
-		setglobal share4 "Klur"
-	end if
-	if share5 == "[none]"
-		setglobal share5 "Phroon"
-	end if
-	
 	if messageStatus == 1
 		message "*** DefShares.macro / defshares ***"
 	end if
 	if gTesting == 1
 		message "Testing Mode: DefShares not run"
 	else
-		"\share " share1 "\r"
+		"\share squib \r"
 		pause 20
-		"\share " share2 "\r"
+		"\share lorikeet \r"
 		pause 20
-		"\share " share3 "\r"
+		"\share fiona \r"
 		pause 20
-		"\share " share4 "\r"
+		"\share dragonhawk \r"
 		pause 20
-		"\share " share5 "\r"
+		"\share geotzou \r"
+		pause 20
+		"\share punisher \r"
+		pause 20
+		"\share foxx \r"
+		pause 20
+		"\share brio \r"
 	end if
 }
 
@@ -48,7 +36,5 @@ message "===> Loaded DefShares.macro"
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-2021-0224-Inu:	Added this log. Original by Inu.
-2022-0611-Inu:	Changed to define share1 through share2 in character file to not give away clicker.
-2022-0616-Inu:	Fixes missing = in == part for shares 2 - 5 testing.
+20210224-Inu: 	Added this log. Original by Inu.
 */

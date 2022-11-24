@@ -1,8 +1,9 @@
-﻿setglobal sunstonefilerevision "2022-0612-0000-0002"
+﻿setglobal sunstonefilerevision "20210225-0100-0001"
 //------------------------------------------------
 // sunstone.macro
 //------------------------------------------------
-
+//
+// 20080824-inu: Added think abbreviations.
 
 //------------------------------------------------
 // Speed dial section - to send messages to friends quicker
@@ -72,7 +73,7 @@ end if
 // TF macro
 //------------------------------------------------
 // this macro sends ss to you say where you are falling 
-// Note: if you do /setf loc <yourloc> before you fall so you can simply type tf
+// Note: if you do /set loc <yourloc> before you fall so you can simply type tf
 
 "tf"	call thinkfalling
 thinkfalling
@@ -162,11 +163,3 @@ end if
 }
 
 message "===> Loaded sunstone.macro"
-/*
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-   R E V I S I O N    L O G
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-ATTRIBUTIONS:  Noivad, Inu (falling soon, go figure) 
-2008-0824-Inu:	Added think abbreviations.
-2022-0611-Inu:	Added this log, moved to bottom.
-*/
