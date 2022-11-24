@@ -2,7 +2,7 @@
 // START: DHAwakeAFK integration
 //------------------------------------------------
 
-setglobal idlemacrofilerevision "2022-1107-0000-0300"
+setglobal idlemacrofilerevision "20210615-2100-0012"
 
 idleMe
 {
@@ -20,83 +20,64 @@ idleMe
 		setglobal thankcounter + 100
 		label DHAwakeAFK
 		"/karma \r"
-//		message "from idle.macro line 22"
 		set scanText @env.textLog
 		if scanText < "You have karma to give."
 			if thankcounter < thankcooloff
-//				message "idle[27]:thankcounter was = " thankcounter
+//				message "idle[26]:thankcounter was = " thankcounter
 				setglobal thankcounter thankcooloff
-//				message "idle[29]:Set thankcounter to trigger next go around = " thankcounter
+//				message "idle[28]:Set thankcounter to trigger next go around = " thankcounter
 			end if
 		end if
-//		message "idle[32]::** ThankExile **::"
+//		message "idle[31]::** ThankExile **::"
 		label pickanotherexile
 		if ThankRandom == 1			// if thank a random exile from those clanning is turned on in Character file
-//			message "idle.macro - ThankRandom is 1 [35]"
 			call ExilePicker
 		end if // ThankRandom
 		if ThankExile == 1			// if thank one of these exiles is turned on in Character file
-//			message "idle.macro - ThankExile is 1 [39]"
 			random
-				setglobal randomExileClanning " Aurelie "
+				setglobal randomExileClanning " Aurelie " 
 			or
-				setglobal randomExileClanning " Ausrine "
+				setglobal randomExileClanning " Connie " 
 			or
-				setglobal randomExileClanning " Connie "
+				setglobal randomExileClanning " Coriakin " 
 			or
-				setglobal randomExileClanning " Coriakin "
+				setglobal randomExileClanning " Dandelion "	
 			or
-				setglobal randomExileClanning " Dandelion "
+				setglobal randomExileClanning " Ebony " 
 			or
-				setglobal randomExileClanning " Ebony "
+				setglobal randomExileClanning " JoMaril " 
 			or
-				setglobal randomExileClanning " Haffron "
+				setglobal randomExileClanning " Kori " 
 			or
-				setglobal randomExileClanning " JoMaril "
+				setglobal randomExileClanning " Kvynn " 
 			or
-				setglobal randomExileClanning " Kori "
+				setglobal randomExileClanning " Largo " 
 			or
-				setglobal randomExileClanning " Kvynn "
+				setglobal randomExileClanning " Lorikeet " 
 			or
-				setglobal randomExileClanning " Largo "
+				setglobal randomExileClanning " Luna " 
 			or
-				setglobal randomExileClanning " Leinis "
+				setglobal randomExileClanning " Maximus " 
 			or
-				setglobal randomExileClanning " Lorikeet "
+				setglobal randomExileClanning " Mehan " 
 			or
-				setglobal randomExileClanning " Luna "
+				setglobal randomExileClanning " Mork " 
 			or
-				setglobal randomExileClanning " Maximus "
+				setglobal randomExileClanning " Phroon " 
 			or
-				setglobal randomExileClanning " Mehan "
+				setglobal randomExileClanning " Pirate " 
 			or
-				setglobal randomExileClanning " Mork "
+				setglobal randomExileClanning " Poplar " 
 			or
-				setglobal randomExileClanning " MrFancyPants "
+				setglobal randomExileClanning " Punisher " 
 			or
-				setglobal randomExileClanning " Omega "
+				setglobal randomExileClanning " Ramandu " 
 			or
-				setglobal randomExileClanning " Paramedic "
+				setglobal randomExileClanning " Skirwan " 
 			or
-				setglobal randomExileClanning " Phroon "
+				setglobal randomExileClanning " Shadowfire " 
 			or
-				setglobal randomExileClanning " Pirate "
-			or
-				setglobal randomExileClanning " Poplar "
-			or
-				setglobal randomExileClanning " Punisher "
-			or
-				setglobal randomExileClanning " Ramandu "
-			or
-				setglobal randomExileClanning " Skirwan "
-			or
-				setglobal randomExileClanning " Shadowfire "
-			or
-				setglobal randomExileClanning " Taryn "
-			or
-				setglobal randomExileClanning " Thoomedic "
-			or
-				setglobal randomExileClanning " Thoomilicious "
+				setglobal randomExileClanning " Taryn " 
 			end random
 		end if			// ThankExile
 /*
@@ -122,28 +103,31 @@ REMOVED EXILES UNTIL THEY COME BACK
 			or
 				setglobal randomExileClanning " Mirabel "
 			or
+				setglobal randomExileClanning " MrFancyPants "
+			or
 				setglobal randomExileClanning " Odesseus "
+			or
+				setglobal randomExileClanning " Omega "
+			or
+				setglobal randomExileClanning " Paramedic "
 			or
 				setglobal randomExileClanning " Superchicken "
 			or
 				setglobal randomExileClanning " StarswordEojek "
 */		
 		if thankcounter >= thankcooloff
-//			message "idle[128]:thankcounter = " thankcounter
-//			message "idle[129]:randomExileClanning is = " randomExileClanning
+//			message "idle[104]:thankcounter = " thankcounter
+//			message "idle[105]:randomExileClanning is = " randomExileClanning
 			if @my.name == "inu teisei"
-				"/thank " randomExileClanning thankfnf 
-			else if thankstyle == "anon"
-				"/thank "  randomExileClanning " \r"
+				"/thank " randomExileClanning thankfnf
 			else
 				"/thank " randomExileClanning thankreg
-//			message "removed thank randomExileClanning for non Inu characters"
 			end if
 			set scanText @env.textLog
 			if scanText < "You gave signed good karma to "
 				setglobal thankcounter 1
 				setglobal pickanother 0
-//				message "idle[140]:thanked randomExileClanning = " randomExileClanning
+//				message "idle[111]:thanked randomExileClanning = " randomExileClanning
 				if resetAmCadding == 1
 					setglobal AmCadding 1
 				end if
@@ -151,27 +135,27 @@ REMOVED EXILES UNTIL THEY COME BACK
 			end if
 			if scanText < "is not in the lands."
 				setglobal pickanother 1
-//				message "idle[148]: set pickanother from is not in the lands."
+//				message "idle[119]: set pickanother from is not in the lands."
 			end if
 			if scanText < " as much good karma as is allowed."
 				setglobal pickanother 1
-//				message "idle[152]: set pickanother from is not in the lands."
+//				message "idle[123]: set pickanother from is not in the lands."
 			end if
 			if pickanother == 1
-//				message "idle[155]: pickanother is " pickanother
+//				message "idle[126]: pickanother is " pickanother
 				setglobal thankcounter + 1
-//				message "idle[157]:randomExileClanning was = " randomExileClanning
+//				message "idle[128]:randomExileClanning was = " randomExileClanning
 				setglobal redopickexilecounter + 1
-//				message "idle[159]:redopickexilecounter is = " redopickexilecounter
+//				message "idle[130]:redopickexilecounter is = " redopickexilecounter
 				if redopickexilecounter >= 30
 					if ThankRandom == 0
 						setglobal ThankRandom 1
-//						message "idle[163] temporarily turning ON ThankRandom "
+//						message "idle[134] temporarily turning ON ThankRandom "
 					end if
 					if AmCadding == 1
 						setglobal resetAmCadding 1
 //						setglobal AmCadding 0
-//						message "idle[168] temporarily turning OFF AmCadding"
+//						message "idle[139] temporarily turning OFF AmCadding"
 					end if
 //					setglobal resetPickexileclanning 1
 				else
@@ -181,7 +165,7 @@ REMOVED EXILES UNTIL THEY COME BACK
 			if scanText < "You gave signed good karma to "
 				setglobal thankcounter 1
 				setglobal pickanother 0
-//				message "idle[178]:thanked randomExileClanning = " randomExileClanning
+//				message "idle[149]:thanked randomExileClanning = " randomExileClanning
 				if resetAmCadding == 1
 					setglobal AmCadding 1
 				end if
@@ -190,99 +174,39 @@ REMOVED EXILES UNTIL THEY COME BACK
 				end if
 			end if
 		end if // thankcounter
-//		message "idle[187]:thankcounter = " thankcounter
-//		message "idle[188]:redopickexilecounter = " redopickexilecounter
+//		message "idle[158]:thankcounter = " thankcounter
+//		message "idle[159]:redopickexilecounter = " redopickexilecounter
 		
 //		"/pose sit \r"
 		random	// other actions
-//			message "idle[192]::** CheckMoney **::"
+//			message "idle[163]::** CheckMoney **::"
 			"/money \r"
-//			message "from idle.macro line 194"	
 			if ThankRandom == 0
 				set infoExileClanning @selplayer.simple_name
-//				message "idle[197]:infoExileClanning = " infoExileClanning
+//				message "idle[167]:infoExileClanning = " infoExileClanning
 			end if
 			if InfoExile == 1
 				"/info " infoExileClanning " \r"
 			end if
 //			"/pose thoughtful \r"
 		or
-//			message "idle[204]::** InfoRandomExile **::"
+//			message "idle[174]::** InfoRandomExile **::"
 			if ThankRandom == 0
 				set infoExileClanning @selplayer.simple_name
-//				message "idle[207]: infoExileClanning = " infoExileClanning
+//				message "idle[177]: infoExileClanning = " infoExileClanning
 			end if
 			if InfoExile == 1
 				"/info " infoExileClanning " \r"
 			end if
 		or
-//			message "idle[213]::** OccupyRandom **::"
+//			message "idle[183]::** OccupyRandom **::"
 			if OccupyRandom == 1
-//				message "idle[215]::** OCCUPY **::"
+//				message "idle[185]::** OCCUPY **::"
 				call occupy
 			end if
-		or
-//			message "idle [219]:: Studiously Studying "			
-			if gAmStudying == 1
-				"/pose thoughtful \r"
-//				message "from idle.macro line 222"
-				pause 40
-				random
-					"Study cat is studious \r"
-				or
-					"Studiously Studying \r"
-				or
-					"Step 1: Drag an exile into the blood pool ... Check \r"
-					pause 40
-					"Step 2: Breakup a bunch of mistletoe over their fallen body .... Check \r"
-					pause 40
-					"Step 3: Recite these words ... to yourself. \r"
-				or
-					message "nothing here idle 235"
-				or
-					message "nothing here idle 237"
-				or
-					message "nothing here idle 239"
-				or
-					message "nothing here idle 241"
-				or
-					message "nothing here idle 243"
-				or
-					message "nothing here idle 245"
-				or
-					message "nothing here idle 247"
-				or
-					message "nothing here idle 249"
-				or
-					message "nothing here idle 251"
-				or
-					message "nothing here idle 253"
-				or
-					message "nothing here idle 255"
-				or
-					message "nothing here idle 257"
-				or
-					message "nothing here idle 259"
-				or
-					message "nothing here idle 261"
-				or
-					message "nothing here idle 263"
-				or
-					message "nothing here idle 265"
-				or
-					message "nothing here idle 267"
-				or
-					message "nothing here idle 269"
-				or
-					message "nothing here idle 271"
-				end random
-				pause 40
-			end if
-//		or
-//			call dcr
 		end random // other actions
 		if OccupyRandom == 1
-//			message "idle[279]::** OccupyRandom is 1 **::"
+//			message "idle[190]::** OccupyRandom is 1 **::"
 			if even == 0
 				"\move e walk \r"
 				"\move w walk \r"
@@ -300,7 +224,7 @@ REMOVED EXILES UNTIL THEY COME BACK
 		end if // OccupyRandom
 		
 		if messageStatus == 1
-//			message "idle[297]:: ** Random idle section **"
+//			message "idle[218]:: ** Random idle section **"
 		end if
 		
 		random // idle
@@ -360,7 +284,7 @@ REMOVED EXILES UNTIL THEY COME BACK
 		end if
 //	end label LOOPY2	
 		if messageStatus == 1
-//			message "idle[357]:** Random action section **"
+//			message "idle[262]:** Random action section **"
 		end if
 
 		if AmCadding == 0
@@ -441,19 +365,17 @@ REMOVED EXILES UNTIL THEY COME BACK
 // END: DHAwakeAFK integration
 //------------------------------------------------
 
-message "idle[438]:: ===> Loaded idle.macro"
+message "idle[343]:: ===> Loaded idle.macro"
 /*
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
 Attributions: Idle and awakeafk macros by DragonHawk, others by Raul and Noivad
-200X-MMDD-Inu:	Adding Idle macro to this one big loop to stop possible conflicts between the two
-2018-0630-Inu:	Moved out of default to shorten the length of that file. Moved DHAwakeAFK to idle.mac.  
-				All Called functions return by default. So no need for Goto at end.
-2020-1011-Inu:	Added additional logic to allow for thanking as soon as possible using thankcounter
-				Added two different modes of thanking, original random exile clanning ThankRandom
-				and the new friends and family list ThankExile - also randomized.
-2021-0224-Inu:	Moved this log.
-2021-0808-Inu:	Added Studiously Studying if gAmStudying is set to 1, 
-				now causing problems with things that should be executed, being said instead.
+200XMMDD-Inu: Adding Idle macro to this one big loop to stop possible conflicts between the two
+20180630-Inu: Moved out of default to shorten the length of that file. Moved DHAwakeAFK to idle.mac.  
+			  All Called functions return by default. So no need for Goto at end.
+20201011-Inu: Added additional logic to allow for thanking as soon as possible using thankcounter
+			  Added two different modes of thanking, original random exile clanning ThankRandom
+			  and the new friends and family list ThankExile - also randomized.
+20210224-Inu: Moved this log.
 */

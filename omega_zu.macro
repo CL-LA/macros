@@ -1,4 +1,4 @@
-setglobal omega_zufilerevision "2022-00717-1000-0003"
+setglobal omega_zufilerevision "20210225-0100-0001"
 
 //------------------------------------------------
 // omega_zu.macro
@@ -31,7 +31,7 @@ setglobal omega_zufilerevision "2022-00717-1000-0003"
 //   (3) Set code has been moved to Default (aka AlternateDefault) set section.
 
 set bag_number 1
-set max_bag    NumZuBags + 1
+set max_bag    NumZuBags
 set zu_opener  1
 set seed_count  0
 set next_seed 0
@@ -39,15 +39,9 @@ set digits 0
 set bag_check 0
 set trap_count 0
 
-if zuBagType == ""
-	set zuBagType "bag of kudzu seedlings"
-end if
-
-f6					call zu-stuff	// omega_zu.macro
-shift-F6			call zu-add		// omega_zu.macro
-control-f6			call zu-remove	// omega_zu.macro
-control-shift-F6	call SeedCheck	// omega_zu.macro
-
+f6			call zu-stuff		// omega_zu.mac
+shift-F6	call zu-add			// omega_zu.mac
+control-f6	call zu-remove		// omega_zu.mac
 
 //Kudzu Macros. see "/set" command for more info
 
@@ -55,7 +49,7 @@ zu-stuff
 {
 message "** omega_zu.macro / zu-stuff **"
 //Checks to make sure you have your bag equipped.
-// if @my.left_item != "bag of kudzu seedlings"
+if @my.left_item != "bag of kudzu seedlings"
 	"/equip bag of kudzu seedlings " bag_number "\r"
 	 pause 1
 else
@@ -111,7 +105,7 @@ message "digits:" digits
 if digits == 3
 	setglobal seed_count 10
 else 
-	setglobal seed_count @my.left_item.word[5].letter[0]
+	setglobal seed_count @my.left_item.word[5].letter[5]
 end if
 message "current seed count" seed_count
 }
@@ -120,10 +114,9 @@ message "current seed count" seed_count
 zu-add
 {
 message "** omega_zu.macro / zu-add **"
-// if @my.left_item < "bag of kudzu seedlings"
-if @my.left_item < zuBagType
+if @my.left_item < "bag of kudzu seedlings"
 else
-	"/equip " zuBagType bag_number "\r" 
+	"/equip bag of kudzu seedlings " bag_number "\r" 
 end if
 
 label grabbag
@@ -138,7 +131,7 @@ if bag_check < max_bag
 		else
 			setglobal bag_number 1
 		end if
-		"/equip " zuBagType " bag_number "\r"
+		"/equip bag of kudzu seedlings " bag_number "\r"
 		setglobal bag_check + 1
 		if trap_count > 10
 			goto end
@@ -154,11 +147,10 @@ zu-remove
 // This removes a seed from your bag
 {
 message "** omega_zu.macro / zu-remove **"
-// if @my.left_item != "bag of kudzu seedlings"
-if @my.left_item != zuBagType
-	"/selectitem " zuBagType "<#" bag_number "\"\r"
+if @my.left_item != "bag of kudzu seedlings"
+	"/selectitem \"bag of kudzu seedlings <#" bag_number "\"\r"
 	pause 1
-	"/equip " zuBagType " bag_number "\r"
+	"/equip bag of kudzu seedlings " bag_number "\r"
 	else
 	message "Kudzu Ready"
 end if
@@ -174,11 +166,3 @@ message ItemCount
 }
 
 message "===> Loaded omega_zu.macro"
-/*
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-   R E V I S I O N    L O G
-=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-ATTRIBUTIONS: Omega
-2022-0611-Inu:	Added this log.
-2022-1007-Inu: Modified to account for global variable zuBagType in character file due to three different types of bags.
-*/

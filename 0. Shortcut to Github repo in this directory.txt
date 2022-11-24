@@ -1,7 +1,0 @@
-0. Shortcut to Github repo in this directory.txt
-
-It's at the bottom when sorted by name.
-Shortcut to macros
-
-It goes to.
-F:\GitHub\CL-LA\macros
