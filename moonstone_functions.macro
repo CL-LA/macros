@@ -1,5 +1,5 @@
 // moonstone_functions.macro 
-setglobal moonstone_functionsfilerevision "2022-0612-0000-0009"
+setglobal moonstone_functionsfilerevision "2022-1009-1000-0010"
 
 /* --------------------------------------------------------------------------------------------------------------
 	| Asklepian 1.0 | CadTargetter 2.1 | Healing Functions Rev.2.8.9 | 
@@ -65,8 +65,9 @@ setglobal moonstone_functionsfilerevision "2022-0612-0000-0009"
 
  "F4" equips your Cad or Merc Staff and if a person is selected it tries
   to cad them. If no one is selected it cads the last person you cadded.
-      (this is called through the "cadLastTarget" function)
- "ALT+F4"	equips Asklepian or Asklepian Staff
+		(this is called through the "cadLastTarget" function)
+ "SHIFT+F4"	equips Asklepian or Asklepian Staff ** 
+		On windows ALT+F4 closes the active window so it is replaced by SHIFT+F4
  
  ***************************** Global Variables **************************** */
 /* Copy the below three lines for myWeapon, gHealDev and auraHDevice to 
@@ -202,7 +203,7 @@ end if
 }
 
 burster
-{						//or it prematurely end. (I'm looking into that bug.)
+{						//or it prematurely ended. (I'm looking into that bug.)
 setglobal infiniteControl 0
 setglobal sleepToggle 0
 call moonswap
@@ -992,4 +993,5 @@ message "===> Loaded moonstone_functions.txt"
 ATTRIBUTIONS: Gorvin, Noivad, SoulHunter/Lexa, Tarf, Veer
 2021-0503-Inu:	Added in SoulHunter/Lexa's purgatory pendant macro.
 2022-0611-Inu:	Updated comments for CadTargetter 2.3 and fixed version number.
+2022-1009-Inu:	Fixed call notes for ALT+F4 replaced by SHIFT+F4
 */

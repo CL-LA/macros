@@ -1,0 +1,104 @@
+// This macro file will be loaded for the player it is named after. 
+// Healer
+// PaqDeHunt
+
+setglobal	charfileused	"PaqDeHunt"
+setglobal   charfilerevision "20210807-1700-0004"
+message "This file IS NOT reloaded when you reload macros"
+
+include "Default"
+include "yells-la.macro"
+include "yells-geese.macro"
+
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- BEGIN SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// 1. Copy this section to your Character's file (Global Variables Defined), including comments
+// 2. Remove the // before the setglobal (in columns 1-2 only)
+// 3. Save your changes
+// 4. Reload your macros
+// ----------------------------------------------
+	setglobal AmCadding		1						// 1 disables ExilePicker, 0 enables ExilePicker
+	setglobal auraHDevice 	"Asklepian Staff" 		// Set this to "Asklepian" or "Asklepian Staff"
+	setglobal chaintype     "chain"         		// Used by Quickchain.mac.
+	setglobal gdefpie  		"DragonHawk"			// Used by Pie-O-Matic in funactions.mac
+	setglobal gIdleTime		100						// Set this to the desired pause time for idle macro 
+													// (every 4 = 1 second approximately)
+	setglobal gHealDev		"Caduceus" 				// set to Caduceus or Mercurial Staff or Asklepian Staff"
+	setglobal healingDevice "Caduceus" 				// set to Caduceus or Mercurial Staff
+	setglobal InfoExile 	0						// Turns off exile info by default in AFK macro 
+													// called on login. setf can change it.
+	setglobal messageStatus 0						// Turning off debug if 0, on if 1
+	setglobal myDefLeft		"Shield"				// Re-equip desired left item.
+	setglobal myspeed		medium 					// sets speed of speed, zoom, fast, medium, slow
+	setglobal MySunStone	sunstone				// Set this to your sunstone, used in sunstone and tc_macro.
+	setglobal myWeapon 		"Dagger"  				// change this to your weapon of choice
+	setglobal NumZuBags		0						// the number of kudzu bags you carry
+	setglobal OccupyRandom	0						// 1 = Occupy is on. Any other value = Occupy is OFF
+	setglobal scanBreak 	0 						// Enables scanner to run continuously.
+	setglobal ThankRandom	0						// turns off thank random for any exile clanning 
+													// used in idle.macro
+	setglobal ThankExile	1						// turns on thank specific set of random exiles 
+													// used in idle.macro
+	setglobal thankreg 		" Hunt is good to me. \r"	// used in idle.macro
+	setglobal thankfnf	 	" Hunt is good to me. \r"	// used in idle.macro
+	setglobal tyt			"x"						// used in Abbreviations to determine type of thank you
+	setglobal woc	 		"Caduceus"				// Used by Quickchain.mac to re-equip 
+													// default right hand item.
+	
+	*-*-*-* Key Variables - used in keys.macro
+	setglobal myhome1 "9999"	// my main home
+	setglobal myhome2 "9999"	// my second home
+//	setglobal myhome3 "9999"	// my third home
+//	setglobal myhome4 "9999"	// my fourth home
+	setglobal myclan1 "2670"	// main clan home
+	setglobal myclan2 "2679"	// second clan home
+//	setglobal myclan3 "9999"	// third clan home/ pull way
+//	setglobal myclan4 "9999"	// fourth clan home
+	setglobal myguest1  "2317"	// ?'s home
+//	setglobal myguest2  "9999"	// x's home
+//	setglobal myguest3  "9999"	// x's home
+//	setglobal myguest4  "9999"	// x's home
+	
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- END SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Keys used
+/* 
+From moonstone_functions.txt
+F3 					call itemswap	
+shift-F3 			call restartInfinityLoop
+F4 					call cadLastTarget
+shift-F4			call useAsklepian
+
+numpad-1 			call staticTarget1
+alt-numpad-1		call staticTarget1Set
+numpad-2			call staticTarget2
+alt-numpad-2		call staticTarget2Set
+numpad-3			call staticTarget3
+alt-numpad-3		call staticTarget3Set
+numpad-4			call staticTarget4
+alt-numpad-4		call staticTarget4Set
+numpad-5			call staticTarget5
+alt-numpad-5		call staticTarget5Set
+numpad-6			call staticTarget6
+alt-numpad-6		call staticTarget6Set
+numpad-7			call staticTarget7
+alt-numpad-7		call staticTarget7Set
+numpad-8			call staticTarget8
+alt-numpad-8		call staticTarget8Set
+numpad-9			call staticTarget9
+alt-numpad-9		call staticTarget9Set
+control-click 		call healClicked  
+shift-control-click call lockClicked
+*/
+
+alt-z				call keyclan1
+control-z 			call ReEquipShield
+	
+// ReEquipShield
+ReEquipShield
+{
+	"/equip " myDefLeft "\r"
+}

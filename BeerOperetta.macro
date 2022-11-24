@@ -1,0 +1,29 @@
+﻿// BeerOperetta.mac
+
+// Wenchy's Lament
+"/WenchyLament"
+{
+"/ponder What's a wenchy to do" \r
+pause 24
+"/ponder when the stars and sky" \r
+pause 24
+"/ponder seem to roll by" \r
+pause 24
+"/ponder and whispers beer to you." \r
+pause 48
+"/ponder What can a girl do" \r
+pause 24
+"/ponder when all your dreams" \r
+pause 24
+"/ponder lie dead in a keg" \r
+pause 24
+"/ponder in a hazelnut brew?" \r 
+pause 48
+"/ponder They say "\r
+pause 24
+"/ponder you're better off red"\r
+pause 24
+"/ponder perhaps even dead" \r
+pause 24
+"/ponder than compete with the likes of beer, dear"\r
+}

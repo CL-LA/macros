@@ -4,7 +4,7 @@
 // This macro file is for fun and common things you do...
 // add yours with words that make sense to you...
 
-setglobal funactionsfilerevision "2022-0612-0000-0005"
+setglobal funactionsfilerevision "2022-0717-1200-0006"
 message "** funactions.mac **"
 
 set lsaveitem 		@my.left_item
@@ -59,6 +59,7 @@ set lsaveitem 		@my.left_item
 "/sb1"		call smoochies
 "sell2"		call sell2
 "/sell2"	call sell2
+"/shield"	call equipshield
 "/shuf"		call shuffledance
 "/shx"		call shareMany
 "sings"     "/action sings tra la-la la-la...\r"
@@ -213,6 +214,13 @@ doh
 	"doh! \r"
 }
 
+//=====================================================
+// EQUIPSHIELD
+//=====================================================
+equipshield
+{
+	"/equip " myShield " \r"
+}
 //=====================================================
 // FISH
 //=====================================================
@@ -728,4 +736,5 @@ pom_confirm_target
 2021-0717-Inu:	Added Buy and Sell macros for main character.
 2021-0808-Inu:	Trying to figure out why /karma, /thank, and /money now being said instead of executed.
 2022-0129-Inu:	Added swoon.
+2022-0717-Inu:	Added equipshield called by /shield
 */

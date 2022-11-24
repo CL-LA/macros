@@ -1,0 +1,1272 @@
+// So here is the latest draught of "This Thoom for Hire".
+// Maybe I should have included a plot summary last time so I could show where I was headed.
+// I will this time. There are only two more scenes to go at the end of the current script.
+// Firstly, Skirwan tells such incredibly bad puns that Fat Alice is disabled and she escapes.
+// At the play's climax Skirwan confronts Super Chicken at the top of his gold statue
+// and they fight or marry or whatever we end up doing to end the play.
+//
+// Notes - see them at the end!
+//
+// I should point out that it's *girl* Skirwan not the zo one
+//
+// Macro assignments - put / in front of these:
+// s# = Skirwan -> Miug as a thoom female
+// F# = Fat Alice -> Punny as an old maid
+// mujin# = Mujin -> Measle as a human female in mini outfit
+// C# = Super Chicken -> Inu in undisclosed pink male cloak outfit - played manically.
+// SC# = Santa Chicken -> Measle as a red dwarf
+
+// Prologue: Darkness, Narration, spotlight with darkness in the background: narrative, spotlight on Skirwan the Thoomess Mystic
+
+
+"/s1"
+{
+// Skirwan
+"There's a thousand stories in these accursed islands. " \r
+pause 25
+"This is one. " \r
+pause 20
+"It's mine. " \r
+pause 20
+"The name's Skirwan. " \r
+pause 25
+"Not the only one, I know. " \r
+pause 25
+"But then again Marlowe was a private dick; " \r
+pause 25
+"just like me, " \r
+pause 20
+"as well as a guy who wrote plays. " \r
+pause 25
+"I used to be an investigator a long time ago. " \r
+pause 25
+"There's no job too dirty that I haven't sunk to doing these days. " \r
+pause 30
+"I worked at the racetrack til I got too close to the real deal " \r
+pause 30
+"and woke up in a hole next to a body. " \r
+pause 25
+"They never found out who did in Sindyth One-Hit " \r
+pause 25
+"but I know it was a warning " \r
+pause 25
+"that I was too close to something. " \r
+pause 25
+"Then I got a job burying secrets out in East Field " \r
+pause 25
+"but whoever was after me... " \r
+pause 25
+"...got the jump on me again. " \r
+pause 25
+"No honest work left for a gal like me, " \r
+pause 25
+"so I had to turn to something dirtier, " \r
+pause 25
+"and that's where the big fat mob boss came in." \r
+message "trigger /s2 after 'bigger'"
+// Drop Scene 1: Fat Alice's cellar and workshop, dark, dirty, creepy things in jars, cobwebs.
+/s2
+}
+
+"/F1"
+{
+ //   Fat Alice
+"So you're Skirwan then? " \r
+pause 16
+"I thought you'd be bigger." \r  
+message CUE 'Skirwan: Fat Alice '
+message ==> F2 after 'Alice'
+}
+
+"/s2"
+{
+"You were misinformed, Fat Alice." \r  
+message "trigger /s3 after 'help'"  
+/s3
+}
+
+"/F2"
+{
+"And what makes you think I need your help?" \r
+message CUE 'Skirwan: you need all the help you can get.'
+message ==> F3 after 'help'
+}
+
+"/s3"
+{
+"From what I hear of your operation, " \r
+pause 25
+"you need all the help you can get. " \r
+pause 25
+"You're at war with the Brion Family. " \r
+pause 25
+"The brothers have come down hard " \r
+pause 25
+"on anyone trying to trying to leave your turf by going through ethereal territory " \r
+pause 30
+"and if the chips are down, " \r
+pause 25
+"you've got to take whatever help is offered." \r  
+message trigger /s4 after 'investigator'  
+/s4
+}
+ 
+"/F3"
+{
+"The Brions are of no concern to me. " \r
+pause 16
+"We may both be in import/export " \r
+pause 16
+"but I don't deal in ether " \r
+pause 16
+"and they don't touch lyfe parts. " \r
+pause 16
+"We have no quarrel. " \r
+pause 16
+"Still, your timing is good. " \r
+pause 16
+"They say you were quite the investigator in your day." \r
+message CUE "Skirwan: I hear that's when it gets interesting around here."
+message ==> F4
+}
+
+"/s4"
+{
+"Not just the day, " \r
+pause 20
+"the night too. " \r
+pause 20
+"I hear that's where it gets interesting around here." \r  
+message trigger /s5 after 'wood'  
+/s5
+}
+
+"/F4"
+{
+"Quite. " \r
+pause 8
+"/narrate (She takes a sniff of powdery white rock) " \r
+pause 16
+"As a matter of fact " \r
+pause 12
+"I have been having a problem I'd like you to investigate. " \r
+pause 16
+"It's the wood." \r
+message CUE "Skirwan: Wood?"
+message ==>/F5
+}
+
+"/s5"
+{
+"Wood?" \r  
+message trigger /s6 after 'core'  
+/s6
+}
+
+"/F5"
+{
+"You heard me. " \r
+pause 12
+"Logs of wood, stuff's on the ground everywhere, but lately its been turning rotten. " \r
+pause 24
+"My operatives need the wood to make the boats to take them off the island " \r
+pause 24
+"or risk going into the Brion family's territory " \r
+pause 16
+"and the stuff is rotten to the core." \r
+message CUE "Skirwan: And Suu'ub arouses..."
+message ==> F6
+}
+
+ "/s6"
+{
+"Then get a forester, " \r
+pause 20
+"I hear there's one in the orga outback who has an impreza-ive legacy. " \r
+pause 30
+"And Suu'ub arouses" \r  
+message trigger /s7 after 'rewards' and FA leaving  
+/s7
+}
+
+"/F6"
+{
+"STOP THAT! " \r
+pause 8
+"No puns! " \r
+pause 8
+"I hate puns! " \r
+pause 8
+"Just find out what happened to the wood " \r
+pause 16
+"and coming back for a reward when you're done. " \r
+pause 16
+"A mounted piece of wood I guess, " \r
+pause 16
+"that's par for the course with rewards " \r
+pause 16
+message "(She exits)"
+message CUE to Re-enter is "SuperChicken: yelling Fat Alice!"
+// Drop Scene 2: Kismia's Island Forest, deep dark wooded path, eyes in the darkness.
+message ==> F7
+}
+
+"/s7"
+{
+"So there I was on KI, " \r
+pause 20
+"I hadn't spent this much time checking logs since Scribia crashed, " \r
+pause 30
+"and I had to count all my " \r
+pause 25
+"but that's another story. " \r
+pause 25
+"And then I saw the dame. " \r
+pause 25
+"There's always a dame. " \r
+pause 25
+"Beautiful. " \r
+pause 20
+"Deadly. " \r
+pause 20
+"And besides Fat Al, " \r
+pause 25
+"the most powerful woman on Kismia Island. " \r  
+message trigger /s8 after Mujin makes the face  
+/s8
+}
+
+"/mujin1"
+{
+message Cue for mujin2 is Skirwan: Gesundheit"
+"Konichiwa! "\r
+pause 20
+"/nar <^_^>"\r  
+/mujin2
+}
+
+"/s8"
+{
+"Gehzundheit" \r  
+message trigger /s9 after 'Pika'  
+/s9
+}
+
+"/mujin2"
+{
+message "Cue for mujin3 is Skirwan: I need to know what's been happening to the wood here."
+"Wakarimasen.  Ah Skirwan-chan, kokode nani shiteru. Pika? Pika??"\r  
+/mujin3
+}
+
+"/s9"
+{
+"Hai. But your rights expired last month. " \r
+pause 25
+"I'll let you get back to your Xepel/Largo yaoi visionstones in a moment " \r
+pause 30
+"but for now I need to know what's been happening to the wood here." \r  
+message trigger /s10 after Mujin falls over  
+/s10
+}
+
+"/mujin3"
+{
+message "Cue for /mujin4 is Skirwan: It's just not possible."
+"Ha Skirwan! Silly girl!"\r
+pause 20
+"Wood is kawaii yuri origami jujitsu gozaimasu pokmon...."\r
+pause 20
+"/nar Mujin suddenly notices she is bleeding quite profusely"\r
+"/pose cry"\r
+pause 20
+"Uh ohs. I breeding. ;_;"\r
+pause 20
+"/nar Mujin-Kun collapses."\r
+"/pose lie"\r  
+message cue /mujin4 after 'possible'  
+/mujin4
+}
+
+"/s10"
+{
+"Then the dame's face froze mid sentence. " \r
+pause 25
+"Just as well, because I don't know... " \r
+pause 25
+"...how much more high school Japanese I could take. " \r
+pause 30
+"And then something incredible happened. " \r
+pause 25
+"Something I never thought I'd see, " \r
+pause 25
+"Mujin-Kun keeled over and fell down right before my eyes, " \r
+pause 30
+"a dagger poking out from between her shoulder blades." \r
+pause 25  
+message move towards Mujin  
+pause 3
+"/narrate Skirwan rushes over "\r
+pause 10
+"Mujin, Mujin, what happened, who did this to you? " \r
+pause 25
+"You can't be one-hit, it's just not possible." \r  
+message trigger /s11 after Mujin sleeps  
+/s11
+}
+
+"/mujin4"
+{
+"The bird >_< "\r
+pause 20
+"/nar Mujin-Kun falls"\r
+"/sleep"\r  
+message "sneak off after 'alts went to fetch her' covers the area" \r
+}
+
+// Drop Scene 3: Ruined home with lots of weeds in the fairgrounds, deep shadows. old wood, weeds.
+
+"/s11"
+{
+"'The bird' was all she managed to say before her spirit withdrew and one of her alts went to fetch her. " \r
+pause 30
+"But what could it mean. " \r
+pause 20
+"What was 'the bird' and how powerful must it be to one hit Mujin? " \r
+pause 30
+"Then all the pieces fell in place. " \r
+pause 20
+"The bird wasn't a 'what', it was a 'who'. " \r
+pause 20
+"There was only one being more powerful on Kismia's Island than Fat Alice, Mujin or anyone else." \r
+pause 30
+"There was only one being who, from his secret lair in an old abandoned fairground could call all the shots. " \r
+pause 30
+"For all I know, " \r
+pause 15
+"he ordered the hit on Sindyth that started me down this path in the first place. " \r
+pause 30
+"I headed to the fairgrounds as fast as I could, " \r
+pause 25
+"and stood by the entrance to his manor, calling him out." \r
+pause 25
+"/yell Don Pengy, come on out I know its you!" \r 
+message trigger /s12 after the yell  
+/s12
+}
+
+"/C1"
+{
+// Super chicken off stage yelling
+message "from off stage"
+"/yell Know what?" \r
+message -->> MIUG CUE IS TO START HER LINE HERE
+pause 40
+"/yell Umm, ya, dat's the ticket..." \r
+pause 40
+"/yell Umm, ya i have dem happy feet.." \r
+message CUE "Skirwan: so they can get involved in that little brion drama that you orchestrated." 
+message ==> C2 
+}
+
+"/s12"
+{
+"Isn't it obvious. " \r
+pause 20
+"Who else would possibly have the motivation to make it harder to get off KI, " \r
+pause 30
+"not any of the people who hunt it that's for sure, " \r
+pause 25
+"not only are you trying to re-balance the area to be more epic, " \r
+pause 25
+"as you and your fairgrounds cronies always intended, " \r
+pause 25
+"but you're also diverting those who still go there to the ethereal plane " \r
+pause 30
+"so they can get involved in that little brion drama that you orchestrated." \r  
+message trigger /s13 after yell  
+/s13
+}
+
+"/C2"
+{
+message "a Voice from off stage"
+"/yell Then where did the good wood go?" \r
+message "stay offstage"
+message CUE "Skirwan: I think you just dumped the stuff"
+message ==> C3
+}
+
+"/s13"
+{
+"I don't know, " \r
+pause 20
+"Und'rus has made some progress, " \r
+pause 20
+"so has Cassia Allin. " \r
+pause 20
+"I don't think you really care about them though, " \r
+pause 25
+"I think you just dumped the stuff." \r  
+message trigger /s14 after Chicken lies down  
+/s14
+}
+
+"/C3"
+{
+Message "still a Voice from off stage"
+message "enter on 'i used the wood'"
+"/yell That's where you're wrong, " \r
+pause 48
+"/yell I used the wood to make a statue, " \r
+pause 48
+"/yell a statue to" \r
+pause 8
+message CUE!! "(Super Chicken enters while blowing his horn)"
+message "BEGIN TO ENTER NOW!"
+"/equip horn \r"
+message 4
+pause 1
+message 3
+pause 1
+message 2
+pause 1
+message 1
+pause 1
+"/use horn \r"
+message 8
+pause 1
+message 7
+pause 1
+message 6
+pause 1
+message 5
+pause 1
+message 4
+pause 1
+message 3
+pause 1
+message 2
+pause 1
+message 1
+pause 1
+"CHICKEN GLORY!!" \r
+"/pose cel \r"
+"/pose ang \r"
+"/pose cel \r"
+"/pose ang \r"
+"/pose cel \r"
+"/pose ang \r"
+"/pose cel \r"
+"/pose ang \r"
+"/pose cel \r"
+pause 4
+"/pose lie \r"
+message CUE "Skirwan: I was so sure that it was Pengy!"
+message ==> C4
+}
+
+"/s14"
+{
+"/narrate Skirwan gasps, flabbergasted " \r
+pause 20
+"But but how?" \r  
+pause 20  
+"I was so sure that it was Pengy! \r"  
+message trigger s15 after Chicken stops moving?  
+/s15
+}
+
+"/C4"
+{
+"/pose ang \r"
+"Anyone who's seen Sticklord II " \r
+pause 16
+"(available at all good visionstone stores) " \r
+"/pose leanleft " \r
+"/pose leanright " \r
+"/pose leanleft " \r
+"/pose leanright " \r
+pause 16
+"knows that I can one-hit anyone in the lands, " \r
+"/pose cel \r"
+pause 16
+"even if that pesky Slyph blindsided me. " \r
+"/pose cel \r"
+"/pose kne \r"
+"/pose sit \r"
+"/pose cel \r"
+pause 16
+"I got that way by untraining into Sindyth One-Hit.. " \r
+"/pose cel \r"
+pause 16
+"BEFORE I KILLED HIM. " \r
+"/pose cel \r"
+pause 12
+"/yell Bawk!" \r
+"/pose cel \r"
+"/pose lie \r"
+message CUE "Skirwan: So it was you?"
+message ==> C5
+}
+
+"/s15"
+{
+"So it was you?" \r  
+message trigger /s16 after 'Sindyth'  
+/s16
+}
+
+"/C5"
+{
+"Yes, " \r
+pause 8
+"that's why my Atkus is so bad. " \r
+"/pose ang" \r
+pause 14
+"Once I had Sindyth's ledger, " \r
+"/pose cel" \r
+pause 14
+"there was no need for me to keep my old teacher around anymore " \r
+"/pose ang" \r
+pause 20
+"so I offed him, " \r
+"/pose cel" \r
+pause 12
+"thus preventing anyone else " \r
+"/pose ang" \r
+pause 16
+"from attaining my chickenlike ability.  " \r
+"/pose cel" \r
+pause 16
+"Bawkabawk. " \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"I stripped KI of all the good wood " \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"to give to Chi'kun Tenders " \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"So not even that pesky Chi'kun Fowlbane " \r
+"/pose ang" \r
+pause 16
+"could stop me " \r
+"/pose sal" \r
+pause 10
+"from achieving " \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose cel" \r
+"/pose sal" \r
+"the chicken gloriousness of having a fifty foot high golden statue erected of me. " \r
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+"/pose sit \r"
+"/pose cel \r"
+pause 8
+"There was only one loose end..... " \r
+"/pose tho" \r
+pause 12
+"The girl who shared a hole with Sindyth." \r
+"/pose lie" \r
+message CUE "Skirwan: SECOND: That was you TOO?" 
+message ==> C6
+}
+
+"/s16"
+{
+"Me. " \r
+pause 15
+"So pushing me into that hole in east field. " \r
+pause 25
+"That was you? " \r
+pause 20
+"Getting Fat Alice to set me up? " \r
+pause 20
+"That was you too?" \r  
+message trigger /s17 after 'Bawk'  
+/s17
+}
+
+"/C6"
+{
+"Don't forget luring you into the fairgrounds " \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose ang" \r
+pause 20
+"where no one will hear you scream Bawk!" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+message CUE "Skirwan: You don't attack me now"
+message ==> C7
+}
+
+"/s17"
+{
+"Wait! " \r
+pause 15
+"You don't attack me now" \r  
+/s18
+}
+
+"/C7"
+{
+"/pose ang" \r
+"I don't? " \r
+pause 12
+"/pose sur" \r
+"But I just recited my elaborate plan, " \r
+pause 12
+"/pose tho" \r
+"don't I kill you now?" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r 
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+message CUE "Skirwan: trusting that everything goes to plan."
+message ==> C8
+}
+
+"/s18"
+{
+"No. " \r
+pause 10
+"You need to read up on your antagonist clich's more. " \r
+pause 25
+"Now you leave some underling to take care of me and wander off, " \r
+pause 25
+"trusting that everything goes to plan." \r  
+message /s19 after 'stick'  
+/s19  
+}
+
+"/C8"
+{
+"Bawk? " \r
+"/pose sur" \r
+"/pose cel" \r
+"/pose sur" \r
+"/pose cel" \r
+pause 8
+"How pesky! " \r
+"/pose tho" \r
+pause 12
+"/pose ang " \r
+"All right then " \r
+"/pose ang " \r
+"/pose cel" \r
+"/pose ang " \r
+"/pose cel" \r
+pause 12
+"/yell Fat Alice!" \r  
+message CUE "Fat Alice: Yes?"
+message ==> C9
+}
+
+"/F7"
+{
+message "Fat Alice (entering)"
+"Yes?" \r  
+message trigger /F8 after Chicken exits  
+/F8
+}
+
+"/C9"
+{
+"Dispose of our last witness " \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+pause 14
+"while I climb to the top of my golden statue for some reason, " \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+pause 16
+"and set up a thrilling finale at a great height " \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+message CUE ==> "(He exits)"
+pause 80
+message ENTER ON Skirwan: "and scaled the massive golden statue all the way up to its horn."  
+message ==> C10
+pause 20
+"/yell BAWK!" \r
+}
+
+"/F8"
+{
+"With pleasure! " \r
+pause 12
+"Give my regards to Sindyth One-Hit, thoom girl!" \r  
+pause 12
+"Prepare to taste stick!" \r  
+message cue /F9 after 'staff'  
+/F9
+}
+
+"/s19"  
+{  
+"A stick, eh? I wood-n't do that. Don't you have staff to do it for you?" \r  
+message /s20 after 'fair'  
+/s20  
+}  
+
+"/F9"  
+{  
+"Stop that! No puns! It's not fair!" \r  
+message /F10 after 'fete'  
+/F10  
+}  
+
+"/s20"  
+{  
+"Fair? No, it's fete!" \r"  
+message /s20 after 'melting'  
+/s20  
+}  
+
+"/F10"
+{  
+"Gah! Puns! My weakness! I'm melting! I'm melting!" \r  
+message /F11 after 'fluid'  
+/F11  
+}  
+
+"/s21"  
+{  
+"No longer a solid citizen? You've been liquidated by my fluid word play!" \r  
+message /s22 after FA leaves  
+/s22  
+}  
+
+"/F11"  
+{  
+"NOOOOO!!!!!" \r  
+message (She exits)  
+}  
+
+// Drop Scene 4: Drop black backdrop for transition, "It's been a gas."
+
+"/s22"  
+{  
+"So long Fat Alice, it's been a gas." \r  
+pause 25  
+"I quickly dodged through the Dar'shak infested Phineas Island en route to the zoo" \r  
+pause 30  
+"and scaled the massive golden statue all the way up to its horn." \r  
+message /s23 after coming face to face with Chicken  
+/s23  
+}  
+ 
+// Drop Scene 5: Top of Chicken Statue: facing east, coast and other islands visible, overcast, misty over treetops 40' elevation.
+
+"/s23"  
+{  
+"It's over Super Chicken." \r  
+pause 25  
+"I dropped a house on Fat Alice and rolled her for her ruby shoes and you're next." \r  
+pause 30  
+"You're going to pay for what you did to Mujin-kun and Sindyth One-Hit." \r  
+message /s24 after 'Bawk'  
+/s24  
+}  
+
+"/C10"  
+{  
+"And how do you intend to stop me?"\r
+"/pose ang" \r
+pause 20
+"My golden statue is complete," \r
+"/pose cel" \r
+pause 4
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+pause 4
+"as soon as I throw this conveniently placed lever here," \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+pause 12
+"it will harness the mighty winds of Lok Groton" \r
+message "RUN AROUND HERE UNTIL NEXT MSG"
+pause 20
+message "STOP RUNNING"
+pause 8
+"/pose lie" \r
+"and funnel them into this enormous horn." \r
+"/pose cel" \r
+"/pose aki" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose aki" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose aki" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose aki" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose aki" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose aki" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose aki" \r
+"/pose ang" \r
+pause 8
+"The noise will annoy the very ancients themselves." \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+pause 12
+"It will send the moon and sun crashing from the sky down to earth" \r
+"/pose ang" \r
+pause 24
+"where I will gnaw on their celestial feet. Bawk!" \r
+message "RUN AROUND HERE UNTIL NEXT MSG"
+pause 12
+message "STOP RUNNING"
+pause 8
+"/pose lie" \r
+message CUE "Skirwan: You're mad!"  
+message ==> C11  
+}  
+
+"/s24"  
+{  
+"/ponder hey, that sounds kinda fun" \r  
+pause 10  
+"/narrate Skirwan shakes herself" \r  
+pause 10  
+"You're mad!" \r  
+message /s25 after Chicken laughs madly  
+/s25  
+}  
+
+"/C11"  
+{  
+"What you call madness," \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+" I call insanity!" \r  
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+pause 4
+"No one can stop me now!" \r
+"/pose sal" \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose cel" \r
+"/pose sal" \r
+"/pose cel" \r
+pause 12
+"Yap yap yap! "
+message "RUN AROUND UNTIL NEXT MSG"
+pause 18
+message "STOP RUNNING"
+"I'm the most powerful chicken in the world!" \r
+"/pose cel " \r
+pause 8
+"Muahahaha!" \r
+"/pose lie "\r
+pause 8
+"/pose cel " \r
+message CUE "Skirwan: second-most"
+message ==> C12
+}
+
+"/s25"  
+{  
+"second most" \r"  
+message trigger /s26 after 'sorry'  
+/s26  
+}  
+
+"/C12"
+{
+"/pose lie \r"
+pause 8
+"/pose cel \r"
+"I'm sorry?" \r
+"/pose ang" \r
+message CUE "Santa Chicken: That's no good. It puts all chickenkind into disrepute."  
+message ==> C13  
+}  
+
+"/s26"  
+{  
+"You're right. I can't stop you." \r  
+pause 25  
+"But I know someone who can." \r  
+message Santa Chicken enters  
+message /s27 after the chickens leave  
+/s27  
+}  
+
+"/SC1"  
+{  
+"Ho Ho Ho Chicky! I hear you've been very bad this year." \r  
+pause 15  
+"That's no good. It puts all chickenkind into disrepute." \r  
+message /SC2 after chicken begs for presents  
+/SC2  
+}  
+
+"/C13"  
+{  
+"Oh no Santa."\r
+"/pose surp" \r
+pause 4
+"/pose tho" \r
+pause 4
+" I'll change. " \r
+"/pose sal" \r
+pause 4
+"I'll be ever so good." \r
+"/pose ang " \r
+pause 20
+"Pleeeease, I really want lil chicken presents this year." \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+message CUE: "Santa Chicken: ONE LINE==>Weeeell, if you're truly contrite"
+message ==> C14  
+}  
+
+"/SC2"  
+{  
+"Weeeell, if you're truly contrite" \r
+message /SC3 after "I am! I am!"  
+/SC3  
+}  
+
+"/C14"  
+{  
+"I am! I am!" \r
+message "RUN AROUND UNTIL NEXT MSG"
+pause 18
+message "STOP RUNNING"
+pause 2
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose lie " \r
+message CUE "Santa Chicken: Come, let me buy you a malted milk."  
+message ==> C15  
+}  
+
+"/SC3"
+{
+"I suppose I can keep you on my list of good boys and girls" \r
+pause 20
+"But you have to come down off this statue" \r
+pause 20
+"And stop planning to annoy the whole world with this ridiculous horn blowing scheme." \r
+pause 25
+"Come, let me buy you a malted milk." \r
+message exit with Super Chicken
+}  
+
+"/C15"  
+{  
+"Bawk!" \r
+"/pose cel" \r
+message "RUN AROUND UNTIL NEXT MSG"
+pause 18
+message "STOP RUNNING"
+message CUE: EXIT with Santa Chicken  
+}  
+
+// Drop Scene 6: Top of Chicken Statue: the sun breaks, sunbeam, overcast tone gone.  Facing far to the west, distant islands.
+
+"/s27"  
+{  
+"I sat at the top of the statue for a long time as I watched Santa and Super walk off into the distance." \r  
+pause 30  
+"I could see all of Lok Groton spread out before me all the way across to Peaceton." \r  
+pause 30  
+"Sure it was seedy when you were in the thick of it but from up here it looked almost peaceful." \r  
+pause 30  
+"And no matter what it keeps throwing at me, you can be sure" \r  
+pause 30  
+"that ol' Skirwan will keep bouncing back and take whatever is thrown at her." \r  
+pause 30  
+"Puddleby, you haven't heard the last of me." \r  
+}  
+
+"/C100"
+{
+"/pose bow" \r
+"/narr Super Chicken as SPASTIC Inu" \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel " \r
+"/pose sit " \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose ang" \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+}
+
+"/C111"  
+{  
+"What you call madness, I call insanity! ... Muahahaha!" \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose lie "\r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose cel" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+"/pose leanleft" \r
+"/pose leanright" \r
+}
+
+// NOTES:
+// 200804xx-Miug?: I'd like to combine some of those one-liner exchanges, and we need to settle the pauses for each character.  
+// 200804xx-Inu: I disagree.  I need to keep my lines separated so I can react and adapt to lag. 
+//       I have a lot of trouble with lag.  Sometimes it is very slow, on the order of 10 seconds,
+//       other times it is about 1-4 seconds of lag.
+// 200804xx-Miug: Hi Measle!  I wanted to add a line for Super Chicken, as I remember from Bawkmas that he claims he doesn't believe in Santa Chicken.
+// 200804xx-Inu: Please do not alter my triggers or cue messages. 
+//       I can't preload the upcoming trigger
+//        as it interferes with calling dances and other Super Chicken motions.
+//       I tend to up arrow to recover the last trigger then edit it.
+// 200804xx-Miug: All right, I won't put preloading in on yours--those are the Super Chicken lines? 
+// 200804xx-Inu: Yes the ones with /C# are mine, thanks!
+// 20080414-inu: I fixed the odd characters that show up when the script is copied and pasted into a text document. 
+//                     The ‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂‚àö¬¥‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö‚Ä†‚àö√°‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂¬¨¬•‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚àö¬∞‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö√ë‚Äö√Ñ‚Ä†‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö‚Ä†‚àö√°‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂‚àö¬¥‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√Ñ√∂‚àö√ë‚Äö√Ñ‚Ä†‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö√ë‚Äö√Ñ‚Ä†‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö‚Ä†‚àö√°‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö√ë‚Äö√Ñ‚Ä†‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂¬¨‚àû‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂‚àö¬¥‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö‚Ä†‚àö√°‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂¬¨¬•‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚àö¬∞‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö√ë‚Äö√Ñ‚Ä†‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö‚Ä†‚àö√°¬¨¬®¬¨¬Æ¬¨¬®¬¨√Ü¬¨¬®¬¨¬Æ¬¨¬®¬¨¬¢‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂‚àö¬¥‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√Ñ√∂‚àö‚Ä†‚àö√°‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂¬¨¬•‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂‚àö¬¥‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√Ñ√∂‚àö√ë‚Äö√Ñ‚Ä† character is the source of the probelms.  I did a replace all to make it into a ' character.
+// 200804??-Miug--I altered your cue in C9 to show that you should enter after one line, but not speak until another.  
+// 20080430-inu fixed my walking stuff to cue me to run instead.  Working on C9 entry to send cue after 20 second pause.
+//                     Also added my curtain call.
+//              - Also BTW I think I fixed my enormous lag issues, submitted trouble report to Eldon & co.  I have a workaround.
+// 20080501-inu: Fixed duplicate /s24 macro calls, made second one into /s25 which was skipped.
+// 20080502-inu: Fixed case on s1 - s18 macro calls.  They were uppercase, while miug uses lowercase. I made them lowercase to match
+//                     how they are preloaded.  Need to find out if Pun uses uppercase F or lowercase f for her calls.  If lowercase
+//                     then I need to fix it in this script. 
+//                     BTW.  Should I assume I am the only one who uses uppercase for macro calls in the future? 
+//20080502-Stars: Here are some scene descriptors for the backdrops, with scene numbers.  Inserted the descriptors and divided up the script into it's individual scenes.
+// Finished!        Prologue: Darkness, Narration, spotlight with darkness in the background: narrative, spotlight on Skirwan the Thoomess Mystic
+//                    Drop Scene 1: Fat Alice's cellar and workshop, dark, dirty, creepy things in jars, cobwebs.
+//                    Drop Scene 2: Kismia's Island Forest, deep dark woods, eyes in the darkness.
+//                    Drop Scene 3: Ruined home with lots of weeds in the fairgrounds, deep shadows. old wood, weeds.
+//  Finished!      Drop Scene 4: Drop black backdrop for transition, "It's been a gas."
+//                    Drop Scene 5: Top of Chicken Statue: facing east, coast and other islands visible, overcast, misty over treetops 40' elevation.
+//                    Drop Scene 6: Top of Chicken Statue: the sun breaks, sunbeam, overcast tone gone.  Facing far to the west, distant islands.
+// 20080503-Inu: Removed extra line breaks in middle of character line macros.  Left line breaks where scene changes
+//                      were indicated within character lines and outside of character lines.  Hope this doesn't mess anyone up!
+//                     I was concerned about the size of this macro file when finished.
+// 20080507 Stars WIP: http://www.falchion-gpx.com/sunset.gif This is for Scene 6:
+//                      Skirwan should walk up to the lower right of the scene as she looks into the distant sunset.

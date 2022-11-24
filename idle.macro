@@ -2,7 +2,7 @@
 // START: DHAwakeAFK integration
 //------------------------------------------------
 
-setglobal idlemacrofilerevision "2022-0612-0000-0015"
+setglobal idlemacrofilerevision "2022-1107-0000-0300"
 
 idleMe
 {
@@ -133,6 +133,8 @@ REMOVED EXILES UNTIL THEY COME BACK
 //			message "idle[129]:randomExileClanning is = " randomExileClanning
 			if @my.name == "inu teisei"
 				"/thank " randomExileClanning thankfnf 
+			else if thankstyle == "anon"
+				"/thank "  randomExileClanning " \r"
 			else
 				"/thank " randomExileClanning thankreg
 //			message "removed thank randomExileClanning for non Inu characters"

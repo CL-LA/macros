@@ -1,0 +1,76 @@
+//------------------------------------------------
+// readtext.txt
+//------------------------------------------------
+// Created: Dec 27, 2006
+// read text log macros
+
+// From Sentinnel - Raul
+rankcount
+{
+if gTrainerPhrase == ""
+	goto exit
+end if
+//------------------------------------------------
+// START: Readtext.mac by Raul integration
+//------------------------------------------------
+	set trainer gtrainerPhrase.word[2]
+	if gtrainerPhrase < "You have much to learn."
+		"/ponder " trainer ": 0-9.\r"
+	else if gtrainerPhrase < "It is good to see you."
+		"/ponder " trainer ": 10-19.\r"
+	else if gtrainerPhrase < "Your persistence is paying off."
+		"/ponder " trainer ": 20-29.\r"
+	else if gtrainerPhrase < "You are progressing well."
+		"/ponder " trainer ": 30-39.\r"
+	else if gtrainerPhrase < "You are a good pupil of mine."
+		"/ponder " trainer ": 40-49.\r"
+	else if gtrainerPhrase < "You are one of my better pupils."
+		"/ponder " trainer ": 50-99.\r"
+	else if gtrainerPhrase < "You keep me on my toes."
+		"/ponder " trainer ": 100-149.\r"
+	else if gtrainerPhrase < "It is hard to find more to teach you."
+		"/ponder " trainer ": 150-199.\r"
+	else if gtrainerPhrase < "Teaching you is a challenge."
+		"/ponder " trainer ": 200-249.\r"
+	else if gtrainerPhrase < "There is not much more I can teach you."
+		"/ponder " trainer ": 250-299.\r"
+	else if gtrainerPhrase < "Teaching you has taught me much."
+		"/ponder " trainer ": 300-349.\r"
+	else if gtrainerPhrase < "You have attained tremendous skill."
+		"/ponder " trainer ": 350-399.\r"
+	else if gtrainerPhrase < "We are nearly equals."
+		"/ponder " trainer ": 400-449.\r"
+	else if gtrainerPhrase < "You may be proud of your accomplishment."
+		"/ponder " trainer ": 450-499.\r"
+	else if gtrainerPhrase < "You are becoming a master of our art."
+		"/ponder " trainer ": 500-549.\r"
+	else if gtrainerPhrase < "Your dedication is commendable."
+		"/ponder " trainer ": 550-599.\r"
+	else if gtrainerPhrase < "You show great devotion to your studies."
+		"/ponder " trainer ": 600-649.\r"
+	else if gtrainerPhrase < "You are a credit to your craft."
+		"/ponder " trainer ": 650-699.\r"
+	else if gtrainerPhrase < "Few indeed are your peers."
+		"/ponder " trainer ": 700-749.\r"
+	else if gtrainerPhrase < "Your devotion to the craft is exemplary."
+		"/ponder " trainer ": 750-799.\r"
+	else if gtrainerPhrase < "It is always good to greet a respected colleague."
+		"/ponder " trainer ": 800-899.\r"
+	else if gtrainerPhrase < "You are truly a grand master."
+		"/ponder " trainer ": 900-999.\r"
+	else if gtrainerPhrase < "Let us search for more we might learn together."
+		"/ponder " trainer ": 1000-1249.\r"
+	else if gtrainerPhrase < "Your persistence is an example to us all."
+		"/ponder " trainer ": 1250-1499.\r"
+	else if gtrainerPhrase < "Your skill astounds me."
+		"/ponder " trainer ": 1500-1749.\r"
+	else if gtrainerPhrase < "You have progressed further than most."
+		"/ponder " trainer ": 1750-1999.\r"
+	else if gtrainerPhrase < "You are nearly peerless."
+		"/ponder " trainer ": 2000+.\r"
+ 	end if
+//------------------------------------------------
+// END: Readtext.mac - trainer message by Raul integration
+//------------------------------------------------
+label exit
+}

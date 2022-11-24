@@ -1,0 +1,61 @@
+
+set geo_base 11000
+set inu_base 12000
+set pun_base 13000
+
+set play[11000] "very good"
+set play[11001] "/nowait"
+set play[11002] "As we gather here today, let me take a seat"
+set play[11003] "/pause 4"
+set play[11004] "/pose sit"
+set play[11005] "/wait"
+set play[11006] "/hint go change in the yellow dress now"
+set play[11007] "/skip"
+set play[11008] "/hintnext"
+set play[11009] "go change in the purple dress now"
+set play[11010] "/hintafter 2000"
+set play[11011] "/call simple_func"
+set play[11012] "/call script_stopper"
+set play[11013] "/goto 1001"
+
+set play[12000] "To drink a round or two"
+set play[12001] "We look at all the folk"
+set play[13000] "Who've entered in to view"
+set play[13001] "There's sylvans with their ears"
+
+simple_func
+{
+    "hello\r"
+    pause 2
+    "there\r"
+    pause 2
+    "world\r"
+}
+
+script_stopper
+{
+    set my_counter + 1
+    message the counter is now at my_counter
+    if my_counter > 3
+        set play_index -1
+    end if
+}
+
+"/geo"
+{
+    set my_counter 0
+    set play_index geo_base
+    call play
+}
+
+"/inu"
+{
+    set play_index inu_base
+    call play
+}
+
+"/pun"
+{
+    set play_index pun_base
+    call play
+}

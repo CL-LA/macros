@@ -24,17 +24,17 @@ GoScan
 		pause 8
 		message "Type \"noscan\" to stop GoScan and DHAwakeAFK."
 	end if
-		if gTesting == 0
-			"/pose lie \r"
-			if @my.simple_name == "InuTeisei"
-				"/action naps like ? \r"
-			else
-//				"/action is groggy \r"
-		message "Loaded GoScan Loop"
-			end if
+	if gTesting == 0
+		"/pose lie \r"
+		if @my.simple_name == "InuTeisei"
+			"/action naps like ? \r"
 		else
-			message "Testing Mode: Default poses not run"
+//			"/action is groggy \r"
+	message "Loaded GoScan Loop"
 		end if
+	else
+		message "Testing Mode: Default poses not run"
+	end if
 }
 
 //------------------------------------------------

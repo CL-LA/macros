@@ -1,0 +1,112 @@
+// dances....
+"/song" call @text
+
+list
+{
+message Song List is
+message boo
+message merry
+message letitsnow
+}
+
+boo
+{
+"harp" \r
+pause 12
+"/narrate -Boo Boo Kitty's song by Haro"
+pause 12
+"/equip practicestarbuckharp" \r
+pause 8
+"/use \c9\d9\f9\e9p7=\g9g9\b9a9p=[df]9=p8[eg]9p9[=a/c]9p9[/c=g]p9=ga/c/p[df]8p8[ce]9p9[be]9p9p9\c9\d9\b9\e9\p [ce]9p9[bf]9p9[eg]9p9[cg]9p9pp9[dg]9p9[df]9p9[ce]9p9[g\b]9p9[c\g]9p9[c\a]9p9[c\e]p9[d\b]9p9[d\a]9p9d9d9[d\b]9p9[d\bf]9p9[a/c/e] 9p9" \r
+}
+
+merry
+{
+call beginsong
+"Stora roasting on an open fire...." \r
+pause 25
+"Frost Bear nipping on your nose, " \r
+pause 25
+"Yuletide carols being sung by Crius,"  \r
+pause 25
+"And folks dressed up like Purple Haze. " \r
+
+pause 50
+"Everybody knows an LP and some mistletoe, " \r
+pause 25
+"Help to make the season bright. " \r
+pause 25
+"Halflings with their eyes all aglow, " \r
+pause 25
+"Will find it hard to sleep tonight. " \r
+
+pause 50
+"They know that Santa's on his way; " \r
+pause 25
+"He's loaded lots of toys and goodies on his sleigh. " \r
+pause 25
+"And every TC Exile is going to spy, " \r
+pause 25
+"To see if dragons really know how to fly. " \r
+
+pause 50
+"And so I'm offering this simple phrase, " \r
+pause 25
+"To dwarfs from one to ninety-two, " \r
+pause 25
+"Although its been said many times, many ways, " \r
+pause 25
+"Merry Bawkmas to you " \r
+"/pose bow " \r
+}
+
+letitsnow
+{
+call beginsong
+"Oh the weather outside is frightful,  " \r
+pause 25
+"But the fire is so delightful, " \r
+pause 25
+"And since we've no place to go, " \r
+pause 25
+"Let It Snow! Let It Snow! Let It Snow! " \r
+pause 50
+
+"It doesn't show signs of stopping, " \r
+pause 25
+"And I've bought some corn for popping, " \r
+pause 25
+"The lights are turned way down low, " \r
+pause 25
+"Let It Snow! Let It Snow! Let It Snow! " \r
+pause 50
+
+"When we finally kiss goodnight, " \r
+pause 25
+"How I'll hate going out in the storm! " \r
+pause 25
+"But if you'll really hold me tight, " \r
+pause 25
+"All the way home I'll be warm. " \r
+pause 50
+
+"The fire is slowly dying, " \r
+pause 25
+"And, my dear, we're still good-bying, " \r
+pause 25
+"But as long as you love me so, " \r
+pause 25
+"Let It Snow! Let It Snow! Let It Snow!   " \r
+"/pose bow " \r
+}
+beginsong
+{
+"/action prepares to sing an old favorite" \r
+pause 20
+"/action clears her throat" \r
+pause 20
+"ahem....." \r
+pause 12
+"me me me me me" \r
+pause 20
+}

@@ -4,7 +4,7 @@
 // This macro file is included for every character by default.
 // Use it for general macros that you want available to all characters.
 
-setglobal defaultfilerevision "2022-0703-1200-0012"
+setglobal defaultfilerevision "2022-1109-1300-0014"
 
 include "abbreviations.macro"			// Common abbreviations contributed by many.
 include "dances.macro"					// A collection of dances, including a random picker.
@@ -70,29 +70,30 @@ include "yells.macro"					// generic yells
 //	setglobal myWeapon 		"dagger"  			// change this to your weapon of choice. 
 //	setglobal healingDevice "Mercurial Staff" 	// set to "Caduceus" or "Mercurial Staff"
 //	setglobal auraHDevice 	"Asklepian Staff" 	// Set this to "Asklepian" or "Asklepian Staff"
-Message "** Default Global Variables ** SET"
+Message "** DEFAULT == Global Variables SET == **"
 
 //::::::::::::::::::::::::::::::::::::::::::::::::
 // Global Variables Defined -- END SECTION
 //::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-message "********* RELOADED MACROS *********"
+message "** DEFAULT == RELOADED MACROS == **"
 if myspeed == ""
 	"\options speech speed medium \r"
 else
 	"\options speech speed " myspeed " \r"
 end if
+message "***************** From DEFAULT file *****************"
 message "Character File Used	-- " charfileused
 message "Character File Rev		-- " charfilerevision
 message "Default File Rev		-- " defaultfilerevision
 message "Abbreviations File Rev	-- " abbreviationsfilerevision
-message "idle File Rev 		-- " idlemacrofilerevision
-message "directions File Rev		-- " directionsrev
+message "idle File Rev                            -- " idlemacrofilerevision
+message "directions File Rev                  -- " directionsrev
 message "globalset File Rev		-- " globalsetfilerevision
-message "yells File Rev		-- " yellsfilerevision
-message "yells-la File Rev		-- " yellslafilerevision
-message "yells-geese File Rev		-- " yellsgeesefilerevision
+message "yells File Rev                          -- " yellsfilerevision
+message "yells-la File Rev                      -- " yellslafilerevision
+message "yells-geese File Rev               -- " yellsgeesefilerevision
 
 // set gTesting to 1 to disable various macros while testing.
 setglobal gTesting 			1
@@ -111,11 +112,10 @@ setglobal redopickexilecounter 0
 message "redopickexilecounter = " redopickexilecounter
 setglobal infoExileClanning @selplayer.simple_name
 message "infoExileClanning = " infoExileClanning
-message "/options speech speed (slow, normal, fast, zoom)"
+message "/options speech speed (slow, medium, fast, zoom)"
 "/options ? speech speed \r"
-message ** COINS **
+message "** DEFAULT == COINS == **"
 "/money \r"
-message "from default line 117"
 
 call defshares				// honors gTesting
 Message charmsg1
@@ -129,7 +129,7 @@ Message charmsg2
 // This must be kept inside the @login loop in order to stay running
 // and to keep the stuff below from being displayed IC
 
-	message "*** Starting MAIN LOOP ***"
+	message "*** DEFAULT: Starting MAIN LOOP ***"
 	call GoScan				 // in GoScanner.macro
 	call Scanner			 // in GoScanner.macro
 	label returnFromGoScan
@@ -210,4 +210,5 @@ message "===> Loaded Default macro file"
 2021-0224-Inu:	Added this log.
 				Attributions: Noivad and more I don't know.
 2022-0703-Inu:	Added abbreviations file revision to login message.
+2022-1109-Inu:	Added more indicators in messages to show where the macros are running from.
 */

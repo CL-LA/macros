@@ -168,7 +168,7 @@
 	"what do you say to exiles who question your return? \r"
 	pause 32
 	"/pose thoughtful \r"
-	message END IS /largo99
+	message END IS largo99
 }
 "/largo99"
 {

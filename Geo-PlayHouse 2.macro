@@ -1,0 +1,154 @@
+//////////////////////////////////////////////////////////
+/// STANDARD PLAYHOUSE MACROS ARE BELOW THIS /////////////
+//////////////////////////////////////////////////////////
+//      Here are he supported commands
+//  /goto index         index must be a valid index or the script will end
+//  /skip               just skip a line. useful to avoid renumbering lines after deletion
+//  /hintafter index    the next line will be messaged as a hint
+//  /hintnext           the next line will be messaged as a hint
+//  /hint text          the line will be messaged as a hint including the /hint prefix
+//  /multi count        count lines will be executed without pause after this one
+//  /nowait             lines will execute without pause until the next /wait
+//  /wait               restores the paused mode requiring "escape" to be hit
+//  /pause duration     call pause with duration as parameter, in frames
+//  /call function      calls the function whose name is specified. Function can do anything, 
+//                      including modifying the variable play_index which is liek a /goto
+//                      this is useful for advanced logic
+//  other lines starting with a / will be treated as CL macros and invoked as is
+//  lines without a slash will be treated as plain text and spoken as is
+//
+//  By default, to go to the next line or group of lines, player hits escape
+//  player can also arbitrarily jumps to a different line using the separate macro
+//  /playgoto line      the new value will be pickedup by the play macro 
+//
+// To kill the playscript without killing all macros, invoke the /playend macro.
+
+set play_debug 0
+"/playdebug"
+{
+    if play_debug == 0
+        setglobal play_debug 1
+    else
+        setglobal play_debug 0
+    end if
+}
+
+set playnext 0
+control-escape
+{
+    if play_debug == 1
+        message *show next
+    end if
+    setglobal playnext 1
+}
+
+set playgoto -1
+"/playgoto"
+{
+    setglobal playgoto @text
+}
+
+"/playend"
+{
+    setglobal playgoto -2
+}
+
+moveto
+
+slash_commands
+{
+    if currentline.word[0] == "/goto"
+        set play_index currentline.word[1]
+        setglobal playnext 1
+    else if currentline.word[0] == "/skip"
+        setglobal playnext 1
+    else if currentline.word[0] == "/hintafter"
+        set hintlineindex currentline.word[1]
+        set hintline play[hintlineindex]
+        message * next line after: hintline
+    else if currentline.word[0] == "/hintnext"
+        set currentline play[play_index]
+        message * currentline
+        set play_index + 1
+    else if currentline.word[0] == "/hint"
+        message * currentline
+    else if currentline.word[0] == "/debug"
+        if play_debug == 1
+            message * currentline
+        end if
+    else if currentline.word[0] == "/multi"
+        set play_multi currentline.word[1]
+    else if currentline.word[0] == "/nowait"
+        set play_multi 9999
+    else if currentline.word[0] == "/wait"
+        set play_multi 0
+    else if currentline.word[0] == "/pause"
+        pause currentline.word[1]
+    else if currentline.word[0] == "/call"
+        call currentline.word[1]
+        setglobal playnext 1
+    else if currentline.word[0] == "/callstop"
+        call currentline.word[1]
+    else
+        if play_debug == 1
+            message executing clcommand currentline
+        end if
+        currentline "\r"
+    end if
+}
+
+play
+{
+    setglobal playnext 0
+    set play_multi 0
+    set play_cue 1
+    set play_cue_index 1
+    
+label play_wait
+    if playgoto != -1
+        set play_index playgoto
+        setglobal playgoto -1
+    end if
+
+    if play_multi == 0
+        if playnext == 0
+            if play_cue == 1
+                set play_cue 0
+                message * waiting for cue play_cue_index
+                set play_cue_index + 1
+            end if
+            pause 1
+            goto play_wait
+        end if
+    else
+        set play_multi - 1
+    end if
+    
+    setglobal playnext 0
+    set play_cue 1
+
+label play_nowait
+    if play_debug == 1
+        message current index is play_index
+    end if
+    
+    if play[play_index] == "play[play_index]"
+        message "* play script ended at index" play_index
+        goto end
+    end if
+
+    set currentline play[play_index]
+    set play_index + 1
+
+    if currentline.letter[0] == "/"
+        call slash_commands
+    else
+        currentline "\r"
+    end if
+
+    
+    goto play_wait
+    
+label end
+}
+

@@ -1,0 +1,1129 @@
+﻿//------------------------------------------------
+// manticore.mac
+//------------------------------------------------
+
+"/manticore"
+{
+	message Cast (in order of appearance):
+	pause 20
+	message /judge# = Judge Haengemie (A judge ) = Measle
+	pause 20
+	message /ng# = Neige = Inu (Journeyman Mystic. Male of undisclosed race.)
+	pause 20
+	message /zr# = Zorton = Miug (Full Mystic. Male dwarven)
+	pause 20
+	message /r# = Raymond Shifter = Miug (Healer. Male Sylvan)
+	pause 20
+	message /m# = Manticore = Punny (Full Mystic. Male and and undisclosed. At least I think he's undisclosed. More resseasrch is needed for confirmation)
+	pause 20
+	message additional cast (Various court clerks and orgas)
+	pause 20
+	message "/c# = Clerk "
+}
+
+"/c1"
+{
+"/yell The case of Neige versus Manticore is now in session, \r"
+pause 40"
+"/yell The honourable Judge Haengemie is presiding. All rise! \r"
+pause 20
+message "(Enter Haengemie)"
+message "CUE: Judge= make himself understood. Call Neige. -->c2"
+}
+
+"/judge1"
+{
+message "Cue for judge2 is Neige: A shell possessèd of a different spirit"
+"Before me on my list today I see"\r
+pause 20
+"A strange case as grave as e’er presented."\r
+pause 20
+"Neige hast accused Manticore of a crime,"\r
+pause 20
+"Nigh unheard of in this fair island chain"\r
+pause 20
+"/pose surprised"\r
+"One of “impersonating a mystic”"\r
+pause 20
+"Neige needst show how this was skillfully done"\r
+pause 20
+"I am not sure how it was accomplished"\r
+pause 20
+"Did Manticore fall to one vermine bite?"\r
+pause 20
+"Or spend a goodly part of hunt chainèd?"\r
+pause 20
+"Call Neige to the stand and perhaps he will..."\r
+pause 20
+"...make himself understood. Call Neige."\r
+}
+
+"/c2"
+{
+message "from offstage"
+"/yell Call Neige! \r"
+message "(Enter Neige)"
+message "CUE: judge=And not in the purgatorical way. Call the flashback harp music! -->c3"
+}
+
+"/ng1"
+{
+"/pose bow \r"
+"Your honor, noted exiles, jury of my peers \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bless \r"
+"I come before you with news most grave \r"
+pause 20
+"Concerning what was once Manticore \r"
+"/pose thoughtful \r"
+pause 20
+"Yes, I say he who was once Manticore \r"
+"/pose cry \r"
+pause 20
+"For the exile you see now is no more than a shell \r"
+pause 20
+"A shell possess'd of a different spirit \r"
+"/pose surprised \r"
+pause 20
+message CUE: judge = How came you to this conclusion.
+message "==> /ng2"
+"/ng2"
+}
+
+"/judge2"
+{
+message "Cue for judge3 is Neige: Would be through the medium of flashback"
+"A most peculiar state of affairs!"\r
+pause 20
+"How came you to this conclusion?"\r
+}
+
+"/ng2"
+{
+"I could relate but I think perhaps the true way to tell \r"
+"/pose bless \r"
+pause 16
+"Would be through the medium of flashback \r"
+message CUE: Crier = Call the flashback harp music!
+message "==> /ng3"
+pause 40
+call spin
+call spin
+call spin
+call spin
+call spin
+"/pose stand east \r"
+"/pose stand se \r"
+"/pose stand s \r"
+"/ng3"
+}
+
+"/judge3"
+{
+message "/flashback on exit"
+message "Cue to re-enter and judge4 with harp in doing so is..."
+message neige: For I have to see a man about a Manticore"
+"Agreed, Journeyman Neige, thus I shall temporarily depart"\r
+pause 20
+"And not in the purgatorical way. Call the flashback harp music!"\r
+}
+
+"/c3"
+{
+"/yell Call the flashback harp music! \r"
+message (Harp music. Exit Haengemie and enter Zorton)
+message "CUE=Judge: Call the scene change! --> c4"
+}
+
+"/ng3"
+{
+"Ma'ta Zorton, you do me an honor by your presence \r"
+"/pose bow \r"
+pause 20
+"Yet furrowed is your brow. Bad news? \r"
+pause 7
+"/pose thoughtful \r"
+"/narrate Neige's face shows a hint of concern \r"
+message CUE: Zorton = It matters not to thee, the council is concerned upon something.
+message "==> /ng4"
+"/ng4"
+}
+
+"/zr1"
+{
+"It matters not to thee, the council is concerned upon something \r"
+message CUE: Neige= Can you not attune to the sincerity of my desire to assist? -->zr2"
+}
+
+"/ng4"
+{
+"/pose thoughtful s \r"
+"And I serveth the council, \r"
+"/pose kneel \r"
+pause 12
+"If you will let me know the cause of their displeasure \r"
+"/pose kneel \r"
+pause 20
+"I perhaps may be able to help. \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"Bold Zorton \r"
+"/pose bless \r"
+pause 8
+"You attune the jewels of the sun with a skill second to none \r"
+pause 12
+"Can you not attune to the sincerity of my desire to assist? \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+message CUE: Zorton = It seemeth out of our control at any rate.
+message "==> /ng5"
+"/ng5"
+}
+
+"/zr2"
+{
+"I can instruct you in nothing, good Neige \r"
+pause 20
+"The council is split on an issue, and were we not \r"
+pause 20
+"It seemeth out of our control at any rate. \r"
+message CUE: Neige = Skilled am I in the arts of persuasion--> zr3
+}
+
+"/ng5"
+{
+"/pose thoughtful \r"
+"Methinks you underestimate my powers \r"
+pause 12
+"/narrate Neige strokes his chin \r"
+pause 8
+"Though this hood may conceal my face \r"
+pause 20
+"A silver tongue it concealeth not \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"If thou needest allies to any cause that served our beloved guild \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"Then look no further than this humble servant \r"
+"/pose bless \r"
+pause 20
+"Though a mere journeyman may I be \r"
+pause 20
+"Skilled am I in the arts of persuasion. \r"
+pause 10
+"/pose aki \r"
+"/narrate Neige lifts an eyebrow \r"
+message CUE: Zorton= Very well, I shall relate to you the sorry tale.
+message "==> /ng6"
+pause 60
+"/narrate Neige smiles \r"
+"/ng6"
+}
+
+"/zr3"
+{
+"Truly thou art gifted in that regard. \r"
+pause 20
+"Convinced me to shed my burden hast thee done \r"
+pause 20
+"And rapidly so may I add, oh good Neige. \r"
+pause 20
+"Verily, coudst thou sell sand to the sand wurms \r"
+pause 20
+"Very well, I shall relate to you the sorry tale. \r"
+message CUE: Neige = Not, I hope, another flashback? -->zr4
+}
+
+"/ng6"
+{
+"/pose surprised \r"
+"Not, I hope, another flashback? \r"
+pause 20
+"/pose thoughtful \r"
+message CUE: Zorton = It concerneth Manticore.
+message "==> /ng7"
+"/ng7"
+}
+
+"/zr4"
+{
+"Gaia no. Methinks a flashback in a flashback be too confusing \r"
+pause 20
+"Plus, the words shall spin shall cutteth to the chase \r"
+pause 20
+"It concerneth Manticore \r"
+message CUE: Neige = And barely pokes a head out to guide lost fellows --> zr5
+}
+
+"/ng7"
+{
+"/pose thoughtful \r"
+"I barely knowest him. He is a full mystic, I recall, \r"
+pause 20
+"Yet one who sojourns in our academy's cloistered library \r"
+pause 20
+"And barely pokes a head out to guide lost fellows \r"
+"/pose attack east \r"
+"/pose stand east \r"
+message CUE: Zorton= To face down the magician and his brood of locks.
+message "==> /ng8"
+"/ng8"
+}
+
+"/zr5"
+{
+"/narrate Zorton rolls the sunstone around on his palm and frowns pensively.  \r"
+pause 20
+"*Was* a full mystic good Neige, *was*. \r"
+pause 20
+"Manticore is possessed of all the powers of a full mystic \r"
+pause 20
+"Yet only his body hath earned them \r"
+pause 20
+"Quite some time ago, noble Manticore, \r"
+pause 20
+"For noble he then was, let his spirit drift to lands anew \r"
+pause 20
+"Yet unlike others who leave these curs'd isles, \r"
+pause 20
+"His body yet remained, an empty shell \r"
+pause 20
+"Open to possession by any who knew the how \r"
+pause 20
+"The first to take up the body of Manticore we did not strenuously oppose \r"
+pause 20
+"For he kept that empty shell that was once our brother \r"
+pause 20
+"Encased in the books that were once his life \r"
+pause 20
+"Manticore was regarded perhaps as a senile uncle would be \r"
+pause 20
+"Eccentric, not trustworthy but essentially harmless \r"
+pause 20
+"But now a second spirit hast taken possession \r"
+pause 20
+"One with a more aggressive agenda \r"
+pause 20
+"No sooner than he took Manticore's body for his own \r"
+pause 20
+"Than he organised to acquire a fabled item \r"
+pause 20
+"One of the orga stones no less! \r"
+pause 20
+"Even as we speak, he hath organised a good score of exiles \r"
+pause 20
+"Who have plunged into the domain of our uni-optic foe \r"
+pause 20
+"To face down the magician and his brood of ´locks \r"
+message CUE: Neige = Canst thee not stop him? -->zr6
+}
+
+"/ng8"
+{
+"/pose salute \r"
+"Canst thee not stop him? \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose thoughtful \r"
+message CUE: Zorton= The council cannot and must not fall into disrepute.
+message "==> /ng9"
+"/ng9"
+}
+
+"/zr6"
+{
+"Alas no. Any action I as a full mystic take \r"
+pause 20
+"Will seem to speak for all our fair council \r"
+pause 20
+"Noted brethren think we shouldst not take open action \r"
+pause 20
+"While I disagree with him in the privacy of discussions \r"
+pause 20
+"I agree that our internal feud should not spill to the public forum \r"
+pause 20
+"The council cannot and must not fall into disrepute \r"
+message CUE: Neige = As talkative mystics are warned so often about? -->zr7
+}
+
+"/ng9"
+{
+"Ma'ta Zorton, I cannot allow this anaethema to be \r"
+"/pose cry \r"
+pause 20
+"As one who strives on this most difficult of paths \r"
+pause 20
+"I find the concept of one who hath not earned his place \r"
+pause 20
+"Doth fill me with distaste \r"
+"/pose thoughtful \r"
+pause 20
+"Canst thou not discharge him post haste \r"
+"/pose bless \r"
+pause 20
+"As talkative mystics are warned so often about? \r"
+message CUE: Zorton= My brothers and sisters are hamstrung.
+message "==> /ng10"
+"/ng10"
+}
+
+"/zr7"
+{
+"Nay, for the Manticore of old is ranked as a peer of mine \r"
+pause 20
+"A position so trusted and elevated \r"
+pause 20
+"That I cannot dismiss him without praying to the Demon God 'Hax' \r"
+pause 20
+"And I wouldst not sink so low, even if I knew the how \r"
+pause 20
+"My brothers and sisters are hamstrung \r"
+message CUE: Neige = And sabotage his plans for the magician's stone -->zr8
+}
+
+"/ng10"
+{
+"/narrate Neige ponders \r"
+pause 4
+"/pose salute \r"
+"Ma'ta Zorton, I can do it. I know I can \r"
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"/pose salute \r"
+pause 4
+"I will stop this pretender though the moon is already full \r"
+"/pose angry \r"
+pause 20
+"I shall bring disgrace upon him so that none will seek his aid \r"
+"/pose angry \r"
+pause 20
+"Forcibly can I extract him, even from orga lands \r"
+"/pose celebrate \r"
+pause 6
+"/pose celebrate \r"
+pause 6
+"/pose bless \r"
+pause 6
+"And sabotage his plans for the magician's stone \r"
+"/pose celebrate \r"
+pause 4
+"/pose celebrate \r"
+pause 6
+"/pose celebrate \r"
+pause 4
+"/pose celebrate \r"
+message CUE: Zorton= An art those cyclopean brutes have mastered.
+message "==> /ng11"
+"/ng11"
+}
+
+"/zr8"
+{
+"/narrate Zorton shoves the sunstone into his pocket.  \r"
+pause 20
+"If t'were done, t'were best it done quickly \r"
+pause 20
+"Already hath he cleared the first of the orga camps. \r"
+pause 20
+"False Manticore and his followers, \r"
+pause 20
+"I know not if they know the truth, \r"
+pause 20
+"Hath cleared the first of the orga camps \r"
+pause 20
+"And while Manticore strains to see through the illusory veil \r"
+pause 20
+"An art those cyclopean brutes have mastered \r"
+message CUE: Neige = I shall have him in town before the magician falls --> zr9
+}
+
+"/ng11"
+{
+"Fear not, my height challenged superior, \r"
+"/pose bless \r"
+pause 20
+"I shall have him in town before the magician falls \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+message CUE: Zorton= Expect BK and worse from the uneducated populace.
+message "==> /ng12"
+"/ng12"
+}
+
+"/zr9"
+{
+"Know this though, brave journeyman \r"
+pause 20
+"Many will think you wrong and perhaps may impede \r"
+pause 20
+"The full brunt of any backlash will be yours to bear \r"
+pause 20
+"Expect BK and worse from the uneducated populace \r"
+message CUE: Neige = For I have to see a man about a Manticore --> EXIT STAGE.
+message Change into Raymond Shifter's outfit!
+}
+
+"/ng12"
+{
+"I think not of myself \r" 
+"/pose salute \r"
+pause 6
+"but for the good of the guild \r"
+"/pose salute \r"
+pause 6
+"/pose salute \r"
+pause 6
+"And now, I bid my leave, Ma'ta \r"
+"/pose bow \r"
+pause 6
+"/pose bow \r"
+"For I have to see a man about a Manticore \r"
+"/pose bow \r"
+message "(Harp music, Exit Zorton, enter Haengemie)"
+message CUE: Judge= Am I to assume the flashback is done?
+message "==> /ng13"
+pause 36
+call spin
+call spin
+call spin
+call spin
+"/pose stand east \r"
+"/pose stand se \r"
+"/pose stand s \r"
+"/ng13"
+}
+
+"/judge4"
+{
+message "cue for judge5 is Neige: It is, your honor."
+"Through the harp’s most dulcet tones"\r
+pause 20
+"And my apparent reappearance here,"\r
+pause 20
+"Am I to assume the flashback is done?"\r
+}
+
+"/ng13"
+{
+"It is, your honor. \r"
+"/pose bow \r"
+pause 6
+"/pose bow \r"
+pause 6
+"/pose bow \r"
+pause 6
+"/pose bow \r"
+pause 2
+"/pose bow \r"
+message CUE: Judge= So one would assume those events led you to this court.
+message "==> /ng14"
+"/ng14"
+}
+
+"/judge5"
+{
+message "Cue for judge6 Neige: Where most deservedly he will languish"
+"So one would assume those events led you to this court"\r
+}
+
+"/ng14"
+{
+"/pose bow \r"
+"Your honor is most astute. \r"
+pause 4
+"/pose bow \r"
+"It has indeed. \r"
+pause 6
+"/pose bow \r"
+"For far reaching are the court's powers \r"
+"/pose bless \r"
+pause 16
+"Should Manticore be found guilty, and I know he is, \r"
+pause 16
+"The hand of justice shall find him no matter where he hides \r"
+"/pose salute \r"
+pause 5
+"/pose salute \r"
+pause 5
+"/pose salute \r"
+pause 6
+"Swiftly shall it take him to Puddleby's gaol \r"
+"/pose celebrate \r"
+pause 4
+"/pose celebrate \r"
+pause 4
+"/pose celebrate \r"
+pause 4
+"/pose celebrate \r"
+"Where most deservedly he will languish \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+"/narrate Neige smiles slightly \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+message CUE: EXIT on cryer - Call the scene change.
+message RE-ENTER on Raymond 'Then at retrial to the gaols did go.'
+message CUE "==> /ng15"
+"/ng15"
+}
+
+"/judge6"
+{
+message "/scene and exit at end of speech"
+message "Cue for yell Mant: We all have achieved this together. This is ours."
+message "Yell is A message for Ma’ta Manticore from Puddleby"
+message "/scene and /judge7 on reenter when Mant thinks 'done'"
+"That is a matter for the jury to decide"\r
+pause 20
+"My skryers tell me Manticore is in distant orga lands"\r
+pause 20
+"Yet were he to be called here, then Neige’s purpose…"\r
+pause 20
+"…Is done regardless of the jury’s verdict"\r
+pause 20
+"/narrate Judge Haengemie thinks long and hard"\r
+pause 30
+"Therefore I will allow him to defend himself"\r
+pause 20
+"From the heat of battle, if he can"\r
+pause 20
+"Call the scene change!"\r
+}
+
+"/c4"
+{
+"/yell Call the scene change! \r"
+message "(Exit all. Enter Manticore, Raymond Shifter and several Orgas)"
+message "(The Orgas say ¨Dieth! and ¨Killleth! but Shifter keeps them at bay and forces them to retreat)"
+message CUE: Manticore = We all have achieved this together. This is ours --> c5
+}
+
+"/r1"
+{
+"Good Manticore, you're hurt. Let me heal. \r"
+message CUE: Manticore = How fares the battle? How fares the day? --> r2
+}
+
+"/m1"
+{
+"You are most welcome, Raymond Shifter \r"
+pause 20
+"How fares the battle? How fares the day? \r"
+message CUE: Raymond = But today we move as one to wrest the orga stone --> m2
+}
+
+"/r2"
+{
+"Truly it an enchanting sight to behold. \r"
+pause 20
+"We make slow but ever increasing progress. \r"
+pause 20
+"Soon this last orga camp will be contained \r"
+pause 20
+"And we shall make our final assault on the magician \r"
+pause 20
+"Elenis Reyav and Fist of Fluff are great warriors \r"
+pause 20
+"They have made inroads in thinning the locks to the west \r"
+pause 20
+"These needst be cleared before we proceed through the south path \r"
+pause 20
+"Koric, Cradlesong and Anaeka between them seem unstoppable \r"
+pause 20
+"Between rodding the cursed orga rays and raising our fallen \r"
+pause 20
+"And these are but a few of the valiant souls here today \r"
+pause 20
+"We may be a scratch crew, not veterans who know each others moves \r"
+pause 20
+"But today we move as one to wrest the orga stone \r"
+message CUE: Cryer = A message for Ma'ta Manticore from Puddleby -->r3
+}
+
+"/m2"
+{
+"It warms my heart to hear of this cooperation \r"
+pause 20
+"I cannot thank thee enough for thy help \r"
+pause 20
+"For while I may be the one to walk into the room of power \r"
+pause 20
+"I am not the one who claimed the stone. \r"
+pause 20
+"We all have achieved this together. This is ours. \r"
+message CUE: Raymond = I shall ascertain its content and return directly --> m3
+}
+
+"/c5"
+{
+"/yell A message for Ma'ta Manticore from Puddleby \r"
+message CUE: Manticore at end of play = will always be 'Hidden. --> c6
+}
+
+"/r3"
+{
+"Strange that they should risk a messenger to these troubled lands \r"
+pause 20
+"I shall ascertain its content and return directly \r"
+message "(Exit Raymond Shifter)"
+message CUE: Manticore = Hast an ill befouled our town? --> r4
+}
+
+"/m3"
+{
+"I never thought the air would smell so sweet \r"
+pause 20
+"So far from civilised lands \r"
+pause 20
+"Too long have I tarried in the library \r"
+pause 20
+"The bitter ozone of the waves to open Noth I feel \r"
+pause 20
+"But this orga scent, the burning hair \r"
+pause 20
+"The sweat of the brutish creatures \r"
+pause 20
+"On my sedentary nostrils \r"
+pause 20
+"It pertains to adventure \r"
+pause 20
+"Truly this is what it is to be alive. \r"
+message "(Enter Raymond Shifter)"
+pause 35
+"I would ask what news, good Raymond Shifter \r"
+pause 20
+"But the expression on your face pains me \r"
+pause 20
+"It cannot be fair news to have travelled so far \r"
+pause 20
+"For bad news travels with more reliability \r"
+pause 20
+"Speak, good sirrah. That I might know \r"
+pause 20
+"Hast an ill befouled our town? \r"
+message CUE: Raymond = Is none other than yourself. -->m4
+}
+
+"/r4"
+{
+"The news is indeed bad, friend \r"
+pause 20
+"But the town is not unsafe \r"
+pause 20
+"The object of this unhappy plight \r"
+pause 20
+"Is none other than yourself. \r"
+message CUE: Manticore = What? What? Speak on, friend Raymond --> r5
+}
+
+"/m4"
+{
+"What? What? Speak on, friend Raymond \r"
+message CUE: Raymond = And impersonating someone you are not --> m5
+}
+
+"/r5"
+{
+"It a summons from the court \r"
+pause 20
+"It says you are to defend yourself \r"
+pause 20
+"Either in person or by sunstone \r"
+pause 20
+"It claims you are mad \r"
+pause 20
+"That your body has been possess'd by another \r"
+pause 20
+"You are accused of the attempted theft of a stone \r"
+pause 20
+"And impersonating someone you are not \r"
+message CUE: Manticore = Why does this not surprise me. --> r6
+}
+
+"/m5"
+{
+"And my accuser chooses now of all moments to make his case? \r"
+pause 12
+"Why does this not surprise me. \r"
+message CUE: Raymond = What say you to the charges? --> m6
+}
+
+"/r6"
+{
+"What say you to the charges? \r"
+message CUE: Manticore = A pox on the cursed one who brought this to pass --> r7
+}
+
+"/m6"
+{
+"Look at these hands, Raymond \r"
+pause 20
+"Stare at the calluses and the spider webs of lines \r"
+pause 20
+"These are the hands that have held my rod and staff for all these years \r"
+pause 20
+"Look at these feet, these bunioned, wizened feet \r"
+pause 20
+"They are the same feet that trudged across this land \r"
+pause 20
+"In pursuit of shiny stones and hidden puzzles \r"
+pause 20
+"Look at this whole body and who dost thou see \r"
+pause 20
+"Manticore, holder of a ledger in teleportation \r"
+pause 20
+"Manticore, piercer of illusions \r"
+pause 20
+"They say I'm mad do they? Insane? Possessed? \r"
+pause 20
+"Maybe I am. Maybe I've been possessed for longer than I've been my birth self \r"
+pause 20
+"But it's still me. Maybe I'm an amalgam \r"
+pause 20
+"A conglomeration of different souls \r"
+pause 20
+"All sharing the same body \r"
+pause 20
+"But it is still Manticore, the self same \r"
+pause 20
+"Great Raldin guessed at my nature long ago \r"
+pause 20
+"But minded not back then \r"
+pause 20
+"But as what I am has become more well known \r"
+pause 20
+"More seek to destroy the mixture of souls \r"
+pause 20
+"That is by now my innate makeup \r"
+pause 20
+"It's only this body that causes rejection \r"
+pause 20
+"When this self same soul was on Kismia's Isle but yesterday \r"
+pause 20
+"Helping mystics reach an ethereal trainer \r"
+pause 20
+"No one seemed to mind. How tragic. \r"
+pause 20
+"Whomsoever set this trial has done a wicked thing \r"
+pause 20
+"But worse still, no other mystic strives this full moon \r"
+pause 20
+"Were my enemies to get their way \r"
+pause 20
+"Then the stone guarded by the orga shall go unclaim'd \r"
+pause 20
+"Tis a sad day for Puddleby \r"
+pause 20
+"When people would rather see the stone in the hands of the orga \r"
+pause 20
+"Than in the hands of one of their own \r"
+pause 20
+"A deal with the ´brions who ask for stones \r"
+pause 20
+"Is pushed yet another step back \r"
+pause 20
+"A pox on the cursed one who brought this to pass \r"
+message "(Manticore collapses)"
+message CUE: Raymond = Whomsoever did this shall pay dearly --> m7
+}
+
+"/r7"
+{
+"My lord! You seem faint \r"
+pause 20
+"I will strive do bring this frivolous person to justice \r"
+pause 20
+"A jury hast been assembled \r"
+pause 20
+"Yet we who are your allies far from town are not on it \r"
+pause 20
+"Being far too busy striving for the stone \r"
+pause 20
+"Yet I vow to you, even if you are taken \r"
+pause 20
+"Whomsoever did this shall pay dearly \r"
+message CUE: Manticore = Manticore thinks Done --> EXIT.
+message RE-ENTER when Judge says 'The names are young enough for some of you to know'.--> r8
+}
+
+"/m7"
+{
+"More's the pity that my testimony can't be heard \r"
+pause 20
+"Through any means bar sunstone \r"
+pause 20
+"It maketh things hard to articulate \r"
+pause 20
+"I shall just think ¨done and have an end to it \r"
+pause 20
+"/narrate Manticore thinks Done \r"
+message EXIT all. Enter Haengemie"
+message CUE: RE-ENTER when Zorton says 'But has not been seen in a while, as far as we can tell' --> m8
+}
+
+"/judge7"
+{
+"Esteemed jurors have now heard the cases of both sides"\r
+pause 20
+"And have left to consider their verdict"\r
+pause 20
+"Wise Aravir, noble K’Pyn, cunning Wangah Rah, brave Ogant"\r
+pause 20
+"Valiant Clyde, mighty Gunslinger, compassionate Ledward Vicious and bald Jo’Maril"\r
+pause 20
+"A veritable all star cast of jurors have now reached their verdict"\r
+pause 20
+"Which has been sunstoned to me by my clerk"\r
+pause 20
+"I will now read both the verdict and the sentence"\r
+pause 20
+"Before I do I must point out that the verdict was not unanimous"\r
+pause 20
+"Yet a simple majority was reached"\r
+pause 30
+"In the matter of Neige versus Manticore"\r
+pause 20
+"/narrate Judge Haengemie pauses for dramatic effect"\r
+pause 35
+"I find for the plaintiff. Manticore is guilty"\r
+pause 20
+"The sentence is as follows as recommended by the jurors"\r
+pause 20
+"Manticore is fined will spend 90 full minutes in gaol"\r
+pause 20
+"Furthermore he is banished from Puddleby for five days"\r
+pause 20
+"He has been extracted from the orga camp"\r
+pause 20
+"Leaving his time striving for naught"\r
+pause 30
+"/action breaks character"\r
+pause 40
+"Now members of the public who come to hear this play"\r
+pause 20
+"Might wonder about where the participants are today"\r
+pause 20
+"For though these events took place long ago"\r
+pause 20
+"The names are young enough for some of you to know"\r
+}
+
+"/r8"
+{
+"Of all those that raided, hottest did Shifter's rage burn. \r"
+pause 20
+"He brought two suits against Neige upon his return. \r"
+pause 20
+"Strange thing about jury selection \r"
+pause 20
+"The verdicts were different on each election. \r"
+pause 20
+"Neige was at first set free to go \r"
+pause 20
+"Then at retrial to the gaols did go. \r"
+message EXIT and change into ZORTON.
+message RE-ENTER as ZORTON end on Neige's line: The broken man left the lands, a journeyman still.
+}
+
+"/ng15"
+{
+"/pose bow \r"
+"Neige suffered a backlash from some in the town \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"Where once he was smiled on, he now drew frowns. \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"His honeyed tongue was to no avail \r"
+"/pose kneel \r"
+pause 16
+"Among those who opposed Manticore's time in gaol \r"
+pause 16
+"Accusations flew in all this commotion \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"That he brought the matter to trial in hopes of a promotion. \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"That Neige might one day be a mystic elite \r"
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"/pose bow \r"
+pause 4
+"An achievement, in fact he was never to meet. \r"
+"/pose bless \r"
+pause 4
+"/pose bless \r"
+pause 4
+"/pose bless \r"
+pause 4
+"/pose bless \r"
+pause 4
+"Burdened by some of the town's ill will \r"
+"/pose bless \r"
+pause 4
+"/pose bless \r"
+pause 4
+"/pose bless \r"
+"/pose bow \r"
+pause 4
+"The broken man left the lands, a journeyman still. \r"
+"/pose bless \r"
+pause 16
+call spinfall
+message "==> /ng100"
+"/ng100"
+}
+
+"/zr10"
+{
+"Zorton stood witness at the trial for Neige \r"
+pause 20
+"And also became the focus of some anti mystic rage \r"
+pause 20
+"Yet so great were his skills for him not as long \r"
+pause 20
+"Eventually he was welcomed by all back to Puddleby's throng \r"
+pause 20
+"The go-to man for sun gems studies hard and well \r"
+pause 20
+"But has not been seen in a while, as far as we can tell \r"
+message Wait for curtain call, do not exit.
+}
+
+
+"/m8"
+{
+"And what of the centre of this trial's storm \r"
+pause 20
+"Did 'pocket mystics' become the norm? \r"
+pause 20
+"Did Manticore get an orga stone in the end \r"
+pause 20
+"Perhaps he could have. He had many a friend \r"
+pause 20
+"But the fuss weighed heavily on Manticore's brow \r"
+pause 20
+"He reappeared once more and took the vow \r"
+pause 20
+"That until his soul had earned the right \r"
+pause 20
+"The body to the library would take permanent flight \r"
+pause 20
+"After the trial no one heard from him again \r"
+pause 20
+"And this brings our play almost to its end \r"
+pause 20
+"There is left behind, of course, one unanswered question \r"
+pause 20
+"I'm sure you can guess, unprompted by suggestion, \r"
+pause 20
+"If Manticore was a mystic kept firmly in a pocket \r"
+pause 20
+"And he were controlled well who was it? \r"
+pause 20
+"Who plumbed mysteries which to them would otherwise be forbidden \r"
+pause 20
+"Well some answers, I guess. \r"
+message (Manticore takes off his cloak revealing himself as a male thoom)
+pause 20
+"will always be 'Hidden.' \r"
+message "==> /C6"
+}
+
+"/c6" "/yell THE END \r"
+
+
+"/ng100"
+{
+"/pose bow \r"
+"/narrate Inu Teisei as Neige \r"
+"/pose bow \r"
+pause 10
+"/pose bless \r"
+pause 40
+"/pose surprise \r"
+"Vote for Largo! \r"
+pause 40
+call smoochies
+}

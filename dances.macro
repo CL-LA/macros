@@ -37,7 +37,7 @@ LABEL dancer
 		call throb
 		call vog
 	else if @text == "loop"
-		call loop
+		call loopdcr
 	else if @text != ""
 		call @text
 	else
@@ -60,7 +60,7 @@ LABEL dancer
 end label
 }
 
-loop
+loopdcr
 {
 set count 1
 set dancetotal 5
@@ -133,7 +133,8 @@ aki
 	"/pose attack left \r"
 	pause 1
 	"/pose leanleft \r"
-	pause 1	"/pose akimbo \r"
+	pause 1	
+	"/pose akimbo \r"
 	pause 1
 	"/pose attack left \r"
 	pause 1
@@ -158,7 +159,8 @@ aki
 	"/pose attack left \r"
 	pause 1
 	"/pose leanleft \r"
-	pause 1	"/pose bless \r"
+	pause 1	
+	"/pose bless \r"
 	pause 5
 	"/pose bow \r"
 	pause 5
@@ -245,7 +247,7 @@ chik
 	"/pose bless \r"
 	"/pose angry \r"
 	pause 2
-		"/pose stand \r"
+	"/pose stand \r"
 	"/pose akimbo \r"
 	"/pose angry \r"
 	"/pose akimbo \r"
@@ -516,7 +518,6 @@ throb
 	"/pose kneel \r"
 	pause 1
 	"/pose lie \r"
-	
 	pause 1
 	"/pose kneel \r"
 	pause 1
