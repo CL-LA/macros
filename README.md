@@ -8,5 +8,5 @@ Keys.macro = This key management macro file assumes a cast of thousands (charact
 Note to get rid of spam entries for keys you don't have, put // before non-existent keys.
 v 20210130 see revision log at end of file. replaces old file. If you made mods to yours, save a copy with another name before replacing it with this one.
 
-layells.macro = clan yells.
+yells-la.macro = Laughing Academy clan yells.
 
