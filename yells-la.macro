@@ -195,4 +195,5 @@ pause 45
 2021-0528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
 2021-0625-Inu:	Renamed file to group with other yells files (yells-x.macro).
 				Changed label of clan-yells to la-yells to allow for using other clan's yells.
+2023-0407-Inu:	Alphabetized top yells. Added new yells stolen from Rammy, Oof, Kani, Dae.
 */
