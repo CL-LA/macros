@@ -1,8 +1,9 @@
 // Laughing Academy yells {was layells.macro, now yells-la.macro}
 
-setglobal clanyellsfilerevision "20210625-2100-0003"
-setglobal yellslafilerevision "20210625-2100-0003"
+setglobal clanyellsfilerevision "2022-0612-0000-0004"
+setglobal yellslafilerevision "2022-0625-0000-0004"
 
+"yla"	call la-yells
 "ylc"	call yell-creedo
 "ylf"	call falling-yells
 "yk"    "/yell here kitty kitty \r"
@@ -13,17 +14,31 @@ setglobal yellslafilerevision "20210625-2100-0003"
 la-yells
 {
 	random
-		"/yell LA!™ We ruleZ the spamstone. \r"
+		"/yell LA™ . . . \r"
 		or
-		"/yell LA!™ Your falling specialists. \r"
+		"/yell LA!™ 100\% spirit, 0\% mind. \r"
+		pause 45
+		"/yell LA™ Er, Ask Whirl to explain that one to you. \r"
 		or
-		"/yell LA!™ rescue! ... oops. Make that We need one too! \r"
+		"/yell LA™ bwa ha ha ha \r"
 		or
-		"/yell LA!™...turning tragedy into comedy. \r"
+		"/yell LA™ Cackle cackle* !!!!!! \r"
+		or
+		"/yell LA!™ Dae says We must create laws to prevent this, LA as a whole. Eeek!!! \r"
+		or
+		"/yell LA!™ Dae says We're all at risk. Eeek!!! \r"
 		or
 		"/yell LA!™... defending Puddleby by falling like zu!! \r"
 		or
+		"/yell LA!™ Falling soon on a snell near you! \r"
+		or
+		"/yell LA!™ Halp! Boo Boo Kitty is out of booze. Donate today! \r"
+		or
+		"/yell LA!™ Halp! We are trapped by zu by some mysterious force. Donate today! \r"
+		or
 		"/yell LA!™ Have you fallen today? \r"
+		or
+		"/yell Hi Ho, Hi Ho, it's off to falLA™ we go... \r"
 		or
 		"/yell LA!™ Hunt! We'll make sure you fall too next time. \r"
 		or
@@ -33,39 +48,49 @@ la-yells
 		or
 		"/yell LA!™ If you're not falling, we're getting lazy, I guess... \r"
 		or
-		"/yell LA!™ The health bar is always greener on the other side. \r"
-		or
-		"/yell LA!™ We buy Thoomcare in bulk. \r"
-		or
-		"/yell LA!™ We guarantee to fall for you! \r"
-		or
-		"/yell LA!™ Where do you want to fall to day? \r"
-		or
-		"/yell LA™ The funniest joke of all is when we actually do something useful \r"
+		"/yell LA™ insert random stuff here \r"
 		or
 		"/yell Last one there is a LA!™ member!! \r"
 		or
-		"/yell Hi Ho, Hi Ho, it's off to falLA we go... \r"
+		"/yell LA!™ rescue! ... oops. Make that We need one too! \r"
 		or
-		"/yell bwa ha ha ha \r"
+		"/yell LA™ The funniest joke of all is when we actually do something useful \r"
 		or
-		"/yell this space for rent \r"
+		"/yell LA!™ The health bar is always greener on the other side. \r"
 		or
-		"/yell . . . \r"
+		"/yell Oof! Oof? \r"
 		or
-		"/yell insert random stuff here \r"
+		"/yell LA™ this space for rent \r"
 		or
-		"/yell Laughing Academy!™ Falling soon on a snell near you! \r"
+		"/yell LA!™...turning tragedy into comedy. \r"
 		or
-		"/yell Laughing Academy!™ We aren't laughing with you... \r"
+		"/yell LA!™ We aren't laughing with you... \r"
 		or
-		"/yell Laughing Academy!™ Why make a mess when you can be a mess? \r"
+		"/yell We are the Laughing Academy™. You will be "entertained". Resistance is futile \r"
 		or
-		"/yell Laughing Academy!™ 100\% spirit, 0\% mind. \r"
-		pause 45
-		"/yell Er, Ask Whirl to explain that one to you. \r"
+		"/yell LA!™ We buy Thoomcare in bulk. \r"
 		or
-		call knocknock1
+		"/yell LA!™ We call meeting to declare victory on meetings, Kani says. \r"
+		or
+		"/yell LA!™ We fall so you don't have to! \r"
+		or
+		"/yell LA!™ We guarantee to fall for you! \r"
+		or
+		"/yell LA!™ We ruleZ the spamstone. \r"
+		or
+		"/yell LA!™ What did we miss? What do you mean that was supposed to happen? \r"
+		or
+		"/yell LA!™ When the A team is busy! \r"
+		or
+		"/yell LA!™ When the Z team is busy! \r"
+		or
+		"/yell LA!™ Where do you want to fall today? \r"
+		or
+		"/yell LA!™ Why make a mess when you can be a mess? \r"
+		or
+		"/yell LA!™ Your falling specialists. \r"
+		or
+		call yell-knockfall1
 		or
 		call yell-tla
 		or
@@ -158,16 +183,16 @@ pause 45
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
    R E V I S I O N    L O G
 =*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
-20210508-Inu:	Stole think from Ramandu. "Laughing Academy! 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you"
-20201106-Inu: 	Pulled out clan yells into this LA Yells.macro (layells.macro). 
+2020-1106-Inu: 	Pulled out clan yells into this LA Yells.macro (layells.macro). 
 				Encoded for Windows UTF-8. TM (™)symbol works on Windows.
-20210215-Inu:	Fixed missing /r in yell-pun1 macro. Added a few more falling yells.
+2021-0215-Inu:	Fixed missing /r in yell-pun1 macro. Added a few more falling yells.
 				Removed redundant yells. Added direct call for falling yells.
-20210220-Inu:	New yells stolen from Ramandu while on Connie Mosey 2/19/2021.
+2021-0220-Inu:	New yells stolen from Ramandu while on Connie Mosey 2/19/2021.
 				Moved fallen yells to fallen area. Removed more dupes out of main.
 				Added this revision log, reconstructed dates edits were made.
 				A few style edits made to existing yells. Added knocknock1 yell.
-20210528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
-20210625-Inu:	Renamed file to group with other yells files (yells-x.macro).
+2021-0508-Inu:	Stole think from Ramandu. "Laughing Academy! 100% spirit, 0% mind. Er, Ask Whirl to explain that one to you"
+2021-0528-Inu:	Moved non-clan yells to yells.macro. yolo, new yf, yj, yt
+2021-0625-Inu:	Renamed file to group with other yells files (yells-x.macro).
 				Changed label of clan-yells to la-yells to allow for using other clan's yells.
 */
