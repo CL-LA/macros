@@ -19,7 +19,186 @@
 
 setglobal	charfileused		"CHARACTERNAMEHERE"
 setglobal   charfilerevision 	"202X-MMDD-HHMM-000X"
-message "This file IS NOT reloaded when you reload macros"
+
+// MMDD = two digit month and day, HHMM = 24-hour time of change, 000X = revision number of change
+
+//	This macro file will be loaded for the player it is named after. 
+//  Make changes to this version and copy to InuTeisei file.
+
+include "Default"	
+// include "interviews.macro"	// or other character specific macro files
+include "moonstone_functions.macro"
+
+
+/* DISABLED MACROS
+	include "songs.macro"
+	include "superchicken-dances.macro"
+
+*/
+
+
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- BEGIN SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// 1. Copy this section to your Character's file (Global Variables Defined), including comments
+// 2. Remove the // before the setglobal (in columns 1-2 only)
+// 3. Save your changes
+// 4. Reload your macros
+// ----------------------------------------------
+	setglobal AmCadding		1						// 1 disables ExilePicker, 0 enables ExilePicker
+	setglobal auraHDevice 	"Asklepian Staff" 		// Set this to "Asklepian" or "Asklepian Staff"
+														// Used in moonstone_functions.macro
+	setglobal chaintype     "Stout Chain"         		// Used by Quickchain.macro.
+	setglobal gAmStudying	0						// Used by idle.macro
+	setglobal gdefpie  		"exilenameX"				// Used by Pie-O-Matic in funactions.mac
+	setglobal gIdleTime		100						// Set this to the desired pause time for idle macro 
+													// (every 4 = 1 second approximately)
+	setglobal gHealDev		"Asklepian Staff" 		// set to Caduceus or Mercurial Staff or Asklepian Staff"
+														// Used in moonstone_functions.macro
+	setglobal healingDevice "Asklepian Staff" 		// set to Caduceus or Mercurial Staff
+														// Used in moonstone_functions.macro and quickchain.macro
+	setglobal InfoExile 	0						// Turns off exile info by default in AFK macro 
+														// called on login. setf can change it.
+	setglobal messageStatus 0						// Turning debug off if 0, on if 1
+	setglobal myDefLeft		"Knight's Shield"		// Re-equip desired left item.
+														// used in keys.macro, moonstone_functions.macro, omega_zu.macro
+	setglobal myShield		"Knight's Shield"		// Re-equip desired shield. Used in funactions.macro
+	setglobal myspeed		medium 					// sets speed of speed, zoom, fast, medium, slow
+	setglobal MySunStone	sungem				// Set this to your sunstone, used in sunstone and tc_macro.
+													// sunstone, suncrystal, sungem
+	setglobal myWeapon 		"Axe"  					// change this to your weapon of choice
+													// used in moonstone_functions.macro and omega_zu.macro
+	setglobal npdefchar		"heal"					// default bank of keys for numpad 
+													// other value is "dancing" used in dances.macro
+													message "inuteisei value numpadset"		"== " numpadset
+	setglobal NumZuBags		1						// the number of kudzu bags you carry, used in omega_zu.macro
+	setglobal scanBreak 	0 						// Enables scanner to run continuously.
+	setglobal share1 		"exilename1"				// Used in defshares.macro
+	setglobal share2 		"exilename2"				// Used in defshares.macro
+	setglobal share3 		"exilename3"				// Used in defshares.macro
+	setglobal share4 		"exilename4"					// Used in defshares.macro
+	setglobal share5 		"exilename5"				// Used in defshares.macro
+	setglobal ThankRandom	0						// turns off thank random for any exile clanning 
+														// used in idle.macro
+	setglobal ThankExile	1						// turns on thank specific set of random exiles 
+														// used in idle.macro
+	setglobal thankreg 		" [Your rando thank message here] \r"
+	setglobal thankfnf	 	" [Your friends and family message here] ! \r"
+	setglobal tyt			"cat"					// used in Abbreviations to determine type of thank you
+	setglobal woc	 		"Asklepian Staff"		// re-equips default right hand item.
+														// Used in Quickchain.macro
+	setglobal zuBagType		"Sack of Kudzu Seedlings"	// used in Omega-Zu.macro
+
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// R E Q U I P   I T E M S 
+//::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Due to syncing script. Items that character was wearing are lost after sync.
+// Using these global variables in Default macro to re-equip them.
+
+	setglobal zleftitem		"Knight's Shield"
+	setglobal zrightitem	"Asklepian Staff"
+	setglobal zfeetitem		"Dance Slippers"
+	setglobal zheaditem		"Iron Helmet"
+	setglobal zlegsitem		"Pair of Pants"
+	setglobal zshoulderitem	"Parachute"
+	setglobal zneckitem		"Shadowy Collar"
+	setglobal ztorsoitem	"Fifth-Circle Healers Shirt"
+	setglobal zforeheaditem	"Sungem"
+	setglobal zfingeritem	"Sylphstone Ring"
+	
+//	*-*-*-* Key Variables - used in keys.macro
+// Update with your key numbers below
+	
+	setglobal myhome1 "9999"	// my main home
+	setglobal myhome2 "9999"	// my second home
+//	setglobal myhome3 "9999"	// my third home
+//	setglobal myhome4 "9999"	// my fourth home
+	setglobal myclan1 "9999"	// main clan home
+	setglobal myclan2 "9999"	// second clan home
+//	setglobal myclan3 "9999"	// third clan home/ pull way
+//	setglobal myclan4 "9999"	// fourth clan home
+	setglobal myguest1  "9999"	// ?'s home
+//	setglobal myguest2  "9999"	// x's home
+//	setglobal myguest3  "9999"	// x's home
+//	setglobal myguest4  "9999"	// x's home
+
+setglobal charmsg1 = "Character Global Variables ** SET"
+setglobal charmsg2 = "Loaded character file " charfileused
+
+//::::::::::::::::::::::::::::::::::::::::::::::::
+// Global Variables Defined -- END SECTION
+//::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Listing of Keys used
+/* 
+ F1 - 		embedded pull
+ F2 - 		embedded push
+ F3 - 		call itemswap	in moonstone_functions.macro
+ shift-F3 - call restartInfinityLoop in moonstone_functions.macro
+ ALT+F3 	call burster in moonstone_functions.macro
+ F4 - 		call cadLastTarget  in moonstone_functions.macro
+ shift-F4 - call useAsklepian in moonstone_functions.macro
+ F5 - 		call x in quickchain.macro
+ F6 - + shift + control - in omega_zu.macro
+ shift-F6	call zu-add			// omega_zu.macro
+ control-f6	call zu-remove		// omega_zu.macro
+ F7 - 		to player's macro file
+ f7	- 		call walk1		character file?
+ F8 - 		call ? in character file ?
+ f8	- 		call ping-yell in abbreviations.mac	
+ shift-F8 - call thinkfalling in sunstone.mac
+ F9 - 		call ? in dances.mac 
+ control-f9	call dcr in dances.mac
+ 
+ ifs /setnp = heal
+	numpad 1-9 (range heal) + alt (set/reset range heal target) in moonstone_functions.macro
+ elsefs /setnp = dance
+ 	numpad 1-9 (dance moves) in dances.macro
+ endifs
+ 
+ control-click - 		call healClicked in moonstone_functions.macro
+ shift-control-click - 	call lockClicked in moonstone_functions.macro
+ control-click2			call click-action in Quickchain.mac
+ 
+ click3 run "/thank " @selplayer.simple_name  " :) \r" from ?
+ 
+ control-tab call noscan in default?
+ 
+ click4	run message "==> TESTING" in default?
+
+ alt-z - call keyclan1 in keys.macro
+ control-z - call ReEquipShield below
+
+*/
+
+// control-z 			call ReEquipShield	!!AddBackIn!!
+	
+// ReEquipShield
+ReEquipShield
+{
+	"/equip " myDefLeft "\r"
+}
+
+
+message "Character Global Variables ** Set"
+message "===> Loaded CHARACTERNAMEHERE character macro file"
+"/whisper " charfileused " \r"
+
+
+/* 
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+   R E V I S I O N    L O G
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+2021-0625-inu	Renamed clan yells file to yells-la.macro to group those files. 
+				Updated include in this file.
+2022-0717-Inu:	Added myShield used in funaations.macro to equip shield when /shield is entered.
+2022-1009-Inu: 	Added key 2411 as mine. To test, from Hunt.
+2024-0518-Inu:	Added section to requip standard items held/worn/equipped on login in Default. 
+				However character specific variables must be set in each character's file. 
+				Adding this section " R E Q U I P   I T E M S" to each char file.
+				
+*/
 
 include "Default"
 // include "interviews.macro"
