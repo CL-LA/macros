@@ -92,8 +92,6 @@ include "moonstone_functions.macro"
 //::::::::::::::::::::::::::::::::::::::::::::::::
 // R E Q U I P   I T E M S 
 //::::::::::::::::::::::::::::::::::::::::::::::::
-
-// Due to syncing script. Items that character was wearing are lost after sync.
 // Using these global variables in Default macro to re-equip them.
 
 	setglobal zleftitem		"Knight's Shield"
